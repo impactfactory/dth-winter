@@ -1,0 +1,230 @@
+<section id="refform" class="fullwrap">
+  <div class="indent-me">
+
+    {% content 'refform-intro' %}
+
+    <form class="p-3" novalidate data-request="onHandleForm" data-request-files data-request-validate data-request-flash>
+
+      <div class="row">
+        <div class="col-12 pt-3 ">
+
+        <div class="alert alert-danger" data-validate-error>
+            <p data-message></p>
+        </div>
+
+{# Tab Navigation #}
+        <ul class="nav nav-tabs" id="FormsTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="referrer-tab" data-bs-toggle="tab" data-bs-target="#referrer" type="button" role="tab" aria-controls="referrer" aria-selected="true">
+              {{ 'forms.ref.label.tab1'|_ }} {% partial 'html_body/svg-icons/arrow-circle-right' %}
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+              <button class="nav-link" id="patient-tab" data-bs-toggle="tab" data-bs-target="#patient" type="button" role="tab" aria-controls="patient" aria-selected="false">
+                {{ 'forms.ref.label.tab2'|_ }} {% partial 'html_body/svg-icons/arrow-circle-right' %}
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="ass-tab" data-bs-toggle="tab" data-bs-target="#ass" type="button" role="tab" aria-controls="ass" aria-selected="false">
+                  {{ 'forms.ref.label.tab3'|_ }} {% partial 'html_body/svg-icons/arrow-circle-right' %}
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="clinical-tab" data-bs-toggle="tab" data-bs-target="#clinical" type="button" role="tab" aria-controls="profile" aria-selected="false">
+                {{ 'forms.ref.label.tab4'|_ }} {% partial 'html_body/svg-icons/arrow-circle-right' %}
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="fileuploads-tab" data-bs-toggle="tab" data-bs-target="#fileuploads" type="button" role="tab" aria-controls="profile" aria-selected="false">
+                {{ 'forms.ref.label.tab5'|_ }} {% partial 'html_body/svg-icons/check-circle' %}
+              </button>
+            </li>
+          </ul>
+
+{# Tab Referrer #}
+        <div class="tab-content pt-4" id="myTabContent">
+            <div class="tab-pane fade show active" id="referrer" role="tabpanel" aria-labelledby="referrer-tab">
+                <div class="row col-12">
+                  <div class="col-12 col-md-6 mb-3">
+                      <label for="doc_firstname">{{ 'forms.ref.label.doc_firstname'|_ }} *</label>
+                      <input type="text" id="doc_firstname" name="doc_firstname" class="form-control">
+                      <div class="form-text text-danger" data-validate-for="doc_firstname"></div>
+                  </div>
+                  <div class="col-12 col-md-6 mb-3">
+                      <label for="doc_lastname">{{ 'forms.ref.label.doc_lastname'|_ }}</label>
+                      <input type="text" id="doc_lastname" name="doc_lastname" class="form-control">
+                      <div class="form-text text-danger" data-validate-for="doc_lastname"></div>
+                  </div>
+                </div>
+                <div class="row col-12">
+                  <div class="col-12 col-md-6 mb-3">
+                      <label for="doc_city">{{ 'forms.ref.label.doc_city'|_ }}</label>
+                      <input type="text" id="doc_city" name="doc_city" class="form-control">
+                      <div class="form-text text-danger" data-validate-for="doc_city"></div>
+                  </div>
+                  <div class="col-12 col-md-6 mb-3">
+                      <label for="doc_phone">{{ 'forms.ref.label.doc_phone'|_ }} *</label>
+                      <input type="number" id="doc_phone" name="doc_phone" class="form-control">
+                      <div class="form-text text-danger" data-validate-for="doc_phone"></div>
+                  </div>
+                </div>
+                <div class="row col-12">
+                  <div class="col-12 col-md-6 mb-3">
+                      <label for="doc_email">{{ 'forms.ref.label.doc_email'|_ }} *</label>
+                      <input type="email" id="doc_email" name="doc_email" class="form-control">
+                      <div class="form-text text-danger" data-validate-for="doc_email"></div>
+                  </div>
+                  <div class="col-12 col-md-6 mb-3">
+                      <label for="doc2_email">{{ 'forms.ref.label.doc_email2'|_ }}</label>
+                      <input type="email" id="doc2_email" name="doc2_email" class="form-control">
+                      <div class="form-text text-danger" data-validate-for="doc2_email"></div>
+                  </div>
+                </div>
+            </div>
+
+{# Tab Patient #}
+          <div class="tab-pane fade show" id="patient" role="tabpanel" aria-labelledby="patient-tab">
+              <div class="row col-12">
+                <div class="col-12 col-md-6 mb-3 col-4">
+                  <label for="gender">{{ 'forms.ref.label.gender'|_ }}</label>
+                  <select id="gender" class="form-select" aria-label="gender select" name="gender">
+                    <option value="" selected>{{ 'forms.ref.select.pleasechoose' |_ }}</option>
+                    <option value="m">{{ 'forms.ref.gender.option.m'|_ }}</option>
+                    <option value="f">{{ 'forms.ref.gender.option.f'|_ }}</option>
+                    <option value="q">{{ 'forms.ref.gender.option.q'|_ }}</option>
+                  </select>
+                  <div class="form-text text-danger" data-validate-for="gender"></div>
+                </div>
+                <div class="col-12 col-md-6 mb-3">
+                    <label for="firstname">{{ 'forms.ref.label.firstname'|_ }} *</label>
+                    <input type="text" id="firstname" name="firstname" class="form-control">
+                    <div class="form-text text-danger" data-validate-for="firstname"></div>
+                </div>
+              </div>
+              <div class="row col-12">
+                <div class="col-12 col-md-6 mb-3">
+                    <label for="lastname">{{ 'forms.ref.label.lastname'|_ }} *</label>
+                    <input type="text" id="lastname" name="lastname" class="form-control">
+                    <div class="form-text text-danger" data-validate-for="lastname"></div>
+                </div>
+                <div class="col-12 col-md-6 mb-3">
+                    <label for="street_no">{{ 'forms.ref.label.street_no'|_ }}</label>
+                    <input type="text" id="street_no" name="street_no" class="form-control">
+                    <div class="form-text text-danger" data-validate-for="street_no"></div>
+                </div>
+              </div>
+              <div class="row col-12">
+                <div class="col-12 col-md-6 mb-3">
+                    <label for="zip">{{ 'forms.ref.label.zip'|_ }}</label>
+                    <input type="number" id="zip" name="zip" class="form-control">
+                    <div class="form-text text-danger" data-validate-for="zip"></div>
+                </div>
+                <div class="col-12 col-md-6 mb-3">
+                    <label for="city">{{ 'forms.ref.label.city'|_ }}</label>
+                    <input type="text" id="city" name="city" class="form-control">
+                    <div class="form-text text-danger" data-validate-for="city"></div>
+                </div>
+              </div>
+              <div class="row col-12">
+                <div class="col-12 col-md-6 mb-3">
+                    <label for="phone">{{ 'forms.ref.label.phone'|_ }} *</label>
+                    <input type="number" id="phone" name="phone" class="form-control">
+                    <div class="form-text text-danger" data-validate-for="phone"></div>
+                </div>
+                <div class="col-12 col-md-6 mb-3">
+                    <label for="email">{{ 'forms.ref.label.email'|_ }} *</label>
+                    <input type="email" id="email" name="email" class="form-control">
+                    <div class="form-text text-danger" data-validate-for="email"></div>
+                </div>
+              </div>
+              <div class="row col-12">
+                <div class="col-12 col-md-6 mb-3 col-6">
+                    <label for="birthday">{{ 'forms.ref.label.birthday'|_ }}</label>
+                    <input type="date" id="birthday" name="birthday" class="form-control" min="1920-01-01" max="{{ 'now' | date('Y-m-d') }}">
+                    <div class="form-text text-danger" data-validate-for="birthday"></div>
+                </div>
+              </div>
+
+          </div>
+{# Tab Versicherungen #}
+          <div class="tab-pane fade show" id="ass" role="tabpanel" aria-labelledby="ass-tab">
+            {% component 'refassurances' %}
+          </div>
+
+{# Tab Fallbeschrieb #}
+          <div class="tab-pane fade" id="clinical" role="tabpanel" aria-labelledby="profile-tab">
+
+                <div class="col-12 mb-3">
+                    <label for="dthdoc" class="form-label mb-0">{{ 'forms.ref.label.dthdoc'|_ }}</label>
+                    <select id="dthdoc" class="form-select" aria-label="select dthdoc" name="dthdoc" >
+                        <option value="" selected>{{ 'forms.ref.select.pleasechoose' |_ }}</option>
+                        <option value="Dr. med. Olaf Franzen">Dr. med. Olaf Franzen</option>
+                        <option value="Prof. Dr. med. Johannes Waltenberger">Prof. Dr. med. Johannes Waltenberger</option>
+                        <option value="Dr. med. Dr. sc. nat. Ali Reza Salili">Dr. med. Dr. sc. nat. Ali Reza Salili</option>
+                    </select>
+                    <div class="form-text text-danger" data-validate-for="dthdoc"></div>
+                </div>
+
+                {% component 'refdiagnostics' %}
+
+                <div class="mb-3">
+                    <label for="clinical" class="form-label">{{ 'forms.ref.label.clinical'|_ }}</label>
+                    <textarea id="clinical" name="clinical" rows="3" cols="80" class="form-control"></textarea>
+                    <div class="form-text text-danger" data-validate-for="clinical"></div>
+                </div>
+                <div class="mb-3">
+                    <label for="question" class="form-label">{{ 'forms.ref.label.question'|_ }}</label>
+                    <textarea id="question" name="question" rows="3" cols="80" class="form-control"></textarea>
+                    <div class="form-text text-danger" data-validate-for="question"></div>
+                </div>
+                <div class="mb-3 col-6 {% if errors.first('lastdate') %}error{% endif %}">
+                    <label for="lastdate">{{ 'forms.ref.label.lastdate'|_ }}</label>
+                    <input type="date" id="lastdate" name="lastdate" class="form-control">
+                    <div class="form-text text-danger" data-validate-for="lastdate"></div>
+                </div>
+          </div>
+
+{# Tab File-Uploads #}
+          <div class="tab-pane fade" id="fileuploads" role="tabpanel" aria-labelledby="profile-tab">
+
+            <p>
+            {{ 'forms.ref.label.fileuploads'|_ }}
+            </p>
+
+            <div class="col-12 py-4">
+              <input id="files" type="file" name="files[]" multiple accept="application/pdf">
+              <div class="form-text text-danger" data-validate-for="files"></div>
+            </div>
+            <div class="mb-3">
+                <label for="note" class="form-label">{{ 'forms.ref.label.note'|_ }}</label>
+                <textarea id="note" name="note" rows="2" cols="80" class="form-control" maxlength="800"></textarea>
+                <div class="form-text text-danger" data-validate-for="note"></div>
+            </div>
+            <div class="col-12 text-center pt-3">
+              <button id="submit" name="submit" type="submit" class="btn btn-lg btn-primary" data-attach-loading>
+                {{ 'forms.ref.label.submit'|_ }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+ </div>
+</section>
+
+
+
+
+{% put scripts %}
+<script>
+    $(window).on('ajaxInvalidField', function(event, fieldElement, fieldName, errorMsg, isFirst) {
+        $(fieldElement).closest('.form-control').addClass('is-invalid');
+    });
+
+    $(document).on('ajaxPromise', '[data-request]', function() {
+        $(this).closest('form').find('.form-control.is-invalid').removeClass('is-invalid');
+    });
+</script>
+
+{% endput %}

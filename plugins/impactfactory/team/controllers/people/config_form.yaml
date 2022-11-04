@@ -1,0 +1,10 @@
+name: People
+form: $/impactfactory/team/models/person/fields.yaml
+modelClass: ImpactFactory\Team\Models\Person
+defaultRedirect: impactfactory/team/people
+create:
+    redirect: 'impactfactory/team/people/update/:id'
+    redirectClose: impactfactory/team/people
+update:
+    redirect: impactfactory/team/people
+    redirectClose: impactfactory/team/people

@@ -1,0 +1,24 @@
+description = "Fügt das MedicoSearch Terminierungs-Interface ein."
+
+[viewBag]
+snippetCode = "medicosearch"
+snippetName = "MedicoSearch"
+snippetProperties[bg][title] = "Hintergrund-Farbe"
+snippetProperties[bg][type] = "dropdown"
+snippetProperties[bg][options][1]= "Weiss"
+snippetProperties[bg][options][2]= "Grau"
+snippetProperties[bg][options][3]= "aufgehelles Türkis"
+snippetProperties[bg][options][4]= "Türkis"
+snippetProperties[bg][options][5]= "abgedunkeltes Türkis"
+snippetProperties[bg][options][6]= "aufgehelltes Rot"
+==
+<div class="fullwrap medicosearch-widget tpl-{% if bg == '1' %}white{% elseif bg == '2' %}grey{% elseif bg == '3' %}secondary-light{% elseif bg == '4' %}secondary{% elseif bg == '5' %}secondary-dark{% elseif bg == '6' %}primary-light{% else %}transparent{% endif %}">
+	<div class="indent-me row">
+		<div class="col-12 pt-0">
+			<div id="medicosearchWidget"></div>
+				<script type="text/javascript" src="https://www.medicosearch.ch/widget/api/js?key=5ea46114-4b22-4250-8504-ac217ff47be8&version=2.0.0&container=%23medicosearchWidget&lang={{ localePicker.activeLocale }}">
+				</script>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,47 @@
+description = "Erzeugt einen responsiven h1-Titel, der über die ganze Breite mit einem Hintergrund unterlegt ist."
+
+[viewBag]
+snippetCode = "h1-w-bg"
+snippetName = "Seitentitel mit Hintergrund"
+snippetProperties[h1][title] = "Seitentitel"
+snippetProperties[h1][type] = "text"
+snippetProperties[muted][title] = "Untertitel"
+snippetProperties[muted][type] = "text"
+snippetProperties[bg][title] = "Hintergrund-Bild"
+snippetProperties[bg][type] = "string"
+snippetProperties[bg][default] = "__HEADERS/transparent.gif"
+snippetProperties[fontcolor][title] = "Textfarbe"
+snippetProperties[fontcolor][type] = "dropdown"
+snippetProperties[fontcolor][options][1]= "hell"
+snippetProperties[fontcolor][options][2]= "dunkel"
+==
+<div class="pagetitle card border-0 mt-0">
+    <picture class="pagetitle-img">
+        {# Safari <=14 falls back on img if there is not type attribute present at each line! #}
+
+        <source type="image/webp" media="(max-width: 768px)" srcset="{{ bg | media | resize(768, 236, { mode: 'cover', format: 'webp' }) }},
+                                                                     {{ bg | media | resize(1400, 431, { mode: 'cover', format: 'webp' }) }} 2x">
+        <source type="image/jpg" media="(max-width: 768px)" srcset="{{ bg | media | resize(768, 236, { mode: 'cover'}) }},
+                                                                    {{ bg | media | resize(1400, 431, { mode: 'cover'}) }} 2x">
+
+        <source type="image/webp" media="(max-width: 1024px)" srcset="{{ bg | media | resize(1024, 315, { mode: 'cover', format: 'webp' }) }},
+                                                                      {{ bg | media | resize(1400, 431, { mode: 'cover', format: 'webp' }) }} 2x">
+        <source type="image/jpg" media="(max-width: 1024px)" srcset="{{ bg | media | resize(1024, 315, { mode: 'cover' }) }},
+                                                                     {{ bg | media | resize(1400, 431, { mode: 'cover'}) }} 2x">
+
+        <source type="image/webp" media="(max-width: 8000px)" srcset="{{ bg | media | resize(1400, 300, { mode: 'crop', format: 'webp' }) }}">
+        <source type="image/jpg" media="(max-width: 8000px)" srcset="{{ bg | media | resize(1400, 300, { mode: 'crop' }) }}">
+
+        <img type="image/jpg" src="{{ bg | media }}" alt="Keyvisual" width="1400" height="431" class="card-img img-fluid">
+    </picture>
+    <div class="card-img-overlay indent-me">
+        <h1 class="text-{% if fontcolor == '1' %}white {%else %}dark{% endif %}">
+          {{ h1 }}
+        </h1>
+        {% if muted %}
+          <h2 class="text-{% if fontcolor == '1' %}white {%else %}dark{% endif %}">
+            {{ muted }}
+          </h2>
+        {% endif %}
+    </div> {# end card-img-overlay #}
+</div> {# end card #}

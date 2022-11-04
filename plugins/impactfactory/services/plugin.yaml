@@ -1,0 +1,40 @@
+plugin:
+    name: 'impactfactory.services::lang.plugin.name'
+    description: 'impactfactory.services::lang.plugin.description'
+    author: ImpactFactory
+    icon: oc-icon-shopping-cart
+    homepage: 'https://impactfactory.ch'
+permissions:
+    services:
+        tab: 'impactfactory.services::lang.settings.tabtitle'
+        label: 'impactfactory.galleries::lang.settings.permission.title'
+navigation:
+    main-menu-item:
+        label: 'impactfactory.services::lang.plugin.name'
+        url: impactfactory/services/services
+        icon: icon-shopping-cart
+        permissions:
+            - services
+        sideMenu:
+            side-menu-item:
+                label: 'impactfactory.services::lang.menu.orders'
+                url: impactfactory/services/orders
+                icon: icon-shopping-cart
+                permissions:
+                    - services
+            side-menu-item2:
+                label: 'impactfactory.services::lang.plugin.services:lang.menu.types'
+                url: impactfactory/services/types
+                icon: icon-list
+                permissions:
+                    - services
+            side-menu-item3:
+                label: 'impactfactory.services::lang.menu.assurances'
+                url: impactfactory/services/assurances
+                icon: icon-institution
+                permissions:
+                    - services
+dependencies:
+    - rainlab.translate
+    - inetis.listswitch
+    - abwebdevelopers.oc-imageresize-plugin

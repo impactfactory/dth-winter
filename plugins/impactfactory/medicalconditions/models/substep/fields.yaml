@@ -1,0 +1,19 @@
+fields:
+    title:
+        label: 'Titel (für internen Gebrauch)'
+        span: full
+        type: text
+        commentAbove: 'wiederauffindbare Bezeichnung schaffen'
+    text:
+        label: Text
+        size: small
+        span: full
+        type: textarea
+    type:
+        label: Schema-Typ
+        options:
+            HowToDirection: HowToDirection
+            HowToTip: HowToTip
+        showSearch: true
+        span: full
+        type: dropdown

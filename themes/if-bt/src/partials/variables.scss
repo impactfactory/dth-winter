@@ -1,0 +1,66 @@
+/* primary */
+$if-primary-dark: rgba(129, 5, 12, 1);// #81050c // not-used
+$if-primary-light: rgba(185, 63, 62, 1); // #b93f3e
+$if-primary: rgba(129, 5, 12, 1);// #81050c
+
+/* secondary */
+$if-secondary-light: #c9e7e4;
+$if-secondary: #b7d9d5;
+$if-secondary-dark: #79aca6;
+$if-secondary-black: rgba(80,114,110,1); //#50726e
+
+/*white to black shades */
+$if-white: rgba(255,255,255,1); //#ffffff
+$if-light: rgba(255,255,255,0.4); /* not used ?*/
+$if-white-50: rgba(255,255,255,0.5); //#ffffff
+$if-white-25: rgba(255,255,255,0.25); //#ffffff
+$if-white-15: rgba(255,255,255,0.15); //#ffffff
+$if-grey: rgba(252,243,238,1); // #fcf3ee
+$if-dark: rgba(51,51,51,1); // #333333
+$if-black: rgba(0,0,0,1); // #000000
+
+/* notification colors */
+$if-success: #198754;
+$if-info: #b7d9d5; /* not used ?*/
+$if-warning: #fd7e14;
+$if-danger: rgba(129, 5, 12, 1);// #81050c
+
+/* further variables */
+$body-bg: $if-grey;//#fcf3ee;
+$body-color: $if-dark;
+$if-font-size-base: 1rem;
+$if-content-max-width: 1000px;
+$if-wrap-padding: 0 0.5rem 0 0.5rem;
+
+$if-tabs-border-color: $if-dark;
+
+$if-fs-sm: 16px;
+
+
+/* /////////////// color strategy ///////////
+
+- primary color for signaling buttons, links: #81050c
+- light primary color for highlighting boxes and hover areas: #b93f3e
+- shades of primary color for illustrative elements:  from #f0d7d6 to #e9b4b5, #e08c8b, #da6867, #cb504e,#b83e3e
+- secondary color for boxes backgrounds: #b7d9d5
+- light secondary color for boxes background variations: #79aca6
+- dark secondary color for unimportant footer info: #50726e
+- black secondary-color for footer only:
+- - - - -
+- light grey for body background and "transparent" boxes background variations: #e5e5e5
+- light white (opacity 50%) for boxes over various backgrounds: rgba(255,255,255,.5);
+- light black for paragraph texts on light backgrounds: #333333
+- white for paragraph texts on dark backgrounds: #ffffff
+- - - - -
+- green for success: #198754
+- orange for warning notices: #fd7e14
+- primary red for danger notices: #dc3545
+
+- keeping good contrasts and visual clarity for older clients!
+
+/* /////////////// forms strategy ///////////
+
+- round for friendlyness
+- human skin and hands for humanness
+
+- see Wiki! */

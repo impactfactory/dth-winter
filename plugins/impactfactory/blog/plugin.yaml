@@ -1,0 +1,66 @@
+plugin:
+    name: 'impactfactory.blog::lang.plugin.name'
+    description: 'impactfactory.blog::lang.plugin.description'
+    author: ImpactFactory
+    icon: oc-icon-pencil
+    homepage: 'https://impactfactory.ch'
+permissions:
+    blog.posts:
+        tab: 'impactfactory.blog::lang.settings.tabtitle'
+        label: 'impactfactory.blog::lang.settings.poststitle'
+    blog.tags:
+        tab: 'impactfactory.blog::lang.settings.tabtitle'
+        label: 'impactfactory.blog::lang.settings.tagstitle'
+    blog.cats:
+        tab: 'impactfactory.blog::lang.settings.tabtitle'
+        label: 'impactfactory.blog::lang.settings.catstitle'
+    blog.types:
+        tab: 'impactfactory.blog::lang.settings.tabtitle'
+        label: 'impactfactory.blog::lang.settings.typestitle'
+    blog.edits:
+        tab: 'impactfactory.blog::lang.settings.tabtitle'
+        label: 'impactfactory.blog::lang.settings.editstitle'
+navigation:
+    main-menu-item:
+        label: 'impactfactory.blog::lang.nav.maintitle'
+        url: /impactfactory/blog/posts
+        icon: icon-pencil
+        permissions:
+            - blog.posts
+        sideMenu:
+            side-menu-item:
+                label: 'impactfactory.blog::lang.nav.side_posts'
+                url: /impactfactory/blog/posts
+                icon: icon-pencil
+                permissions:
+                    - blog.posts
+            side-menu-item2:
+                label: 'impactfactory.blog::lang.nav.side_cats'
+                url: /impactfactory/blog/categories
+                icon: icon-archive
+                permissions:
+                    - blog.cats
+            side-menu-item3:
+                label: 'impactfactory.blog::lang.nav.side_tags'
+                url: /impactfactory/blog/tags
+                icon: icon-tags
+                permissions:
+                    - blog.tags
+            side-menu-item4:
+                label: 'impactfactory.blog::lang.nav.side_types'
+                url: impactfactory/blog/types
+                icon: icon-th-list
+                permissions:
+                    - blog.types
+            side-menu-item5:
+                label: 'impactfactory.blog::lang.nav.side_edits'
+                url: impactfactory/blog/edits
+                icon: icon-thumbs-up
+                permissions:
+                    - blog.edits
+dependencies:
+    - impactfactory.team
+    - rainlab.translate
+    - offline.sitesearch
+    - abwebdevelopers.oc-imageresize-plugin
+    - inetis.listswitch

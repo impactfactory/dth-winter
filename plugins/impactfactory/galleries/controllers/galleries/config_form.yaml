@@ -1,0 +1,10 @@
+name: Galleries
+form: $/impactfactory/galleries/models/gallery/fields.yaml
+modelClass: Impactfactory\Galleries\Models\Gallery
+defaultRedirect: impactfactory/galleries/galleries
+create:
+    redirect: 'impactfactory/galleries/galleries/update/:id'
+    redirectClose: impactfactory/galleries/galleries
+update:
+    redirect: impactfactory/galleries/galleries
+    redirectClose: impactfactory/galleries/galleries

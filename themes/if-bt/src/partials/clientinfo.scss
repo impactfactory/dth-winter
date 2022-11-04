@@ -1,0 +1,126 @@
+.clientinfo {
+
+  h2, h3 {
+    padding-top: 0!important;
+  }
+
+  .faqs-list {
+
+      li .thumb {
+        padding: 10px;
+        height: 65px;
+        width: 65px;
+
+    }
+    .svg-inline--fa {
+      height: 50px;
+      width: 50px;
+      opacity: 0.5;
+    }
+  }
+
+  .articles-list a,
+  .faqs-list a,
+  .videos-list a {
+    text-decoration: none;
+  }
+
+    li {
+      line-height:1rem;
+      background: $if-white-15;
+      border-radius: 4px;
+      padding: 0px 3px 0px 0px;
+      overflow: hidden;
+
+      .thumb {
+        margin: 0 20px 0px 0;
+
+        img {
+          border-radius:4px 0 0 4px;
+        }
+      }
+
+      .title {
+        display:grid;
+        place-items: center;
+      }
+    }
+
+  .searchtitle {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .form-control {
+  }
+
+  input:focus::placeholder {
+  color: transparent;
+  }
+
+  button[type="submit"] {
+    display:none;
+  }
+
+  .socialbuttons {
+
+    li {background: transparent!important;}
+
+
+
+    a {
+      .fa-facebook-square {
+        height: 2rem;
+        width: 2rem;
+      }
+      .fa-linkedin {
+        height: 2.05rem;
+        width: 2.05rem;
+        transform: translateY(0.05rem);
+      }
+    }
+  }
+}
+
+.tpl-primary-light .faqs-list,
+.tpl-primary-light .videos-list,
+.tpl-primary-light .articles-list {
+  h3 { color: $if-white; }
+  li:hover { background: $if-white; }
+  li:hover a { color: $if-primary-light !important;}
+}
+
+.tpl-white .faqs-list,
+.tpl-white .videos-list,
+.tpl-white .articles-list,  {
+  h3 {  color: $if-dark; }
+  li:hover a { color: $if-primary !important;}
+}
+
+.tpl-grey .faqs-list,
+.tpl-grey .videos-list,
+.tpl-grey .articles-list  {
+  h3 {  color: $if-dark; }
+  li:hover a { color: $if-primary !important;}
+}
+
+.tpl-secondary-light .faqs-list,
+.tpl-secondary-light .videos-list,
+.tpl-secondary-light .articles-list  {
+  h3 {  color: $if-dark; }
+  li:hover a { color: $if-primary !important;}
+}
+
+.tpl-secondary .faqs-list,
+.tpl-secondary .videos-list,
+.tpl-secondary .articles-list {
+  h3 {  color: $if-white; }
+  li:hover a { color: $if-primary !important;}
+}
+
+.tpl-secondary-dark .faqs-list,
+.tpl-secondary-dark .videos-list,
+.tpl-secondary-dark .articles-list {
+  h3 {  color: $if-white; }
+  li:hover a { color: $if-secondary-dark !important;}
+}

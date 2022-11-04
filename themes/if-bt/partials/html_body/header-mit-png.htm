@@ -1,0 +1,36 @@
+[viewBag]
+==
+<nav id="navbar" class="navbar fixed-top navbar-expand-lg col-sm">
+  <div class="container-fluid">
+
+      <a class="navbar-brand" href="/{{ localePicker.activeLocale }}" title="Home">
+          <img class="logo"
+               src="{{ ('assets/img/logo-screen-' ~ localePicker.activeLocale ~ '-320x75.png')|theme }}"
+
+               alt="Logo"
+               width="320"
+               height="75"
+          >
+          <img class="logo-small"
+               src="{{ ('assets/img/logo-screen-' ~ localePicker.activeLocale ~ '-340x150.png')|theme }}"
+               alt="Logo"
+               width="170"
+               height="75"
+          >
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        {% partial 'html_body/svg-icons/bars' %}
+     </button>
+
+      <div class="collapse navbar-collapse d-lg-flex justify-content-end pt-2" id="navbarSupportedContent">
+         {% partial 'html_body/mainnav' %}
+         <div class="searchfield d-lg-flex justify-content-end">
+          {% partial 'html_body/searchfield' %}
+         </div>
+      </div>
+
+      </div>
+</nav>
+
+{% partial 'html_body/languageswitcher' %}

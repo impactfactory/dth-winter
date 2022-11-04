@@ -1,0 +1,33 @@
+/* Making sure here that all root layout indents are as intended */
+
+
+.h1-snippet {
+  padding: 0 .25rem 0 .25rem;
+}
+
+.content-container > ul {
+  padding: 0 2rem 0 2rem;
+}
+
+
+@media (max-width: 760px){
+
+  header .container-fluid {
+  $if-wrap-padding: 0 6rem 0 6rem;
+  }
+
+}
+
+/*
+
+@media (min-width: 768px){
+
+
+  .h1-snippet {
+    padding: 0 5rem 0 5rem;
+  }
+
+  .content-container > ul {
+    padding: 0 7rem 0 7rem;
+  }
+}*/

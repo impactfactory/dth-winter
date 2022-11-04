@@ -1,0 +1,5 @@
+<h1>{{ person.honorific }} {{ person.first_name }} {{ person.last_name }}</h1>
+<h2>
+  {{ person.role }}
+    {% if person.company %} - {% endif %}{{ person.company }}
+</h2>

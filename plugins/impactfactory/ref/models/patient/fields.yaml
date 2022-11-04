@@ -1,0 +1,218 @@
+fields:
+    state:
+        label: 'impactfactory.ref::lang.patient.state'
+        nameFrom: name
+        descriptionFrom: color
+        emptyOption: 'bitte wählen'
+        select: name
+        span: full
+        type: relation
+    gender:
+        label: 'impactfactory.ref::lang.patient.gender'
+        options:
+            m: Herr
+            f: Frau
+            q: divers
+        showSearch: 0
+        span: full
+        required: 0
+        type: dropdown
+    firstname:
+        label: 'impactfactory.ref::lang.patient.firstname'
+        span: left
+        required: 0
+        type: text
+    lastname:
+        label: 'impactfactory.ref::lang.patient.lastname'
+        span: right
+        required: 0
+        type: text
+tabs:
+    fields:
+        birthday:
+            label: 'impactfactory.ref::lang.patient.birthday'
+            mode: date
+            minDate: '1920-01-01'
+            maxDate: '2025-01-01'
+            format: Y-m-d
+            span: auto
+            required: 0
+            type: datepicker
+            tab: 'impactfactory.ref::lang.tab.contact'
+        street_no:
+            label: 'impactfactory.ref::lang.patient.street_no'
+            span: auto
+            required: 0
+            type: text
+            tab: 'impactfactory.ref::lang.tab.contact'
+        zip:
+            label: 'impactfactory.ref::lang.patient.zip'
+            span: auto
+            required: 0
+            type: text
+            tab: 'impactfactory.ref::lang.tab.contact'
+        city:
+            label: 'impactfactory.ref::lang.patient.city'
+            span: auto
+            required: 0
+            type: text
+            tab: 'impactfactory.ref::lang.tab.contact'
+        phone:
+            label: 'impactfactory.ref::lang.patient.phone'
+            span: auto
+            required: 0
+            type: text
+            tab: 'impactfactory.ref::lang.tab.contact'
+        email:
+            label: 'impactfactory.ref::lang.patient.email'
+            span: auto
+            required: 0
+            type: text
+            tab: 'impactfactory.ref::lang.tab.contact'
+        doc_firstname:
+            label: 'impactfactory.ref::lang.patient.doc_firstname'
+            span: left
+            required: 0
+            type: text
+            tab: 'impactfactory.ref::lang.tab.referrer'
+        doc_lastname:
+            label: 'impactfactory.ref::lang.patient.doc_lastname'
+            span: right
+            required: 0
+            type: text
+            tab: 'impactfactory.ref::lang.tab.referrer'
+        doc_city:
+            label: 'impactfactory.ref::lang.patient.doc_city'
+            span: left
+            type: text
+            tab: 'impactfactory.ref::lang.tab.referrer'
+        doc_email:
+            label: 'impactfactory.ref::lang.patient.doc_email'
+            span: right
+            required: 0
+            type: text
+            tab: 'impactfactory.ref::lang.tab.referrer'
+        doc_phone:
+            label: 'impactfactory.ref::lang.patient.doc_phone'
+            span: left
+            required: 0
+            type: text
+            tab: 'impactfactory.ref::lang.tab.referrer'
+        doc2_email:
+            label: 'impactfactory.ref::lang.patient.copy2'
+            span: right
+            type: text
+            tab: 'impactfactory.ref::lang.tab.referrer'
+        dthdoc:
+            label: 'impactfactory.ref::lang.dthdoclabel'
+            options:
+                'Dr. med. Olaf Franzen': 'Dr. med. Olaf Franzen'
+                'Prof. Dr. med. Johannes Waltenberger': 'Prof. Dr. med. Johannes Waltenberger'
+            showSearch: true
+            span: full
+            type: dropdown
+            tab: 'impactfactory.ref::lang.tab.clinical'
+        consilium:
+            label: 'impactfactory.ref::lang.patient.consilium'
+            span: auto
+            type: checkbox
+            tab: 'impactfactory.ref::lang.tab.clinical'
+        diagnostics:
+            label: 'impactfactory.ref::lang.patient.diagnostics'
+            mode: relation
+            separator: space
+            customTags: 0
+            nameFrom: name
+            useKey: false
+            span: left
+            type: taglist
+            tab: 'impactfactory.ref::lang.tab.clinical'
+        lastdate:
+            label: 'impactfactory.ref::lang.patient.lastdate'
+            mode: date
+            minDate: '2022-01-01'
+            maxDate: '2030-01-01'
+            span: right
+            type: datepicker
+            tab: 'impactfactory.ref::lang.tab.clinical'
+        clinical:
+            label: 'impactfactory.ref::lang.patient.clinical'
+            size: large
+            span: full
+            type: textarea
+            tab: 'impactfactory.ref::lang.tab.clinical'
+        question:
+            label: 'impactfactory.ref::lang.patient.question'
+            size: large
+            span: full
+            type: textarea
+            tab: 'impactfactory.ref::lang.tab.clinical'
+        note:
+            label: Weiteres
+            size: small
+            span: full
+            type: textarea
+            tab: 'impactfactory.ref::lang.tab.clinical'
+        files:
+            label: Dokumente
+            mode: file
+            fileTypes: '*'
+            useCaption: true
+            thumbOptions:
+                mode: crop
+                extension: auto
+            span: full
+            type: fileupload
+            tab: 'impactfactory.ref::lang.tab.clinical'
+        costcarry:
+            label: 'impactfactory.ref::lang.patient.carrycost'
+            options:
+                Selbstzahler: 'impactfactory.ref::lang.patient.carrycost1'
+                Unfallversicherung: 'impactfactory.ref::lang.patient.carrycost2'
+                Krankenkasse: 'impactfactory.ref::lang.patient.carrycost3'
+                'Versicherung im Ausland': 'impactfactory.ref::lang.patient.carrycost4'
+                Militärversicherung: 'impactfactory.ref::lang.patient.carrycost5'
+                IV: 'impactfactory.ref::lang.patient.carrycost6'
+            emptyOption: 'bitte wählen'
+            showSearch: 0
+            span: full
+            required: 0
+            type: dropdown
+            tab: 'impactfactory.ref::lang.tab.assurances'
+        kvg:
+            label: 'impactfactory.ref::lang.patient.kvg'
+            nameFrom: name
+            descriptionFrom: description
+            emptyOption: 'bitte wählen'
+            span: auto
+            type: relation
+            tab: 'impactfactory.ref::lang.tab.assurances'
+        vvg:
+            label: 'impactfactory.ref::lang.patient.vvg'
+            nameFrom: name
+            descriptionFrom: description
+            emptyOption: 'bitte wählen'
+            span: right
+            type: relation
+            tab: 'impactfactory.ref::lang.tab.assurances'
+        kvg_other:
+            label: 'impactfactory.ref::lang.patient.kvg_other'
+            span: left
+            placeholder: 'bitte wählen'
+            type: text
+            tab: 'impactfactory.ref::lang.tab.assurances'
+        vvg_other:
+            label: 'impactfactory.ref::lang.patient.vvg_other'
+            span: right
+            type: text
+            tab: 'impactfactory.ref::lang.tab.assurances'
+        kvg_no:
+            label: 'impactfactory.ref::lang.patient.kvg_no'
+            span: auto
+            type: text
+            tab: 'impactfactory.ref::lang.tab.assurances'
+        vvg_no:
+            label: 'impactfactory.ref::lang.patient.vvg_no'
+            span: right
+            type: text
+            tab: 'impactfactory.ref::lang.tab.assurances'

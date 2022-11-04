@@ -1,0 +1,28 @@
+{% set orgameta = orgaMeta.meta %}
+{% set post = postdetail.post %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalScholarlyArticle",
+  "audience": "https://schema.org/Patient",
+  "dateModified": "{{ post.updated_at }}",
+  "datePublished": "{{ post.created_at }}",
+  "description": "{{ post.excerpt|raw }}",
+  "headline": "{{ post.title }}",
+  "name": "{{ post.title }}",
+  "publicationType": "Patient Education Handout",
+  "about": [
+    {
+      "@type": "MedicalCondition",
+      "desc": "{{ cond.desc }}",
+      "name": "{{ cond.name }}"
+    }
+  ],
+  "author": {
+    "@type": "Organization",
+    "name": "{{ orgameta.schema_name }}"
+  },
+  "image": "/storage/app/media{{ post.meta_img }}"
+}
+</script>

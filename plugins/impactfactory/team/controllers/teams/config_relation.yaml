@@ -1,0 +1,6 @@
+people:
+  label: People
+  view:
+    list: $/impactfactory/team/models/person/columns.yaml
+    toolbarButtons: add|remove
+  form: $/impactfactory/team/models/person/fields.yaml

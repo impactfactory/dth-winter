@@ -1,0 +1,69 @@
+{% set element = __SELF__.element %}
+{% set cardsize = __SELF__.size3 %}
+{% set bg = __SELF__.bg %}
+
+
+{% if element.from|date('U') < 'now'|date('U') and element.to|date('U') > 'now'|date('U') %}
+
+  <article id="textpic-{{ element.id }}" class="fullwrap textvideo tpl-{% if bg == '1' %}white{% elseif bg == '2' %}grey{% elseif bg == '3' %}secondary-light{% elseif bg == '4' %}secondary{% elseif bg == '5' %}secondary-dark{% elseif bg == '6' %}primary-light{% else %}transparent{% endif %}">
+
+  <div class="indent-me row {{ cardsize }} gy-3">
+
+  {% for index, element in element.elements %}
+    {% if element.is_published %}
+      <div class="col mb-4 mt-4 p-0">
+
+        <div class="card p-4 gx-2">
+          {% if element.title %}
+            <h3 class="card-title h2">{{ element.title }}</h3>
+          {% endif %}
+          <div class="row gx-4">
+
+          {% if element.picposition == 'left' %}
+              <div class="col-12 col-lg-6 {% if 2 in cardsize %}col-lg-12{% endif %}">
+                <video width="100%" class="rounded" height="auto" controls controlsList="nodownload">
+                  <source src="{{  element.image | media }}" class="img-fluid mr-3" width="100%" height="auto"" type="video/mp4">
+                  {{ 'video.notsupported.message'|_ }}
+                </video>
+              </div>
+          {% endif %}
+
+              <div class="col-12 col-lg-6 {% if 2 in cardsize %}col-lg-12{% endif %}">
+                <div class="card-body {{ element.picposition }}">
+
+                  {% if element.subtitle %}
+                    <h4 class="card-subtitle h6 mb-0">{{ element.subtitle }}</h4>
+                  {% endif %}
+
+                  {% if element.text %}
+                    <div class="card-text mt-0 pt-0">{{ element.text|raw }}</div>
+                  {% endif %}
+
+                  {% if element.url %}
+                    <a href="{{ element.url }}" class="btn btn-primary btn-sm rounded" title="{{ element.url_text }}" role="button">
+                      {{ element.url_text }}
+                    </a>
+                  {% endif %}
+
+                </div> <!-- end card-body -->
+            </div> <!-- end col-md-8 -->
+
+          {% if element.picposition == 'right' %}
+              <div class="col-12 col-lg-6 {% if 2 in cardsize %}col-lg-12{% endif %}">
+                <video width="100%" height="auto" controls controlsList="nodownload">
+                  <source src="{{  element.image | media }}" class="img-fluid mr-3" width="100%" height="auto"" type="video/mp4">
+                  {{ 'video.notsupported.message'|_ }}
+                </video>
+              </div>
+          {% endif %}
+
+          </div> <!-- end row g0 -->
+        </div> <!-- end card -->
+      </div> <!-- end col mb-3-->
+
+    {% endif %}
+  {% endfor %}
+
+  </article>
+
+{% endif %}

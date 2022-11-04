@@ -1,0 +1,80 @@
+columns:
+    is_published:
+        label: 'impactfactory.blog::lang.post.is_published'
+        type: inetis-list-switch
+        icon: 'true'
+        sortable: true
+        width: 20px
+    sort_order:
+        label: 'impactfactory.blog::lang.post.sort_order'
+        type: number
+        invisible: false
+        width: 20px
+    edit:
+        label: 'impactfactory.blog::lang.post.edit'
+        type: partial
+        sortable: false
+        path: ~/plugins/impactfactory/blog/controllers/posts/_edit.htm
+    id:
+        label: id
+        type: number
+        sortable: true
+        invisible: true
+    img:
+        label: 'impactfactory.blog::lang.post.keyvisual'
+        type: partial
+        path: ~/plugins/impactfactory/blog/controllers/posts/_thumb.htm
+        sortable: true
+    title:
+        label: 'impactfactory.blog::lang.post.title'
+        type: text
+        searchable: true
+        sortable: true
+    author:
+        label: 'impactfactory.blog::lang.post.author'
+        type: partial
+        searchable: false
+        sortable: false
+        invisible: true
+        path: ~/plugins/impactfactory/blog/controllers/posts/_autor.htm
+    updated_at:
+        label: 'impactfactory.blog::lang.post.updated_at'
+        type: datetime
+        invisible: false
+        sortable: true
+    slug:
+        label: 'impactfactory.blog::lang.post.slug'
+        type: text
+        searchable: true
+        sortable: true
+        invisible: true
+    excerpt:
+        label: 'impactfactory.blog::lang.post.excerpt'
+        type: text
+        invisible: true
+        searchable: true
+    meta_desc:
+        label: 'impactfactory.blog::lang.post.meta_desc_label'
+        type: text
+        searchable: true
+        invisible: true
+    meta_title:
+        label: 'impactfactory.blog::lang.post.meta_title_label'
+        type: text
+        searchable: true
+        invisible: true
+    subtitle:
+        label: 'impactfactory.blog::lang.post.subtitle'
+        type: text
+        searchable: true
+        invisible: true
+    timetoread:
+        label: 'impactfactory.blog::lang.post.timetoread'
+        type: number
+        searchable: true
+        sortable: true
+    created_at:
+        label: 'impactfactory.blog::lang.post.created_at'
+        type: datetime
+        invisible: true
+        sortable: true

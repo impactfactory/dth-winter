@@ -1,0 +1,12 @@
+list: $/impactfactory/medicalconditions/models/faq/columns.yaml
+modelClass: Impactfactory\MedicalConditions\Models\FAQ
+title: FAQs
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'impactfactory/medicalconditions/faqs/update/:id'

@@ -1,0 +1,4 @@
+title: Types
+modelClass: ImpactFactory\Services\Models\Type
+toolbar:
+    buttons: reorder_toolbar

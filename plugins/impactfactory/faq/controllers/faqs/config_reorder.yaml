@@ -1,0 +1,5 @@
+title: Faqs
+modelClass: ImpactFactory\Faq\Models\Faq
+nameFrom: question
+toolbar:
+    buttons: reorder_toolbar

@@ -1,0 +1,197 @@
+columns:
+    id:
+        label: id
+        type: number
+        sortable: true
+    created_at:
+        label: created_at
+        type: datetime
+        invisible: true
+        sortable: true
+    updated_at:
+        label: updated_at
+        type: datetime
+        invisible: true
+        sortable: true
+    pat_gender:
+        label: pat_gender
+        type: text
+        invisible: true
+        sortable: true
+    pat_firstname:
+        label: pat_firstname
+        type: text
+        sortable: true
+    pat_lastname:
+        label: pat_lastname
+        type: text
+        sortable: true
+    pat_birthday:
+        label: pat_birthday
+        type: text
+        invisible: true
+        sortable: true
+    pat_street_no:
+        label: pat_street_no
+        type: text
+        invisible: true
+        sortable: true
+    pat_zip:
+        label: pat_zip
+        type: text
+        invisible: true
+        sortable: true
+    pat_city:
+        label: pat_city
+        type: text
+        invisible: true
+        sortable: true
+    pat_ass_no:
+        label: pat_ass_no
+        type: text
+        invisible: true
+        sortable: true
+    doc_gender:
+        label: doc_gender
+        type: text
+        invisible: true
+        sortable: true
+    doc_honoric:
+        label: doc_honoric
+        type: text
+        invisible: true
+        sortable: true
+    doc_firstname:
+        label: doc_firstname
+        type: text
+        invisible: true
+        sortable: true
+    doc_lastname:
+        label: doc_lastname
+        type: text
+        invisible: true
+        sortable: true
+    doc_company:
+        label: doc_company
+        type: text
+        invisible: false
+        sortable: true
+    doc_street_no:
+        label: doc_street_no
+        type: text
+        invisible: true
+        sortable: true
+    doc_zip:
+        label: doc_zip
+        type: text
+        invisible: true
+        sortable: true
+    doc_city:
+        label: doc_city
+        type: text
+        invisible: true
+        sortable: true
+    doc_country:
+        label: doc_country
+        type: text
+        invisible: true
+        sortable: true
+    doc_phone:
+        label: doc_phone
+        type: text
+        invisible: true
+        sortable: true
+    doc_email:
+        label: doc_email
+        type: text
+        invisible: true
+        sortable: true
+    pat_phone:
+        label: pat_phone
+        type: text
+        invisible: true
+        sortable: true
+    pat_email:
+        label: pat_email
+        type: text
+        invisible: true
+        sortable: true
+    rep_typ:
+        label: rep_typ
+        type: text
+        sortable: true
+    rep_prev_type:
+        label: rep_prev_type
+        type: number
+        invisible: true
+        sortable: true
+    rep_ldl_value:
+        label: rep_ldl_value
+        type: text
+        invisible: true
+        sortable: true
+    rep_ldl_date:
+        label: rep_ldl_date
+        type: text
+        invisible: true
+        sortable: true
+    rep_therapy_statin:
+        label: rep_therapy_statin
+        type: number
+        invisible: true
+        sortable: true
+    rep_therapy_statin_1:
+        label: rep_therapy_statin_1
+        type: text
+        invisible: true
+        sortable: true
+    rep_therapy_statin_2:
+        label: rep_therapy_statin_2
+        type: text
+        invisible: true
+        sortable: true
+    rep_therapy_nostatin:
+        label: rep_therapy_nostatin
+        type: text
+        invisible: true
+        sortable: true
+    rep_therapy_nostatin_type:
+        label: rep_therapy_nostatin_type
+        type: number
+        invisible: true
+        sortable: true
+    rep_therapy_ezetimib:
+        label: rep_therapy_ezetimib
+        type: text
+        invisible: true
+        sortable: true
+    rep_therapy_pressure:
+        label: rep_therapy_pressure
+        type: number
+        invisible: true
+        sortable: true
+    rep_therapy_sugar:
+        label: rep_therapy_sugar
+        type: number
+        invisible: true
+        sortable: true
+    rep_therapy_nico:
+        label: rep_therapy_nico
+        type: number
+        invisible: true
+        sortable: true
+    rep_success_ldl:
+        label: rep_success_ldl
+        type: number
+        invisible: true
+        sortable: true
+    rep_success_date:
+        label: rep_success_date
+        type: number
+        invisible: true
+        sortable: true
+    rep_success_expl:
+        label: rep_success_expl
+        type: text
+        invisible: true
+        sortable: true

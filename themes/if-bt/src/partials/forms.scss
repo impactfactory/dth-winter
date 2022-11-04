@@ -1,0 +1,29 @@
+form {
+
+  div.visible ~ input   {
+
+    border-color: $if-danger !important;
+
+  }
+
+  div.visible ~ label   {
+
+    display:none;
+
+  }
+
+
+// Application Form with uploader Button from Uploader Plugin
+
+.uploaderfield {
+  background: $if-white;
+
+.uploaderfield button {
+    padding:40px 0 40px 0;
+    width:100%;
+  }
+}
+.uploaderfield:hover {
+    background: $if-primary;
+  }
+}

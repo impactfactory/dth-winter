@@ -1,0 +1,33 @@
+{% set meta_title = [seoSettings.title_prefix, seoTag.meta_title, seoSettings.title_suffix]|join(' ')|trim %}
+
+<title>{{ meta_title }}</title>
+<meta name="title" content="{{ meta_title }}">
+<meta name="description" content="{{ seoTag.meta_description }}">
+<meta name="keywords" content="{{ seoTag.meta_keywords }}">
+<link rel="canonical" href="{{ seoTag.canonical_url ?: currentUrl|app }}">
+<meta name="robots" content="{{ seoTag.robots }}">
+
+{{ seoSettings.common_tags|raw }}
+
+{% if seoSettings.og_enabled %}
+
+    <meta property="og:title" content="{{ seoTag.og_title|default(meta_title) }}">
+    <meta property="og:description" content="{{ seoTag.og_description|default(seoTag.meta_description) }}">
+    <meta property="og:site_name" content="{{ seoSettings.site_name }}">
+    <meta property="og:url" content="{{ currentUrl|app }}">
+
+    {% if seoTag.og_type %}<meta property="og:type" content="{{ seoTag.og_type }}">{% endif %}
+
+    {% if seoTag.og_image %}
+        <meta property="og:image" content="{{ (seoTag.og_image|media)|app }}">
+        <meta property="og:image:width" content="{{ seoTag.og_image_width }}">
+        <meta property="og:image:height" content="{{ seoTag.og_image_height }}">
+    {% endif %}
+
+    {% if seoSettings.fb_app_id %}<meta property="fb:app_id" content="{{ seoSettings.fb_app_id }}">{% endif %}
+
+    <meta name="twitter:description" content="{{ seoTag.og_description|default(seoTag.meta_description) }}">
+    <meta name="twitter:title" content="{{ seoTag.og_title|default(meta_title) }}">
+    {% if seoTag.og_image %}<meta name="twitter:image" content="{{ (seoTag.og_image|media)|app }}">{% endif %}
+
+{% endif %}

@@ -1,0 +1,5 @@
+title: Reorder Applicants
+modelClass: Impactfactory\Jobboard\Models\Applicants
+toolbar:
+    buttons: reorder_toolbar
+nameFrom: full_name

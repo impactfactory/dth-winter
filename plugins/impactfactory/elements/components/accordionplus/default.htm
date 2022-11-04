@@ -1,0 +1,57 @@
+{% set element = __SELF__.element %}
+{% set boxtitle = __SELF__.boxtitle %}
+
+{% if element.from|date('U') < 'now'|date('U') and element.to|date('U') > 'now'|date('U') %}
+
+<div id="accordionplus-{{ element.id }}" class="fullwrap accordionplus">
+  <article class="indent-me row gx-0 gx-md-3 col-12 mx-auto">
+    <h2 class="mb-4 text-white">{{ boxtitle }}</h2>
+    <div class="col-12 col-md-12 col-lg-4 bg-white p-4 rounded mb-3 overflow-hidden">
+      <div class="textleft">
+        {{ element.text|raw }}
+      </div>
+    </div>
+    <div class="col-12 col-md-12 col-lg-8">
+      <div class="accordion mx-0" id="accordion">
+      {% for index, element in element.elements %}
+        {% if element.is_published %}
+        <div class="accordion-item bg-white mb-2">
+          <h3 class="accordion-header" id="heading-{{ loop.index }}">
+            <a href="#collapse-{{ loop.index }}"
+               class="accordion-button collapsed text-start"
+               type="button"
+               data-bs-toggle="collapse"
+               data-bs-target="#collapse-{{ loop.index }}"
+               aria-expanded="false"
+               aria-controls="flush-collapse-{{ loop.index }}"
+               aria-label="{{ element.title }}"
+               rel="nofollow"
+               title="{{ element.title }}"
+               >
+              <img src="{{ element.image|media|resize(60, 60, { mode: 'cover' }) }}"
+                  width="60"
+                  height="60"
+                  class="rounded"
+                  alt="Thumnail {{ element.url_text }}"
+              >
+              <div class="h3">{{ element.title }}</div>
+            </a>
+          </h3>
+          <div id="collapse-{{ loop.index }}" class="accordion-collapse collapse" aria-labelledby="heading-{{ loop.index }}" data-bs-parent="#accordion">
+            <div class="accordion-body">
+              {{ element.text|raw }}
+              <br><br>
+              <a href="{{ element.url }}" class="btn btn-primary btn-sm" aria-label="{{ element.url_text }}">
+                {{ element.url_text }}
+              </a>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+      {% endfor %}
+      </div>
+    </div>
+  </article>
+</div>
+
+{% endif %}

@@ -1,0 +1,27 @@
+seo_tag[og_title]:
+    label: renatio.seomanager::lang.field.og_title
+    tab: renatio.seomanager::lang.tab.og_tags
+    comment: renatio.seomanager::lang.comments.og_title
+    span: left
+
+seo_tag[og_type]:
+    label: renatio.seomanager::lang.field.og_type
+    tab: renatio.seomanager::lang.tab.og_tags
+    span: right
+    comment: renatio.seomanager::lang.comments.og_type
+    commentHtml: true
+
+seo_tag[og_description]:
+    label: renatio.seomanager::lang.field.og_description
+    type: textarea
+    tab: renatio.seomanager::lang.tab.og_tags
+    size: tiny
+    comment: renatio.seomanager::lang.comments.og_description
+
+seo_tag[og_image]:
+    label: renatio.seomanager::lang.field.og_image
+    type: mediafinder
+    mode: image
+    tab: renatio.seomanager::lang.tab.og_tags
+    commentAbove: renatio.seomanager::lang.comments.og_image_comment
+    span: left

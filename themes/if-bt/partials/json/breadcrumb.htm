@@ -1,0 +1,173 @@
+description = "Integrates breadcrumb schema into html"
+
+[viewBag]
+==
+<?php
+
+use Cms\Classes\Theme;
+use RainLab\Pages\Classes\MenuItemReference;
+use RainLab\Pages\Classes\Page;
+use RainLab\Pages\Classes\Router;
+
+function onStart()
+{
+
+    $url = $this->getRouter()->getUrl();
+
+    if (!strlen($url)) {
+        $url = '/';
+    }
+
+    $theme = Theme::getActiveTheme();
+    $router = new Router($theme);
+    $page = $router->findByUrl($url);
+
+    if ($page) {
+        $tree = Page::buildMenuTree($theme);
+
+        $code = $startCode = $page->getBaseFileName();
+        $breadcrumbs = [];
+
+        while ($code) {
+            if (!isset($tree[$code])) {
+                break;
+            }
+
+            $pageInfo = $tree[$code];
+
+            if ($pageInfo['navigation_hidden']) {
+                $code = $pageInfo['parent'];
+                continue;
+            }
+
+            $reference = new MenuItemReference();
+            $reference->title = $pageInfo['title'];
+            $reference->url = Page::url($code);
+            $reference->isActive = $code == $startCode;
+
+            $breadcrumbs[] = $reference;
+
+            $code = $pageInfo['parent'];
+        }
+
+        $breadcrumbs = array_reverse($breadcrumbs);
+
+        $level = 1;
+        foreach($breadcrumbs as $breadcrumb) {
+            $breadcrumb->viewBag['level'] = $level++;
+        }
+
+        $breadcrumbs = array_map(function($item) {
+            return [
+                '@type' => 'ListItem',
+                'position' => $item->viewBag['level'],
+                'name' => $item->title,
+                'item' => $item->url,
+                /*[
+                    '@id' => $item->url,
+                    'name' => $item->title,
+                ]*/
+            ];
+        }, $breadcrumbs);
+
+        $this['breadcrumbs'] = $breadcrumbs;
+    }
+}
+
+?>
+==
+{% set post = postdetail.post %}
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {% if breadcrumbid == 'post-detail' %} {# blog post page #}
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "{{ 'schema.Breadcrumb.bloglist.name'|_ }}",
+        "item": "{{ url('/') }}/{{ localePicker.activeLocale }}/{{ viewBag.localeBlogbase[activeLocale] }}"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "{{ post.title }}",
+        "item": "{{ url('/') }}/{{ localePicker.activeLocale }}/{{ viewBag.localeBlogbase[activeLocale] }}/{{ post.slug }}"
+      }
+    {% elseif breadcrumbid == 'list' %} {# blog posts list page #}
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "{{ seoTag.meta_title }}",
+        "item": "{{ url('/') }}/{{ localePicker.activeLocale }}/{{ viewBag.localeBlogbase[activeLocale] }}"
+      }
+    {% elseif breadcrumbid == 'postsincategory' %} {# blog posts in category page #}
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "{{ 'schema.Breadcrumb.bloglist.name'|_ }}",
+        "item": "{{ url('/') }}/{{ localePicker.activeLocale }}/{{ viewBag.localeBlogbase[activeLocale] }}"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "{{ category.name }}",
+        "item": "{{ url('/') }}/{{ localePicker.activeLocale }}/{{ viewBag.localeBlogbase[activeLocale] }}/{{ viewBag.localeCategorypagebase[activeLocale] }}/{{ category.slug }}"
+      }
+    {% elseif breadcrumbid == 'postswithtag' %} {# blog posts with tag page #}
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "{{ 'schema.Breadcrumb.bloglist.name'|_ }}",
+        "item": "{{ url('/') }}/{{ localePicker.activeLocale }}/{{ viewBag.localeBlogbase[activeLocale] }}"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "{{ tag.name }}",
+        "item": "{{ url('/') }}/{{ localePicker.activeLocale }}/{{ viewBag.localeBlogbase[activeLocale] }}/{{ viewBag.localeTagpagebase[activeLocale] }}/{{ tag.slug }}"
+      }
+    {% elseif breadcrumbid == 'persondetail' %} {# person detail page #}
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "{{ 'schema.Breadcrumb.teamlist.name'|_ }}",
+        "item": "{{ url('/') }}/{{ localePicker.activeLocale }}/{{ 'schema.Breadcrumb.praxis.cat'|_ }}/{{ 'schema.Breadcrumb.teamlist'|_ }}"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "{{ person.first_name }} {{ person.last_name }}",
+        "item": "{{ url('/') }}/{{ localePicker.activeLocale }}/{{ 'schema.Breadcrumb.praxis.cat'|_ }}/{{ 'schema.Breadcrumb.teamlist'|_ }}/{{ person.slug }}"
+      }
+    {% elseif breadcrumbid == 'searchresults' %} {# cms search results page #}
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "{{ 'schema.Breadcrumb.searchresults.label'|_ }}",
+        "item": "{{ url('/') }}/{{ localePicker.activeLocale }}/{{ 'schema.Breadcrumb.searchresults'|_ }}"
+      }
+    {% elseif breadcrumbid == 'faqs' %} {# faqs page #}
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "FAQ",
+          "item": "{{ url('/') }}/{{ localePicker.activeLocale }}/faqs"
+        }
+    {% elseif breadcrumbid == '404' %} {# 404 page #}
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "404",
+          "item": "{{ url('/') }}/{{ localePicker.activeLocale }}/404"
+        }
+    {% else %} {# static pages #}
+
+    {{ breadcrumbs|json_encode|raw }}
+
+  {% endif %}
+  ]
+}
+</script>

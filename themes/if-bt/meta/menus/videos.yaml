@@ -1,0 +1,92 @@
+items:
+    -
+        title: 'TAVI - der moderne Aortenklappenersatz'
+        nesting: null
+        type: url
+        url: /de/kardiologie/tavi-der-moderne-aortenklappenersatz
+        code: ''
+        reference: null
+        cmsPage: null
+        replace: null
+        viewBag:
+            locale:
+                en:
+                    title: ''
+                    url: ''
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+            image: /__INHALTSBILDER/cropped-images/aortenklappen-prothese-auf-hand-1200x700-284-157-345-345-1611243326.jpg
+    -
+        title: 'MitraClip bei Mitralklappen-Insuffizienz'
+        nesting: null
+        type: url
+        url: /de/kardiologie/mitraclip-bei-mitralklappeninsuffizienz
+        code: ''
+        reference: null
+        cmsPage: null
+        replace: null
+        viewBag:
+            locale:
+                en:
+                    title: ''
+                    url: ''
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+            image: /__INHALTSBILDER/mitralklappen-130x130.jpg
+    -
+        title: 'Live dabei bei einem Vorfhofohr-Verschluss'
+        nesting: null
+        type: url
+        url: /de/kardiologie/live-dabei-bei-einem-vorhofohrverschluss
+        code: ''
+        reference: null
+        cmsPage: null
+        replace: null
+        viewBag:
+            locale:
+                en:
+                    title: ''
+                    url: ''
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+            image: /__INHALTSBILDER/laa-okkluder-130x130.jpg
+    -
+        title: 'Das Herz ohne Chirurgie reparieren'
+        nesting: null
+        type: url
+        url: /de/kardiologie/das-herz-ohne-chirurgie-reparieren
+        code: ''
+        reference: null
+        cmsPage: null
+        replace: null
+        viewBag:
+            locale:
+                en:
+                    title: ''
+                    url: ''
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+            image: /__INHALTSBILDER/aortenklappen-prothese-130x130.jpg
+    -
+        title: 'Was ist Vorhofflimmern?'
+        nesting: null
+        type: url
+        url: /de/kardiologie/was-ist-vorhofflimmern
+        code: ''
+        reference: null
+        cmsPage: null
+        replace: null
+        viewBag:
+            locale:
+                en:
+                    title: ''
+                    url: ''
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+            image: /__INHALTSBILDER/cropped-images/vorhofflimmern-medtronic-video-1400x787-99-19-130-130-1619086699.jpg
+name: 'Videos  (Snippet Patienteninfo)'

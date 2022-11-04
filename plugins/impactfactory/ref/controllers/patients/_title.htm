@@ -1,0 +1,17 @@
+<h3 style="margin-top: 0;">
+        <?php if ($formModel->firstname): ?>
+            <?= e($formModel->firstname) ?>
+        <?php endif ?>
+        <?php if ($formModel->lastname): ?>
+            <?= e($formModel->lastname) ?>
+        <?php endif ?>
+
+
+        <a href="/zuweisung/<?= e($formModel->id) ?>"
+           class="btn btn-secondary"
+           style="position: absolute;right:0px;"
+           target="_blank"
+        >
+        Datenansicht für PDF-Erzeugung
+      </a>
+</h3>

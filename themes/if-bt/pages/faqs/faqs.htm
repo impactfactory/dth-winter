@@ -1,0 +1,32 @@
+title = "FAQs"
+url = "/faqs"
+layout = "default"
+description = "Seite mit allen FAQs drauf"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+enabled_in_sitemap = 1
+model_class = "ImpactFactory\Team\Models\Faq"
+use_updated_at = 1
+changefreq = "always"
+priority = 0.1
+meta_title = "FAQ"
+meta_description = "Die häufigsten Fragen und Antworten"
+
+[viewBag]
+localeUrl[en] = "/faqs"
+
+[faq]
+
+==
+<?php
+function onStart()
+{
+    $this['breadcrumbid'] = 'faqs';
+}
+?>
+==
+
+{% content 'faqs-intro' %}
+
+{% component 'faq' %}

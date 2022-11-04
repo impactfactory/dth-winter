@@ -1,0 +1,69 @@
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "HowTo",
+  "name": "{{ cond.how_name }}",
+  "description": "{{ cond.how_desc }}",
+  "totalTime": "PT{{ cond.how_totaltime }}H",
+  {% if cond.how_image %}
+  "image": {
+    "@type": "ImageObject",
+    "url": "{{ url('/') }}/storage/app/media/{{ cond.how_image }}",
+    "height": "400",
+    "width": "400"
+  },
+  {% endif %}
+  {% if cond.how_totalcost %}
+  "estimatedCost": {
+    "@type": "MonetaryAmount",
+    "currency": "CHF",
+    "value": "{{ cond.how_totalcost }}"
+  },
+  {% endif %}
+  {% if cond.how_supplyname %}
+  "supply": [
+    {% for supply in cond.how_supplyname %}
+      {
+        "@type": "HowToSupply",
+        "name": "{{ supply.name }}"
+      }{%- if not loop.last -%}, {% endif %}
+    {% endfor %}
+  ],
+  {% endif %}
+  {% if cond.how_toolname %}
+  "tool": [
+    {% for tool in cond.how_toolname %}
+    {
+      "@type": "HowToTool",
+      "name": "{{ tool.name }}"
+    }{%- if not loop.last -%}, {% endif %}
+    {% endfor %}
+  ],
+  {% endif %}
+  "step": [
+      {% for step in cond.steps %}
+        {
+          "@type": "HowToStep",
+          {% if step.url %}"url": "{{ step.url }}",
+          {% else %}"url": "{{ ''| page }}#step-{{ step.id }}",{% endif %}
+          "name": "{{ step.title }}",
+          "itemListElement": [
+            {% for substep in step.substeps %}
+              {
+                "@type": "{{ substep.type }}",
+                "text": "{{ substep.text }}"
+              }{%- if not loop.last -%}, {% endif %}
+            {% endfor %}
+           ],
+      "image": {
+        "@type": "ImageObject",
+        "url": "/storage/app/media{{ step.image }}",
+        "height": "400",
+        "width": "400"
+      }
+    }{%- if not loop.last -%}, {% endif %}
+    {% endfor %}
+  ]
+}
+</script>

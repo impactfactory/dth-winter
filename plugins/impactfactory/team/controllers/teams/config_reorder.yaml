@@ -1,0 +1,5 @@
+title: Teams
+modelClass: ImpactFactory\Team\Models\Team
+nameFrom: name
+toolbar:
+    buttons: reorder_toolbar

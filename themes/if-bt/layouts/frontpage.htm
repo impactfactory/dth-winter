@@ -1,0 +1,92 @@
+description = "Frontpage"
+
+[staticPage]
+useContent = 1
+default = 0
+
+[staticMenu]
+code = "main"
+
+[cookiesBar]
+
+[localePicker]
+forceUrl = 1
+
+[seoTags]
+
+[orgaMeta]
+
+[alternateHrefLangElements]
+
+[viewBag]
+localeBlogbase[de] = "kardiologie"
+localeBlogbase[en] = "cardiology"
+localeTagpagebase[de] = "stichwort"
+localeTagpagebase[en] = "tag"
+localeCategorypagebase[de] = "thema"
+localeCategorypagebase[en] = "topic"
+localeTeambase[en] = "team"
+localeTeambase[de] = "team"
+==
+<?php
+function onStart()
+{
+    $this['breadcrumbid'] = 'frontpage';
+}
+?>
+==
+
+{# begin head and all meta tags #}
+  {% component 'seoTags' %}
+{# end head #}
+<body class="page-{{ this.page.id }} layout-{{ this.page.layout }}">
+
+      <div class="container px-0 mx-0 mw-100">
+
+        <header class="row">
+            {% partial 'html_body/header' %}
+        </header>
+
+        <main class="row mb-0 pb-0 d-flex justify-content-center">
+          <div class="col-12 col-l2-8 pr-0 content-container">
+            {% page %}
+          </div>
+        </main>
+
+        <footer class="col-12 m-0">
+          <section class="endlinks fullwrap col-12 text-center pt-4 pb-3 d-print-none">
+              {% partial 'html_body/endlinks' %}
+              {% partial 'html_body/byline' %}
+          </section>
+        </footer>
+
+      </div>
+
+      {% partial 'html_body/contactbox' %}
+
+      {% placeholder toasts ignore=true %}
+
+      {% component 'cookiesBar' %}
+
+      <script type="application/ld+json">
+        {
+          "@context": "http://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+                   {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "{{ url('/') }}/{{ localePicker.activeLocale }}"
+              }
+              ]
+         }
+       </script>
+
+      {% partial "json/searchaction" %}
+      {% placeholder json ignore=true %}
+
+      {% partial 'html_body/scripts' %}
+
+    </body>
+</html>

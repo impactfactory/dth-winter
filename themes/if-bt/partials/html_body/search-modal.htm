@@ -1,0 +1,28 @@
+
+
+
+{#
+  <div class="modal fade" id="SearchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{ 'search.modal.label'|_ }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ 'search.button.aria.close'|_ }}"></button>
+      </div>
+      <div class="modal-body">
+      <form action="{{ 'suchresultate.htm' | page }}" method="get" class="">
+        <div class="text-white ml-0 pl-0 mb-1 display-block">{{ 'searchfield.label'|_ }}</div>
+           <div class="input-group m-0 p-0">
+            <input class="form-control m-0 " id="inputGroupFile04" name="q" type="text" placeholder="" autocomplete="off" aria-describedby="inputGroupFileAddon04" aria-label="{{ 'search.button.aria.label'|_ }}">
+            <button class="btn pl-2 pr-2" type="submit" id="inputGroupFileAddon04" aria-label="{{ 'search.button.aria.label'|_ }}">
+              {% partial 'html_body/svg-icons/search' %}
+            </button>
+        </div>
+      </form>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
+#}

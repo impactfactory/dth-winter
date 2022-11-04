@@ -1,0 +1,18 @@
+[topPosts]
+period = 5
+category = 0
+postPerPage = 5
+postPage = 404
+slug = "{{ :slug }}"
+==
+{% set posts = topPosts.posts %}
+
+{% for post in mostVisitedPosts %}
+<div class="post">
+    <div class="postImage"><img alt="" src="{{post.featured_images[0].path}}"></div>
+        <div class="post-content">
+            <h3>{{post.title}}</h3>
+            <a href="{{post.url}}">Continue reading</a>
+        </div>
+    </div>
+{% endfor %}

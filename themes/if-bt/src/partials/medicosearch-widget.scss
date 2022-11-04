@@ -1,0 +1,59 @@
+.medicosearch-widget #medicosearchWidget.mbw-diagnostisches-und-therapeutisches-herzzentrum {
+
+  .bw-title-h2,
+  .mbw-title-h1,
+  .mbw-checkbox-label,
+  .mwp-step-title,
+  .mbw-booking-day,
+  .mbw-container,
+  .mbw-doctor-info,
+  .mbw-doctor-subname,
+  .mbw-doctor-name,
+  .mbw-empty-option-active,
+  .mbw-form-info,
+  .mbw-dropdown,
+  .mbw-dropdown-option-treatment-duration,
+  .mbw-dropdown-selected-value,
+  .mbw-button,
+  .mbw-surgery-block,
+  .mbw-surgery-address,
+  .mbw-surgery-name,
+  .mbw-table-day-row,
+  .mbw-table-slots,
+  .mbw-dropdown-option-treatment-name,
+  .mbw-treatment-selector,
+  .mbw-slot {
+    font-size: 20px!important;
+  }
+
+  .mbw-form-row,
+  .mbw-name-sign-txt,
+  .mbw-form-label,
+  .mbw-button-submit
+   {
+    text-transform: none!important;
+    font-weight:normal!important;
+  }
+
+  .mbw-header-title,
+  .mbw-header-subtitle,
+  .mbw-contacts-name {
+    display: none!important;
+  }
+
+  .mbw-link-edit {
+    border-radius: 4px;
+    border: 1px solid $if-primary;
+    padding: 4px 8px 4px 8px;
+    transform: translate(0px, 56px);
+  }
+
+  .mbw-date-navigation-txt {
+    transform: translate(0,-4px);
+    width: 180px!important;
+  }
+
+  a.mbw-slot {
+    max-width:140px;
+  }
+}

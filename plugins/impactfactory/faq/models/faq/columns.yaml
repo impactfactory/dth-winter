@@ -1,0 +1,28 @@
+columns:
+    is_published:
+        label: 'impactfactory.faq::lang.faq.publish'
+        type: inetis-list-switch
+        icon: 'true'
+        sortable: true
+        width: 20px
+    id:
+        label: id
+        type: number
+        invisible: true
+    sort_order:
+        label: 'impactfactory.faq::lang.sort_order'
+        type: number
+        invisible: true
+        width: 50px
+    question:
+        label: 'impactfactory.faq::lang.faq.question'
+        type: text
+        searchable: true
+    answer:
+        label: 'impactfactory.faq::lang.faq.answer'
+        type: answer
+        searchable: true
+    categories:
+        label: 'impactfactory.faq::lang.categories'
+        type: list
+        sortable: false

@@ -1,0 +1,39 @@
+title = "Posts in Category"
+url = "/kardiologie/thema/:slug"
+layout = "default"
+is_hidden = 0
+meta_title = "Posts in Category"
+meta_description = "Categories Posts"
+robot_index = "index"
+robot_follow = "follow"
+
+[postsincategory]
+[tagcloud]
+
+[viewBag]
+localeUrl[de] = "/kardiologie/thema/:slug"
+localeUrl[en] = "/cardiology/topic/:slug"
+localeBlogbase[en] = "cardiology"
+localeBlogbase[de] = "kardiologie"
+localeTagpagebase[en] = "tag"
+localeTagpagebase[de] = "stichwort"
+localeCategorypagebase[en] = "topic"
+localeCategorypagebase[de] = "thema"
+==
+<?php
+function onStart()
+{
+    $this['breadcrumbid'] = 'postsincategory';
+}
+
+function onEnd()
+{
+    // Optional - set the page title to the category name
+    if ($this->category)
+        $this->page->title = $this->category->name;
+}
+?>
+==
+
+{% component 'postsincategory' %}
+{% component 'tagcloud' %}

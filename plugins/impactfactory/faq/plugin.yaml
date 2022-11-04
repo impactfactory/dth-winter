@@ -1,0 +1,36 @@
+plugin:
+    name: 'impactfactory.faq::lang.plugin.name'
+    description: 'impactfactory.faq::lang.plugin.description'
+    author: ImpactFactory
+    homepage: ''
+    icon: icon-comments
+navigation:
+    main-menu-item:
+        label: 'impactfactory.faq::lang.plugin.name'
+        url: impactfactory/faq/faqs
+        icon: icon-comments
+        permissions:
+            - 'faq.*'
+        sideMenu:
+            side-menu-faqs:
+                label: 'impactfactory.faq::lang.plugin.name'
+                url: impactfactory/faq/faqs
+                icon: icon-comments
+                permissions:
+                    - faq.faqs
+            side-menu-categories:
+                label: 'impactfactory.faq::lang.categories'
+                url: impactfactory/faq/categories
+                icon: icon-tags
+                permissions:
+                    - faq.categories
+permissions:
+    faq.faqs:
+        tab: 'impactfactory.faq::lang.plugin.name'
+        label: 'impactfactory.faq::lang.permission.faqs'
+    faq.categories:
+        tab: 'impactfactory.faq::lang.plugin.name'
+        label: 'impactfactory.faq::lang.permission.categories'
+
+dependencies:
+  - rainlab.translate

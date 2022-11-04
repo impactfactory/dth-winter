@@ -1,0 +1,61 @@
+tabs:
+    fields:
+        is_published:
+            label: 'impactfactory.blog::lang.tag.is_published'
+            span: auto
+            type: switch
+            tab: 'impactfactory.blog::lang.tag.tab_general'
+        name:
+            label: 'impactfactory.blog::lang.tag.name'
+            span: left
+            type: text
+            tab: 'impactfactory.blog::lang.tag.tab_general'
+        slug:
+            label: 'impactfactory.blog::lang.tag.slug'
+            span: right
+            type: text
+            preset: name
+            tab: 'impactfactory.blog::lang.tag.tab_general'
+        desc:
+            label: 'impactfactory.blog::lang.tag.description'
+            size: small
+            span: full
+            type: richeditor
+            tab: 'impactfactory.blog::lang.tag.tab_general'
+        img:
+            label: 'impactfactory.blog::lang.tag.img'
+            mode: image
+            imageWidth: '250'
+            imageHeight: '250'
+            span: full
+            type: mediafinder
+            tab: 'impactfactory.blog::lang.tag.tab_general'
+        meta_title:
+            label: 'impactfactory.blog::lang.tag.meta_title'
+            span: full
+            type: text
+            commentAbove: 'impactfactory.blog::lang.tag.meta_title_comment'
+            tab: 'impactfactory.blog::lang.tag.tab_meta'
+        meta_desc:
+            label: 'impactfactory.blog::lang.tag.meta_description'
+            size: tiny
+            span: auto
+            type: textarea
+            commentAbove: 'impactfactory.blog::lang.tag.meta_description_comment'
+            tab: 'impactfactory.blog::lang.tag.tab_meta'
+        searchtags:
+            label: 'impactfactory.blog::lang.tag.searchtaglabel'
+            size: tiny
+            span: full
+            type: textarea
+            commentAbove: 'impactfactory.blog::lang.tag.searchtagcomment'
+            tab: 'impactfactory.blog::lang.tag.tab_meta'
+        meta_img:
+            label: 'impactfactory.blog::lang.tag.meta_image'
+            mode: image
+            imageWidth: '500'
+            imageHeight: '500'
+            span: full
+            type: mediafinder
+            commentAbove: 'impactfactory.blog::lang.tag.meta_image_comment'
+            tab: 'impactfactory.blog::lang.tag.tab_meta'

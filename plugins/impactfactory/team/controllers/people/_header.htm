@@ -1,0 +1,16 @@
+<div>
+  <h2 style="margin-top:0;">
+      <?php if ($formModel->first_name): ?>
+          <?= e($formModel->first_name) ?>
+      <?php endif ?>
+
+      <?php if ($formModel->last_name): ?>
+          <?= e($formModel->last_name) ?>
+      <?php endif ?>
+
+      <?php if ($formModel->company): ?>
+        ,
+        <?= e($formModel->company) ?>
+      <?php endif ?>
+  </h2>
+</div>

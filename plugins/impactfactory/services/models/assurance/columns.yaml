@@ -1,0 +1,45 @@
+columns:
+    id:
+        label: id
+        type: number
+        invisible: false
+        sortable: true
+    created_at:
+        label: created_at
+        type: datetime
+        invisible: true
+        sortable: true
+    updated_at:
+        label: updated_at
+        type: datetime
+        invisible: true
+        sortable: true
+    name:
+        label: name
+        type: text
+        sortable: true
+    street_no:
+        label: street_no
+        type: text
+        invisible: true
+        sortable: true
+    zip:
+        label: zip
+        type: text
+        invisible: true
+        sortable: true
+    city:
+        label: city
+        type: text
+        invisible: true
+        sortable: true
+    country:
+        label: country
+        type: text
+        invisible: true
+        sortable: true
+    published:
+        label: published
+        type: text
+        invisible: true
+        sortable: true

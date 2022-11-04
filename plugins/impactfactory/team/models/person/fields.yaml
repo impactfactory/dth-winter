@@ -1,0 +1,351 @@
+fields:
+    is_published:
+        label: 'Person auflisten'
+        span: auto
+        type: switch
+    show_detail:
+        label: 'Detailseite für Person anzeigen'
+        span: full
+        default: 1
+        type: switch
+    booking:
+        label: 'Person online buchbar machen'
+        span: full
+        type: switch
+tabs:
+    fields:
+        honorific:
+            label: Ehrentitel
+            span: auto
+            type: text
+            tab: Basisdaten
+        first_name:
+            label: Vorname
+            span: auto
+            type: text
+            tab: Basisdaten
+        last_name:
+            label: Nachname
+            span: auto
+            type: text
+            tab: Basisdaten
+        role:
+            label: Position
+            span: auto
+            type: text
+            commentAbove: '(wird auch in metaTitle Tag (SEO) integriert)'
+            tab: Basisdaten
+        phone:
+            label: Telefon
+            span: auto
+            type: text
+            tab: Basisdaten
+        email:
+            label: E-Mail
+            span: auto
+            type: text
+            tab: Basisdaten
+        availability:
+            label: Verfügbarkeit
+            span: auto
+            type: text
+            tab: Basisdaten
+        company:
+            label: Firma
+            span: auto
+            type: text
+            tab: Basisdaten
+        slug:
+            label: Slug
+            span: auto
+            required: 1
+            defaultFrom: first_name
+            type: text
+            comment: 'URL-Ende für Profilseite'
+            tab: Basisdaten
+        teams:
+            label: Team
+            nameFrom: name
+            descriptionFrom: description
+            span: auto
+            type: relation
+            tab: Basisdaten
+        socials:
+            label: Socials
+            prompt: 'Neuen dazufügen'
+            span: full
+            type: repeater
+            comment: 'Links zu social media Profilen'
+            tab: Basisdaten
+            form:
+                fields:
+                    type:
+                        label: Service
+                        options:
+                            facebook: Facebook
+                            instagram: Instagram
+                            linkedin: LinkedIn
+                            twitter: Twitter
+                            youtube: Youtube
+                            '---': '---'
+                            bandcamp: Bandcamp
+                            discord: Discord
+                            flickr: Flickr
+                            github: Github
+                            line: Line
+                            pinterest: Pinterest
+                            reddit: Reddit
+                            signal: Signal
+                            skype: Skype
+                            snapchat: Snapchat
+                            soundcloud: Soundcloud
+                            spotify: Spotify
+                            telegram: Telegram
+                            tiktok: TikTok
+                            vimeo: Vimeo
+                            vk: VK
+                            website: Website
+                            whatsapp: Whatsapp
+                            xing: Xing
+                        showSearch: true
+                        span: auto
+                        type: dropdown
+                    id:
+                        label: 'ID, User, Channel-Nummer oder Telefonnummer'
+                        span: right
+                        type: text
+        portrait:
+            label: 'Foto Portraitseite'
+            mode: image
+            imageWidth: '250'
+            imageHeight: '250'
+            span: full
+            type: mediafinder
+            commentAbove: 'Empfohlene Grösse 400x400 Pixel'
+            tab: Basisdaten
+        imglist:
+            label: 'Foto Teamliste'
+            mode: image
+            imageWidth: '250'
+            imageHeight: '250'
+            span: full
+            type: mediafinder
+            commentAbove: 'Empfohlene Grösse 400x400 Pixel'
+            tab: Basisdaten
+        background:
+            label: 'Text zu Background'
+            size: giant
+            span: full
+            type: richeditor
+            tab: Kontext
+        milestones:
+            label: Meilensteine
+            prompt: 'Meileinstein hinzufügen'
+            span: full
+            type: repeater
+            style: collapsed
+            tab: Meilensteine
+            form:
+                fields:
+                    milestone_desc:
+                        label: Meilensteine
+                        size: ''
+                        span: full
+                        type: textarea
+                    milestone_year:
+                        label: Jahr
+                        span: full
+                        placeholder: Jahr
+                        type: text
+                    milestone_url:
+                        label: Url
+                        span: full
+                        type: text
+        jobs:
+            label: Werdegang
+            prompt: 'Vergangene Position hinzufügen'
+            span: full
+            type: repeater
+            style: collapsed
+            tab: Werdegang
+            form:
+                fields:
+                    job_title:
+                        label: Titel
+                        span: full
+                        type: text
+                    job_begin:
+                        label: Beginn
+                        span: auto
+                        placeholder: Jahr
+                        type: text
+                    job_end:
+                        label: Ende
+                        span: auto
+                        placeholder: Jahr
+                        type: text
+                    job_employer:
+                        label: Ort
+                        span: full
+                        type: text
+                    job_url:
+                        label: Url
+                        span: full
+                        type: text
+        skills:
+            label: Kompetenzen
+            prompt: 'Kompetenzen hinzufügen'
+            span: full
+            type: repeater
+            style: collapsed
+            tab: Kompetenzen
+            form:
+                fields:
+                    skill_desc:
+                        label: Beschreibung
+                        span: full
+                        type: text
+        educations:
+            label: Ausbildungen
+            prompt: 'Ausbildung hinzufügen'
+            span: full
+            type: repeater
+            style: collapsed
+            tab: Ausbildungen
+            form:
+                fields:
+                    education_title:
+                        label: Titel
+                        span: full
+                        type: text
+                    education_school:
+                        label: Ausbildungsstätte
+                        span: full
+                        type: text
+                    education_begin:
+                        label: Beginn
+                        span: left
+                        placeholder: Jahr
+                        type: text
+                    education_end:
+                        label: Ende
+                        span: right
+                        placeholder: Jahr
+                        type: text
+        map_published:
+            label: 'Karte anzeigen'
+            span: auto
+            type: checkbox
+            tab: Map
+        map_title:
+            label: 'Titel über Karte'
+            span: full
+            type: text
+            tab: Map
+        map_intro:
+            label: 'Intro-Text über Karte'
+            size: large
+            span: full
+            type: richeditor
+            comment: 'z.B. Anfahrtsinformationen'
+            tab: Map
+        street:
+            label: Strasse
+            span: left
+            type: text
+            tab: Map
+        'no':
+            label: Hausnummer
+            span: right
+            type: text
+            tab: Map
+        zip:
+            label: Postleitzahl
+            span: left
+            type: text
+            tab: Map
+        city:
+            label: Stadt
+            span: right
+            type: text
+            tab: Map
+        country:
+            label: Land
+            span: left
+            type: text
+            tab: Map
+        boxtext:
+            label: 'Text für Portrait-Box'
+            size: small
+            span: full
+            type: richeditor
+            comment: 'einfacher Text oder Kombinationen mit Titel, Links etc. möglich'
+            tab: Portraitbox
+        boxlink:
+            label: 'Text Linkbalken'
+            span: full
+            type: text
+            comment: 'Link zielt automatisch auf die Profilseite'
+            tab: Portraitbox
+        imgbox:
+            label: Foto
+            mode: image
+            imageWidth: '250'
+            imageHeight: '250'
+            span: full
+            type: mediafinder
+            commentAbove: 'Empfohlene Grösse 400x400 Pixel'
+            tab: Portraitbox
+        memberships:
+            label: Mitgliedschaften
+            prompt: 'neue hinzufügen'
+            span: full
+            type: repeater
+            style: collapsed
+            tab: Mitgliedschaften
+            form:
+                fields:
+                    membership_name:
+                        label: Name
+                        span: full
+                        type: text
+                    membership_url:
+                        label: URL
+                        span: full
+                        type: text
+                        commentAbove: 'https://...'
+        publications_text:
+            label: 'Ergänzender Text'
+            size: small
+            span: full
+            type: richeditor
+            tab: Publikationen
+        publications:
+            label: Publikationen
+            prompt: 'neue hinzufügen'
+            span: full
+            type: repeater
+            tab: Publikationen
+            style: collapsed
+            form:
+                fields:
+                    publication_title:
+                        label: Titel
+                        span: full
+                        type: text
+                    publication_year:
+                        label: Jahr
+                        span: full
+                        type: text
+                    publication_url:
+                        label: URL
+                        span: full
+                        type: text
+                        commentAbove: 'https://...'
+        seo_desc:
+            label: 'Meta Description'
+            size: tiny
+            span: full
+            type: textarea
+            commentAbove: 'Wird ev. direkt von Google und social media übernommen,'
+            tab: SEO

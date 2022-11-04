@@ -1,0 +1,40 @@
+title = "Kardiologie A-Z"
+url = "/kardiologie"
+layout = "default"
+meta_title = "Kardiologie A-Z"
+meta_description = "Artikel und Videos rund um Kardiologie"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+og_title = "Kardiologie A-Z (sm)"
+og_type = "article"
+og_description = "de social media desc"
+og_image = "/__PREVIEWS/dth-eingang-1024x768.jpg"
+
+[viewBag]
+localeUrl[de] = "kardiologie"
+localeUrl[en] = "/cardiology"
+localeBlogbase[de] = "kardiologie"
+localeBlogbase[en] = "cardiology"
+localeTagpagebase[de] = "stichwort"
+localeTagpagebase[en] = "tag"
+localeCategorypagebase[de] = "thema"
+localeCategorypagebase[en] = "topic"
+localeTitle[en] = "Cardiology A-Z"
+localeMeta_title[en] = "Cardiology A-Z"
+localeMeta_description[en] = "engl desc"
+localeOg_title[en] = "Cariology A-Z (sm)"
+localeOg_description[en] = "engl desc sm"
+
+[postsall]
+[tagcloud]
+==
+<?php
+function onStart()
+  {
+    $this['breadcrumbid'] = 'list';
+  }
+?>
+==
+{% component "postsall" %}
+{% component "tagcloud" %}

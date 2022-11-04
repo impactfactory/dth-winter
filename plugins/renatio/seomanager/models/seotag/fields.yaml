@@ -1,0 +1,63 @@
+seo_tag[meta_title]:
+    label: renatio.seomanager::lang.field.meta_title
+    tab: renatio.seomanager::lang.tab.meta
+    comment: renatio.seomanager::lang.comments.meta_title
+    commentHtml: true
+    attributes: { 'data-limit': 60 }
+    cssClass: countable
+
+seo_tag[meta_description]:
+    label: renatio.seomanager::lang.field.meta_description
+    type: textarea
+    tab: renatio.seomanager::lang.tab.meta
+    size: tiny
+    attributes: { 'data-limit': 300 }
+    comment: renatio.seomanager::lang.comments.meta_description
+    commentHtml: true
+    cssClass: countable
+    span: left
+
+seo_tag[meta_keywords]:
+    label: renatio.seomanager::lang.field.meta_keywords
+    type: textarea
+    tab: renatio.seomanager::lang.tab.meta
+    size: tiny
+    span: right
+
+seo_tag[robot_index]:
+    label: renatio.seomanager::lang.field.robot_index
+    type: radio
+    tab: renatio.seomanager::lang.tab.meta
+    span: left
+    default: index
+    options:
+        index: [renatio.seomanager::lang.robot.index, renatio.seomanager::lang.robot.index_comment]
+        noindex: [renatio.seomanager::lang.robot.noindex, renatio.seomanager::lang.robot.noindex_comment]
+
+seo_tag[robot_follow]:
+    label: renatio.seomanager::lang.field.robot_follow
+    tab: renatio.seomanager::lang.tab.meta
+    type: radio
+    span: right
+    default: follow
+    options:
+        follow: [renatio.seomanager::lang.robot.follow, renatio.seomanager::lang.robot.follow_comment]
+        nofollow: [renatio.seomanager::lang.robot.nofollow, renatio.seomanager::lang.robot.nofollow_comment]
+
+seo_tag[robot_advanced]:
+    label: renatio.seomanager::lang.field.robot_advanced
+    tab: renatio.seomanager::lang.tab.meta
+    comment: renatio.seomanager::lang.comments.robot_advanced
+    span: left
+
+seo_tag[canonical_url]:
+    label: renatio.seomanager::lang.field.canonical_url
+    tab: renatio.seomanager::lang.tab.meta
+    comment: renatio.seomanager::lang.comments.canonical_url
+    span: left
+
+seo_tag[redirect_url]:
+    label: renatio.seomanager::lang.field.redirect_url
+    tab: renatio.seomanager::lang.tab.meta
+    comment: renatio.seomanager::lang.comments.redirect_url
+    span: right

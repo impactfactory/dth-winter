@@ -1,0 +1,35 @@
+title = "Person"
+url = "/team/:slug"
+layout = "default"
+description = "Detailseite zu einem Teammitglied"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+enabled_in_sitemap = 1
+model_class = "ImpactFactory\Team\Models\Person"
+use_updated_at = 1
+changefreq = "always"
+priority = 0.1
+meta_title = "Person"
+meta_description = "Person"
+
+[viewBag]
+localeUrl[en] = "/team/:slug"
+
+[teamPerson]
+slug = "{{ :slug }}"
+
+[gallerydisplay]
+
+
+==
+<?php
+function onStart()
+{
+    $this['breadcrumbid'] = 'persondetail';
+}
+?>
+==
+<div class="person indent-me mt-5">
+  {% component 'teamPerson' %}
+</div>

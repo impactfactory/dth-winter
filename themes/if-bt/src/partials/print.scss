@@ -1,0 +1,183 @@
+
+@media print {
+
+  // global settings //
+
+  @page {
+  size: A4 portrait;
+  margin: 1cm 0.5cm 1cm 0.5cm ;
+  }
+
+  @page:first {
+  margin-top: 0.5cm;
+  }
+
+  h1 {
+  page-break-before: always;
+  }
+
+  h1, h2, h3, h4, h5 {
+  page-break-after: avoid;
+  }
+
+  h1+p, h2+p, h3+p {
+  page-break-before: avoid;
+}
+
+  table, figure, p, ul, li, .linklist, .contact {
+  page-break-inside: avoid;
+  }
+
+  /*
+  @page:right {
+    @bottom-right {
+      content: "Page " counter(page) " of " counter(pages);
+    }
+  }
+  */
+
+
+  body {
+    color: #000 !important;
+    margin-top: 1cm;
+    margin-left: 1cm;
+    margin-right: 1cm;
+    margin-bottom: 1cm;
+  }
+
+  header .navbar-toggler,
+  .deeplinks ul,
+  .deeplinks h3,
+  .byline,
+  a.btn,
+  video,
+  iframe,
+  #languageselect,
+  #languageselect-footer,
+  .searchfield,
+  .tagcloud,
+  .title-wrap,
+  .videopreview {
+    display:none !important;
+  }
+
+  h1 {
+    page-break-before: always;
+  }
+
+  h1, h2, h3, h4, h5 {
+    page-break-after: avoid;
+  }
+
+  table, figure {
+  page-break-inside: avoid;
+  }
+
+
+
+
+
+  // template settings //
+
+  header .navbar {
+    position: relative; top: 0!important;
+    margin-bottom: -1cm;
+  }
+
+  .pagetitle {
+    background-color: rgba(255,255,255,0.2);
+    display:block;
+    margin-bottom:200px;
+    width:100%;
+    border: none;
+
+
+    h1, h2 {
+      text-shadow: none !important;
+      color: #000 !important;
+    }
+
+    .pagetitle-img {display:none!important;}
+  }
+
+  .contact, .contact a, .fullwrap, .fullwrap a, .threerowh1 h1 span, .textpic {
+    color: #000 !important;
+  }
+
+
+  .faq .collapse {
+    display: block !important;
+    height: auto !important;
+   }
+
+  .faq .accordion-button {
+    color: #000!important;
+    font-weight: 800!important;
+  }
+
+  .map-container img {
+    max-width: none !important;
+  }
+
+  .postdetail {
+
+    .postvisual {
+      display: block;
+      margin-bottom: 800px;
+      //height: 100px;
+      position: relative; top: 0;
+
+      .postvisual-info, .postvisual-info a, .postvisual-info img {
+        background: transparent !important;
+        color: #000 !important;
+        box-shadow: none!important;
+      }
+
+      .card-img-overlay {
+        position: relative;
+      }
+
+      .postvisual-img {
+        display:none !important;
+      }
+
+      h1, h2 {
+        text-shadow: none !important;
+        color: #000 !important;
+      }
+    } // end .postvisual
+
+
+    .medfaq {
+
+      .collapse {
+        display: block !important;
+        height: auto !important;
+      }
+
+        .accordion-button {
+          color: #000!important;
+          font-weight: 800!important;
+        }
+    }
+
+
+    .howto {
+
+      page-break-before: always;
+
+      ul, li {
+        page-break-inside: auto;
+      }
+
+      .substeps {
+        display:block!important;
+      }
+
+      .steps ul li h3 {
+        padding-left: 0.5cm;
+      }
+    }
+
+  } // end .postdetail
+} // print

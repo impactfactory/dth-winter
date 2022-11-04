@@ -1,0 +1,38 @@
+.tooltips {
+  position: relative;
+}
+
+.tooltips::before {
+  background: $if-black;
+  border-radius: 5px;
+  color: $if-white;
+  content: attr(data);
+  display: inline-block;
+  position: absolute;
+    bottom: 50%;
+    left: -50%;
+  opacity:0;
+  overflow:hidden;
+  padding: 1rem;
+  pointer-events: none; /* prevents tooltip from firing on pseudo hover */
+  text-align: left;
+  transition:0.3s;
+}
+
+.tooltips:hover::before {
+  bottom: 100%;
+  opacity:1;
+}
+
+
+#contactbox .tooltips::before {
+  left: -100px;
+}
+
+#map-snippet .tooltips::before {
+  left: -100px;
+}
+
+#contactsection .tooltips::before {
+  left: -100px;
+}

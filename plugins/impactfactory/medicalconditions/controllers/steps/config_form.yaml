@@ -1,0 +1,10 @@
+name: Steps
+form: $/impactfactory/medicalconditions/models/step/fields.yaml
+modelClass: Impactfactory\MedicalConditions\Models\Step
+defaultRedirect: impactfactory/medicalconditions/steps
+create:
+    redirect: 'impactfactory/medicalconditions/steps/update/:id'
+    redirectClose: impactfactory/medicalconditions/steps
+update:
+    redirect: impactfactory/medicalconditions/steps
+    redirectClose: impactfactory/medicalconditions/steps

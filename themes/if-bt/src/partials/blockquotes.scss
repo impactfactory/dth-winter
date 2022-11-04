@@ -1,0 +1,9 @@
+blockquote {
+  border-left: 6px dotted $if-secondary-dark;
+  color: $if-secondary-dark;
+  display:block!important;
+  font-size: 18px!important;
+  font-style: italic;
+  margin: 2rem 0 2rem 6rem!important;
+  padding: 1rem 0 1rem 2rem;
+}

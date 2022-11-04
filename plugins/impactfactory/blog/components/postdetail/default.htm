@@ -1,0 +1,44 @@
+{% set post = __SELF__.post %}
+{% set orgameta = orgaMeta.meta %}
+
+<div class="fullwrap pt-0 postdetail">
+
+  {% partial 'postdetail::keyvisual.htm' %}
+
+  <div class="indent-me">
+
+          {{ post.content | parseSnippets }}
+
+          {% placeholder links %}
+          {% placeholder abstract %}
+          {% placeholder faq %}
+          {% placeholder howto %}
+
+  </div> {# end indent-me #}
+</div> {# end fullwrap #}
+
+
+{% put json %}
+<script type="application/ld+json">
+{
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "{{ post.title }}",
+          "image": "{{ post.meta_img | media | app }}",
+          "datePublished": "{{ post.created_at }}",
+          "dateModified": "{{ post.updated_at }}",
+          "author": {
+            "@type": "Person",
+            "name": " {% if post.author.honorific %}{{ post.author.honorific }} {% endif %}{{ post.author.first_name }} {{ post.author.last_name }}"
+          },
+           "publisher": {
+            "@type": "Organization",
+            "name": "{{ orgameta.schema_name }}",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "/storage/app/media{{ orgameta.schema_logo }}"
+            }
+          }
+}
+</script>
+{% endput %}

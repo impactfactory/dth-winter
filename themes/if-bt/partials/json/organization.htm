@@ -1,0 +1,33 @@
+description = "Puts Organization Schema into HTML-Head"
+
+[viewBag]
+==
+<?php
+
+?>
+==
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "{{ 'schema.Organization.name'|_ }}",
+  "desc": {{ 'schema.Organization.desc'|_ }},
+  "url": "{{ 'schema.Organization.url'|_ }}",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "{{ 'assets/img/logo-json.jpg' | theme }}"
+  },
+  "address":{
+      "@type":"PostalAddress",
+      "addressLocality": "{{ 'schema.Organization.city'|_ }}",
+      "addressCountry": "{{ 'schema.Organization.country'|_ }}",
+      "postalCode": "{{ 'schema.Organization.zip'|_ }}",
+      "streetAddress": "{{ 'schema.Organization.street_no'|_ }}"
+  },
+  "contactPoint" : [{
+      "@type" : "ContactPoint",
+      "telephone" : "{{ 'schema.Organization.phone'|_ }}",
+      "contactType" : "customer service"
+  }]
+}
+</script>

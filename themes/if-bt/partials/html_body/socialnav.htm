@@ -1,0 +1,10 @@
+[staticMenu socialMenu]
+code = "social"
+==
+<div class="py-4 grey">
+  {% for item in socialMenu.menuItems %}
+    <a title="{{ item.title }}" href="{{ item.url }}" class="mr-1" rel="noopener" target="_blank">
+        <i class="{{ item.viewBag.cssClass }} h1"></i>
+    </a>
+  {% endfor %}
+</div>

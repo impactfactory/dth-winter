@@ -1,0 +1,14 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table impactfactory_faq_faqs'
+    - builder_table_create_impactfactory_faq_faqs.php
+1.0.3:
+    - 'Created table impactfactory_faq_categories'
+    - builder_table_create_impactfactory_faq_categories.php
+1.0.4:
+    - 'Created table impactfactory_faq_category_faq'
+    - builder_table_create_impactfactory_faq_category_faq.php
+1.0.5:
+    - 'Updated table impactfactory_faq_categories'
+    - builder_table_update_impactfactory_faq_categories.php

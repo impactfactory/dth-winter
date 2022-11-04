@@ -1,0 +1,90 @@
+{% set post = __SELF__.post %}
+
+<div class="postvisual card text-white border-0 mb-3">
+
+   <picture class="postvisual-img" width="100%">
+
+      {# Safari <=14 falls back on img if there is not type attribute present at each line! #}
+
+      <source type="image/webp" media="(max-width: 280px)" srcset="{{ post.img | media | resize(280, 547, { mode: 'cover', format: 'webp', fit_position: '{{ post.crop_area }}' }) }}">
+      <source type="image/jpg" media="(max-width: 280px)" srcset="{{ post.img | media | resize(280, 547, { mode: 'cover', fit_position: '{{ post.crop_area }}'  }) }}">
+
+      <source type="image/webp" media="(max-width: 320px)" srcset="{{ post.img | media | resize(320, 547, { mode: 'cover', format: 'webp', fit_position: '{{ post.crop_area }}'  }) }}">
+      <source type="image/jpg" media="(max-width: 320px)" srcset="{{ post.img | media | resize(320, 547, { mode: 'cover', fit_position: '{{ post.crop_area }}'  }) }}">
+
+      <source type="image/webp" media="(max-width: 360px)" srcset="{{ post.img | media | resize(360, 547, { mode: 'cover', format: 'webp', fit_position: '{{ post.crop_area }}'  }) }}">                                            <source type="image/jpg" media="(max-width: 360px)" srcset="{{ post.img | media | resize(360, 547, { mode: 'cover', fit_position: '{{ post.crop_area }}'  }) }}">
+
+      <source type="image/webp" media="(max-width: 567px)" srcset="{{ post.img | media | resize(567, 547, { mode: 'cover', format: 'webp', fit_position: '{{ post.crop_area }}'  }) }}">
+      <source type="image/jpg" media="(max-width: 567px)" srcset="{{ post.img | media | resize(567, 547, { mode: 'cover', fit_position: '{{ post.crop_area }}'  }) }}">
+
+      <source type="image/webp" media="(max-width: 768px)" srcset="{{ post.img | media | resize(768, 547, { mode: 'cover', format: 'webp', fit_position: '{{ post.crop_area }}'  }) }}">
+      <source type="image/jpg" media="(max-width: 768px)" srcset="{{ post.img | media | resize(768, 547, { mode: 'cover', fit_position: '{{ post.crop_area }}'  }) }}">
+
+      <source type="image/webp" media="(max-width: 1024px)" srcset="{{ post.img | media | resize(1024, 547, { mode: 'cover', format: 'webp', fit_position: '{{ post.crop_area }}' }) }}">
+      <source mtype="image/jpg" media="(max-width: 1024px)" srcset="{{ post.img | media | resize(1024, 547, { mode: 'cover', fit_position: '{{ post.crop_area }}'  }) }}">
+
+      <source type="image/webp" media="(max-width: 3600px)" srcset="{{ post.img | media | resize(1440, 547, { mode: 'cover', format: 'webp', fit_position: '{{ post.crop_area }}' }) }}">
+      <source type="image/jpg" media="(max-width: 3600px)" srcset="{{ post.img | media | resize(1440, 547, { mode: 'cover', fit_position: '{{ post.crop_area }}' }) }}">
+
+      <img type="image/jpg" src="{{  post.img | media | resize(1440, 547, { mode: 'cover', fit_position: '{{ post.crop_area }}' }) }}" class="postvisual-img" alt="Keyvisual" width="auto" height="547">
+
+   </picture>
+
+
+
+    <div class="card-img-overlay">
+      <div class="indent-me">
+        <h1 class="text-shadow">
+          {{ post.title }}
+        </h1>
+        {% if post.subtitle %}
+          <h2 class="text-white text-shadow">
+            {{ post.subtitle }}
+          </h2>
+        {% endif %}
+        <hr>
+        <div class="row postvisual-info">
+            <div class="col-3 col-sm-2">
+              <a href="/{{ localePicker.activeLocale }}/{{ viewBag.localeTeambase[activeLocale] }}/{{ post.author.slug }}">
+                <img src="{{ post.author.portrait | media | app | resize(122, 122, { mode: 'cover' }) }}"
+                     alt="{{ post.author.first_name }} {{ post.author.last_name }}"
+                     width="100"
+                     height="100"
+                     class="rounded-circle shadow mb-3 img-fluid"
+                >
+              </a>
+            </div>
+            <div class="col-9 col-sm-10 py-2">
+                <div class="author">
+                  <strong>{{ 'post.publishedby'|_ }}: </strong><a href="/{{ localePicker.activeLocale }}/{{ viewBag.localeTeambase[activeLocale] }}/{{ post.author.slug }}">{{ post.author.first_name }} {{ post.author.last_name }}</a>
+                </div>
+                <div class="timetoread">
+                  <strong>{{ 'post.timetoread' |_ }}: </strong>{{ post.timetoread }} Min.
+                </div>
+                <div class="tag">
+                  <strong>{{ 'bloglist.tags.buttons.intro' |_ }}: </strong>
+                  {% for tag in post.tags %}
+                      <a href="/{{ localePicker.activeLocale }}/{{ viewBag.localeBlogbase[activeLocale] }}/{{ viewBag.localeTagpagebase[activeLocale] }}/{{ tag.slug }}">
+                        {{ tag.name }}
+                      </a>
+                      {% if not loop.last %} . {% endif %}
+                  {% endfor %}
+                </div>
+                <div class="categories">
+                  {% if post.categories.count %}
+                    <strong>{{ 'blog.post.publishedin'|_ }}: </strong>
+                    {% for category in post.categories %}
+                       <a href="/{{ localePicker.activeLocale }}/{{ viewBag.localeBlogbase[activeLocale] }}/{{ viewBag.localeCategorypagebase[activeLocale] }}/{{ category.slug }}" title="{{ category.name }}">
+                         {{ category.name }}
+                       </a>
+                       {% if not loop.last %} . {% endif %}
+                    {% endfor %}
+                  {% endif %}
+                  {{ 'blog.post.publishedat'|_ }} <span class="">{{ post.published_at|date("d/m/Y") }}</span>
+                </div>    {# end categories #}
+            </div>{# end col-9 #}
+
+          </div> {# end postvisual-info #}
+        </div> {# end indent-me #}
+      </div> {# end card-img-overlay #}
+</div> {# end postvisual card #}

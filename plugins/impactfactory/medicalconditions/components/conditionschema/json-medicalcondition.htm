@@ -1,0 +1,91 @@
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "MedicalCondition",
+    "desc":"{{ cond.desc }}",
+    "name":"{{ cond.name }}",
+    "image": "{{ url('/') }}/storage/app/media/{{ cond.image }}",
+    "relevantSpecialty": "{{ cond.speciality }}",
+    "sameAs": "{{ cond.wiki }}",
+    "alternateName": [
+      {% for altname in cond.alt_names %}
+        "{{ altname.name }}"{%- if not loop.last -%}, {%- endif -%}
+      {% endfor %}
+    ],
+    "associatedAnatomy": {
+      "@type": "AnatomicalStructure",
+      "name": "{{ cond.anatomy }}"
+    },
+    "code": {
+       "codeValue": "{{ cond.codevalue }}",
+       "codingSystem": "{{ cond.codesystem }}",
+       "medicineSystem": "WesternConventional"
+      },
+    "differentialDiagnosis": {
+      "@type": "DDxElement",
+      "diagnosis": {
+          "@type": "MedicalCondition",
+          "name": "{{ cond.differential }}"
+      },
+      "distinguishingSign": [
+        {% for sign in cond.distinguishing_signs %}
+          {
+            "@type": "MedicalSymptom",
+            "name": "{{ sign.name }}"
+          }{%- if not loop.last -%}, {% endif %}
+        {% endfor %}
+      ]
+    },
+    "guideline": {
+      "@type": "MedicalGuideline",
+      "description": "{{ cond.g_desc }}",
+      "evidenceLevel": "{{ cond.g_ev }}",
+      "evidenceOrigin": "{{ cond.g_origin }}",
+      "guidelineSubject": "{{ cond.name }}",
+      "name": "{{ cond.g_name }}",
+      "recommendationStrength": "{{ cond.g_recomm }}"
+    },
+    "possibleTreatment": [
+      {% for treatment in cond.treatments %}
+        {
+          "@type": "MedicalTherapy",
+          {% if treatment.url %}"url": "{{ treatment.url }}",
+          {% elseif treatment.tag %}"url": "{{ url('/') }}/{{ localePicker.activeLocale }}/{{ viewBag.localeBlogbase[activeLocale] }}/{{ viewBag.localeTagpagebase[activeLocale] }}/{{ treatment.tag.slug }}",
+          {% else %}{% endif %}
+          "name": "{{ treatment.name }}"
+        }{%- if not loop.last -%}, {% endif %}
+      {% endfor %}
+     ],
+    "riskFactor": [
+      {% for risk in cond.risks %}
+        {
+          "@type": "MedicalRiskFactor",
+          {% if risk.url %}"url": "{{ risk.url }}",{% endif %}
+          "name": "{{ risk.name }}"
+        }{%- if not loop.last -%}, {% endif %}
+      {% endfor %}
+    ],
+    "signOrSymptom": [
+      {% for symptom in cond.symptoms %}
+        {
+          "@type": "MedicalSignOrSymptom",
+          {% if symptom.url %}"url": "{{ symptom.url }}",
+          {% elseif symptom.tag %}"url": "{{ url('/') }}/{{ localePicker.activeLocale }}/{{ viewBag.localeBlogbase[activeLocale] }}/{{ viewBag.localeTagpagebase[activeLocale] }}/{{ symptom.tag.slug }}",
+          {% else %}{% endif %}
+          "name": "{{ symptom.name }}"
+        }{%- if not loop.last -%}, {% endif %}
+      {% endfor %}
+    ],
+    "typicalTest": [
+      {% for test in cond.tests %}
+          {
+            "@type": "MedicalTest",
+            {% if test.url %}"url": "{{ test.url }}",
+            {% elseif test.tag %}"url": "{{ url('/') }}/{{ localePicker.activeLocale }}/{{ viewBag.localeBlogbase[activeLocale] }}/{{ viewBag.localeTagpagebase[activeLocale] }}/{{ test.tag.slug }}",
+            {% else %}{% endif %}
+            "name": "{{ test.name }}"
+          }{%- if not loop.last -%}, {% endif %}
+      {% endfor %}
+    ]
+  }
+</script>

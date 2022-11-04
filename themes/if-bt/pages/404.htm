@@ -1,0 +1,65 @@
+title = 404
+url = "/404"
+layout = "default"
+meta_title = 404
+meta_description = 404
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[searchInput]
+useAutoComplete = 1
+autoCompleteResultCount = 5
+showProviderBadge = 1
+searchPage = "suchresultate.htm"
+==
+<?php
+function onStart()
+{
+    // provide an id for breadcrumb json partial
+    $this['breadcrumbid'] = '404';
+
+    // translate the formaction url
+    $currentLocale = \RainLab\Translate\Classes\Translator::instance()->getLocale();
+    $locales = [
+        'de' => ['url' => 'suchresultate'],
+        'en' => ['url' => 'searchresults']
+    ];
+
+    $this['formaction'] = $locales[$currentLocale] ?? [];
+
+}
+?>
+==
+<div class="fullwrap">
+    <div class="indent-me">
+    {% content '404-text' %}
+
+    <form action="{{ formaction.url }}?q=" method="get">
+      <div class="ss-search-form">
+          <div class="ss-search-form__input row pt-5 pb-5">
+              <div class="col-12 col-sm-8">
+                <input class="form-control mb-3 d-inline"
+                       name="q"
+                       type="text"
+                       placeholder=""
+                       value=""
+                       autocomplete="on"
+                       autofocus
+                       aria-label="{{'404.input.aria'|_}}"
+                >
+              </div>
+              <div class="col-12 col-sm-4">
+                <button class="ss-search-form__submit btn btn-primary mr-2 w-100"
+                        type="submit" >
+                        {{ '404.submit.label'|_ }}
+                </button>
+              </div>
+          </div>
+          <div class="ss-search-form__results" id="autocomplete-results">
+          </div>
+      </div>
+    </form>
+
+    </div> {# end indent-met #}
+</div> {# end fullwrap #}

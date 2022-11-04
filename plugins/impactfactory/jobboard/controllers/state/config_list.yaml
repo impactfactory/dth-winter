@@ -1,0 +1,12 @@
+list: $/impactfactory/jobboard/models/states/columns.yaml
+modelClass: Impactfactory\Jobboard\Models\States
+title: State
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'impactfactory/jobboard/state/update/:id'

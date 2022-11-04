@@ -1,0 +1,111 @@
+title = "Test ImageResizer AbWebDev"
+url = "/imgres-abwebdev"
+layout = "default"
+description = "alternatives Plugin mit mehr Funktionalität als das bekannte"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+enabled_in_sitemap = 0
+use_updated_at = 0
+changefreq = "always"
+priority = 0.1
+meta_title = "Test ImageResizer AbWebDev"
+meta_description = "Test ImageResizer AbWebDev"
+==
+<h1>Image Tests with ImageResizer from AbWebDeveloper</h1>
+
+
+<p>
+<h3>Image without resize, 1200x720 forced to 600x360 (250kb)</h3>
+<img src="{{ 'tests/test.jpg' | media }}" width="600" height="360">
+</p>
+
+<p>
+<h3>Image with resize 600x360, without crop (53.8 kb)</h3>
+<img src="{{ 'tests/test.jpg' | media | resize(600, 360) }}">
+</p>
+
+<p>
+<h3>Image with resize to height 200, width auto (17.3 kb)</h3>
+<img src="{{ 'tests/test.jpg' | media | resize(null, 200) }}">
+</p>
+
+<p>
+<h3>Image with resize to 600x200, mode cover (29.6 kb)</h3>
+<img src="{{ 'tests/test.jpg' | media | resize(600, 200, { mode: 'cover' }) }}">
+</p>
+
+<p>
+<h3>Image with resize to 600x200, mode contain (18.8 kb)</h3>
+<img src="{{ 'tests/test.jpg' | media | resize(600, 200, { mode: 'contain' }) }}">
+</p>
+
+<p>
+<h3>Image with resize to 600x200, mode stretch (29.5 kb)</h3>
+<img src="{{ 'tests/test.jpg' | media | resize(600, 200, { mode: 'stretch' }) }}">
+</p>
+
+<p>
+<h3>Image with resize 600x200, mode cover, blur 50 (7.4 kb)</h3>
+<img src="{{ 'tests/test.jpg' | media | resize(600, 200, { mode: 'cover', blur: 50 }) }}">
+</p>
+
+<p>
+<h3>Image with resize 600x200, mode cover, sharpen 80 (64.3 kb)</h3>
+<img src="{{ 'tests/test.jpg' | media | resize(600, 200, { mode: 'cover', sharpen: 80 }) }}">
+</p>
+
+<p>
+<h3>Image with resize 600x200, mode cover, brightness 80 (12.4 kb)</h3>
+<img src="{{ 'tests/test.jpg' | media | resize(600, 200, { mode: 'cover', brightness: '80' }) }}">
+</p>
+
+<p>
+<h3>Image with resize 600x200, mode cover, contrast 80 (35.1 kb)</h3>
+<img src="{{ 'tests/test.jpg' | media | resize(600, 200, { mode: 'cover', contrast: '80' }) }}">
+</p>
+
+<p>
+<h3>Image with resize 600x200, mode cover, pixelate 10 (12.3 kb)</h3>
+<img src="{{ 'tests/test.jpg' | media | resize(600, 200, { mode: 'cover', pixelate: '10' }) }}">
+</p>
+
+<p>
+<h3>Image with resize 600x200, mode cover, greyscale true (28.0 kb)</h3>
+<img src="{{ 'tests/test.jpg' | media | resize(600, 200, { mode: 'cover', greyscale: 'true' }) }}">
+</p>
+
+<p>
+<h3>Image with resize 600x200, mode cover, invert true (29.6 kb)</h3>
+<img src="{{ 'tests/test.jpg' | media | resize(600, 200, { mode: 'cover', invert: 'true' }) }}">
+</p>
+
+<p>
+<h3>Image with resize 600x200, mode cover, opacity 50% (29.6 kb)</h3>
+<img src="{{ 'tests/test.jpg' | media | resize(600, 200, { mode: 'cover', opacity: '50' }) }}">
+</p>
+
+<p>
+<h3>Image with resize 600x200, mode cover, rotate 45 (32.8 kb)</h3>
+<img src="{{ 'tests/test.jpg' | media | resize(600, 200, { mode: 'cover', rotate: '45' }) }}">
+</p>
+
+<p>
+<h3>Image with resize 600x200, mode cover, flip 50 (29.6 kb)</h3>
+<img src="{{ 'tests/test.jpg' | media | resize(600, 200, { mode: 'cover', flip: 'v' }) }}">
+</p>
+
+<p>
+<h3>Image with resize 600x200, mode contain, background black (18.5 kb)</h3>
+<img src="{{ 'tests/test.jpg' | media | resize(600, 200, { mode: 'contain', background: '#000' }) }}">
+</p>
+
+<p>
+<h3>Image with resize 600x200, mode cover, colorize 50  - doesn't work</h3>
+<img src="{{ 'tests/test.jpg' | media | resize(600, 200, { mode: 'cover', colorize: '255,0,0' }) }}">
+</p>
+
+<p>
+<h3>Image wrong path</h3>
+<img src="{{ 'tests/testxxx.jpg' | media | resize(600,200, {'mode' : 'contain'}) }}">
+</p>

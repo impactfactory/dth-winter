@@ -1,0 +1,48 @@
+
+
+<div class="card col-12 p-4 overflow-hidden">
+    <div class="row g-0">
+      {% if boxtitle %}
+        <h3 class="mb-1">{{ boxtitle }}</h3>
+      {% endif %}
+
+      <div class="col-5 pb-3">
+          <a href="/{{ localePicker.activeLocale }}/team/{{ person.slug }}" title="{{ person.first_name }} {{ person.last_name }}">
+            <picture>
+              <source type="image/webp" srcset="{{ person.imgbox | media | resize(300, 300, { mode: 'cover', format: 'webp' }) }}">
+              <source type="image/jpg" srcset="{{ person.imgbox | media | resize(300, 300, { mode: 'cover' }) }}">
+              <img type="image/jpg"
+                   src="{{  person.imgbox | media | resize(300, 300, { mode: 'cover' }) }}"
+                   class="img-fluid mr-3 rounded"
+                   width="300"
+                   height="300"
+                   loading="lazy"
+                   alt="Foto {{ person.first_name }} {{ person.last_name }}"
+              >
+            </picture>
+          </a>
+      </div>
+      <div class="col-7 py-0">
+        <div class="card-body py-0">
+          {{ person.boxtext|raw }}
+          {% if person.boxlink %}
+            <div class="portraitlink right">
+              <a href="/{{ localePicker.activeLocale }}/team/{{ person.slug}}">
+                {% partial 'html_body/svg-icons/externallink' %} {{ person.boxlink }}
+              </a>
+            </div>
+          {% endif %}
+          {% if person.booking == 1 %}
+          <div class="portraitlink right">
+            <a href="{{ 'online-buchung.htm' | staticPage }}"
+               class=""
+               title="Booking {% if person.honorific %} {{ person.honorific}} {% endif %}{{ person.first_name }} {{ person.last_name }}">
+               {% partial 'html_body/svg-icons/externallink' %} {{ 'person.boxbooking'|_ }}
+            </a>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+
+  </div> {# end row #}
+  </div> {# end card #}

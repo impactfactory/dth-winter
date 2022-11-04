@@ -1,0 +1,71 @@
+
+<section class="card howto my-4" id="howto">
+  <div class="card-header">
+      <h2 class="pt-2"> {{ cond.how_name }}</h2>
+  </div>
+  <div class="card-body">
+    <p class="cardtext">
+      {{ cond.how_desc }}
+    </p>
+    <ul class="list-group list-group-flush">
+      {% if cond.how_supplyname %}
+        <li class="list-group-item">
+          {% partial 'html_body/svg-icons/materials' %}
+          <b>{{ 'blog.howto.supply.label'|_ }}:</b> {% for supply in cond.how_supplyname %}{{ supply.name}}{%- if not loop.last -%}, {% endif %}{% endfor %}
+        </li>
+      {% endif %}
+      {% if cond.how_toolname %}
+        <li class="list-group-item">
+          {% partial 'html_body/svg-icons/toolbox' %}
+          <b>{{ 'blog.howto.tool.label'|_ }}:</b> {% for tool in cond.how_toolname %}{{ tool.name}}{%- if not loop.last -%}, {% endif %}{% endfor %}
+        </li>
+      {% endif %}
+      {% if cond.how_totalcost %}
+        <li class="list-group-item">
+          {% partial 'html_body/svg-icons/dollar' %}
+          <b>{{ 'blog.howto.totalcost.label'|_ }}:</b> {{ cond.how_totalcost }} {{ 'blog.howto.totaltime.currency'|_ }}
+        </li>
+      {% endif %}
+      {% if cond.how_totaltime %}
+        <li class="list-group-item">
+          {% partial 'html_body/svg-icons/clock' %}
+          <b>{{ 'blog.howto.totaltime.label'|_ }}:</b> {{ cond.how_totaltime }} {{ 'blog.howto.totaltime.hour'|_ }}
+        </li>
+      {% endif %}
+    </ul>
+    <hr>
+    <h3>{{ 'blog.howto.steps.title'|_ }}</h3>
+      <div class="steps">
+          <ul class="list-group list-group-flush">
+            {% for step in cond.steps %}
+              <li class="list-group-item py-4" id="step-{{ step.id }}">
+                  <div class="row">
+                    <div class="col-2">
+                        <picture>
+                            <source type="image/webp" srcset="{{ step.image | media | resize(100, 100, { mode: 'cover', format: 'webp' }) }}">
+                            <source type="image/jpg" srcset="{{ step.image | media | resize(100, 100, { mode: 'cover' }) }}">
+                            <img type="image/jpg"
+                                 src="{{ step.image | media | resize(100, 100, { mode: 'cover' }) }}" alt="{{ step.title }}"
+                                 width="100"
+                                 height="100"
+                                 class="rounded"
+                            >
+                        </picture>
+                    </div>
+                    <div class="col-10">
+                        <h3 class="h5 pt-0">
+                          <span class="step-index">{{ loop.index }} </span>{{ step.title }}
+                        </h3>
+                        <ul class="substeps">
+                        {% for substep in step.substeps %}
+                          <li>{{ substep.text }}</li>
+                        {% endfor %}
+                        </ul>
+                    </div>
+                  </div>
+              </li>
+            {% endfor %}
+          <ul>
+      </div>
+    </div> {# end card-body #}
+</section> {# end card #}

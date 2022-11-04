@@ -1,0 +1,37 @@
+<h2> {{ person.testimonials_title }}</h2>
+<div id="testimonials" class="carousel slide p-4 shadow"
+     data-bs-ride="carousel"
+     data-bs-pause="hover"
+     data-bs-interval="6000"
+     data-bs-touch="true"
+  >
+  <div class="carousel-inner" role="listbox">
+    {% for testimonial in person.testimonials %}
+      <div class="carousel-item {% if loop.first %} active {% endif %}">
+        <div class="media d-block d-md-flex">
+         <div class=" d-flex mr-3 mx-auto col-md-4 col-lg-3 media-image">
+          <figure class="figure pt-4">
+            <img src="{{ testimonial.testimonial_img|media | resize(150, 150, { mode: 'cover' }) }}"
+                 class="figure-img rounded-circle z-depth-1"
+                 alt="Foto {{ testimonial.testimonial_name }}"
+            >
+            <figcaption>
+
+            </figcaption>
+          </figure>
+          </div>
+          <div class="media-body text-left ml-md-3 ml-0 col-md-8 col-lg-9">
+            <blockquote class="pt-4">
+              <p class="mb-0">
+                <i class="fas fa-quote-left text-muted"></i>
+                  <span class="mr-4 d-inline-block">{{ testimonial.testimonial_text }}</span>
+                <i class="fas fa-quote-right text-muted"></i><br><br>
+                <strong class="h6 pl-2 pl-md-4">{{ testimonial.testimonial_name }}</strong>
+              </p>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+   {% endfor %}
+   </div>
+</div>

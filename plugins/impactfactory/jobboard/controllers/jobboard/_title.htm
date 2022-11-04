@@ -1,0 +1,36 @@
+<div>
+<h3 style="margin-top:0;">
+    <?php if ($formModel->firstname): ?>
+        <?= e($formModel->firstname) ?>
+    <?php endif ?>
+
+    <?php if ($formModel->lastname): ?>
+        <?= e($formModel->lastname) ?>
+    <?php endif ?>
+
+    <?php if ($formModel->city): ?>-
+      <?= e($formModel->city) ?>
+    <?php endif ?>
+</h3>
+
+    <p>
+      <?php if ($formModel->email): ?>
+        E-Mail: <a href="mailto:<?= e($formModel->email) ?>">
+            <?= e($formModel->email) ?>
+        </a>
+      <?php endif ?>
+      <?php if ($formModel->phone): ?>
+        / Telefon: <a href="tel:<?= e($formModel->phone) ?>">
+            <?= e($formModel->phone) ?>
+        </a>
+      <?php endif ?>
+    </p>
+    <p>
+    <?php if ($formModel->job_posting): ?>
+      Ausschreibung: <?= e($formModel->job_posting) ?>
+    <?php endif ?>
+    <?php if ($formModel->created_at): ?>
+      (<?= e($formModel->created_at) ?>)
+    <?php endif ?>
+    </p>
+</div>

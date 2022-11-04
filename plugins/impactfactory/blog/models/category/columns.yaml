@@ -1,0 +1,56 @@
+columns:
+    is_published:
+        label: 'impactfactory.blog::lang.post.is_published'
+        type: inetis-list-switch
+        icon: true
+        sortable: true
+    id:
+        label: id
+        type: number
+        sortable: true
+    img:
+        label: 'impactfactory.blog::lang.post.image'
+        type: partial
+        path: ~/plugins/impactfactory/blog/controllers/categories/_thumb.htm
+        sortable: true
+    created_at:
+        label: 'impactfactory.blog::lang.cat.created_at'
+        type: datetime
+        sortable: true
+        invisible: true
+    desc:
+        label: 'impactfactory.blog::lang.cat.desc'
+        type: text
+        searchable: true
+        invisible: true
+    meta_desc:
+        label: 'impactfactory.blog::lang.cat.meta_desc'
+        type: text
+        searchable: true
+        invisible: true
+    meta_keywords:
+        label: 'impactfactory.blog::lang.cat.meta_keyword'
+        type: text
+        searchable: true
+        invisible: true
+    meta_title:
+        label: 'impactfactory.blog::lang.cat.meta_title'
+        type: text
+        searchable: true
+        invisible: true
+        sortable: true
+    name:
+        label: 'impactfactory.blog::lang.cat.name'
+        type: text
+        searchable: true
+        sortable: true
+    slug:
+        label: 'impactfactory.blog::lang.cat.slug'
+        type: text
+        searchable: true
+        sortable: true
+    updated_at:
+        label: 'impactfactory.blog::lang.cat.updated_at'
+        type: datetime
+        invisible: true
+        sortable: true

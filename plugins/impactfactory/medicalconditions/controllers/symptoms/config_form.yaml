@@ -1,0 +1,10 @@
+name: Symptoms
+form: $/impactfactory/medicalconditions/models/symptom/fields.yaml
+modelClass: Impactfactory\MedicalConditions\Models\Symptom
+defaultRedirect: impactfactory/medicalconditions/symptoms
+create:
+    redirect: 'impactfactory/medicalconditions/symptoms/update/:id'
+    redirectClose: impactfactory/medicalconditions/symptoms
+update:
+    redirect: impactfactory/medicalconditions/symptoms
+    redirectClose: impactfactory/medicalconditions/symptoms

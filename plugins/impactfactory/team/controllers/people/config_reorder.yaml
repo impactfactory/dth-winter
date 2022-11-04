@@ -1,0 +1,5 @@
+title: Persons
+modelClass: ImpactFactory\Team\Models\Person
+nameFrom: name
+toolbar:
+    buttons: reorder_toolbar

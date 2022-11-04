@@ -1,0 +1,15 @@
+<?php if($value != null) { ?>
+  <a
+      href="javascript:;"
+      data-toggle="tooltip"
+      data-placement="top"
+      data-delay="200"
+      title="<?php echo $value['name']; ?>"
+      style="display:block;padding:10px;width:40px;height:40px;"
+   >
+      <div class="tooltip fade top in"
+           style="background:<?php echo $value['color']; ?>;border:1px solid #ccc;height:15px;width:15px;"
+           >
+      </div>
+  </a>
+<?php } ?>

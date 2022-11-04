@@ -1,0 +1,97 @@
+1.0.0:
+    - First version of Small GDPR
+1.1.0:
+    - Added settings in modal window
+    - Added Bootrap 3 styling
+1.1.1:
+    - Updated default presets and README
+1.1.2:
+    - Fixed sgCookies array to reflect required cookies group state
+1.1.3:
+    - Fixed scripts
+1.1.4:
+    - Fixed sgCookies array
+1.1.5:
+    - Fixed default EN preset
+1.1.6:
+    - Fixed default active cookies group to be active even without explicit consent
+1.1.7:
+    - Removed option Default active
+1.1.8:
+    - Added Static Pages snippet for Cookies manage component
+    - Changed trans function usage
+    - Changed default CSS style
+    - Added custom CSS class for Manage cookies and Cookies bar
+1.1.9:
+    - Removed unnecessary line in Manage cookies component
+1.2.0:
+    - Added Default enabled option for cookies groups for cookies to be executed without explicit consent
+    - Updated sgCookies array method
+    - Updated default presets
+1.2.1:
+    - Fixed values checks in CookiesSettings
+1.2.2:
+    - Added option to hide Cookies bar on specific Page or Layout with View Bag property
+1.2.3:
+    - Updated hideCookiesBar check to support Static Pages
+1.2.4:
+    - Added optional cookies group script file to be executed
+1.2.5:
+    - Updated styling, removed unnecessary styles
+1.2.6:
+    - Added option to run JS only in production mode
+1.2.7:
+    - Changed fields order in form
+1.3.0:
+    - Added export settings function
+1.3.1:
+    - Import file can be now selected from Media panel
+    - Updated export and import functions
+1.3.2:
+    - Fixed import function
+1.4.0:
+    - Added option do have more scripts and files in scripts group (old scripts data are automatically migrated to the new structure)
+    - Added optional title for scripts for internal use
+    - v14_migration.php
+1.4.1:
+    - Extended import tab to be able to use Media, own path or default preset file
+1.4.2:
+    - Removed forgotten dump
+1.4.3:
+    - Fixed migration not working on new installs
+1.4.4:
+    - Fixed folders and models name case
+1.4.5: !!! Cookies JS code placed in code window now requires <script> tags to be present! Please check your code.
+1.4.6:
+    - Updated translation and docs.
+1.4.7:
+    - Fixed components file name case
+1.4.8:
+    - Added sgCookies to Cookies Manage component (for case when you do not want to use Cookies Bar in your layout or page)
+1.4.9:
+    - Fixed CookiesSettings model
+1.4.10:
+    - Moved modal help-block div from label tag (to be HTML5 valid)
+1.4.11:
+    - Fixed localization
+1.5.0:
+    - Added Twig support for Translate plugin (thanks evwerkz)
+1.5.1:
+    - Changed buttons HTML attributes field to prevent naming collision
+1.6.0:
+    - Changed settings for import (added second btn for import default settings)
+1.7.0:
+    - Added option to specify pages to run scripts on
+    - Added option to disable specific script from execution (usable for temporary disable script)
+    - Added script for Google Analytics in default import files
+1.7.1:
+    - Fixed HTML attributes field localization in Settings
+1.8.0:
+    - Added Russian and German language (thanks evwerkz)
+    - Added Bootstrap 5 support (thanks evwerkz)
+1.8.1:
+    - Updated Bootstrap 5 modal support (thanks evwerkz)
+1.9.1:
+    - Added optional Cookies bar strip CSS styles
+1.10.0:
+    - Added Slovak translation, fixed Czech translation

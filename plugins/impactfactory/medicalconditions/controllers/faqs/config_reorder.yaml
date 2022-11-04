@@ -1,0 +1,4 @@
+title: FAQs
+modelClass: Impactfactory\MedicalConditions\Models\FAQ
+toolbar:
+    buttons: reorder_toolbar

@@ -1,0 +1,4 @@
+title: States
+modelClass: ImpactFactory\Ref\Models\State
+toolbar:
+    buttons: reorder_toolbar

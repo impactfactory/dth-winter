@@ -1,0 +1,5 @@
+fields:
+    name:
+        label: 'Typ (interne Bezeichnung)'
+        span: full
+        type: text

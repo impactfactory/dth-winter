@@ -1,0 +1,15 @@
+  <h2>{{ person.map_title}}</h2>
+
+  <p>{{ person.map_intro|raw }}</p>
+
+  <div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 500px">
+    <iframe width='100%'
+            height='500'
+            frameborder='0'
+            scrolling='no'
+            marginheight='0'
+            marginwidth='0'
+            title="Geolocation {{ person.first_name }} {{ person.last_name }}"
+            src='https://maps.google.com/maps?&amp;q="{{ person.street|url_encode }}{% if person.no|url_encode %}+{{ person.no|url_encode }}{% endif %}+{{ person.zip|url_encode }}+{{ person.city|url_encode }}+{{ person.country|url_encode }})+"&amp;output=embed'>
+    </iframe>
+  </div>

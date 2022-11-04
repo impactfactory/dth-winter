@@ -1,0 +1,30 @@
+columns:
+    id:
+        label: id
+        type: number
+    is_published:
+        label: veröffentlicht
+        type: inetis-list-switch
+        icon: true
+    name:
+        label: name
+        type: text
+        searchable: true
+    label:
+         label: Label
+         type: text
+         searchable: true
+    organisation:
+        label: Organisation
+        relation: organisation
+        select: name
+        searchable: true
+    created_at:
+        label: created_at
+        type: datetime
+    updated_at:
+        label: updated_at
+        type: datetime
+    sort_order:
+        label: sort_order
+        type: number

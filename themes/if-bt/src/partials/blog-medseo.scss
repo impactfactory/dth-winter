@@ -1,0 +1,57 @@
+.postdetail {
+
+  .medfaq {
+
+    .accordion-item {
+      padding-left: 1rem;
+    }
+
+    .accordion-button {
+      padding-left: 0;
+    }
+
+    .accordion-button:not(.collapsed) {
+      background-color: transparent;
+      border-bottom: none;
+      color: $if-dark;
+      font-weight: 600;
+    }
+
+    .accordion-collapse {
+      border: none;
+    }
+
+    .accordion-body {
+      padding-left: 0px;
+    }
+  }
+
+  .howto ul.substeps {
+    list-style: circle;
+    list-style-position: outside;
+    position:relative; left: 1rem;
+  }
+
+  .linklist li { list-style-type:none; }
+
+  .linklist, .howto, .abstract {
+
+    a {
+      color: $if-dark;
+    }
+
+    i {
+    display: inline-block;
+    margin-right: 1rem;
+    }
+
+    .fa-money-bill-alt {
+      margin-right: 0.75rem;
+    }
+
+    .step-index {
+      display:inline-block;
+      padding-right:1rem;
+    }
+  } /* end linklist */
+} /* end postdetail */

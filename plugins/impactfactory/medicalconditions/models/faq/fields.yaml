@@ -1,0 +1,10 @@
+fields:
+    question:
+        label: Frage
+        span: full
+        type: text
+    answer:
+        label: Antwort
+        size: small
+        span: full
+        type: textarea

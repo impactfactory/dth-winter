@@ -1,0 +1,72 @@
+items:
+    -
+        title: 'Was muss ich beim 1. Besuch beachten?'
+        type: url
+        url: '/de/faq#accordion-11'
+        code: ''
+        viewBag:
+            locale:
+                en:
+                    title: ''
+                    url: ''
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+            image: ''
+    -
+        title: 'Was muss ich zur Erstabklärung mitnehmen?'
+        type: url
+        url: '/de/faq#accordion-10'
+        code: ''
+        viewBag:
+            locale:
+                en:
+                    title: ''
+                    url: ''
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+            image: ''
+    -
+        title: 'Wie lange dauert eine kardiologische Erstabklärung?'
+        type: url
+        url: '/de/faq#accordion-7'
+        code: ''
+        viewBag:
+            locale:
+                en:
+                    title: ''
+                    url: ''
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+            image: ''
+    -
+        title: 'Welche Fahrdienste gibt es?'
+        type: url
+        url: '/de/faq#accordion-12'
+        code: ''
+        viewBag:
+            locale:
+                en:
+                    title: ''
+                    url: ''
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+            image: ''
+    -
+        title: 'Was übernimmt meine Versicherung?'
+        type: url
+        url: /de/faq/accordion-3
+        code: ''
+        viewBag:
+            locale:
+                en:
+                    title: ''
+                    url: ''
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+            image: ''
+name: 'FAQ (Snippet Patienteninfo)'

@@ -1,0 +1,26 @@
+
+
+p {
+  a {}
+  a:hover {
+    text-decoration:underline!important;
+  }
+}
+
+li {
+  a, a:hover, li:hover a {
+  text-decoration: none;
+  }
+}
+
+
+
+a.imglink:hover {
+  background-color: $if-primary;
+  display:block;
+  border-radius: 8px;
+}
+
+a.imglink:hover > img, a.imglink:hover > picture {
+  filter: opacity(80%);
+}

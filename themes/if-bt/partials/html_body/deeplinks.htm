@@ -1,0 +1,80 @@
+[staticMenu blogpostsMenu]
+code = "blogposts"
+
+[staticMenu videosMenu]
+code = "videos"
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 10
+noPostsMessage = "Keine Artikel vorhanden."
+sortOrder = "published_at desc"
+categoryPage = 404
+postPage = "{{ more }}"
+exceptPost = "notdisplayed"
+==
+<div class="indent-me row">
+  <h2>{{ 'footer.knowledge.title'|_ }}</h2>
+  <div class="footer-text col-12 col-sm-6">
+    <p>
+      text?
+    </p>
+  </div>
+
+  <div class="posts-list row col-12 col-sm-6 pt-3 pl-0 pl-sm-2">
+    <div class="articles-list col-12">
+        <h3 class="">{{ 'footer.nav.blogposts'|_ }}</h3>
+        <ul class="list-unstyled">
+        {% for item in blogpostsMenu.menuItems %}
+        <li class="mb-3">
+          <div class="d-flex">
+            <div class="thumb">
+              <a title="{{ item.title }}" href="{{ item.url }}">
+                <img class=""
+                    src="{{ item.viewBag.image | media | resize(60, 60, { mode: 'cover' }) }}"
+                    alt="Thumbnail {{ item.title }}"
+                    width="60"
+                    height="60"
+                >
+              </a>
+            </div>
+            <div class="title">
+              <a title="{{ item.title }}" href="{{ item.url }}">
+                {{ item.title }}
+              </a>
+            </div>
+          </div>
+        </li>
+        {% endfor %}
+        </ul>
+    </div>
+
+    <div class="videos-list col-12">
+      <h3 class="">{{ 'footer.nav.videos'|_ }}</h3>
+      <ul class="list-unstyled">
+      {% for item in videosMenu.menuItems %}
+        <li class="mb-3">
+          <div class="d-flex">
+            <div class="thumb">
+              <a title="{{ item.title }}" href="{{ item.url }}">
+                <img class=""
+                    src="{{ item.viewBag.image | media | resize(60, 60, { mode: 'cover' }) }}"
+                    alt="Thumbnail {{ item.title }}"
+                    width="60"
+                    height="60"
+                >
+              </a>
+            </div>
+            <div class="title">
+              <a class="" title="{{ item.title }}" href="{{ item.url }}">
+                {{ item.title }}
+              </a>
+            </div>
+          </div>
+        </li>
+      {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+</div>

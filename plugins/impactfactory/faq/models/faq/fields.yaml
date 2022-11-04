@@ -1,0 +1,18 @@
+fields:
+    is_published:
+        label: 'impactfactory.faq::lang.faq.publish'
+        span: auto
+        type: switch
+    question:
+        label: 'impactfactory.faq::lang.faq.question'
+        span: full
+        type: text
+    answer:
+        label: 'impactfactory.faq::lang.faq.answer'
+        size: large
+        oc.commentPosition: ''
+        span: full
+        type: richeditor
+    categories:
+        label: 'impactfactory.faq::lang.categories'
+        type: relation

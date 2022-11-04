@@ -1,0 +1,10 @@
+name: Tests
+form: $/impactfactory/medicalconditions/models/test/fields.yaml
+modelClass: Impactfactory\MedicalConditions\Models\Test
+defaultRedirect: impactfactory/medicalconditions/tests
+create:
+    redirect: 'impactfactory/medicalconditions/tests/update/:id'
+    redirectClose: impactfactory/medicalconditions/tests
+update:
+    redirect: impactfactory/medicalconditions/tests
+    redirectClose: impactfactory/medicalconditions/tests

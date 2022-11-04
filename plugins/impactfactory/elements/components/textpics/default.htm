@@ -1,0 +1,89 @@
+{% set elementslist = __SELF__.element %}
+{% set bg = __SELF__.bg %}
+{% set cardsize = __SELF__.size3 %}
+{% set imgsize = __SELF__.img3 %}
+{% set txtsize = (12-imgsize) %}
+{% set title = __SELF__.title3 %}
+
+{% if elementslist.from|date('U') < 'now'|date('U') and elementslist.to|date('U') > 'now'|date('U') %}
+
+  <section id="textpic-{{ elementslist.id }}" class="fullwrap textpic tpl-{% if bg == '1' %}white{% elseif bg == '2' %}grey{% elseif bg == '3' %}secondary-light{% elseif bg == '4' %}secondary{% elseif bg == '5' %}secondary-dark{% elseif bg == '6' %}primary-light{% else %}transparent{% endif %}">
+
+  <div class="indent-me row {{ cardsize }} gy-3">
+  {% if title %}
+    <h2 class="mt-0 mb-2">{{ title }}</h2>
+  {% endif %}
+
+  {% for index, element in elementslist.elements %}
+    {% if element.is_published %}
+      <div id ="textpic-{{ elementslist.id }}-{{ loop.index }}" class="col p-0">
+
+        <div class="card p-3">
+          {% if element.title %}
+            <h3 class="card-title">{{ element.title }}</h3>
+          {% endif %}
+          <div class="row gx-4">
+
+          {% if element.picposition == 'left' %}
+              <div class="col-12 col-sm-{{ imgsize }} placeitemscenter">
+                  <picture>
+                    <source type="image/webp" srcset="{{ element.image | media | resize(600,null, { format: 'webp' }) }}">
+                    <source type="image/jpg" srcset="{{ element.image | media | resize(600,null ) }}">
+                    <img type="image/jpg"
+                         src="{{  element.image | media | resize(600,null) }}"
+                         class="img-fluid mr-3 rounded"
+                         alt="Foto {{ element.title }}"
+                         loading="lazy"
+                         width="{{ element.imgwidth }}"
+                         height="{{ element.imgheight }}">
+                  </picture>
+              </div>
+          {% endif %}
+
+              <div class="col-12 col-sm-{{ txtsize }}">
+                <div class="card-body {{ element.picposition }}">
+
+                  {% if element.subtitle %}
+                    <h4 class="card-subtitle h6 mb-0"><strong>{{ element.subtitle }}</strong></h4>
+                  {% endif %}
+
+                  {% if element.text %}
+                    <p class="card-text mt-0">{{ element.text|raw }}</p>
+                  {% endif %}
+
+                  {% if element.url %}
+                    <a href="{{ element.url }}" class="btn btn-primary btn-sm rounded" title="{{ element.url_text }}" role="button">
+                      {{ element.url_text }}
+                    </a>
+                  {% endif %}
+
+                </div> <!-- end card-body -->
+            </div> <!-- end col-md-8 -->
+
+          {% if element.picposition == 'right' %}
+                <div class="col-12 col-sm-{{ imgsize }} pr-0 placeitemscenter">
+                <picture>
+                  <source type="image/webp" srcset="{{ element.image | media | resize(600,null, { format: 'webp' }) }}">
+                  <source type="image/jpg" srcset="{{ element.image | media | resize(600,null ) }}">
+                  <img type="image/jpg"
+                       src="{{  element.image | media | resize(600,null, { format: 'webp' }) }}"
+                       class="img-fluid mr-3 rounded"
+                       alt="Foto {{ element.title }}"
+                       loading="lazy"
+                       width="{{ element.imgwidth }}"
+                       height="{{ element.imgheight }}">
+                </picture>
+                </div>
+          {% endif %}
+
+          </div> <!-- end row g0 -->
+        </div> <!-- end card -->
+      </div> <!-- end col mb-3-->
+
+    {% endif %}
+  {% endfor %}
+
+  </div>
+  </section>
+
+{% endif %}

@@ -1,0 +1,65 @@
+{% set element = __SELF__.element %}
+
+{% if element.from|date('U') < 'now'|date('U') and element.to|date('U') > 'now'|date('U') %}
+
+<div id="keyvisual-{{ element.id }}" class="fullwrap keyvisual">
+
+  {% for index, element in element.elements %}
+    {% if element.is_published %}
+        <div class="card">
+          <div class="image-wrap">
+            {# Safari <=14 falls back on img if there is not type attribute present at each line! #}
+            <picture>
+              <source type="image/webp" media="(max-width: 280px)" srcset="{{ element.image | media | resize(280, 106, { mode: 'cover', format: 'webp' }) }},
+                                                                           {{ element.image | media | resize(560, 212, { mode: 'cover', format: 'webp' }) }} 2x">
+
+              <source type="image/jpg" media="(max-width: 280px)" srcset="{{ element.image | media | resize(280, 106, { mode: 'cover' }) }},
+                                                                          {{ element.image | media | resize(560, 212, { mode: 'cover' }) }} 2x">
+
+              <source type="image/webp" media="(max-width: 320px)" srcset="{{ element.image | media | resize(320, 122, { mode: 'cover', format: 'webp' }) }},
+                                                                           {{ element.image | media | resize(640, 244, { mode: 'cover', format: 'webp' }) }} 2x">
+
+              <source type="image/jpg" media="(max-width: 320px)" srcset="{{ element.image | media | resize(320, 122, { mode: 'cover' }) }},
+                                                                          {{ element.image | media | resize(640, 244, { mode: 'cover' }) }} 2x">
+
+              <source type="image/webp" media="(max-width: 360px)" srcset="{{ element.image | media | resize(360, 136, { mode: 'cover', format: 'webp' }) }},
+                                                                           {{ element.image | media | resize(720, 274, { mode: 'cover', format: 'webp' }) }} 2x">
+              <source type="image/jpg" media="(max-width: 360px)" srcset="{{ element.image | media | resize(360, 136, { mode: 'cover' }) }},
+                                                                          {{ element.image | media | resize(720, 274, { mode: 'cover' }) }} 2x">
+
+              <source type="image/webp" media="(max-width: 567px)" srcset="{{ element.image | media | resize(567, 215, { mode: 'cover', format: 'webp' }) }},
+                                                                           {{ element.image | media | resize(1134, 430, { mode: 'cover', format: 'webp' }) }} 2x">
+              <source type="image/jpg" media="(max-width: 567px)" srcset="{{ element.image | media | resize(567, 215, { mode: 'cover' }) }},
+                                                                          {{ element.image | media | resize(1134, 430, { mode: 'cover' }) }} 2x">
+
+              <source type="image/webp" media="(max-width: 768px)" srcset="{{ element.image | media | resize(768, 292, { mode: 'cover', format: 'webp' }) }},
+                                                                           {{ element.image | media | resize(1440, 547, { mode: 'cover', format: 'webp' })}} 2x">
+              <source type="image/jpg" media="(max-width: 768px)" srcset="{{ element.image | media | resize(768, 292, { mode: 'cover' }) }},
+                                                                          {{ element.image | media | resize(1440, 547, { mode: 'cover' })}} 2x">
+
+              <source type="image/webp" media="(max-width: 1024px)" srcset="{{ element.image | media | resize(1024, 389, { mode: 'cover', format: 'webp' }) }},
+                                                                            {{ element.image | media | resize(1440, 547, { mode: 'cover', format: 'webp' })}} 2x">
+              <source mtype="image/jpg" media="(max-width: 1024px)" srcset="{{ element.image | media | resize(1024, 389, { mode: 'cover' }) }},
+                                                                            {{ element.image | media | resize(1440, 547, { mode: 'cover' })}} 2x">
+
+              <source type="image/webp" media="(max-width: 3600px)" srcset="{{ element.image | media | resize(1440, 547, { mode: 'cover', format: 'webp' }) }}">
+              <source type="image/jpg" media="(max-width: 3600px)" srcset="{{ element.image | media | resize(1440, 547, { mode: 'cover' }) }}">
+
+              <img type="image/jpg" src="{{  element.image | media | resize(1440, 547, { mode: 'cover' }) }}" class="" alt="Keyvisual" width="1440" height="547">
+            </picture>
+
+
+          </div>
+          <div class="card-img-overlay indent-me">
+              <div class="position-relativ">
+                <div class="title-wrap">
+                {{ element.text| raw }}
+                </div>
+              </div>
+          </div>
+      </div> {# end card #}
+    {% endif %}
+  {% endfor %}
+  </div> {# end keyvisual #}
+
+{% endif %}

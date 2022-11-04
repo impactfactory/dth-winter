@@ -1,0 +1,47 @@
+columns:
+    id:
+        label: id
+        type: number
+        invisible: false
+        sortable: true
+    is_published:
+        label: veröffentlicht
+        type: inetis-list-switch
+        invisible: false
+        sortable: true
+    cover:
+        label: Cover
+        type: partial
+        path: ~/plugins/impactfactory/medicalconditions/controllers/books/_thumb.htm
+        invisible: false
+    name:
+        label: Titel
+        type: text
+        searchable: true
+        sortable: true
+    author:
+        label: Autor
+        type: text
+        searchable: true
+        sortable: true
+    desc:
+        label: Beschreibung
+        type: text
+        searchable: true
+        invisible: true
+    url:
+        label: URL
+        type: text
+        searchable: true
+        sortable: true
+        invisible: true
+    created_at:
+        label: created_at
+        type: datetime
+        invisible: true
+        sortable: true
+    updated_at:
+        label: updated_at
+        type: datetime
+        invisible: true
+        sortable: true

@@ -1,0 +1,69 @@
+description = "Fügt eine Google Map volle Breite hinzu"
+
+[viewBag]
+snippetCode = "map"
+snippetName = "Karte"
+snippetProperties[mapheight][title] = "Höhe der Karte in Pixeln"
+snippetProperties[mapheight][type] = "string"
+==
+
+
+
+<div id="map-container-google-1" class="z-depth-1-half map-container mt-4" style="height:{{ mapheight-30 }}px">
+	<iframe title="Google Map"
+					width='100%'
+					height='{{ mapheight }}'
+					frameborder='0'
+					scrolling='no'
+					marginheight='0'
+					marginwidth='0'
+					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2702.787202950648!2d8.517892615621937!3d47.35755237916897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x632bcc9fc05618c7!2sDiagnostisches%20und%20therapeutisches%20Herzzentrum%20AG!5e0!3m2!1sde!2sch!4v1590059798088!5m2!1sde!2sch">
+	</iframe>
+</div>
+
+{#
+<div class="travelpage pt-3">
+	<h2>{{ 'snippet.arrival.title'|_ }}</h2>
+		<ul class="list-group list-group-flush">
+			<li class="list-group-item">
+				<a href="/storage/app/media/__DOKUMENTE/wegbeschreibung-dth.pdf" target="_blank" rel="noopener"">
+					{{ 'snippet.arrival.printlink.label'|_ }}
+				</a>
+			</li>
+			<li class="list-group-item">
+				<a href="https://sihlcity.ch/anfahrt-mit-dem-auto" target="_blank" rel="noopener noreferrer">
+					{{ 'snippet.arrival.sihlcity.label'|_ }}
+				</a>
+			</li>
+			<li class="list-group-item">
+				<a href="https://www.parkme.com/de/lot/142752/brunaupark-zurich-switzerland"  target="_blank" rel="noopener noreferrer">
+					{{ 'snippet.arrival.brunaupark.label'|_ }}
+				</a>
+			</li>
+			<li class="list-group-item">
+				<a href="https://www.sbb.ch/de/kaufen/pages/fahrplan/fahrplan.xhtml?von=Z%C3%BCrich+Enge&amp;nach=8045+Z%C3%BCrich%2C+Saalsporthalle&amp;umsteigezeit=zehn" rel="noopener noreferrer" target="_blank">
+					{{ 'snippet.arrival.sbb.from.ZHEnge'|_ }}
+				</a>
+			</li>
+			<li class="list-group-item">
+				<a href="https://www.sbb.ch/de/kaufen/pages/fahrplan/fahrplan.xhtml?von=Z%C3%BCrich+HB&amp;nach=8045+Z%C3%BCrich%2C+Saalsporthalle&amp;umsteigezeit=zehn" rel="noopener noreferrer" target="_blank">
+					{{ 'snippet.arrival.sbb.from.ZHHB'|_ }}
+				</a>
+			</li>
+			<li class="list-group-item">
+				<a href="https://www.sbb.ch/de/kaufen/pages/fahrplan/fahrplan.xhtml?von=Z%C3%BCrich+Flughafen&amp;nach=8045+Z%C3%BCrich%2C+Saalsporthalle&amp;umsteigezeit=zehn" rel="noopener noreferrer" target="_blank">
+					{{ 'snippet.arrival.sbb.from.ZHAirport'|_ }}
+				</a>
+			</li>
+			<li class="list-group-item">
+				<a href="https://www.sbb.ch/de/kaufen/pages/fahrplan/fahrplan.xhtml?von=Basel+EuroAirport&amp;nach=8045+Z%C3%BCrich%2C+Saalsporthalle&amp;umsteigezeit=zehn" rel="noopener noreferrer" target="_blank">
+					{{ 'snippet.arrival.sbb.from.BSAirport'|_ }}
+				</a>
+			</li>
+			<li class="list-group-item">
+				<a href="https://www.sbb.ch/de/kaufen/pages/fahrplan/fahrplan.xhtml?nach=8045+Z%C3%BCrich%2C+Saalsporthalle&amp;umsteigezeit=zehn" rel="noopener noreferrer" target="_blank">
+					{{ 'snippet.arrival.sbb.from.other'|_ }}
+				</a>
+			</li>
+</div>
+#}

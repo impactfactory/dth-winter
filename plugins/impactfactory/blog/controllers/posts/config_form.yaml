@@ -1,0 +1,10 @@
+name: Posts
+form: $/impactfactory/blog/models/post/fields.yaml
+modelClass: ImpactFactory\Blog\Models\Post
+defaultRedirect: impactfactory/blog/posts
+create:
+    redirect: 'impactfactory/blog/posts/update/:id'
+    redirectClose: impactfactory/blog/posts
+update:
+    redirect: impactfactory/blog/posts
+    redirectClose: impactfactory/blog/posts

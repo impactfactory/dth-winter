@@ -1,0 +1,31 @@
+[staticMenu mainMenu]
+code = "main"
+==
+
+<ul class="navbar-nav mr-auto mainnav">
+{% for item in mainMenu.menuItems %}
+  <li class="nav-item {{ (item.isActive or item.isChildActive) ? 'active' }} {{ item.items ? 'dropdown' : '' }}">
+    <a title="{{ item.title }}"
+      {% if item.items %}
+        class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#"
+      {% else %}
+        class="nav-link" href="{{ item.url }}"
+      {% endif %}>
+      {% if item.items %}
+        {{ item.code|_ }} <span class="caret"></span>{% else %} {{ item.code|_ }}
+      {% endif %}
+    </a>
+
+    {% if item.items %}
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        {% for subitem in item.items %}
+          <li>
+            <a href="{{ subitem.url }}" class="dropdown-item">{{ subitem.code|_ }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+   {% endif %}
+
+ </li>
+{% endfor %}
+</ul>

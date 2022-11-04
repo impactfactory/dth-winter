@@ -1,0 +1,204 @@
+{% set patient = __SELF__.patient %}
+
+
+<style>
+ .pdfheader {display:block;min-width:100%;height:250px;}
+ .pdfheader > div {display:block;width:50%;float:left;}
+ .pdflogo {display:block;width:50%;float:right;text-align:right;}
+ table tr td:first-child {font-weight: 600}
+ .indent-me { width: 1300px;}
+ #clinicalsection {page-break-inside: avoid}
+</style>
+
+
+
+<section id="refformpdf" class="fullwrap mt-1 mb-0">
+ <div class="indent-me">
+
+ <header class="pdfheader">
+  <div style="">
+  <h1>
+    Online-Zuweisung <br>{% if patient.gender == 'm' %}Patient{% elseif patient.gender == 'f' %}Patientin{% endif %} {{ patient.firstname }} {{ patient.lastname }}
+  </h1>
+  </div>
+  <div class="pdflogo">
+    <img src="{{'assets/img/dth-logo-sr-quadr-print.jpg'|theme }}" width="200" height="200">
+  </div>
+ </header>
+
+<h2>Zuweisung</h2>
+<table class="table table-striped table-sm mt-0">
+  <tr>
+    <td>an: </td>
+    <td>{% if patient.dthdoc %}{{ patient.dthdoc}}, {% endif %}Diagnostisches und therapeutisches Herzzentrum AG<br>Kappelistrasse 35, 8002 Zürich</td>
+  </tr>
+  <tr>
+    <td>Zuweisungsdatum: </td>
+    <td>{{ patient.created_at|date('d.m.Y') }}</td>
+  </tr>
+  <tr>
+    <td>Vorname Arzt oder Praxisname:</td>
+    <td>{{ patient.doc_firstname }}</td>
+  </tr>
+  {% if patient.doc_lastname %}
+    <tr>
+      <td>Nachname:</td>
+      <td>{{ patient.doc_lastname }}</td>
+    </tr>
+  {% endif %}
+  {% if patient.doc_city %}
+    <tr>
+      <td>Ort:</td>
+      <td>{{ patient.doc_city }}</td>
+    </tr>
+  {% endif %}
+  <tr>
+    <td>Telefonnummer</td>
+    <td>{{ patient.doc_phone }}</td>
+  </tr>
+  <tr>
+    <td>E-Mail</td>
+    <td>{{ patient.doc_email }}</td>
+  </tr>
+  {% if patient.doc2_email %}
+    <tr>
+      <td>Befundkopie ebenso an:</td>
+      <td>{{ patient.doc2_email }}</td>
+    </tr>
+  {% endif %}
+  {% if patient.consilium %}
+    <tr>
+      <td>wünscht eine kardiologische Gesamt-Abklärung:</td>
+      <td>{% if patient.consilium == '1' %}ja{% endif %}{% if patient.consilium == '0' %}nein{% endif %}</td>
+    </tr>
+  {% endif %}
+  {% if patient.diagnostics|length %}
+    <tr>
+      <td>wünscht folgende gezielte Untersuchungen ohne Gesamtbeurteilung:</td>
+      <td>
+      {% for diag in patient.diagnostics %}
+        {{ diag.name }} {% if not loop.last %},{% endif %}
+      {% endfor %}
+      </td>
+    </tr>
+  {% endif %}
+  <tr>
+    <td>Gewünschtes letztes Aufbietungsdatum:</td>
+    <td>{{ patient.lastdate|date('d.m.Y') }}</td>
+  </tr>
+</table>
+
+
+
+<h2>Stammdaten {% if patient.gender == 'm' %}Patient{% elseif patient.gender == 'f' %}Patientin{% endif %}</h2>
+<table class="table table-striped table-sm">
+  <tr>
+    <td>Geschlecht: </td>
+    <td>{{ patient.gender }}</td>
+  </tr>
+  <tr>
+    <td>Vorname:</td>
+    <td>{{ patient.firstname }}</td>
+  </tr>
+  <tr>
+    <td>Nachname:</td>
+    <td>{{ patient.lastname }}</td>
+  </tr>
+  {% if patient.street_no %}
+    <tr>
+      <td>Strasse und Hausnummer</td>
+      <td>{{ patient.street_no }}</td>
+    </tr>
+  {% endif %}
+  {% if patient.zip %}
+    <tr>
+      <td>Plz</td>
+      <td>{{ patient.zip }}</td>
+    </tr>
+  {% endif %}
+  {% if patient.city %}
+    <tr>
+      <td>Wohnort</td>
+      <td>{{ patient.city }}</td>
+    </tr>
+  {% endif %}
+  <tr>
+    <td>Telefonnummer</td>
+    <td>{{ patient.phone }}</td>
+  </tr>
+  <tr>
+    <td>E-Mail</td>
+    <td>{{ patient.email }}</td>
+  </tr>
+  {% if patient.birthday %}
+    <tr>
+      <td>Geburtstag</td>
+      <td>{{ patient.birthday|date('d.m.Y') }}</td>
+    </tr>
+  {% endif %}
+</table>
+
+{% if patient.costcarry or patient.kvg.name or patient.kvg_other or patient.kvg_no or patient.vvg.name or patient.vvg_other or patient.vvg_no %}
+  <h2>Versicherungen</h2>
+  <table class="table table-striped table-sm">
+    {% if patient.costcarry %}
+      <tr>
+        <td>Kostenträger: </td>
+        <td>{{ patient.costcarry }}</td>
+      </tr>
+    {% endif %}
+    {% if patient.kvg.name or patient.kvg_other %}
+      <tr>
+        <td>Krankenkasse:</td>
+        <td>{{ patient.kvg.name }} {{ patient.kvg_other }}</td>
+      </tr>
+    {% endif %}
+    {% if patient.kvg_no %}
+      <tr>
+        <td>Krankenkassennummer:</td>
+        <td>{{ patient.kvg_no }}</td>
+      </tr>
+    {% endif %}
+    {% if patient.vvg.name or patient.vvg_other %}
+      <tr>
+        <td>Zusatzversicherung</td>
+        <td>{{ patient.vvg.name }} {{ patient.vvg_other }}</td>
+      </tr>
+    {% endif %}
+    {% if patient.vvg_no %}
+      <tr>
+        <td>Zusatzversicherungsnummer</td>
+        <td>{{ patient.vvg_no }} </td>
+      </tr>
+    {% endif %}
+  </table>
+{% endif %}
+
+  <div id="clinicalsection">
+  {% if patient.clinical or patient.question or patient.note %}
+    <h2>Medizinische Angaben</h2>
+    <table class="table table-striped table-sm">
+      {% if patient.clinical %}
+      <tr>
+        <td>Beschwerden/Diagnose: </td>
+        <td>{{ patient.clinical }}</td>
+      </tr>
+      {% endif %}
+      {% if patient.question %}
+      <tr>
+        <td>Fragestellung:</td>
+        <td>{{ patient.question }}</td>
+      </tr>
+      {% endif %}
+      {% if patient.note %}
+      <tr>
+        <td>Weiteres:</td>
+        <td>{{ patient.note }}</td>
+      </tr>
+      {% endif %}
+    </table>
+  {% endif %}
+  </div>
+
+  </div>
+</section>

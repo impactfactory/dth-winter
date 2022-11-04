@@ -1,0 +1,32 @@
+description = "puts BlogPosting schema into html head"
+
+[viewBag]
+==
+<?php
+
+?>
+==
+{% set orgameta = orgaMeta.meta %}
+
+<script type="application/ld+json">
+{
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "{{ post.title }}",
+          "image": "{{ post.meta_img | media | app }}",
+          "datePublished": "{{ post.created_at }}",
+          "dateModified": "{{ post.updated_at }}",
+          "author": {
+            "@type": "Person",
+            "name": " {{ post.author.first_name }} {{ post.author.last_name }}"
+          },
+           "publisher": {
+            "@type": "Organization",
+            "name": "{{ orgameta.schema_name }}",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "/storage/app/media{{ orgameta.schema_logo }}"
+            }
+          }
+}
+</script>

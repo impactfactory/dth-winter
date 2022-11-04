@@ -1,0 +1,30 @@
+[viewBag]
+snippetCode = "payment1"
+snippetName = "Payment Modul (Edit Amount)"
+
+==
+<?php
+
+?>
+==
+<div class="payment indent-me">
+  <div class="box">
+    <form class="" action="send-payment" method="post">
+      <div class="mb-4">
+        <input type="text" name="amount" value="" placeholder=""> <strong>CHF</strong>
+      </div>
+
+      <div class="mb-4">
+        <button class="btn btn-primary" name="submit" type="submit">Next Step -></button>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% put styles %}
+
+  <style>
+    #contactbox { display:none !important; }
+  </style>
+
+{% endput %}

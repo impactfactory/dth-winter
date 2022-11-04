@@ -1,0 +1,23 @@
+{
+  "name": "if-bt",
+  "version": "1.0.0",
+  "description": "Parcel Build for rapid Developmeent",
+  "main": "index.js",
+  "scripts": {
+    "watch": "parcel watch src/index.js -d assets/css-js",
+    "build": "parcel build src/index.js -d assets/css-js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.30.0"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.2",
+    "bootstrap": "^5.1.3"
+  }
+}

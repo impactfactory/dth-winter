@@ -1,0 +1,60 @@
+{% flash %}
+    <p
+        data-control="flash-message"
+        class="flash-message fade {{ type }}"
+        data-interval="10">
+        {{ message }}
+    </p>
+{% endflash %}
+
+<script src="{{ 'assets/css-js/jquery.js'|theme }}"></script>
+<script src="{{ 'assets/css-js/index.js'|theme }}"></script>
+
+{#
+<script src="{{ [
+  'assets/css-js/jquery.js',
+  'assets/css-js/index.js'
+  ]|theme }}">
+  </script>
+#}
+
+{% framework extras %}
+
+<script>
+
+{# Fill in all Spam Protected Mails #}
+  user = '{{ 'contactbox.mail.name'|_ }}';
+  site = '{{ 'contactbox.mail.domain'|_ }}';
+
+  var elements = document.getElementsByClassName('scrambled');
+  Array.prototype.forEach.call(elements, function(element) {
+      element.innerHTML = '<a class=\"tooltips\" href=\"mailto:' + user + '@' + site + '\" data=\"{{ 'contactbox.mail.tooltip'|_ }}\">'+ user + '@' + site +'</a><br>';
+  });
+
+  var elements = document.getElementById('contactbox').getElementsByClassName('scrambledbox');
+  Array.prototype.forEach.call(elements, function(element) {
+      element.innerHTML = '<a class=\"tooltips\" href=\"mailto:' + user + '@' + site + '\" data=\"{{ 'contactbox.mail.tooltip'|_ }}\">{{ 'contactbox.mail.label'|_ }}</a>';
+  });
+
+</script>
+
+
+{% scripts %}
+
+{% if sgCookies.statistical %}
+  <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+    var u="//matomo.dth-herzzentrum.ch/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+    </script>
+  <!-- End Matomo Code -->
+{% endif %}

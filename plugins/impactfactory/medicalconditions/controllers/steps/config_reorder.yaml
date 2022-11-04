@@ -1,0 +1,4 @@
+title: Steps
+modelClass: Impactfactory\MedicalConditions\Models\Step
+toolbar:
+    buttons: reorder_toolbar

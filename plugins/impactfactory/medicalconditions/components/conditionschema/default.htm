@@ -1,0 +1,38 @@
+{% set cond = __SELF__.condition %}
+{% if cond.is_published == '1' %}
+
+  {% put json %}
+    {% partial '@json-medicalcondition' cond=cond %}
+    {% partial '@json-medicalpage' cond=cond %}
+    {% partial '@json-medicalarticle' cond=cond %}
+    {% if cond.faqs  %}
+      {% partial '@json-faq' cond=cond %}
+    {% endif %}
+    {% if cond.how_name  %}
+      {% partial '@json-howto' cond=cond %}
+    {% endif %}
+  {% endput %}
+
+  {% put abstract %}
+    {% partial '@abstract' cond=cond %}
+  {% endput %}
+
+  {% if cond.faqs  %}
+    {% put faq %}
+      {% partial '@faq' cond=cond %}
+    {% endput %}
+  {% endif %}
+
+  {% if cond.how_name  %}
+    {% put howto %}
+      {% partial '@howto' cond=cond %}
+      {% endput %}
+  {% endif %}
+
+  {% if cond.links  %}
+    {% put links %}
+      {% partial '@links' cond=cond %}
+    {% endput %}
+  {% endif %}
+
+{% endif %}

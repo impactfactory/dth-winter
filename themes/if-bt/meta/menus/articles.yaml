@@ -1,0 +1,92 @@
+items:
+    -
+        title: 'Die kardiologische Herzkatheter-Untersuchung'
+        nesting: null
+        type: url
+        url: /de/kardiologie/die-kardiologische-herzkatheteruntersuchung
+        code: ''
+        reference: null
+        cmsPage: null
+        replace: null
+        viewBag:
+            locale:
+                en:
+                    title: ''
+                    url: ''
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+            image: /__INHALTSBILDER/cropped-images/katheter-1536x691-135-90-183-174-1611243953.jpeg
+    -
+        title: 'Herzklappenfehler - Herztherapie im Wandel'
+        nesting: null
+        type: url
+        url: /de/kardiologie/herzklappenfehler-herztherapie-im-wandel
+        code: ''
+        reference: null
+        cmsPage: null
+        replace: null
+        viewBag:
+            locale:
+                en:
+                    title: ''
+                    url: ''
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+            image: /__INHALTSBILDER/cropped-images/herzkatheter-intervention-236-0-130-130-1619084726.jpg
+    -
+        title: 'Cholesterin zu hoch: Hypercholesterinämie'
+        nesting: null
+        type: url
+        url: /de/kardiologie/cholesterin-zu-hoch-hypercholesterinaemie
+        code: ''
+        reference: null
+        cmsPage: null
+        replace: null
+        viewBag:
+            locale:
+                en:
+                    title: ''
+                    url: ''
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+            image: /__INHALTSBILDER/cropped-images/herz-aus-gemuese-500x335x-37-0-134-134-1619179409.jpg
+    -
+        title: 'Was tun bei Angina Pectoris?'
+        nesting: null
+        type: url
+        url: /de/kardiologie/die-herzenge-angina-pectoris
+        code: ''
+        reference: null
+        cmsPage: null
+        replace: null
+        viewBag:
+            locale:
+                en:
+                    title: ''
+                    url: ''
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+            image: /__INHALTSBILDER/cropped-images/angina-pectoris-1440x867-50-21-130-130-1619085127.jpg
+    -
+        title: 'Was ist ein Herzinfarkt?'
+        nesting: null
+        type: url
+        url: /de/kardiologie/herzinfarkt
+        code: ''
+        reference: null
+        cmsPage: null
+        replace: null
+        viewBag:
+            locale:
+                en:
+                    title: ''
+                    url: ''
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+            image: /__INHALTSBILDER/cropped-images/fragezeichen-1400x2100-60-176-293-293-1613143057.jpg
+name: 'Artikel  (Snippet Patienteninfo)'

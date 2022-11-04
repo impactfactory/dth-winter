@@ -1,0 +1,4 @@
+title: Edits
+modelClass: ImpactFactory\Blog\Models\Edit
+toolbar:
+    buttons: reorder_toolbar

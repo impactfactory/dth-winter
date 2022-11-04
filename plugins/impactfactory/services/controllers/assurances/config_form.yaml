@@ -1,0 +1,10 @@
+name: Assurances
+form: $/impactfactory/services/models/assurance/fields.yaml
+modelClass: ImpactFactory\Services\Models\Assurance
+defaultRedirect: impactfactory/services/assurances
+create:
+    redirect: 'impactfactory/services/assurances/update/:id'
+    redirectClose: impactfactory/services/assurances
+update:
+    redirect: impactfactory/services/assurances
+    redirectClose: impactfactory/services/assurances

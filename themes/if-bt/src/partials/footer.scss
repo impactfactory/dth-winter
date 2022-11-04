@@ -1,0 +1,98 @@
+footer {
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover, a:active, a:focus {
+    text-decoration: underline !important;
+  }
+
+  .fas, .far { width: 1.5rem; }
+
+
+  .contact {
+    background-color: $if-secondary-dark;
+    color: $if-white;
+
+    a, a:hover, a:visited, a:focus, a:active {
+      color: $if-white;
+      text-decoration:underline;
+    }
+
+    h3 { padding:0; }
+
+    img {
+      border: 1px solid $if-white;
+      filter: grayscale(10);
+      }
+
+    img:hover {
+      filter: grayscale(0);
+    }
+
+
+  }
+
+/*
+  .deeplinks {
+    background-color: $if-secondary;
+    color: $if-white;
+
+    a, a:visited, a:focus, a:active {
+      color: $if-white!important;
+      text-decoration:none;
+    }
+
+    .footer-text {
+      padding-right: 2.5rem;
+    }
+
+    .posts-list {
+      border-left: 1px solid $if-white-50;
+      //padding-left: 1.5rem;
+    }
+
+    li {
+      line-height:1rem;
+      background: rgba(255,255,255,0.2);
+      border-radius: 4px;
+      padding: 0px 3px 0px 0px;
+
+      .thumb {
+        margin: 0 20px 0px 0;
+
+        img {
+          border-radius:4px 0 0 4px;
+        }
+      }
+
+      .title {
+        position: relative;
+        top: 4px;
+      }
+    }
+
+  li:hover {
+    background: $if-primary;//rgba(255,255,255,0.5);
+
+    a {
+      text-decoration: none!important;
+    }
+  }
+}
+*/
+
+  .endlinks {
+    background-color: $if-secondary-black;
+    color: $if-white;
+
+    a {
+      color: $if-white!important;
+    }
+  }
+
+ .byline {
+   font-size: 10px;
+ }
+}

@@ -1,0 +1,10 @@
+fields:
+    is_published:
+        label: 'impactfactory.faq::lang.category.publish'
+        span: auto
+        type: switch
+    name:
+        label: 'impactfactory.faq::lang.category.name'
+        oc.commentPosition: ''
+        span: full
+        type: text

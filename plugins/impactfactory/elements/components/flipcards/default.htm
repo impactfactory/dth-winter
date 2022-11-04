@@ -1,0 +1,36 @@
+{% set element = __SELF__.element %}
+{% set boxtitle = __SELF__.boxtitle %}
+
+{% if element.from|date('U') < 'now'|date('U') and element.to|date('U') > 'now'|date('U') %}
+
+<div id="flipcards-{{ element.id }}" class="fullwrap flipcards">
+  <article class="indent-me row gy-2 gx-2 mx-auto">
+    <div class="col-12">
+      <h2 class="mb-4 text-white">{{ boxtitle }}</h2>
+    </div>
+      {% for index, element in element.elements %}
+        {% if element.is_published %}
+
+
+
+        <div class="flipcard col-12 col-sm-4">
+          <div class="flipcard-inner">
+              <div class="flipcard-front rounded p-2">
+                {% partial 'html_body/svg-icons/clock' %}
+                <h3 class="h6">{{ element.title }}</h3>
+              </div>
+              <div class="flipcard-back rounded p-2 border-white">
+                {{ element.text|raw }}
+              </div>
+          </div>
+        </div>
+
+
+
+        {% endif %}
+      {% endfor %}
+      </div>
+  </article>
+</div>
+
+{% endif %}

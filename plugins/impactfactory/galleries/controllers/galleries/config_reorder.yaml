@@ -1,0 +1,4 @@
+title: Galleries
+modelClass: Impactfactory\Galleries\Models\Gallery
+toolbar:
+    buttons: reorder_toolbar

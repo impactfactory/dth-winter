@@ -1,0 +1,28 @@
+plugin:
+    name: 'impactfactory.galleries::lang.plugin.name'
+    description: 'impactfactory.galleries::lang.plugin.description'
+    author: ImpactFactory
+    icon: oc-icon-image
+    homepage: ''
+permissions:
+    galleries:
+        tab: 'impactfactory.galleries::lang.settings.tabtitle'
+        label: 'impactfactory.galleries::lang.settings.permission.title'
+navigation:
+    main-menu-item:
+        label: 'impactfactory.galleries::lang.plugin.name'
+        url: impactfactory/galleries/galleries
+        icon: icon-image
+        permissions:
+            - galleries
+        sideMenu:
+            side-menu-item:
+                label: 'impactfactory.galleries::lang.menu.label'
+                url: impactfactory//galleries/galleries
+                icon: icon-table
+                permissions:
+                    - galleries
+dependencies:
+    - rainlab.translate
+    - inetis.listswitch
+    - abwebdevelopers.oc-imageresize-plugin

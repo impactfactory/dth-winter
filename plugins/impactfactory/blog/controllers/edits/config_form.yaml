@@ -1,0 +1,10 @@
+name: Edits
+form: $/impactfactory/blog/models/edit/fields.yaml
+modelClass: ImpactFactory\Blog\Models\Edit
+defaultRedirect: impactfactory/blog/edits
+create:
+    redirect: 'impactfactory/blog/edits/update/:id'
+    redirectClose: impactfactory/blog/edits
+update:
+    redirect: impactfactory/blog/edits
+    redirectClose: impactfactory/blog/edits

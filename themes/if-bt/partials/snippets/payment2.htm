@@ -1,0 +1,70 @@
+[viewBag]
+snippetCode = "payment2"
+snippetName = "Payment Modul (Send)"
+
+==
+<?php
+
+function onStart()
+{
+
+   $this['amount'] = $_POST["amount"];
+
+}
+
+?>
+==
+<div class="payment indent-me">
+  <div class="box">
+    <div class="amountdisplay">
+      <h2>Send {{ amount }} CHF with:</h2>
+      <small class="d-block mb-4">
+        <a href="payment" title="correct invoice amount here">Correct the amount if it is wrong</a>
+      </small>
+    </div>
+    <div id="paypal-button-container" class=""></div>
+  </div>
+</div>
+
+
+
+
+{% put scripts %}
+  <script src="https://www.paypal.com/sdk/js?client-id=AaFlU4j5gyyxan6mgHuWKaE1ntUivNsWHfpK6_PRXvoACnBanwkRvvL017qP9UJlyjEFUy8fHlfSWmrW&components=buttons,marks&currency=CHF"></script>
+  <script>
+    paypal.Buttons({
+        style: {
+          layout: 'vertical',
+          color:  'blue',
+          shape:  'rect',
+          label:  'paypal'
+        },
+        createOrder: function(data, actions) {
+            // Set up the transaction
+            return actions.order.create({
+              purchase_units: [{
+                amount: {
+                  value: {{ amount }}
+                }
+              }]
+            });
+          },
+          onApprove: function(data, actions) {
+            // This function captures the funds from the transaction.
+            return actions.order.capture().then(function(details) {
+              // This function shows a transaction success message to your buyer.
+              //alert('This Transaction was successful! Thank you ' + details.payer.name.given_name);
+              location.href = '/payment-thank-you';
+            });
+          }
+      }).render('#paypal-button-container');
+  </script>
+{% endput %}
+
+{% put styles %}
+
+  <style>
+    #contactbox { display:none !important; }
+  </style>
+
+{% endput %}

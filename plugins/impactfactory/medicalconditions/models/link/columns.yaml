@@ -1,0 +1,31 @@
+columns:
+    id:
+        label: ID
+        type: number
+        sortable: true
+    linktype:
+        label: Typ
+        relation: linktype
+        select: name
+        searchable: true
+        sortable: true
+    label:
+        label: 'verlinkter Text'
+        type: text
+        searchable: true
+        sortable: true
+    url:
+        label: URL
+        type: text
+        searchable: true
+        sortable: true
+    updated_at:
+        label: updated_at
+        type: datetime
+        invisible: true
+        sortable: true
+    created_at:
+        label: created_at
+        type: datetime
+        invisible: true
+        sortable: true

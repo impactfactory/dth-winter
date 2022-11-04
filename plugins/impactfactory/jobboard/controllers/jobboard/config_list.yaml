@@ -1,0 +1,13 @@
+list: $/impactfactory/jobboard/models/applicants/columns.yaml
+modelClass: Impactfactory\Jobboard\Models\Applicants
+title: Jobboard
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'impactfactory/jobboard/jobboard/update/:id'
+filter: config_filter.yaml

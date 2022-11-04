@@ -1,0 +1,38 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table impactfactory_jobboard_applicants'
+    - builder_table_create_impactfactory_jobboard_applicants.php
+1.0.3:
+    - 'Updated table impactfactory_jobboard_applicants'
+    - builder_table_update_impactfactory_jobboard_applicants.php
+1.0.4:
+    - 'Updated table impactfactory_jobboard_applicants'
+    - builder_table_update_impactfactory_jobboard_applicants_2.php
+1.0.5:
+    - 'Updated table impactfactory_jobboard_applicants'
+    - builder_table_update_impactfactory_jobboard_applicants_3.php
+1.0.6:
+    - 'Updated table impactfactory_jobboard_applicants'
+    - builder_table_update_impactfactory_jobboard_applicants_4.php
+1.0.7:
+    - 'Updated table impactfactory_jobboard_applicants'
+    - builder_table_update_impactfactory_jobboard_applicants_5.php
+1.0.8:
+    - 'Updated table impactfactory_jobboard_applicants'
+    - builder_table_update_impactfactory_jobboard_applicants_6.php
+1.0.9:
+    - 'Updated table impactfactory_jobboard_applicants'
+    - builder_table_update_impactfactory_jobboard_applicants_7.php
+1.0.10:
+    - 'Created table impactfactory_jobboard_states'
+    - builder_table_create_impactfactory_jobboard_states.php
+1.0.11:
+    - 'Created table impactfactory_jobboard_app_state_'
+    - builder_table_create_impactfactory_jobboard_app_state_.php
+1.0.12:
+    - 'Drop table impactfactory_jobboard_applicant_state_'
+    - builder_table_delete_impactfactory_jobboard_applicant_state_.php
+1.0.13:
+    - 'Updated table impactfactory_jobboard_applicants'
+    - builder_table_update_impactfactory_jobboard_applicants_8.php

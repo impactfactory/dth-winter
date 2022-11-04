@@ -1,0 +1,48 @@
+
+
+{% set person = __SELF__.person %}
+{% set picposition = __SELF__.picposition %}
+{% set boxposition = __SELF__.boxposition %}
+{% set boxtitle = __SELF__.boxtitle %}
+{% set boxsize = __SELF__.boxsize %}
+{% set bg = __SELF__.bg %}
+
+
+{% if boxposition == 'begin' %}
+  <article id="portraitbox-{{ person.id }}"
+           class="portraitbox fullwrap px-4 row tpl-{% if bg == '1' %}white{% elseif bg == '2' %}grey{% elseif bg == '3' %}secondary-light{% elseif bg == '4' %}secondary{% elseif bg == '5' %}secondary-dark{% elseif bg == '6' %}primary-light{% else %}transparent{% endif %}">
+    <div  class="indent-me">
+{% endif %}
+
+{% if boxsize != 'fullwidth' and boxposition == 'begin' %}
+      <div class="row">
+{% endif %}
+
+
+    {% if boxsize == 'fullwidth' %}
+      {% if picposition == 'left' %}
+        {% partial 'portraitBox::fullwidth-left' boxtitle=boxtitle %}
+      {% elseif picposition == 'right' %}
+        {% partial 'portraitBox::fullwidth-right' boxtitle=boxtitle %}
+      {% else %}
+        {% partial 'portraitBox::fullwidth-left' boxtitle=boxtitle  %}
+      {% endif %}
+    {% endif %}
+
+    {% if boxsize == 'halfwidth' %}
+      {% partial 'portraitBox::halfwidth' %}
+    {% endif %}
+
+    {% if boxsize == 'thirdwidth' %}
+      {% partial 'portraitBox::thirdwidth'  boxtitle=boxtitle %}
+    {% endif %}
+
+
+{% if boxsize != 'fullwidth'  and boxposition == 'end' %}
+      </div> {# end row #}
+{% endif %}
+
+{% if boxposition == 'end' %}
+  </div> {# end indent-me #}
+</article>
+{% endif %}

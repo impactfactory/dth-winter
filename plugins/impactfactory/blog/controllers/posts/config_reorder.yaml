@@ -1,0 +1,5 @@
+title: Posts
+modelClass: ImpactFactory\Blog\Models\Post
+nameFrom: title
+toolbar:
+    buttons: reorder_toolbar

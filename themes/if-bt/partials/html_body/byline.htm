@@ -1,0 +1,13 @@
+[orgaMeta]
+==
+<div class="byline">
+
+    <a href="{{ 'impressum' | staticPage }}">{{ 'footer.link.imprint'|_ }}</a> |
+    <a href="{{ 'datenschutz' | staticPage }}">{{ 'footer.link.dataprotection'|_ }}</a> |
+    <a href="https://impactfactory.ch" rel="noopener" title="Webdesign Websites OctoberCMS Laravel">
+      Powered by ImpactFactory
+    </a> |
+    <a href="/{{ activeLocale }}">&copy; 2020 - {{ "now"|date("Y") }} {{ orgaMeta.meta.schema_name }}</a>
+
+  {% content 'license-info.htm' %}
+</div>

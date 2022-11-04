@@ -1,0 +1,86 @@
+.tpl-white {
+  background: $if-white;
+  color: $if-dark;
+
+  li a { color: $if-dark; }
+  li a:hover, li a:active, li a:focus, li:hover a { color: $if-primary; }
+}
+
+
+
+.tpl-grey {
+  background:$if-grey;
+  color: $if-dark;
+
+  li a { color: $if-dark; }
+  li a:hover, li a:active, li a:focus, li:hover a { color: $if-primary; }
+}
+
+
+
+.tpl-secondary-light {
+  background:$if-secondary-light;
+  color: $if-dark;
+
+  li a { color: $if-dark; }
+  li a:hover, li a:active, li a:focus, li:hover a { color: $if-primary; }
+}
+
+
+
+.tpl-secondary {
+  background:$if-secondary;
+  color: $if-dark;
+
+  li a { color: $if-dark; }
+  li a:hover, li a:active, li a:focus, li:hover a { color: $if-primary; }
+}
+
+
+.tpl-secondary-dark {
+  background:$if-secondary-dark;
+  color: $if-white;
+
+  a, .accordion-button, address span, address a, address svg { color: $if-white!important; }
+  .accordion-button:not(.collapsed) { background: $if-white-50; border: 0;}
+
+  p {
+   a { text-decoration: underline!important;}
+   a:hover, a:active, a:focus { color: $if-primary; }
+  }
+
+  li a { color: $if-dark; }
+  li a:hover, li a:active, li a:focus, li:hover a { color: $if-primary; }
+
+  .card {
+    background:none;
+    border: none;
+
+    .text-muted { color: $if-white-50!important;}
+  }
+}
+
+
+
+.tpl-primary-light {
+  background:$if-primary-light;
+  color: $if-white;
+
+  a, .accordion-button, address span, address a, address svg { color: $if-white!important; }
+  .accordion-button:not(.collapsed) { background: $if-white-50; border: 0;}
+
+  p {
+   a { color: $if-white; text-decoration: underline!important;}
+   a:hover, a:active, a:focus { color: $if-primary; }
+ }
+
+  li a { color: $if-dark; }
+  li a:hover, li a:active, li a:focus, li:hover a { color: $if-primary; }
+
+  .card {
+    background:none;
+    border: none;
+
+    .text-muted { color: $if-white-50!important;}
+  }
+}

@@ -1,0 +1,12 @@
+<div class="team-list indent-me">
+{% for team in __SELF__.teams %}
+  {% if team.is_published == '1' %}
+      <section>
+          <h2 class="pt-3">{{ team.label }}</h2>
+          {% for person in team.people %}
+              {% partial __SELF__ ~ '::person-' ~ team.style  person=person %}
+          {% endfor %}
+      </section>
+  {% endif %}
+{% endfor %}
+</div>

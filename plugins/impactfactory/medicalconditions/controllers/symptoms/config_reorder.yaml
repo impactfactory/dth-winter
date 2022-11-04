@@ -1,0 +1,4 @@
+title: Symptoms
+modelClass: Impactfactory\MedicalConditions\Models\Symptom
+toolbar:
+    buttons: reorder_toolbar

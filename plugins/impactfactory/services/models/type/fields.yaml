@@ -1,0 +1,5 @@
+fields:
+    published:
+        label: 'impactfactory.services::lang.type.published'
+        span: full
+        type: switch

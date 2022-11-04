@@ -1,0 +1,30 @@
+{
+  "short_name": "DTH",
+  "name": "Diagnostische und therapeutisches Herzzentrum",
+  "description": "Kardiologie-Wissen auf Ihrem Smartphone",
+  "start_url": "/de/kardiologie?homescreen=1",
+  "background_color": "#fcf3ee",
+  "display": "standalone",
+  "orientation": "portrait",
+  "scope": "/",
+  "theme_color": "#fcf3ee",
+  "icons": [
+    {
+      "src": "img/favicons/android-chrome-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "img/favicons/android-chrome-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+    "screenshots": [
+    {
+      "src": "img/favicons/webmanifest-screenshot.png",
+      "type": "image/png",
+      "sizes": "540x720"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+fields:
+    name:
+        label: Bezeichnung
+        span: full
+        type: text
+    url:
+        label: URL
+        span: full
+        type: text
+    tag:
+        label: 'impactfactory.medicalconditions::lang.treatments.tag'
+        type: recordfinder
+        list: $/impactfactory/blog/models/tag/columns.yaml
+        nameFrom: name
+        span: full

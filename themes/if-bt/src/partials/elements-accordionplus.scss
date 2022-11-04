@@ -1,0 +1,24 @@
+.accordionplus {
+
+  background: $if-primary-light;
+
+  .accordion-button {
+    padding:0.5rem
+  }
+
+  .accordion-header {
+    font-size: 20px!important;
+  }
+
+  h3 a {
+    text-decoration: none;
+
+    div {
+      padding-left: 1rem;
+    }
+}
+
+  .textleft a {
+    color: $if-dark !important;
+      }
+}

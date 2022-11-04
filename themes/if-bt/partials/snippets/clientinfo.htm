@@ -1,0 +1,169 @@
+description = "Erzeugt einen ganzbreitigen Abschnitt mit Text und Linklisten."
+
+[viewBag]
+snippetCode = "clientinfo"
+snippetName = "Patienteninformation"
+snippetProperties[h2][title] = "Abschnittstitel"
+snippetProperties[h2][type] = "text"
+snippetProperties[bg][title] = "Hintergrund-Farbe"
+snippetProperties[bg][type] = "dropdown"
+snippetProperties[bg][options][1]= "Weiss"
+snippetProperties[bg][options][2]= "Grau"
+snippetProperties[bg][options][3]= "aufgehelles Türkis"
+snippetProperties[bg][options][4]= "Türkis"
+snippetProperties[bg][options][5]= "abgedunkeltes Türkis"
+snippetProperties[bg][options][6]= "aufgehelltes Rot"
+
+[staticMenu articlesMenu]
+code = "articles"
+
+[staticMenu videosMenu]
+code = "videos"
+
+[staticMenu faqsMenu]
+code = "faqs"
+
+
+
+==
+
+<div class="fullwrap clientinfo tpl-{% if bg == '1' %}white{% elseif bg == '2' %}grey{% elseif bg == '3' %}secondary-light{% elseif bg == '4' %}secondary{% elseif bg == '5' %}secondary-dark{% elseif bg == '6' %}primary-light{% else %}transparent{% endif %}">
+  <div class="indent-me row">
+
+      <div class="col-12">
+        <h2>{{ h2 }}</h2>
+        {% content 'clientinfo-text.htm' %}
+      </div>
+
+      {# faqs list #}
+      <div class="faqs-list col-12 col-md-4">
+          <a href="{{ 'patienteninformation-faqs.htm' | staticPage }}" title="FAQ">
+            <h3 class="h5">FAQ</h3>
+          </a>
+          <ul class="list-unstyled">
+          {% for item in faqsMenu.menuItems %}
+            <li class="mb-3">
+              <div class="d-flex">
+                <div class="thumb">
+                  <a title="{{ item.title }}" href="{{ item.url }}">
+                    {% partial 'html_body/svg-icons/information' %}
+                  </a>
+                </div>
+                <div class="title">
+                  <a title="{{ item.title }}" href="{{ item.url }}">
+                    {{ item.title }}
+                  </a>
+                </div>
+              </div>
+            </li>
+          {% endfor %}
+          </ul>
+      </div>
+
+      {# videos list #}
+      <div class="col-12 col-md-4">
+          <div class="videos-list col-12">
+            <a href="/{{ localePicker.activeLocale }}/{{ viewBag.localeBlogbase[activeLocale] }}/{{ viewBag.localeCategorypagebase[activeLocale] }}/videos" title="Videos">
+              <h3  class="h5">{{ 'footer.nav.videos'|_ }}</h3>
+            </a>
+            <ul class="list-unstyled">
+            {% for item in videosMenu.menuItems %}
+              <li class="mb-3">
+                <div class="d-flex">
+                  <div class="thumb">
+                    <a title="{{ item.title }}" href="{{ item.url }}">
+                      <img class=""
+                          src="{{ item.viewBag.image | media | resize(65, 65, { mode: 'cover' }) }}"
+                          alt="Thumbnail {{ item.title }}"
+                          width="65"
+                          height="65"
+                          loading="lazy"
+                      >
+                    </a>
+                  </div>
+                  <div class="title">
+                    <a class="" title="{{ item.title }}" href="{{ item.url }}">
+                      {{ item.title }}
+                    </a>
+                  </div>
+                </div>
+              </li>
+            {% endfor %}
+            </ul>
+          </div>
+      </div>
+
+      {# articles list #}
+      <div class="col-12 col-md-4">
+          <div class="articles-list col-12">
+              <a href="/{{ localePicker.activeLocale }}/{{ viewBag.localeBlogbase[activeLocale] }}" title="{{ viewBag.localeBlogbase[activeLocale] }}">
+                <h3  class="h5">{{ 'footer.nav.blogposts'|_ }}</h3>
+              </a>
+              <ul class="list-unstyled">
+              {% for item in articlesMenu.menuItems %}
+              <li class="mb-3">
+                <div class="d-flex">
+                  <div class="thumb">
+                    <a title="{{ item.title }}" href="{{ item.url }}">
+                      <img class=""
+                          src="{{ item.viewBag.image | media | resize(65, 65, { mode: 'cover' }) }}"
+                          alt="Thumbnail {{ item.title }}"
+                          width="65"
+                          height="65"
+                          loading="lazy"
+                      >
+                    </a>
+                  </div>
+                  <div class="title">
+                    <a title="{{ item.title }}" href="{{ item.url }}">
+                      {{ item.title }}
+                    </a>
+                  </div>
+                </div>
+              </li>
+              {% endfor %}
+              </ul>
+          </div>
+      </div>
+
+      <div class="col-12 col-md-2 mt-4 px-4"></div>
+      <div class="col-12 col-md-8 mt-4">
+          <div class="placeitemscenter pb-2">
+            <h3 class="searchtitle ">{{ 'clientinfo.searchfield.title'|_ }}</h3>
+          </div>
+          <form action="{{ 'suchresultate.htm' | page }}" method="get">
+                <input class="form-control mb-4 shadow-none"
+                     id="searchfield"
+                     name="q"
+                     type="search"
+                     placeholder="{{ 'clientinfo.searchfield.placeholder'|_ }}"
+                     autocomplete="off"
+                     aria-label="{{ 'clientinfo.searchfield.placeholder'|_ }}"
+                >
+          </form>
+      </div>
+      <div class="col-12 col-md-2 mt-4 px-4"></div>
+
+      <div class="col-12 col-md-2 mt-4 px-4"></div>
+      <div class="col-12 col-md-8 mt-4">
+          <div class="placeitemscenter socialbuttons pb-2">
+            <h3>{{ 'clientinfo.social.title'|_ }}</h3>
+            <ul class="p-0 m-0">
+              <li class="d-inline-block">
+                  <a title="Facebook" href="https://www.facebook.com/Diagnostisches-und-therapeutisches-Herzzentrum-AG-142366007963169" rel="noopener" rel="noreferrer">
+                    {% partial 'html_body/svg-icons/facebook' %}
+                  </a>
+              </li>
+              <li class="d-inline-block">
+                  <a title="LinkedIn" href="https://www.linkedin.com/company/dth-herzzentrum"  rel="noopener" rel="noreferrer">
+                    {% partial 'html_body/svg-icons/linkedin' %}
+                  </a>
+              </li>
+            </ul>
+          </div>
+
+      </div>
+      <div class="col-12 col-md-2 mt-4 px-4"></div>
+
+  </div> {# end indent-me row #}
+</div> {# end fullwrap clientinfo #}

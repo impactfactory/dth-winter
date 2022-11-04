@@ -1,0 +1,15 @@
+
+{{ form_open() }}
+
+    <select class="form-select form-select-sm"
+            name="locale"
+            data-request="onSwitchLocale"
+            id="languageselect"
+            title="{{ 'forms.select.langselect'|_ }}"
+            >
+        {% for code, name in locales %}
+            <option value="{{ code }}" {{ code == activeLocale ? 'selected' }}>{{ name }}</option>
+        {% endfor %}
+    </select>
+
+{{ form_close() }}

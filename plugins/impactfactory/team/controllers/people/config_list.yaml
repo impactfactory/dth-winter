@@ -1,0 +1,12 @@
+title: People
+modelClass: ImpactFactory\Team\Models\Person
+list: $/impactfactory/team/models/person/columns.yaml
+recordUrl: 'impactfactory/team/people/update/:id'
+noRecordsMessage: 'backend::lang.list.no_records'
+recordsPerPage: '20'
+showSetup: true
+showCheckboxes: true
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'

@@ -1,0 +1,67 @@
+{% set element = __SELF__.element %}
+{% set boxtitle = __SELF__.boxtitle %}
+{% set bg = __SELF__.bg %}
+
+
+
+{% if element.from|date('U') < 'now'|date('U') and element.to|date('U') > 'now'|date('U') %}
+
+<div id="listblocks-{{ element.id }}" class="fullwrap listblocks tpl-{% if bg == '1' %}white{% elseif bg == '2' %}grey{% elseif bg == '3' %}secondary-light{% elseif bg == '4' %}secondary{% elseif bg == '5' %}secondary-dark{% elseif bg == '6' %}primary-light{% else %}transparent{% endif %}">
+  <article class="indent-me row g-1">
+    <div class="col-12">
+        {% if boxtitle %}
+          <h2 class="mt-0 mb-3">{{ boxtitle }}</h2>
+        {% endif %}
+        {% if element.text %}
+          {{ element.text | raw }}
+        {% endif %}
+    </div>
+      {% for index, element in element.elements %}
+        {% if element.is_published %}
+
+        <section class="listblock card col-12 p-0 rounded {% if this.page.url == element.url %}youarehere{% endif %}">
+            <div class="first-layer row g-0">
+                <div class="icon col-2 col-md-1 p-3">
+                  {% set iconCode = element.icon %}
+                  <a class="link-primary" href="/{{ localePicker.activeLocale }}{{ element.url }}" title="{{ element.url_text }}">
+                    {% partial iconCode %}
+                  </a>
+                </div>
+                <div class="col-10 col-md-11">
+                  <div class="card-body pt-1 pl-3">
+                    <a class="link-primary" href="/{{ localePicker.activeLocale }}{{ element.url }}" title="{{ element.url_text }}">
+                      <h3 class="h5">
+                        {{ element.title }}
+                      </h3>
+                    </a>
+                  </div>
+                </div>
+            </div>
+            <div class="second-layer row g-0">
+              <div class="icon col-2 col-md-1 px-3 py-3">
+                {% set iconCode = element.icon %}
+                <a class="link-primary" href="/{{ localePicker.activeLocale }}{{ element.url }}" title="{{ element.url_text }}">
+                  {% partial iconCode %}
+                </a>
+              </div>
+              <div class="col-10 col-md-11">
+                  <div class="card-body pt-1 pt-sm-2 pt-md-3 pb-0">
+                      <a class="link-primary" href="/{{ localePicker.activeLocale }}{{ element.url }}" title="{{ element.url_text }}">
+                        {{ element.text | raw }}
+                      </a>
+                      {#
+                        <a class="link-primary" href="/{{ localePicker.activeLocale }}{{ element.url }}" title="{{ element.url_text }}">
+                        {% partial 'html_body/svg-icons/externallink' %}
+                      </a>
+                      #}
+                  </div>
+              </div>
+            </div>
+        </section>
+
+        {% endif %}
+      {% endfor %}
+  </article>
+</div>
+
+{% endif %}

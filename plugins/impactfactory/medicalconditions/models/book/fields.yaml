@@ -1,0 +1,28 @@
+fields:
+    is_published:
+        label: veröffentlicht
+        span: full
+        type: switch
+    name:
+        label: 'Titel des Buches'
+        span: full
+        type: text
+    desc:
+        label: 'Rich editor'
+        size: large
+        span: full
+        type: richeditor
+    url:
+        label: Link
+        span: full
+        type: text
+    cover:
+        label: Buch-Cover
+        type: mediafinder
+        mode: image
+        imageWidth: 200
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: full

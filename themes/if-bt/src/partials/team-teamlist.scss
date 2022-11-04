@@ -1,0 +1,16 @@
+.team-list {
+
+  .card-body {
+    padding-left:0!important;
+
+    a {
+      color: $if-white;
+      text-decoration: none;
+    }
+
+    a.imglink:hover {
+      display:inline-block;
+      border-radius: 100px;
+    }
+  }
+}

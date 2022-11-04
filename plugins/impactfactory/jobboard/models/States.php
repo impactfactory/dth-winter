@@ -1,0 +1,43 @@
+<?php namespace Impactfactory\Jobboard\Models;
+
+use Model;
+
+/**
+ * Model
+ */
+class States extends Model
+{
+    use \October\Rain\Database\Traits\Validation;
+
+    /*
+     * Disable timestamps by default.
+     * Remove this line if timestamps are defined in the database table.
+     */
+    public $timestamps = false;
+
+    protected $guarded = ['*'];
+
+    protected $fillable = [];
+
+    /**
+     * @var string The database table used by the model.
+     */
+    public $table = 'impactfactory_jobboard_states';
+
+    /**
+     * @var array Validation rules
+     */
+    public $rules = [
+    ];
+
+    /*
+    public $hasMany = [
+        'applicant' => [Applicants::class]
+    ];
+
+   /*
+   public $hasOne = [
+     'applicants' => [Applicants::class, 'table' => 'impactfactory_jobboard_app_state_']
+   ];
+   */
+}

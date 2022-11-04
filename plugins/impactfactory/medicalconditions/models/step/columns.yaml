@@ -1,0 +1,36 @@
+columns:
+    id:
+        label: ID
+        type: number
+        sortable: true
+    name:
+        label: Name
+        type: text
+        searchable: true
+        sortable: true
+    title:
+        label: Titel
+        type: text
+        searchable: true
+        sortable: true
+    url:
+        label: URL
+        type: text
+        searchable: true
+        invisible: true
+        sortable: true
+    image:
+        label: Bild
+        type: text
+        invisible: true
+        sortable: true
+    created_at:
+        label: created_at
+        type: datetime
+        invisible: true
+        sortable: true
+    updated_at:
+        label: updated_at
+        type: datetime
+        invisible: true
+        sortable: true

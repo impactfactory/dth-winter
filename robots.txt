@@ -1,0 +1,8 @@
+# Group 1
+User-agent: *
+Disallow: /config/
+Disallow: /modules/
+Disallow: /plugins/
+Disallow: /vendor/
+
+Sitemap: https://www.dth-herzzentrum.ch/sitemap.xml

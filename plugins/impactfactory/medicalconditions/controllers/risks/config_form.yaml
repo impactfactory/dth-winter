@@ -1,0 +1,10 @@
+name: Risks
+form: $/impactfactory/medicalconditions/models/risk/fields.yaml
+modelClass: Impactfactory\MedicalConditions\Models\Risk
+defaultRedirect: impactfactory/medicalconditions/risks
+create:
+    redirect: 'impactfactory/medicalconditions/risks/update/:id'
+    redirectClose: impactfactory/medicalconditions/risks
+update:
+    redirect: impactfactory/medicalconditions/risks
+    redirectClose: impactfactory/medicalconditions/risks

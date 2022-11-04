@@ -1,0 +1,15 @@
+fields:
+    name:
+        label: 'Bezeichnung des Tests'
+        span: full
+        type: text
+    url:
+        label: 'Link zu mehr Informationen'
+        span: full
+        type: text
+    tag:
+        label: 'impactfactory.medicalconditions::lang.tests.tag'
+        type: recordfinder
+        list: $/impactfactory/blog/models/tag/columns.yaml
+        nameFrom: name
+        span: full

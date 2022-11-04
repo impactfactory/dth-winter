@@ -1,0 +1,10 @@
+name: Treatments
+form: $/impactfactory/medicalconditions/models/treatment/fields.yaml
+modelClass: Impactfactory\MedicalConditions\Models\Treatment
+defaultRedirect: impactfactory/medicalconditions/treatments
+create:
+    redirect: 'impactfactory/medicalconditions/treatments/update/:id'
+    redirectClose: impactfactory/medicalconditions/treatments
+update:
+    redirect: impactfactory/medicalconditions/treatments
+    redirectClose: impactfactory/medicalconditions/treatments

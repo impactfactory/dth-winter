@@ -1,0 +1,4 @@
+title: Treatments
+modelClass: Impactfactory\MedicalConditions\Models\Treatment
+toolbar:
+    buttons: reorder_toolbar

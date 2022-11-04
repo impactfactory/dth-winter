@@ -1,0 +1,10 @@
+name: Books
+form: $/impactfactory/medicalconditions/models/book/fields.yaml
+modelClass: Impactfactory\MedicalConditions\Models\Book
+defaultRedirect: impactfactory/medicalconditions/books
+create:
+    redirect: 'impactfactory/medicalconditions/books/update/:id'
+    redirectClose: impactfactory/medicalconditions/books
+update:
+    redirect: impactfactory/medicalconditions/books
+    redirectClose: impactfactory/medicalconditions/books

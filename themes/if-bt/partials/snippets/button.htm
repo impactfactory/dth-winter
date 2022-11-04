@@ -1,0 +1,36 @@
+description = "Fügt einen Button hinzu."
+
+[viewBag]
+snippetCode = "button"
+snippetName = "Action-Button"
+snippetProperties[url][title] = "URL"
+snippetProperties[url][type] = "string"
+snippetProperties[label][title] = "Button-Text"
+snippetProperties[label][type] = "string"
+snippetProperties[ext][title] = "externer Link (immer aktivieren falls Link extern -SEO/Sicherheit!!)"
+snippetProperties[ext][type] = "checkbox"
+snippetProperties[ext][title] = "externer Link (immer aktivieren falls Link extern -SEO/Sicherheit!!)"
+snippetProperties[ext][type] = "checkbox"
+snippetProperties[color][title] = "Farbe"
+snippetProperties[color][type] = "dropdown"
+snippetProperties[color][options][1]= "Primary"
+snippetProperties[color][options][2]= "Secondary"
+snippetProperties[color][options][3]= "Info"
+snippetProperties[width][title] = "Breite"
+snippetProperties[width][type] = "string"
+==
+<div class="snippet-button mb-2 placeitemscenter">
+	<a class="btn btn-sm btn-{% if color == '1' %}primary{% elseif color == '2' %}secondary{% elseif color == '3' %}info{% endif %}"
+		 href="{{ url }}"
+		 role="button"
+		 {% if ext %}
+		 rel="noopener noreferrer"
+		 target="_blank"
+		 {% endif %}
+		 {% if width %}
+		 style="width:{{ width }}px;"
+		 {% endif %}
+		 >
+		{{ label }}
+	</a>
+</div>

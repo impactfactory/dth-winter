@@ -1,0 +1,36 @@
+[viewBag]
+snippetCode = "mail-protect"
+snippetName = "vor Spam geschütze Mail-Adresse"
+snippetProperties[address][title] = "Adresse"
+snippetProperties[address][type] = "string"
+snippetProperties[address][default] = ""
+snippetProperties[address][options][] = ""
+==
+<?php
+
+function onStart() {
+
+  $mail = $this->address;
+
+    $mailparts = explode("@",$mail);
+
+    $this['mailuser'] = $mailparts[0];
+
+    $this['maildomain'] = $mailparts[1];
+
+}
+
+?>
+==
+
+<p class="protectedmailsnippet my-0 py-0"></p>
+
+<script>
+  user = '{{ mailuser }}';
+  site = '{{ maildomain }}';
+
+  var elements = document.getElementsByClassName('protectedmailsnippet');
+  Array.prototype.forEach.call(elements, function(element) {
+      element.innerHTML = '<a class=\"tooltips\" href=\"mailto:' + user + '@' + site + '\" data=\"{{ 'contactbox.mail.tooltip'|_ }}\">{{ 'contactbox.mail.label'|_ }}</a>';
+    });
+</script>

@@ -1,0 +1,4 @@
+title: Assurances
+modelClass: ImpactFactory\Services\Models\Assurance
+toolbar:
+    buttons: reorder_toolbar

@@ -1,0 +1,53 @@
+plugin:
+    name: 'impactfactory.ref::lang.plugin.name'
+    description: 'impactfactory.ref::lang.plugin.description'
+    author: ImpactFactory
+    icon: oc-icon-file-archive-o
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: 'impactfactory.ref::lang.plugin.name'
+        url: impactfactory/ref/patients
+        icon: icon-file-archive-o
+        permissions:
+            - 'ref.*'
+        sideMenu:
+            side-menu-patients:
+                label: 'impactfactory.ref::lang.nav.patient'
+                url: impactfactory/ref/patients
+                icon: icon-file-archive-o
+                permissions:
+                    - ref.patients
+            side-menu-diagnostics:
+                label: 'impactfactory.ref::lang.nav.diagnostic'
+                url: impactfactory/ref/diagnostics
+                icon: icon-wrench
+                permissions:
+                    - ref.diagnostics
+            side-menu-assurances:
+                label: 'impactfactory.ref::lang.nav.assurances'
+                url: impactfactory/ref/assurances
+                icon: icon-simplybuilt
+                permissions:
+                    - ref.assurances
+            side-menu-states:
+                label: 'impactfactory.ref::lang.nav.states'
+                url: impactfactory/ref/states
+                icon: icon-stack-overflow
+                permissions:
+                    - ref.states
+permissions:
+    ref.patients:
+        tab: 'impactfactory.ref::lang.plugin.name'
+        label: 'impactfactory.ref::lang.permission.patients'
+    ref.diagnostics:
+        tab: 'impactfactory.ref::lang.plugin.name'
+        label: 'impactfactory.ref::lang.permission.diagnostics'
+    ref.assurances:
+        tab: 'impactfactory.ref::lang.plugin.name'
+        label: 'impactfactory.ref::lang.permission.assurances'
+    ref.states:
+        tab: 'impactfactory.ref::lang.plugin.name'
+        label: 'impactfactory.ref::lang.permission.states'
+dependencies:
+    - rainlab.translate

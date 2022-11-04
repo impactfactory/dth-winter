@@ -1,0 +1,35 @@
+title = "Blog Post Detail"
+url = "kardiologie/:slug"
+layout = "default"
+description = "einzelner Artikel"
+is_hidden = 0
+meta_title = "Blog Post"
+meta_description = "Blog Post"
+robot_index = "index"
+robot_follow = "follow"
+
+[postdetail]
+[tagcloud]
+[portraitBox]
+
+[viewBag]
+localeUrl[en] = "cardiology/:slug"
+localeUrl[de] = "kardiologie/:slug"
+localeBlogbase[en] = "cardiology"
+localeBlogbase[de] = "kardiologie"
+localeTagpagebase[en] = "tag"
+localeTagpagebase[de] = "stichwort"
+localeCategorypagebase[en] = "topic"
+localeCategorypagebase[de] = "thema"
+localeTeambase[en] = "team"
+localeTeambase[de] = "team"
+==
+<?php
+function onStart()
+{
+  $this['breadcrumbid'] = 'post-detail';
+}
+?>
+==
+{% component 'postdetail' %}
+{% component 'tagcloud' %}

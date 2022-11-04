@@ -1,0 +1,5 @@
+fields:
+    published:
+        label: 'impactfactory.services::lang.assurance.published'
+        span: auto
+        type: switch

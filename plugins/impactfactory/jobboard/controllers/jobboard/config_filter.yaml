@@ -1,0 +1,80 @@
+scopes:
+    job_posting:
+        label: Stelle
+        type: group
+        conditions: job_posting in (:filtered)
+        options:
+            Administration: Administration
+            Empfang: Empfang
+    state:
+        label: Status
+        modelClass: Impactfactory\Jobboard\Models\States
+        conditions: state_id in (:filtered)
+        nameFrom: title
+    lang_de:
+        label: De
+        type: group
+        conditions: lang_de in (:filtered)
+        options:
+            A1: A1
+            A2: A2
+            B1: B1
+            B2: B2
+            C1: C1
+            C2: C2
+            nativ: nativ
+    lang_en:
+        label: En
+        type: group
+        conditions: lang_en in (:filtered)
+        options:
+            A1: A1
+            A2: A2
+            B1: B1
+            B2: B2
+            C1: C1
+            C2: C2
+            nativ: nativ
+    lang_it:
+        label: Fr
+        type: group
+        conditions: lang_fr in (:filtered)
+        options:
+            A1: A1
+            A2: A2
+            B1: B1
+            B2: B2
+            C1: C1
+            C2: C2
+            nativ: nativ
+    lang_it:
+        label: It
+        type: group
+        conditions: lang_it in (:filtered)
+        options:
+            A1: A1
+            A2: A2
+            B1: B1
+            B2: B2
+            C1: C1
+            C2: C2
+            nativ: nativ
+    gender:
+        label: Geschlecht
+        type: group
+        conditions: gender in (:filtered)
+        options:
+            m: männlich
+            f: weiblich
+            q: divers
+    startdate:
+        label: Beginn
+        type: date
+        conditions: created_at >= ':filtered'
+    salary_min:
+        label: MinLohn
+        type: numberrange
+        default:
+          0: null
+          1: null
+        conditions: salary_min >= ':min' and salary_min <= ':max'

@@ -1,0 +1,30 @@
+[viewBag]
+==
+<?php
+
+?>
+==
+<script type="application/ld+json" id="myJSON">
+{
+  "short_name": "DTH",
+  "name": "Diagnostische und therapeutisches Herzzentrum",
+  "description": "Kardiologie-Wissen auf Ihrem Smartphone",
+  "start_url": "/kardiologie?homescreen=1",
+  "background_color": "rgba(129,5,12,1)",
+  "display": "fullscreen",
+  "scope": "/",
+  "theme_color": "#ffffff",
+  "icons": [{
+    "src": "img/favicons/favicon.svg",
+    "sizes": "72x72 96x96 128x128 256x256 512x512",
+    "type": "image/png"
+  }]
+}
+</script>
+
+<script type="text/javascript">
+
+  var manifest= document.getElementById('myJSON').innerHTML; //sets manifest to the text in #myJSON
+  manifest= JSON.parse(manifest) //Converts it into JSON
+
+</script>

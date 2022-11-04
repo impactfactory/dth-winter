@@ -1,0 +1,68 @@
+books:
+  label: Bücher
+  view:
+    list: $/impactfactory/medicalconditions/models/book/columns.yaml
+    toolbarButtons: add|remove
+  manage:
+    form: $/impactfactory/medicalconditions/models/book/fields.yaml
+    manage:
+    showSearch: true
+faqs:
+  label: Fragen
+  view:
+    list: $/impactfactory/medicalconditions/models/faq/columns.yaml
+    toolbarButtons: add|remove
+  manage:
+    form: $/impactfactory/medicalconditions/models/faq/fields.yaml
+    manage:
+    showSearch: true
+links:
+  label: Links
+  view:
+    list: $/impactfactory/medicalconditions/models/link/columns.yaml
+    toolbarButtons: add|remove
+  manage:
+    form: $/impactfactory/medicalconditions/models/link/fields.yaml
+    manage:
+    showSearch: true
+risks:
+  label: Risikofaktoren
+  view:
+    list: $/impactfactory/medicalconditions/models/risk/columns.yaml
+    toolbarButtons: add|remove
+  manage:
+    form: $/impactfactory/medicalconditions/models/risk/fields.yaml
+    manage:
+    showSearch: true
+steps:
+  label: Schritte
+  view:
+    list: $/impactfactory/medicalconditions/models/step/columns.yaml
+    toolbarButtons: add|remove
+symptoms:
+  label: Symptome
+  view:
+    list: $/impactfactory/medicalconditions/models/symptom/columns.yaml
+    toolbarButtons: add|remove
+  manage:
+    form: $/impactfactory/medicalconditions/models/symptom/fields.yaml
+    manage:
+    showSearch: true
+tests:
+  label: Tests
+  view:
+    list: $/impactfactory/medicalconditions/models/test/columns.yaml
+    toolbarButtons: add|remove
+  manage:
+    form: $/impactfactory/medicalconditions/models/test/fields.yaml
+    manage:
+    showSearch: true
+treatments:
+  label: Behandlungen
+  view:
+    list: $/impactfactory/medicalconditions/models/treatment/columns.yaml
+    toolbarButtons: add|remove
+  manage:
+    form: $/impactfactory/medicalconditions/models/treatment/fields.yaml
+    manage:
+    showSearch: true

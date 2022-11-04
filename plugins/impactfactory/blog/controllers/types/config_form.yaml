@@ -1,0 +1,10 @@
+name: Types
+form: $/impactfactory/blog/models/type/fields.yaml
+modelClass: ImpactFactory\Blog\Models\Type
+defaultRedirect: impactfactory/blog/types
+create:
+    redirect: 'impactfactory/blog/types/update/:id'
+    redirectClose: impactfactory/blog/types
+update:
+    redirect: impactfactory/blog/types
+    redirectClose: impactfactory/blog/types

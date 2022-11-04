@@ -1,0 +1,83 @@
+<address class="m-0 p-0 table-responsive">
+  <table class="table table-responsive">
+
+    <tr class="d-none">
+      <td>
+        {{ person.first_name }} {{ person.last_name }}
+      </td>
+    </tr>
+
+    {% if person.street %}
+    <tr>
+      <td class="align-top">
+        <span class="font-weight-bold">
+          {% partial 'html_body/svg-icons/mapmarker' %}
+           {{ 'team.person.address'|_ }}:
+        </span>
+      </td>
+      <td>
+        <a href="#map">
+          {{ person.street}} {{ person.no}}, {{ person.zip}} {{ person.city}}, {{ person.country}}
+        </a><br>
+      </td>
+    </tr>
+    {% endif %}
+
+    {% if person.phone %}
+    <tr>
+      <td class="align-top">
+        <span class="font-weight-bold">
+          {% partial 'html_body/svg-icons/phone' %}
+           {{ 'team.person.phone'|_ }}:
+        </span>
+      </td>
+      <td>
+        <a href="tel:{{ person.phone }}">{{ person.phone }}</a>
+      </td>
+    </tr>
+    {% endif %}
+
+    {% if person.email %}
+    <tr>
+      <td class="align-top">
+        <span class="font-weight-bold">
+          {% partial 'html_body/svg-icons/email' %}
+           {{ 'team.person.email' |_ }}:
+        </span>
+      </td>
+      <td>
+      {{ person.email|mailto }}
+      </td>
+    </tr>
+    {% endif %}
+
+    {% if person.url %}
+    <tr>
+      <td class="align-top">
+        <span class="font-weight-bold">
+          {% partial 'html_body/svg-icons/externallink' %}
+           {{ 'team.person.web' |_ }}:
+        </span>
+      </td>
+      <td>
+        <a href="{{ person.url}}"  rel="noopener" target="_blank">
+          {{ person.url}}
+        </a>
+      </td>
+    </tr>
+    {% endif %}
+    {% if person.availability %}
+    <tr>
+      <td class="align-top">
+        <span class="font-weight-bold">
+          {% partial 'html_body/svg-icons/smile-beam' %}
+           {{ 'team.person.availability' |_ }}:
+        </span>
+      </td>
+      <td>
+        {{ person.availability}}
+      </td>
+    </tr>
+    {% endif %}
+  </address>
+</table>

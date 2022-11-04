@@ -1,0 +1,274 @@
+fields:
+    is_published:
+        label: veröffentlicht
+        span: full
+        type: switch
+    name:
+        label: Name
+        span: full
+        type: text
+    desc:
+        label: Kurz-Beschreibung
+        size: tiny
+        span: full
+        type: textarea
+tabs:
+    fields:
+        speciality:
+            label: 'Medizinisches Spezialgebiet'
+            options:
+                Cardiovascular: Cardiovascular
+                Anesthesia: Anesthesia
+                CommunityHealth: CommunityHealth
+                Dentistry: Dentistry
+                Dermatology: Dermatology
+                DietNutrition: DietNutrition
+                Emergency: Emergency
+                Endocrine: Endocrine
+                Gastroenterologic: Gastroenterologic
+                Genetic: Genetic
+                Geriatric: Geriatric
+                Gynecologic: Gynecologic
+                Hematologic: Hematologic
+                Infectious: Infectious
+                LaboratoryScience: LaboratoryScience
+                Midwifery: Midwifery
+                Musculoskeletal: Musculoskeletal
+                Neurologic: Neurologic
+                Nursing: Nursing
+                Obstetric: Obstetric
+                Oncologic: Oncologic
+                Optometric: Optometric
+                Otolaryngologic: Otolaryngologic
+                Pathology: Pathology
+                Pediatric: Pediatric
+                PharmacySpecialty: PharmacySpecialty
+                Physiotherapy: Physiotherapy
+                PlasticSurgery: PlasticSurgery
+                Podiatric: Podiatric
+                PrimaryCare: PrimaryCare
+                Psychiatric: Psychiatric
+                PublicHealth: PublicHealth
+                Pulmonary: Pulmonary
+                Radiography: Radiography
+                Renal: Renal
+                RespiratoryTherapy: RespiratoryTherapy
+                Rheumatologic: Rheumatologic
+                SpeechPathology: SpeechPathology
+                Surgical: Surgical
+                Toxicologic: Toxicologic
+                Urologic: Urologic
+            showSearch: true
+            span: auto
+            type: dropdown
+            tab: Grundangaben
+        anatomy:
+            label: Organ
+            span: auto
+            type: text
+            tab: Grundangaben
+        codesystem:
+            label: Codierungs-System
+            options:
+                ICD-10: ICD-10
+                CHOP: CHOP
+                DiseasesDB: DiseasesDB
+                ICD-9: ICD-9
+                ICD-10-GM: ICD-10-GM
+                ICD-10-WHO: ICD-10-WHO
+                ICF: ICF
+                MeSH: MeSH
+                RxNorm: RxNorm
+                SNOMED-CT: SNOMED-CT
+            showSearch: true
+            span: auto
+            type: dropdown
+            comment: 'Referenzsystem für Google'
+            tab: Grundangaben
+        codevalue:
+            label: 'Code (Nummer oder ID)'
+            span: auto
+            type: text
+            comment: 'https://www.dimdi.de/static/de/klassifikationen/icd/icd-10-gm/kode-suche/htmlgm2021/block-i10-i15.htm'
+            tab: Grundangaben
+        treatments:
+            label: Behandlung
+            span: full
+            type: partial
+            tab: Grundangaben
+        alt_names:
+            label: 'alternative Bezeichnungen (Synonyme)'
+            prompt: 'Add new item'
+            span: full
+            style: collapsed
+            type: repeater
+            tab: Grundangaben
+            form:
+                fields:
+                    name:
+                        label: Synonym
+                        span: full
+                        type: text
+        image:
+            label: Bild
+            mode: image
+            imageWidth: '300'
+            imageHeight: '300'
+            useCaption: 0
+            thumbOptions:
+                mode: crop
+                extension: auto
+            span: full
+            type: mediafinder
+            tab: Grundangaben
+        differential:
+            label: Bezeichnung
+            span: full
+            type: text
+            tab: Differential-Diagnose
+        tests:
+            label: 'Typischer Test'
+            span: full
+            type: partial
+            tab: Differential-Diagnose
+        distinguishing_signs:
+            label: Unterscheidungsmerkmale
+            prompt: 'Add new item'
+            span: full
+            type: repeater
+            style: collapsed
+            tab: Differential-Diagnose
+            form:
+                fields:
+                    name:
+                        label: Bezeichnung
+                        span: full
+                        type: text
+        risks:
+            label: 'Risikofaktoren sind...'
+            span: full
+            type: partial
+            tab: Risikofaktoren
+        faqs:
+            label: 'Häufige Fragen und Antworten zu dieser medizinischen Kondition'
+            span: full
+            type: partial
+            tab: FAQs
+        symptoms:
+            label: 'objektive und subjektive Symptombezeichnungen'
+            span: full
+            type: partial
+            tab: Symptome
+        wiki:
+            label: Wikipedia-Link
+            span: full
+            placeholder: 'https://'
+            type: text
+            comment: 'Referenz-Link für Google'
+            tab: Links
+        links:
+            label: 'Links zu weiteren Informationen'
+            span: full
+            type: partial
+            tab: Links
+        books:
+            label: Buchempfehlungen
+            span: full
+            type: partial
+            tab: Bücher
+        how_name:
+            label: 'angezeigter Name der Anleitung'
+            span: full
+            type: text
+            tab: Anleitung
+        how_desc:
+            label: 'Kurz-Beschreibung der Anleitung'
+            size: small
+            span: full
+            type: textarea
+            tab: Anleitung
+        how_totalcost:
+            label: 'Kosten total'
+            span: left
+            type: text
+            tab: Anleitung
+        how_totaltime:
+            label: 'Benötigte Zeit total in Stunden, z.B. 1.5 (!)'
+            span: right
+            type: text
+            tab: Anleitung
+        how_supplyname:
+            label: 'Benötigte Materialien'
+            prompt: 'Add new item'
+            span: left
+            type: repeater
+            tab: Anleitung
+            style: collapsed
+            form:
+                fields:
+                    name:
+                        label: Bezeichnung
+                        span: auto
+                        type: text
+        how_toolname:
+            label: 'Benötigte Werkzeuge'
+            prompt: 'Add new item'
+            span: auto
+            type: repeater
+            tab: Anleitung
+            style: collapsed
+            form:
+                fields:
+                    name:
+                        label: Bezeichnung
+                        span: right
+                        type: text
+        steps:
+            label: Schritte
+            span: full
+            type: partial
+            tab: Anleitung
+        how_image:
+            label: 'Bild zur Anleitung'
+            mode: image
+            imageWidth: '200'
+            span: full
+            type: mediafinder
+            tab: Anleitung
+        g_name:
+            label: Titel
+            span: full
+            type: text
+            tab: Guideline
+        g_desc:
+            label: Beschreibung
+            size: small
+            span: full
+            type: textarea
+            tab: Guideline
+        g_recomm:
+            label: 'So stark ist diese Guideline zu empfehlen:'
+            options:
+                'strong recommendation': stark
+                'medium recommendation': mittel
+                'weak recommendation': schwach
+            showSearch: true
+            span: left
+            type: dropdown
+            tab: Guideline
+        g_ev:
+            label: Evidenz-Level
+            options:
+                'https://schema.org/EvidenceLevelA': 'Daten aus mehreren randomisierten klinischen Studien oder Meta-Analysen'
+                'https://schema.org/EvidenceLevelB': 'Daten aus einer einzelnen randomisierten Studie, oder nicht-randomisierte Studien'
+                'https://schema.org/EvidenceLevelC': 'Konsensmeinung von Experten, Fallstudien , Standard-of-Care'
+            showSearch: true
+            span: right
+            type: dropdown
+            tab: Guideline
+        g_origin:
+            label: 'Ursprung der Evidenz'
+            span: full
+            type: text
+            comment: 'Quelle der Daten, die zur Formulierung des Leitfadens verwendet wurden, z. B. RCT, Konsensmeinung, etc.'
+            tab: Guideline

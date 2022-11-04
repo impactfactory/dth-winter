@@ -1,0 +1,4 @@
+title: Books
+modelClass: Impactfactory\MedicalConditions\Models\Book
+toolbar:
+    buttons: reorder_toolbar

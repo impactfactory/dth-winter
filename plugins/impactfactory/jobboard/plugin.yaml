@@ -1,0 +1,32 @@
+plugin:
+    name: 'Jobboard'
+    description: 'Bewerbungen leicht managen'
+    author: ImpactFactory
+    icon: oc-icon-stack-overflow
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: 'Jobboard'
+        url: impactfactory/jobboard/jobboard
+        icon: icon-stack-overflow
+        permissions:
+            - jobboard
+        sideMenu:
+            side-menu-item:
+                label: Bewerbungen
+                url: impactfactory/jobboard/jobboard
+                icon: icon-stack-overflow
+                permissions:
+                    - jobboard
+            side-menu-item2:
+                label: Status
+                url: impactfactory/jobboard/state
+                icon: icon-list-ol
+                permissions:
+                    - jobboard
+permissions:
+    jobboard:
+        tab: 'Jobboard'
+        label: 'Jobboard'
+dependencies:
+  - rainlab.translate

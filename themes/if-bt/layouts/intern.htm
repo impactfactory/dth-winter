@@ -1,0 +1,39 @@
+description = "intern"
+
+
+
+[viewBag]
+
+==
+
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Zuweisungsdaten</title>
+
+    <link rel="stylesheet" href="{{ ['assets/css-js/index.css'] | theme }}" >
+  </head>
+
+<body class="page-{{ this.page.id }} layout-{{ this.page.layout }}">
+
+      <div class="container px-0 mx-0 mw-100">
+
+        <header class="row">
+
+        </header>
+
+        <main class="row d-flex justify-content-center">
+          <div class="col-12 col-l2-8 pr-0 content-container">
+
+            {% page %}
+
+          </div>
+        </main>
+
+      {% partial 'html_body/scripts' %}
+
+    </body>
+</html>

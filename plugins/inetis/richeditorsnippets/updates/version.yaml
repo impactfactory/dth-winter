@@ -1,0 +1,22 @@
+1.0.1: First version of Richeditor Snippets
+1.0.2: Defines Rainlab.Pages as a plugin dependency - Thanks to Alexander Guth
+1.0.3: Fixes error 'onInspectableGetOptions not found' on more complex snippets
+2.0.0:
+    - Fixes for October >= 420
+    - Move to inetis namespace
+2.1.0: Add support for component-based snippets with AJAX handlers
+2.1.1:
+    - Fix AJAX handlers on component-based snippets
+    - Fix snippets in richeditors initialized on page load
+    - Add ability to pass additional parameters
+2.1.2:
+    - Refactor AJAX handlers caching
+    - Fix "AJAX handler not found" errors when requesting handler 15 minutes after page load
+    - Handlers cache is no more shared between users
+2.1.3:
+    - Fix broken error message when a snippet is not found - Thanks to Tobias Kündig
+2.1.4:
+    - Fix duplicate stuff on RainLab.Pages (open page twice, add snippet twice, etc.)
+    - '!!! This update fixes a compatibility issue with RainLab.Pages >= v1.3.5. You should make sure you are using the latest version of RainLab.Pages'
+2.1.5:
+    - Fix error "Trying to access array offset on value of type null" that could happen under unknown circumstances

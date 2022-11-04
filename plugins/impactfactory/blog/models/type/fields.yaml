@@ -1,0 +1,5 @@
+fields:
+    name:
+        label: 'impactfactory.blog::lang.type.name'
+        span: full
+        type: text

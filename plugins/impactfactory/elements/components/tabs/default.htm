@@ -1,0 +1,50 @@
+{% set element = __SELF__.element %}
+{% set boxtitle = __SELF__.boxtitle %}
+{% set bg = __SELF__.bg %}
+
+
+{% if element.from|date('U') < 'now'|date('U') and element.to|date('U') > 'now'|date('U') %}
+
+<section id="tabs-{{ element.id }}" class="fullwrap tabs pb-0 tpl-{% if bg == '1' %}white{% elseif bg == '2' %}grey{% elseif bg == '3' %}secondary-light{% elseif bg == '4' %}secondary{% elseif bg == '5' %}secondary-dark{% elseif bg == '6' %}primary-light{% else %}transparent{% endif %}">
+  <article class="indent-me row g-1">
+    <div class="col-12">
+        {% if boxtitle %}
+          <h2 class="mt-0 mb-3">{{ boxtitle }}</h2>
+        {% endif %}
+        {% if element.text %}
+          {{ element.text | raw }}
+        {% endif %}
+    </div>
+
+        {# Tab-Navigation #}
+        <nav role="navigation">
+          <ul class="nav nav-tabs" id="" role="tablist">
+          {% for index, element in element.elements %}
+            {% if element.is_published %}
+            <li class="nav-item col-12 col-lg-auto">
+              <a class="nav-link {% if loop.index == 1 %}active{% endif %}" id="tab-{{ loop.index }}" data-bs-toggle="tab" href="#content-{{ loop.index }}" role="tab" aria-controls="tab-{{ loop.index }}" aria-selected="true">
+                {{ element.title|raw}}
+              </a>
+            </li>
+            {% endif %}
+          {% endfor %}
+          </ul>
+        </nav>
+
+      		{# Tab-Contents #}
+          <div class="tab-content pb-0 mb-0 pt-4 px-2" id="tabs-contents">
+           {% for index, element in element.elements %}
+            {% if element.is_published %}
+            <div class="tab-pane fade show {% if loop.index == 1 %}active{% endif %}" id="content-{{ loop.index }}" role="tabpanel" aria-labelledby="tab-{{ loop.index }}">
+              {{ element.text | raw }}
+             </div>
+             {% endif %}
+            {% endfor %}
+          </div>
+
+  </article>
+</section>
+
+
+
+{% endif %}

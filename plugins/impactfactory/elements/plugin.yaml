@@ -1,0 +1,26 @@
+plugin:
+    name: Elements
+    description: 'Easy Bootstrap Content Elements'
+    author: ImpactFactory
+    icon: oc-icon-indent
+    homepage: ''
+permissions:
+    elements.elements:
+        tab: 'impactfactory.elements::lang.plugin.name'
+        label: Elements
+navigation:
+    main-menu-item:
+        label: 'impactfactory.elements::lang.plugin.name'
+        url: impactfactory/elements/elements
+        icon: icon-indent
+        permissions:
+            - 'elements.*'
+        sideMenu:
+            side-menu-elements:
+                label: Elements
+                url: impactfactory/elements/elements
+                icon: icon-indent
+                permissions:
+                    - elements.elements
+dependencies:
+  - rainlab.translate

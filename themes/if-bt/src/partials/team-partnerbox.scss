@@ -1,0 +1,24 @@
+.partnerbox {
+
+  .card {
+
+    h2 {
+      padding-top: 0!important
+    }
+
+    a {
+      color: $if-dark;
+      text-decoration:none;
+    }
+
+    .imgright {
+      padding-left:0 !important;
+    }
+
+    .card-body {
+
+
+      .btn { color: $if-white;}
+    }
+  }
+}

@@ -1,0 +1,9 @@
+substeps:
+  label: Unterschritte
+  view:
+    list: $/impactfactory/medicalconditions/models/substep/columns.yaml
+    toolbarButtons: add|remove
+  manage:
+    form: $/impactfactory/medicalconditions/models/substep/fields.yaml
+    manage:
+    showSearch: true

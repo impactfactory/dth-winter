@@ -1,0 +1,63 @@
+{% set categories = __SELF__.categories %}
+{% set faqs = __SELF__.faqs %}
+{% set bg = __SELF__.bg %}
+
+<section class="fullwrap faq tpl-{% if bg == '1' %}white{% elseif bg == '2' %}grey{% elseif bg == '3' %}secondary-light{% elseif bg == '4' %}secondary{% elseif bg == '5' %}secondary-dark{% elseif bg == '6' %}primary-light{% else %}transparent{% endif %}">
+  <div class="indent-me">
+
+    {% for index, category in categories %}
+      {% if category.is_published == 1 %}
+      <h2 class="h3">{{ category.name }}</h2>
+      {% for index, faq in category.faqs %}
+        {% if faq.is_published == 1 %}
+        <div class="accordion accordion-flush" id="accordion-{{ faq.id }}">
+          <div class="accordion-item">
+            <h3 class="accordion-header" id="question-{{ category.id }}-{{ loop.index }}">
+              <button class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#answer-{{ category.id }}-{{ loop.index }}"
+                      aria-expanded="false"
+                      aria-controls="answer-{{ category.id }}-{{ loop.index }}"
+              >
+                {{ faq.question }}
+              </button>
+            </h3>
+            <div id="answer-{{ category.id }}-{{ loop.index }}"
+                 class="accordion-collapse collapse"
+                 aria-labelledby="question--{{ category.id }}-{{ loop.index }}"
+                 data-bs-parent="#accordion-{{ faq.id }}"
+            >
+              <div class="accordion-body">{{ faq.answer|raw | parseSnippets }}</div>
+            </div>
+          </div>
+        </div> {# end accordion #}
+        {% endif %}
+      {% endfor %}
+      {% endif %}
+    {% endfor %}
+
+  </div> {# end indent-me #}
+</section> {# end fullwrap #}
+
+
+{% put json %}
+  <script type="application/ld+json">
+  {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {% for faq in faqs %}
+          {
+            "@type": "Question",
+            "name": "{{ faq.question }}",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "{{ faq.answer | striptags }}"
+              }
+          }{%- if not loop.last -%}, {% endif %}
+        {% endfor %}
+      ]
+  }
+  </script>
+{% endput %}

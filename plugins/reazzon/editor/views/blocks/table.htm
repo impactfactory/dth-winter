@@ -1,0 +1,11 @@
+<table class="editor-js-table">
+    {% for row in content %}
+        <tr>
+            {% for content in row %}
+                <td>
+                    {{ content }}
+                </td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+</table>

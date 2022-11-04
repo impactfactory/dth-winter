@@ -1,0 +1,14 @@
+<div class="d-none d-print-block">
+  <hr>
+  <strong>{{ 'footer.company.name'|_ }}</strong><br>
+  {{ 'footer.street+no'|_ }}, {{ 'footer.zip+city'|_ }}<br>
+  Tel. {{ 'contactbox.tel.label'|_ }},
+  <script>
+    user = '{{ 'contactbox.mail.name'|_ }}';
+    site = '{{ 'contactbox.mail.domain'|_ }}';
+    document.write('<a href=\"mailto:' + user + '@' + site + '\">');
+    document.write(user + '@' + site);
+    document.write('</a>');
+  </script><br>
+  {{ 'meta.website.url'|_ }}
+</div>

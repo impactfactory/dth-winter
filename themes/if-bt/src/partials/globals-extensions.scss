@@ -1,0 +1,33 @@
+h1 {
+  @extend .display-4, .lh-1, .my-0;
+}
+
+h1+h2 {
+  @extend .h4, .lh-1, .text-muted;
+  font-weight:300;
+}
+
+h2 {
+  @extend .pt-4;
+}
+
+h3 {
+  @extend .h4, .pt-3;
+}
+
+.fullwrap {
+  @extend .py-5;
+}
+
+.content-container > h1,
+.content-container > h2,
+.content-container > p,
+.content-container > .travelpage,
+.content-container > ul,
+.content-container > .snippet-button,
+.indent-me {
+    max-width: 992px;
+    @extend .mx-auto, .px-2;
+}
+
+.content-container > ul {position: relative; left: 40px;}

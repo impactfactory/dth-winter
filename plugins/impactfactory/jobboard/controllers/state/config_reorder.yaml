@@ -1,0 +1,4 @@
+title: State
+modelClass: Impactfactory\Jobboard\Models\States
+toolbar:
+    buttons: reorder_toolbar

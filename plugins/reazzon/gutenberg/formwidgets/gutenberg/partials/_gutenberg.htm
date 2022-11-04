@@ -1,0 +1,19 @@
+<?php if ($this->previewMode): ?>
+
+    <div class="form-control">
+        <?= $value ?>
+    </div>
+
+<?php else: ?>
+
+    <input
+        type="hidden"
+        id="<?= $this->getId('input') ?>"
+        name="<?= $name ?>"
+        value="<?= e($value) ?>"
+        class="form-control"
+        autocomplete="off"
+        data-control="gutenberg"
+        data-minheight="<?= e($minheight) ?>" />
+
+<?php endif ?>

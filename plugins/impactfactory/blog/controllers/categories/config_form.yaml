@@ -1,0 +1,10 @@
+name: Categories
+form: $/impactfactory/blog/models/category/fields.yaml
+modelClass: ImpactFactory\Blog\Models\Category
+defaultRedirect: impactfactory/blog/categories
+create:
+    redirect: 'impactfactory/blog/categories/update/:id'
+    redirectClose: impactfactory/blog/categories
+update:
+    redirect: impactfactory/blog/categories
+    redirectClose: impactfactory/blog/categories

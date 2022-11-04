@@ -1,0 +1,5 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table impactfactory_medicalconditions_'
+    - builder_table_create_impactfactory_medicalconditions_.php

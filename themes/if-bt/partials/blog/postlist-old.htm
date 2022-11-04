@@ -1,0 +1,52 @@
+[viewBag]
+==
+{% set posts = blogPosts.posts %}
+<ul class="list-unstyled">
+    {% for post in posts %}
+        <li>
+          <div class="media  d-block d-md-flex pb-4">
+            {% if post.featured_images.count %}
+                       {% for image in post.featured_images|slice(0, 1) %}
+                          <a href="post/{{ post.slug }}">
+                            <img class="d-flex mb-3 mr-md-3 mx-auto media-image z-depth-1"
+                                  data-src="{{ image.filename }}"
+                                  src="{{ image.path | resize(620, 420, { mode: 'contain' }) }}"
+                                  alt="{{ image.description != null ? image.description : image.filename }}"
+                                  title="{{ image.title != null ? image.title : post.title }}"
+                             >
+                          </a>
+                       {% endfor %}
+             {% endif %}
+            <div class="media-body text-left ml-md-3 ml-0">
+              <h2 class="h3">
+                <a class="btn-link" href="post/{{ post.slug }}" title="{{ post.title }}">
+                  {{ post.title }}
+                </a>
+              </h2>
+              <p class="info">
+              {{ 'blog.list.author'|_ }}: {{ post.user.first_name }} {{ post.user.last_name }}. {{ 'blog.list.postedin'|_ }}
+                  {% for category in post.categories %}
+                      <a href="category/{{ category.slug }}"> {{ category.name }}</a>
+                      {% if not loop.last %}, {% endif %}
+                  {% endfor %}
+                  {{ 'blog.list.at'|_ }} {{ post.published_at|date('d/m/Y') }}<br>
+                  {% for tag in post.tags %}
+                      <a href="postswithtag/{{ tag.name }}"> {{ tag.name }}</a>
+                      {% if not loop.last %}, {% endif %}
+                  {% endfor %}
+              </p>
+              <p class="excerpt">
+                {{ post.summary | raw }}
+              </p>
+              <a class="btn btn-primary rounded btn-sm btn-floating" href="post/{{ post.slug }}" role="button">
+                {{ 'blog.list.more'|_ }}
+              </a>
+            </div>
+          </div>
+        </li>
+        {% else %}
+        <li class="no-data">
+          {{ 'blog.list.noPostsMessage'|_ }}
+        </li>
+    {% endfor %}
+</ul>

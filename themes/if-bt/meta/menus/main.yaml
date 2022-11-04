@@ -1,0 +1,274 @@
+items:
+    -
+        title: Kompetenz
+        nesting: 0
+        type: static-page
+        url: null
+        code: nav.main.competence
+        reference: dienstleistungen
+        cmsPage: null
+        replace: 0
+        viewBag:
+            locale:
+                en:
+                    title: ''
+                    url: ''
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+            image: ''
+        items:
+            -
+                title: Erstabklärung
+                nesting: 0
+                type: static-page
+                url: null
+                code: nav.main.firstcontact
+                reference: kompetenzen-erstgespraech
+                cmsPage: null
+                replace: 0
+                viewBag:
+                    locale:
+                        en:
+                            title: ''
+                            url: ''
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+                    image: ''
+            -
+                title: Diagnostik
+                nesting: 0
+                type: static-page
+                url: null
+                code: nav.main.diagnostics
+                reference: projekte-permakultur
+                cmsPage: null
+                replace: 0
+                viewBag:
+                    locale:
+                        en:
+                            title: ''
+                            url: ''
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+                    image: ''
+            -
+                title: 'Ambulante Therapie'
+                nesting: 0
+                type: static-page
+                url: null
+                code: nav.main.therapy
+                reference: praxis-herzkatheter-interventionenhtm
+                cmsPage: null
+                replace: 0
+                viewBag:
+                    locale:
+                        en:
+                            title: ''
+                            url: ''
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+                    image: ''
+            -
+                title: 'Stationäre Intervention'
+                nesting: 0
+                type: static-page
+                url: null
+                code: nav.main.interventions
+                reference: kompetenzen-stationaere-interventionen
+                cmsPage: null
+                replace: 0
+                viewBag:
+                    locale:
+                        en:
+                            title: ''
+                            url: ''
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+                    image: ''
+            -
+                title: Implantant-Kontrolle
+                nesting: 0
+                type: static-page
+                url: null
+                code: nav.main.implantcontrol
+                reference: kompetenzen-nachsorge
+                cmsPage: null
+                replace: 0
+                viewBag:
+                    locale:
+                        en:
+                            title: ''
+                            url: ''
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+                    image: ''
+            -
+                title: 'Jährliche Follow-Ups'
+                nesting: 0
+                type: static-page
+                url: null
+                code: nav.main.followups
+                reference: kompetenzen-kardiologische-follow-ups
+                cmsPage: null
+                replace: 0
+                viewBag:
+                    locale:
+                        en:
+                            title: ''
+                            url: ''
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+                    image: ''
+    -
+        title: Herzzentrum
+        nesting: 1
+        type: static-page
+        url: null
+        code: nav.main.clinic
+        reference: projekte
+        cmsPage: null
+        replace: 0
+        viewBag:
+            locale:
+                en:
+                    title: ''
+                    url: ''
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+            image: ''
+        items:
+            -
+                title: 'Ihre Anreise'
+                nesting: 0
+                type: static-page
+                url: null
+                code: nav.main.travelinfo
+                reference: praxis-ihre-anreisehtm
+                cmsPage: null
+                replace: 0
+                viewBag:
+                    locale:
+                        en:
+                            title: ''
+                            url: ''
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+                    image: ''
+            -
+                title: 'Unser Team'
+                nesting: 0
+                type: static-page
+                url: null
+                code: nav.main.team
+                reference: praxis-team
+                cmsPage: null
+                replace: 0
+                viewBag:
+                    locale:
+                        en:
+                            title: ''
+                            url: ''
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+                    image: ''
+            -
+                title: Räumlichkeiten
+                nesting: 0
+                type: static-page
+                url: null
+                code: nav.main.rooms
+                reference: praxis-raeumlichkeiten
+                cmsPage: null
+                replace: 0
+                viewBag:
+                    locale:
+                        en:
+                            title: ''
+                            url: ''
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+                    image: ''
+            -
+                title: 'Unsere Partner'
+                nesting: 0
+                type: static-page
+                url: null
+                code: nav.main.partner
+                reference: praxis-partnerhtm
+                cmsPage: null
+                replace: 0
+                viewBag:
+                    locale:
+                        en:
+                            title: ''
+                            url: ''
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+                    image: ''
+            -
+                title: Zuweiser
+                nesting: 0
+                type: static-page
+                url: null
+                code: nav.main.referrer
+                reference: herzzentrum-zuweiser
+                cmsPage: null
+                replace: 0
+                viewBag:
+                    locale:
+                        en:
+                            title: ''
+                            url: ''
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+                    image: ''
+    -
+        title: 'Dr. Olaf Franzen'
+        nesting: null
+        type: url
+        url: /de/team/dr-olaf-walter-franzen
+        code: nav.main.olaffranzen
+        reference: null
+        cmsPage: null
+        replace: null
+        viewBag:
+            locale:
+                en:
+                    title: ''
+                    url: /en/team/dr-olaf-walter-franzen
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+            image: ''
+    -
+        title: 'Kardio A-Z'
+        nesting: null
+        type: cms-page
+        url: null
+        code: nav.main.knowledge
+        reference: blog/postsall
+        cmsPage: null
+        replace: null
+        viewBag:
+            locale:
+                en:
+                    title: ''
+                    url: ''
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+            image: ''
+name: 'Inhalte (Haupt-Navigation)'

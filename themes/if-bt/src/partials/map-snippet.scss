@@ -1,0 +1,27 @@
+.map-snippet {
+
+  h2 {
+    padding-top: 0!important;
+  }
+
+  .svg-inline--fa {
+    color: $if-primary;
+    width: 1.5rem;
+  }
+
+  a, a:active, a:visited {
+    text-decoration:none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  a.btn:hover {
+    text-decoration: none;
+  }
+}
+
+.map-frame {
+  line-height: 0;
+}

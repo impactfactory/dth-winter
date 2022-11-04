@@ -1,0 +1,35 @@
+description = "TagCloud"
+
+
+==
+{% set tags = tagList.tags %}
+
+<section class="row tagcloud mt-5 indent-me">
+  <div class="col-12 card rounded p-4">
+
+    <h2>{{ 'blogpost.tagcloud.title' |_ }}</h2>
+    <div class="">
+
+      {% if tags | length %}
+          <div class="" id="{{ tagSectionId }}">
+              {% for item in tags %}
+                  {% set postCount = item.posts_count %}
+                  <div class="tag">
+                    <a href="/{{ localePicker.activeLocale }}/{{ 'nav.blog.base'|_ }}/postswithtag/{{ item.slug }}" class="">
+                        {{ item.name }}
+                        {% if postCount %}
+                            <span class="badge bg-dark text-white">
+                              {{ postCount }}
+                            </span>
+                        {% endif %}
+                    </a>
+                  </div>
+              {% endfor %}
+          </div>
+      {% else %}
+          {{ "ginopane.blogtaxonomy::lang.components.tag_list.no_tags_message" | trans }}
+      {% endif %}
+
+    </div>
+  </div>
+</section>

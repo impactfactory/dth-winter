@@ -1,0 +1,60 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+tabs:
+
+    fields:
+
+        title_prefix:
+            label: renatio.seomanager::lang.settings.title_prefix
+            comment: renatio.seomanager::lang.settings.title_prefix_comment
+            tab: renatio.seomanager::lang.settings.general
+            span: left
+
+        title_suffix:
+            label: renatio.seomanager::lang.settings.title_suffix
+            comment: renatio.seomanager::lang.settings.title_suffix_comment
+            tab: renatio.seomanager::lang.settings.general
+            span: right
+
+        common_tags:
+            label: renatio.seomanager::lang.settings.common_tags
+            type: codeeditor
+            comment: renatio.seomanager::lang.settings.common_tags_comment
+            size: huge
+            tab: renatio.seomanager::lang.settings.general
+            language: html
+
+        og_enabled:
+            label: renatio.seomanager::lang.settings.og_enabled
+            type: switch
+            comment: renatio.seomanager::lang.settings.og_enabled_comment
+            tab: renatio.seomanager::lang.settings.og
+            span: full
+
+        site_name:
+            label: renatio.seomanager::lang.settings.site_name
+            tab: renatio.seomanager::lang.settings.og
+            span: left
+            comment: renatio.seomanager::lang.settings.site_name_comment
+
+        fb_app_id:
+            label: renatio.seomanager::lang.settings.fb_app_id
+            tab: renatio.seomanager::lang.settings.og
+            span: right
+            comment: renatio.seomanager::lang.settings.fb_app_id_comment
+
+        robots:
+            type: codeeditor
+            size: giant
+            language: html
+            tab: renatio.seomanager::lang.settings.robots
+            comment: renatio.seomanager::lang.settings.robots_comment
+
+        htaccess:
+            type: codeeditor
+            size: giant
+            tab: renatio.seomanager::lang.settings.htaccess
+            comment: renatio.seomanager::lang.settings.htaccess_comment
+            permissions: [renatio.seomanager.change_htaccess]

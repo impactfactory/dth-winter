@@ -1,0 +1,21 @@
+.contactsection {
+
+  a:hover, a:focus, a:active {
+        color: $if-primary!important;
+      }
+
+  .socialnav {
+
+    a {
+      .fa-facebook-square {
+        height: 2rem;
+        width: 2rem;
+      }
+      .fa-linkedin {
+        height: 2.05rem;
+        width: 2.05rem;
+        transform: translateY(0.05rem);
+      }
+    }
+  }
+}

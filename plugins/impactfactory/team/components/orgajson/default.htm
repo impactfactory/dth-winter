@@ -1,0 +1,156 @@
+{% set org = __SELF__.organisation %}
+
+{% put json %}
+
+<script type="application/ld+json"> {
+  "@context": "http://schema.org",
+  "@type": [
+    {% for type in org.schema_type %}
+      "{{ type.name }}"{%- if not loop.last -%}, {% endif %}
+    {% endfor %}
+    ],
+  "name": "{{ org.schema_name }}",
+  "id": "{{ org.schema_id}}",
+  "description": "{{ org.schema_desc }}",
+  "logo": "/storage/app/media{{ org.schema_logo }}",
+  "image": "/storage/app/media{{ org.schema_img }}",
+  "url": "{{ org.schema_url }}",
+  {% if org.socials %}
+    "sameAs": [{% for social in org.socials %}
+                  {% if social.type == 'bandcamp' %}
+                    "https://{{ social.id }}.bandcamp.com"{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                  {% endif %}
+                  {% if social.type == 'discord' %}
+                    "https://discord.com/channels/{{ social.id }}"{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                  {% endif %}
+                  {% if social.type == 'flickr' %}
+                    "https://www.flickr.com/photos/{{ social.id }}"{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                  {% endif %}
+                  {% if social.type == 'facebook' %}
+                      "https://facebook.com/{{ social.id }}"{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                  {% endif %}
+                  {% if social.type == 'github' %}
+                      "https://github.com/{{ social.id }}"{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                  {% endif %}
+                  {% if social.type == 'instagram' %}
+                    "https://www.instagram.com/{{ social.id }}"{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                  {% endif %}
+                  {% if social.type == 'line' %}
+                    "https://line.me/R/ti/p/@{{ social.id }}"{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                  {% endif %}
+                  {% if social.type == 'linkedin' %}
+                    "https://www.linkedin.com/company/{{ social.id }}"{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                  {% endif %}
+                  {% if social.type == 'twitter' %}
+                    "https://twitter.com/{{ social.id }}"{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                  {% endif %}
+                  {% if social.type == 'pinterest' %}
+                    "https://pinterest.com/{{ social.id }}"{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                  {% endif %}
+                  {% if social.type == 'reddit' %}
+                    "https://www.reddit.com/r/{{ social.id }}"{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                  {% endif %}
+                  {% if social.type == 'signal' %}
+                    "https://signal.me/#p/{{ social.id }}"{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                  {% endif %}
+                  {% if social.type == 'skype' %}
+                    "skype:{{ social.id }}?chat"{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                  {% endif %}
+                  {% if social.type == 'snapchat' %}
+                    "https://www.snapchat.com/add/{{ social.id }}"{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                  {% endif %}
+                  {% if social.type == 'soundcloud' %}
+                    "https://soundcloud.com/{{ social.id }}"{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                  {% endif %}
+                  {% if social.type == 'spotify' %}
+                    "https://open.spotify.com/artist/{{ social.id }}"{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                  {% endif %}
+                  {% if social.type == 'telegram' %}
+                    "https://t.me/{{ social.id }}"{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                  {% endif %}
+                  {% if social.type == 'tiktok' %}
+                    "https://www.tiktok.com/@{{ social.id }}"{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                  {% endif %}
+                  {% if social.type == 'vimeo' %}
+                    "https://vimeo.com/{{ social.id }}"{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                  {% endif %}
+                  {% if social.type == 'vk' %}
+                    "https://vk.com/id{{ social.id }}"{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                  {% endif %}
+                  {% if social.type == 'website' %}
+                    "{{ social.id }}"{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                  {% endif %}
+                  {% if social.type == 'whatsapp' %}
+                    "https://wa.me/{{ social.id }}"{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                  {% endif %}
+                  {% if social.type == 'xing' %}
+                    "https://www.xing.com/profile/{{ social.id }}/cv"{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                  {% endif %}
+                  {% if social.type == '---' %}
+                    "{{ social.id }}"{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                  {% endif %}
+                  {% if social.type == 'youtube' %}
+                    "https://www.youtube.com/channel/{{ social.id }}"
+                  {% endif %}
+                {% endfor %}],
+  {% endif %}
+  "contactPoint" : [{
+      "@type" : "ContactPoint",
+      "telephone" : "{{ org.schema_phone }}",
+      "contactType" : "customer service"
+  }],
+  "specialty": [
+    {% for speciality in org.schema_speciality %}
+      "{{ speciality.name }}"{%- if not loop.last -%}, {% endif %}
+    {% endfor %}
+    ],
+  "founder": {
+    "@type": "Person",
+    "name": "{{ org.schema_founder_name }}",
+    "jobTitle": "{{ org.schema_founder_jobtitle }}",
+    "url": "{{ org.schema_founder_url }}"
+    },
+  "foundingDate": "{{ org.schema_foundingdate }}",
+  "location": {
+    "@type": "Place",
+    "photo": "/storage/app/media{{ org.schema_photo }}",
+    "telephone": "{{ org.schema_phone }}",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "{{ org.schema_latitude }}",
+      "longitude": "{{ org.schema_longitude }}"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "{{ org.schema_city }}",
+      "addressRegion": "{{ org.schema_region }}",
+      "postalCode": "{{ org.schema_zip }}",
+      "streetAddress": "{{ org.schema_street }} {{ org.schema_no }}",
+      "addressCountry": "{{ org.schema_country }}"
+     },
+    "hasMap": "{{ org.schema_map_url }}",
+    {% if org.schema_service %}
+    "availableService": [
+       {% for serv in org.schema_service %}
+         {
+          "@type": ["medicalSpecialty"],
+          "name": "{{ serv.name }}",
+          "url": "{{ serv.url }}"
+          }{%- if not loop.last -%}, {% endif %}
+      {% endfor %}
+    ],
+    {% endif %}
+    "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              {{ org.schema_openingdays|raw }}
+            ],
+            "opens": "{{ org.schema_opens }}",
+            "closes": "{{ org.schema_closes }}"
+          }
+        ]
+  }
+}
+</script>
+{% endput %}

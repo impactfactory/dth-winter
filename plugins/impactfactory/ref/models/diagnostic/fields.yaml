@@ -1,0 +1,5 @@
+fields:
+    name:
+        label: 'impactfactory.ref::lang.diagnostic.name'
+        span: full
+        type: text

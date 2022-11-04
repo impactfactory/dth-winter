@@ -1,0 +1,59 @@
+fields:
+    is_published:
+        label: veröffentlicht
+        span: auto
+        type: switch
+        default: 1
+    title:
+        label: Titel
+        span: full
+        type: text
+    subtitle:
+        label: Untertitel
+        span: full
+        type: text
+    text:
+        label: Text
+        size: small
+        span: full
+        type: richeditor
+    url:
+        label: Url
+        span: auto
+        type: text
+    url_text:
+        label: Link-/Button-Text
+        span: auto
+        type: text
+    icon:
+        label: 'Link zu Icon'
+        span: left
+        default: html_body/svg-icons/
+        type: text
+        commentAbove: 'für ListBlocks-Snippets. Z.B. "html_body/svg-icons/clock"'
+    picposition:
+        label: Bildposition
+        emptyOption: - -
+        options:
+            left: links
+            right: rechts
+        showSearch: true
+        span: right
+        type: dropdown
+        commentAbove: 'Nur bei horizontalen Bild/Video-Box relevant'
+    imgwidth:
+        label: Bildbreite
+        span: auto
+        type: number
+        commentAbove: 'Maximal angezeigte Breite (auch wenn Bereich des Elements grösser wäre!)'
+    imgheight:
+        label: Bildhöhe
+        span: auto
+        type: number
+        commentAbove: 'Bitte angeben. Erzeugt flüssigen Seitenaufbau. Wird in Anzeige ignoriert.'
+    image:
+        label: Bild
+        mode: image
+        span: full
+        type: mediafinder
+        commentAbove: 'Je nach verwendetem Snippet können andere Bilddimensionen optimal sein... soll auf mobilen Geräte ein Bild auf 100% Breite aufgezogen sein, empfehlen sich Breiten bis zu ca. 600 px. Bei 100% auf Desktops bis zu max. 1440px. Bild füllt je nach Snippet-Einstellung dann 25%,50% oder 100% des entsprechenden Element-Bereichs oder gesamten Viewports aus (z.B. beim Keyvisual), ausser die Breite des Bildes ist kleiner, dann ist diese die max. angezeigte Breite. Bitte nur jpg verwenden. Bitte kein Text im Bild.'

@@ -1,0 +1,9 @@
+fields:
+    name:
+        label: 'Bezeichnung des Risikofaktors'
+        span: full
+        type: text
+    url:
+        label: 'Link zu mehr Informationen'
+        span: full
+        type: text

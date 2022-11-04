@@ -1,0 +1,12 @@
+description = "Recaptcha"
+
+[viewBag]
+==
+<button 
+    id="{{ __SELF__ }}"
+    data-callback="onSubmit"
+    class="g-recaptcha"
+    type="submit"
+    data-sitekey="{{ __SELF__.settings.recaptcha_site_key }}"
+    data-size="invisible">
+</button>

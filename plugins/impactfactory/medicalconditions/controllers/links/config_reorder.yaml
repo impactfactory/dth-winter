@@ -1,0 +1,4 @@
+title: Links
+modelClass: Impactfactory\MedicalConditions\Models\Link
+toolbar:
+    buttons: reorder_toolbar

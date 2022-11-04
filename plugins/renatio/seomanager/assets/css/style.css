@@ -1,0 +1,8 @@
+.help-block span {
+    color: #27ae60;
+    font-weight: bold;
+}
+
+.help-block span.warning {
+    color: #e74c3c;
+}

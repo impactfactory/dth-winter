@@ -1,0 +1,56 @@
+columns:
+    id:
+        label: id
+        type: number
+        invisible: true
+        sortable: true
+    is_published:
+        label: veröffentlicht
+        type: inetis-list-switch
+        sortable: true
+    image:
+        label: Bild
+        type: partial
+        path: ~/plugins/impactfactory/medicalconditions/controllers/medicalconditions/_thumb.htm
+        invisible: false
+        sortable: false
+    name:
+        label: Name
+        type: text
+        searchable: true
+        sortable: true
+    anatomy:
+        label: Organ
+        type: text
+        searchable: true
+        invisible: false
+        sortable: true
+    differential:
+        label: Differential-Diagnose
+        type: text
+        searchable: true
+        invisible: false
+        sortable: true
+    how_name:
+        label: Anleitung
+        type: text
+        invisible: true
+        sortable: true
+        searchable: true
+    how_desc:
+        label: Anleitungs-Beschreibung
+        type: text
+        invisible: true
+        searchable: true
+    updated_at:
+        label: updated_at
+        type: datetime
+        searchable: true
+        invisible: true
+        sortable: true
+    created_at:
+        label: created_at
+        type: datetime
+        searchable: true
+        invisible: true
+        sortable: true

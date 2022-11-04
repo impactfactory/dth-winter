@@ -1,0 +1,35 @@
+{% set orgameta = orgaMeta.meta %}
+{% set post = postdetail.post %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalWebPage",
+  "author": "{{ orgameta.schema_name }}",
+  "description": "{{ post.excerpt|raw }}",
+  "image": "/storage/app/media/{{ cond.image }}",
+  "specialty": "https://schema.org/Cardiovascular",
+  "audience": "https://schema.org/Patient",
+  "dateModified": "{{ post.updated_at }}",
+  "datePublished": "{{ post.created_at }}",
+  "headline": "{{ post.title }}",
+  "lastReviewed": "{{ post.updated_at }}",
+  "name": "{{ post.title }}",
+  "reviewedBy": "{{ 'schema.MedicalClinic.name'|_ }}",
+  "about": {
+    "@type": "MedicalCondition",
+    "desc": " {{ cond.desc }}",
+    "name": [
+      "{{ cond.name }}",
+      {% for altname in cond.alt_names %}
+        "{{ altname.name }}"{%- if not loop.last -%}, {% endif %}
+      {% endfor %}
+    ]
+  },
+  "mainContentOfPage": [
+    {% for serv in orgameta.schema_service %}
+      "{{ serv.name }}"{%- if not loop.last -%}, {% endif %}
+    {% endfor %}
+  ]
+}
+</script>

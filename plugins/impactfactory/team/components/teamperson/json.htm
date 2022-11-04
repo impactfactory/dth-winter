@@ -1,0 +1,146 @@
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Person",
+    {% if person.honorific %}
+      "honorificPrefix": "{{ person.honorific }}",
+    {% endif %}
+    {% if person.first_name %}
+      "givenname": "{{ person.first_name }}",
+    {% endif %}
+    {% if person.last_name %}
+      "familyname": "{{ person.last_name }}",
+    {% endif %}
+    {% if person.street or person.city or person.country %}
+        "address": {
+          "@type": "PostalAddress",
+          {% if person.city %}
+            "addressLocality": "{{ person.city }}",
+          {% endif %}
+          {% if person.zip %}
+            "postalCode": "{{ person.zip }}",
+          {% endif %}
+          {% if person.street %}
+            "streetAddress": "{{ person.street }} {{ person.no }}",
+          {% endif %}
+          {% if person.country %}
+            "addressCountry": "{{ person.country }}"
+          {% endif %}
+        },
+      {% endif %}
+      {% if person.educations %}
+        "alumniOf": [
+                        {% for education in person.educations %}
+                          {
+                            "@type": "CollegeOrUniversity",
+                            "name": "{{ education.education_school }}"
+                          }{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                        {% endfor %}
+                    ],
+      {% endif %}
+      {% if person.memberships %}
+        "memberOf": [
+                        {% for item in person.memberships%}
+                          {
+                            "@type": "Organization",
+                            "name": "{{ item.membership_name }}"
+                            {% if item.membership_url %},
+                            "sameAs" : "{{ item.membership_url }}"
+                            {% endif %}
+                          }{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                        {% endfor %}
+                    ],
+      {% endif %}
+      {% if person.portrait %}
+        "image": "{{ person.portrait|media }}",
+      {% endif %}
+      {% if person.role %}
+        "jobTitle": "{{ person.role }}",
+      {% endif %}
+      {% if person.phone %}
+        "telephone": "{{ person.phone }}",
+      {% endif %}
+        "worksFor": {
+          "@type": "Organization",
+          "name": "{{ organization.schema_name }}",
+          "sameAs": "{{ organization.schema_url }}"
+        },
+        "workLocation": "{{ organization.schema_street }} {{ organization.schema_no }}, {{ organization.schema_zip }} {{ organization.schema_city }}, {{ organization.schema_region }}, {{ organization.schema_country }}"{% if person.socials %},{% endif %}
+      {% if person.socials %}
+        "sameAs": [{% for social in person.socials %}
+                      {% if social.type == 'bandcamp' %}
+                        "https://{{ social.id }}.bandcamp.com"{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                      {% endif %}
+                      {% if social.type == 'discord' %}
+                        "https://discord.com/channels/{{ social.id }}"{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                      {% endif %}
+                      {% if social.type == 'flickr' %}
+                        "https://www.flickr.com/photos/{{ social.id }}"{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                      {% endif %}
+                      {% if social.type == 'facebook' %}
+                          "https://facebook.com/{{ social.id }}"{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                      {% endif %}
+                      {% if social.type == 'github' %}
+                          "https://github.com/{{ social.id }}"{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                      {% endif %}
+                      {% if social.type == 'instagram' %}
+                        "https://www.instagram.com/{{ social.id }}"{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                      {% endif %}
+                      {% if social.type == 'line' %}
+                        "https://line.me/R/ti/p/@{{ social.id }}"{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                      {% endif %}
+                      {% if social.type == 'linkedin' %}
+                        "https://www.linkedin.com/in/{{ social.id }}"{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                      {% endif %}
+                      {% if social.type == 'twitter' %}
+                        "https://twitter.com/{{ social.id }}"{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                      {% endif %}
+                      {% if social.type == 'pinterest' %}
+                        "https://pinterest.com/{{ social.id }}"{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                      {% endif %}
+                      {% if social.type == 'reddit' %}
+                        "https://www.reddit.com/r/{{ social.id }}"{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                      {% endif %}
+                      {% if social.type == 'signal' %}
+                        "https://signal.me/#p/{{ social.id }}"{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                      {% endif %}
+                      {% if social.type == 'skype' %}
+                        "skype:{{ social.id }}?chat"{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                      {% endif %}
+                      {% if social.type == 'snapchat' %}
+                        "https://www.snapchat.com/add/{{ social.id }}"{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                      {% endif %}
+                      {% if social.type == 'soundcloud' %}
+                        "https://soundcloud.com/{{ social.id }}"{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                      {% endif %}
+                      {% if social.type == 'spotify' %}
+                        "https://open.spotify.com/artist/{{ social.id }}"{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                      {% endif %}
+                      {% if social.type == 'telegram' %}
+                        "https://t.me/{{ social.id }}"{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                      {% endif %}
+                      {% if social.type == 'tiktok' %}
+                        "https://www.tiktok.com/@{{ social.id }}"{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                      {% endif %}
+                      {% if social.type == 'vimeo' %}
+                        "https://vimeo.com/{{ social.id }}"{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                      {% endif %}
+                      {% if social.type == 'vk' %}
+                        "https://vk.com/id{{ social.id }}"{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                      {% endif %}
+                      {% if social.type == 'website' %}
+                        "{{ social.id }}"{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                      {% endif %}
+                      {% if social.type == 'whatsapp' %}
+                        "https://wa.me/{{ social.id }}"{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                      {% endif %}
+                      {% if social.type == 'xing' %}
+                        "https://www.xing.com/profile/{{ social.id }}/cv"{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                      {% endif %}
+                      {% if social.type == 'youtube' %}
+                        "https://www.youtube.com/channel/{{ social.id }}"{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                      {% endif %}
+                    {% endfor %}]
+      {% endif %}
+  }
+</script>

@@ -1,0 +1,4 @@
+title: Diagnostics
+modelClass: ImpactFactory\Ref\Models\Diagnostic
+toolbar:
+    buttons: reorder_toolbar

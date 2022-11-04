@@ -1,0 +1,19 @@
+columns:
+    id:
+        label: id
+        type: number
+        invisible: false
+        sortable: true
+    name:
+        label: name
+        type: text
+        searchable: true
+        sortable: true
+    from:
+        label: 'veröffentlicht ab'
+        type: datetime
+        sortable: true
+    to:
+        label: bis
+        type: datetime
+        sortable: true

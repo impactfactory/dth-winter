@@ -1,0 +1,25 @@
+columns:
+    id:
+        label: ID
+        type: number
+        sortable: true
+    created_at:
+        label: created_at
+        type: datetime
+        invisible: true
+        sortable: true
+    name:
+        label: Bezeichnung
+        type: text
+        searchable: true
+        sortable: true
+    updated_at:
+        label: updated_at
+        type: datetime
+        invisible: true
+        sortable: true
+    url:
+        label: URL
+        type: text
+        searchable: true
+        sortable: true

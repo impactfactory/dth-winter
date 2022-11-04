@@ -1,0 +1,60 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+fields:
+
+    name@create:
+        label: renatio.dynamicpdf::lang.templates.name
+        span: left
+
+    name@update:
+        label: renatio.dynamicpdf::lang.templates.name
+        span: full
+
+    code@create:
+        label: renatio.dynamicpdf::lang.templates.code
+        comment: renatio.dynamicpdf::lang.templates.code_comment
+        preset: name
+        span: right
+
+secondaryTabs:
+
+    fields:
+
+        content_html:
+            type: codeeditor
+            size: giant
+            tab: renatio.dynamicpdf::lang.templates.content_html
+            language: html
+            stretch: true
+            default: |
+                <!DOCTYPE html>
+                <html>
+                    <head>
+                        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+                        <title>Document</title>
+                        <style type="text/css" media="screen">
+                            {{ css|raw }}
+                        </style>
+                    </head>
+                    <body>
+                        {{ content_html|raw }}
+                    </body>
+                </html>
+
+        content_css:
+            tab: renatio.dynamicpdf::lang.templates.content_css
+            type: codeeditor
+            size: giant
+            language: css
+            stretch: true
+
+        background_img:
+            label: renatio.dynamicpdf::lang.templates.background_img
+            tab: renatio.dynamicpdf::lang.tab.options
+            type: fileupload
+            mode: image
+            comment: renatio.dynamicpdf::lang.templates.background_img_comment
+            attachOnUpload: true
+            span: left

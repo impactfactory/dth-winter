@@ -1,0 +1,117 @@
+plugin:
+    name: 'impactfactory.medicalconditions::lang.plugin.name'
+    description: 'Ein Tool, um medizinisches Wissen Googles Suchfunktionalität zugänglich zu machen. Erstellt json-RichSnippet-Code und Elemente für Landinpages.'
+    author: ImpactFactory
+    icon: oc-icon-hospital-o
+    homepage: 'https://impactfactory.ch'
+permissions:
+    medseo.overview:
+        tab: 'impactfactory.medicalconditions::lang.plugin.name'
+        label: 'Medizinische Konditionen'
+    medseo.books:
+        tab: 'impactfactory.medicalconditions::lang.plugin.name'
+        label: Bücher
+    medseo.faqs:
+        tab: 'impactfactory.medicalconditions::lang.plugin.name'
+        label: FAQs
+    medseo.links:
+        tab: 'impactfactory.medicalconditions::lang.plugin.name'
+        label: Links
+    medseo.linktypes:
+        tab: 'impactfactory.medicalconditions::lang.plugin.name'
+        label: Link-Typen
+    medseo.risks:
+        tab: 'impactfactory.medicalconditions::lang.plugin.name'
+        label: Risiken
+    medseo.symptoms:
+        tab: 'impactfactory.medicalconditions::lang.plugin.name'
+        label: Symptome
+    medseo.tests:
+        tab: 'impactfactory.medicalconditions::lang.plugin.name'
+        label: Tests
+    medseo.treatments:
+        tab: 'impactfactory.medicalconditions::lang.plugin.name'
+        label: Behandlungen
+    medseo.substeps:
+        tab: 'impactfactory.medicalconditions::lang.plugin.name'
+        label: Unterschritte
+    medseo.steps:
+        tab: 'impactfactory.medicalconditions::lang.plugin.name'
+        label: Schritte
+navigation:
+    main-menu-item:
+        label: 'impactfactory.medicalconditions::lang.plugin.name'
+        url: impactfactory/medicalconditions/medicalconditions
+        icon: icon-hospital-o
+        permissions:
+            - 'medseo.*'
+        sideMenu:
+            side-menu-item:
+                label: 'Medizinische Konditionen'
+                url: impactfactory/medicalconditions/medicalconditions
+                icon: icon-list
+                permissions:
+                    - 'medseo.*'
+            side-menu-item9:
+                label: Behandlungen
+                url: impactfactory/medicalconditions/treatments
+                icon: icon-support
+                permissions:
+                    - 'medseo.treatments'
+            side-menu-item7:
+                label: Bücher
+                url: impactfactory/medicalconditions/books
+                icon: icon-book
+                permissions:
+                    - 'medseo.books'
+            side-menu-item6:
+                label: FAQs
+                url: impactfactory/medicalconditions/faqs
+                icon: icon-question-circle
+                permissions:
+                    - 'medseo.faqs'
+            side-menu-item5:
+                label: Links
+                url: impactfactory/medicalconditions/links
+                icon: icon-link
+                permissions:
+                    - 'medseo.links'
+            side-menu-item8:
+                label: Link-Typen
+                url: impactfactory/medicalconditions/linktypes
+                icon: icon-link
+                permissions:
+                    - 'medseo.linktypes'
+            side-menu-item2:
+                label: Risikofaktoren
+                url: impactfactory/medicalconditions/risks
+                icon: icon-warning
+                permissions:
+                    - 'medseo.risks'
+            side-menu-item3:
+                label: Symptome
+                url: impactfactory/medicalconditions/symptoms
+                icon: icon-remove
+                permissions:
+                    - 'medseo.symptoms'
+            side-menu-item4:
+                label: Tests
+                url: impactfactory/medicalconditions/tests
+                icon: icon-search
+                permissions:
+                    - 'medseo.tests'
+            side-menu-item11:
+                label: Schritte
+                url: impactfactory/medicalconditions/steps
+                icon: icon-check
+                permissions:
+                    - 'medseo.steps'
+            side-menu-item10:
+                label: Unterschritte
+                url: impactfactory/medicalconditions/substeps
+                icon: icon-check-circle
+                permissions:
+                    - 'medseo.substeps'
+dependencies:
+  - rainlab.translate
+  - impactfactory.blog

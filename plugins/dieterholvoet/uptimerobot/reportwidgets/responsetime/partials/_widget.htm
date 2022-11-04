@@ -1,0 +1,19 @@
+<div class="report-widget">
+    <h3><?= e($this->property('title')) ?></h3>
+
+    <?php if (!isset($error)): ?>
+        <div
+            data-control="chart-line"
+            class="height-200"
+            data-chart-options="xaxis: {mode: 'time', timeFormat: '%H:%M'}">
+            <span
+                data-chart="dataset"
+                data-set-color="#008dc9"
+                data-set-data="<?= e($responseTimeData) ?>"
+                data-set-name="Response time">
+            </span>
+        </div>
+    <?php else: ?>
+        <p class="flash-message static warning"><?= e($error) ?></p>
+    <?php endif ?>
+</div>

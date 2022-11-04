@@ -1,0 +1,44 @@
+plugin:
+    name: 'impactfactory.team::lang.plugin.name'
+    description: 'Multifunktionale Repräsentation der Organisation, ihrer Teams und Personen.'
+    author: ImpactFactory
+    icon: oc-icon-users
+    homepage: ''
+permissions:
+    team.teams:
+        tab: 'impactfactory.team::lang.plugin.name'
+        label: Teams
+    team.people:
+        tab: 'impactfactory.team::lang.plugin.name'
+        label: Personen
+    team.organisations:
+        tab: 'impactfactory.team::lang.plugin.name'
+        label: Organisationen
+navigation:
+    main-menu-item:
+        label: 'impactfactory.team::lang.plugin.name'
+        url: impactfactory/team/people
+        icon: icon-users
+        permissions:
+            - 'team.*'
+        sideMenu:
+            side-menu-people:
+                label: Personen
+                url: impactfactory/team/people
+                icon: icon-users
+                permissions:
+                    - 'team.*'
+            side-menu-teams:
+                label: Teams
+                url: impactfactory/team/teams
+                icon: icon-folder
+                permissions:
+                    - 'team.teams'
+            side-menu-organisations:
+                label: Organisationen
+                url: impactfactory/team/organisations
+                icon: icon-sitemap
+                permissions:
+                    - 'team.organisations'
+dependencies:
+  - rainlab.translate

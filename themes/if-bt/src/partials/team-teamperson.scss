@@ -1,0 +1,97 @@
+.person {
+
+  a, a:visited {
+    color: $if-dark;
+  }
+
+  a:hover {
+    color: $if-primary;
+  }
+
+  address a {
+    text-decoration:none;
+  }
+
+  #bookingbutton {
+      transform: translate(4px,-43px);
+
+    a {
+      background-color: $if-primary-light;
+      border: none;
+      color: $if-white!important;
+      font-size: $if-fs-sm;
+    }
+
+    a:hover {
+      background-color: $if-primary;
+    }
+  }
+
+  .nav-tabs {
+
+    .nav-link {
+        text-decoration:none;
+    }
+
+    .nav-link:not(.active):hover {
+      background-color: $if-white;
+      color: $if-dark;
+      border:0;
+    }
+
+    .nav-link.active {
+      background-color: $if-white;
+      font-weight: 600;
+    }
+  }
+
+  ::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 10px;
+  background: rgba(0,0,0,0.1);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+  }
+
+  .tab-content {
+
+    max-height: 400px;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+
+
+    .fa-external-link-square-alt {
+      height:.75rem!important;
+      width:.75rem!important;
+      position: relative; left: 5px; top: 0px;
+    }
+
+    .list-group li:first-child {
+      padding-top: 2rem;
+     }
+
+     a {
+       text-decoration: none!important;
+     }
+
+     a:hover {
+       font-weight: 400!important;
+     }
+
+     small a {
+       color: #6c757d;
+     }
+
+     small a:hover {
+       color: $if-primary;
+     }
+
+     p a {
+       text-decoration: underline!important;
+     }
+  }
+}

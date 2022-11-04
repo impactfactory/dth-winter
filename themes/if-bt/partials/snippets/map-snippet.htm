@@ -1,0 +1,53 @@
+description = "Erzeugt einen ganzbreitigen Abschnitt mit Text, Buttons und Google Map drin."
+
+[viewBag]
+snippetCode = "map-fullwrap"
+snippetName = "Karte und Anreiseinfos"
+snippetProperties[h2][title] = "Abschnittstitel"
+snippetProperties[h2][type] = "text"
+snippetProperties[text][title] = "Kurztext"
+snippetProperties[text][type] = "text"
+snippetProperties[button1label][title] = "Text Button 1"
+snippetProperties[button1label][type] = "text"
+snippetProperties[button1url][title] = "Url Button 1"
+snippetProperties[button1url][type] = "text"
+snippetProperties[button2label][title] = "Text Button 2"
+snippetProperties[button2label][type] = "text"
+snippetProperties[button2url][title] = "Url Button 2"
+snippetProperties[button2url][type] = "text"
+snippetProperties[openingtimes][title] = "Öffnungszeiten"
+snippetProperties[openingtimes][text] = "Öffnungszeiten"
+snippetProperties[bg][title] = "Hintergrund-Farbe"
+snippetProperties[bg][type] = "dropdown"
+snippetProperties[bg][options][1]= "Weiss"
+snippetProperties[bg][options][2]= "Grau"
+snippetProperties[bg][options][3]= "aufgehelles Türkis"
+snippetProperties[bg][options][4]= "Türkis"
+snippetProperties[bg][options][5]= "abgedunkeltes Türkis"
+snippetProperties[bg][options][6]= "aufgehelltes Rot"
+==
+
+<div class="fullwrap map-snippet tpl-{% if bg == '1' %}white{% elseif bg == '2' %}grey{% elseif bg == '3' %}secondary-light{% elseif bg == '4' %}secondary{% elseif bg == '5' %}secondary-dark{% elseif bg == '6' %}primary-light{% else %}transparent{% endif %}">
+  <div class="indent-me row">
+    <div class="col-12 col-sm-6 col-md-8">
+      <h2>{{ h2 }}</h2>
+      <p>{{ text }}</p>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4">
+      <a class="btn btn-sm btn-primary mb-2 mt-2" href="{{ button1url }}" role="button" rel="noopener" target="_blank">{{ button1label }}</a><br>
+      <a class="btn btn-sm btn-primary mb-2" href="{{ button2url }}" role="button">{{ button2label }}</a>
+      <address>
+        {% partial 'html_body/svg-icons/clock' %}
+        <span class="h6 text-primary mb-3">{{ openingtimes }}</span><br>
+        {% partial 'html_body/svg-icons/phone' %}
+        <a class="h6 text-primary mb-3" href="tel:{{ 'contactbox.tel'|_ }}" title="telephone">{{ 'contactbox.tel.label'|_ }}</a><br>
+        {% partial 'html_body/svg-icons/email' %}
+        <span class="scrambled"></span>
+      </address>
+    </div>
+  </div>
+</div>
+
+<div class="map-frame p-0 m-0">
+  {% partial 'html_body/map' %}
+</div>

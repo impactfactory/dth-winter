@@ -1,0 +1,295 @@
+title = "Bewerbungsformular"
+url = "/bewerbung2"
+layout = "frontpage"
+meta_title = "Bewerben Sie sich beim Herzzentrum"
+meta_description = "Administrative/r Koordinator/in Pensum: 60 – 100%"
+is_hidden = 0
+
+[fileUploader]
+placeholderText = "Click or drag files to upload"
+maxSize = 2
+fileTypes = "*"
+deferredBinding = 1
+==
+<?php
+use ImpactFactory\Jobboard\Models\Applicants;
+use RainLab\Translate\Models\Message;
+use Mail;
+use Input;
+
+function onInit()
+{
+  $this->fileUploader->bindModel('files', new Applicants);
+}
+
+function onSave() {
+
+    //Validation by html5
+    //
+
+    //Save in Database
+    $data = new Applicants;
+    $data->gender = input('gender');
+    $data->firstname = input('firstname');
+    $data->lastname = input('lastname');
+    $data->street_no = input('street_no');
+    $data->zip = input('zip');
+    $data->city = input('city');
+    $data->country = input('country');
+    $data->phone = input('phone');
+    $data->email = input('email');
+    $data->lang_de = input('lang_de');
+    $data->lang_en = input('lang_en');
+    $data->lang_fr = input('lang_fr');
+    $data->lang_it = input('lang_it');
+    $data->other_languages = input('other_languages');
+    $data->birthday = input('birthday');
+    $data->start_date = input('start_date');
+    $data->salary_min = input('salary_min');
+    $data->salary_max = input('salary_max');
+    $data->education = input('education');
+    $data->experience = input('experience');
+    $data->url = input('url');
+    $data->note = input('note');
+    $data->created_at = input('created_at');
+    $data->job_posting = input('job_posting');
+    $data->sort_order = input('sort_order');
+    $data->save(null, post('_session_key'));
+
+    //Send Mails
+    $vars = [
+        'gender' => Input::get('gender'),
+        'firstname' => Input::get('firstname'),
+        'lastname' => Input::get('lastname'),
+        'street_no' => Input::get('street_no'),
+        'zip' => Input::get('zip'),
+        'city' => Input::get('city'),
+        'country' => Input::get('country'),
+        'phone' => Input::get('phone'),
+        'email' => Input::get('email'),
+        'lang_de' => Input::get('lang_de'),
+        'lang_en' => Input::get('lang_en'),
+        'lang_fr' => Input::get('lang_fr'),
+        'lang_it' => Input::get('lang_it'),
+        'other_languages' => Input::get('other_languages'),
+        'birthday' => Input::get('birthday'),
+        'start_date' => Input::get('start_date'),
+        'salary_min' => Input::get('salary_min'),
+        'salary_max' => Input::get('salary_max'),
+        'education' => Input::get('education'),
+        'experience' => Input::get('experience'),
+        'url' => Input::get('url'),
+        'note' => Input::get('note'),
+        'created_at' => Input::get('created_at'),
+        'job_posting' => Input::get('job_posting')
+    ];
+
+    Mail::send('if.forms::applicationform', $vars, function($message) {
+      $message->to(Input::get('email'), '');
+      $message->from('dth-office@hin.ch', 'Diagnostisches und Therapeutisches Herzzentrum AG');
+    });
+
+    Mail::send('if.forms::applicationform.data', $vars, function($message) {
+      $message->to('dth-office@hin.ch', '');
+      $message->from('dth-office@hin.ch', 'Diagnostisches und Therapeutisches Herzzentrum AG');
+    });
+
+    return [
+      '#applicationform' => '<h1 class="mt-5 pl-3 indent-me">Ihre Bewerbung wurde an uns versandt, vielen Dank!</h1>'
+    ];
+}
+?>
+==
+<section id="applicationform" class="fullwrap">
+  <div class="indent-me">
+
+    {% content 'applicationform-intro' %}
+
+    {{ form_ajax('onSave') }}
+
+      <div class="row">
+        <div class="col-1 col-md-2 pt-3"></div>
+        <div class="col-10 col-md-8 pt-3 ">
+
+        <div class="mb-3">
+          <label for="gender">{{ 'forms.application.label.gender'|_ }} *</label>
+          <select id="gender" class="form-select" aria-label="gender select" name="gender" required>
+            <option value="" selected>bitte wählen...</option>
+            <option value="m">{{ 'forms.application.gender.option.m'|_ }}</option>
+            <option value="f">{{ 'forms.application.gender.option.f'|_ }}</option>
+            <option value="q">{{ 'forms.application.gender.option.q'|_ }}</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="firstname">{{ 'forms.application.label.firstname'|_ }} *</label>
+            <input type="text" id="firstname" name="firstname" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="lastname">{{ 'forms.application.label.lastname'|_ }} *</label>
+            <input type="text" id="lastname" name="lastname" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="street_no">{{ 'forms.application.label.street_no'|_ }} *</label>
+            <input type="text" id="street_no" name="street_no" class="form-control" required>
+        </div>
+
+        <div class="mb-3 {% if errors.first('zip') %}error{% endif %}">
+            <label for="zip">{{ 'forms.application.label.zip'|_ }} *</label>
+            <input type="number" id="zip" name="zip" class="form-control" required>
+        </div>
+
+        <div class="mb-3 {% if errors.first('city') %}error{% endif %}">
+            <label for="city">{{ 'forms.application.label.city'|_ }} *</label>
+            <input type="text" id="city" name="city" class="form-control" required>
+        </div>
+
+        <div class="mb-3 {% if errors.first('country') %}error{% endif %}">
+          <label for="country">{{ 'forms.application.label.country'|_ }} *</label>
+          <select id="country" class="form-select" aria-label="" name="country" required>
+            <option value="" selected>bitte wählen...</option>
+            <option value="Schweiz">Schweiz</option>
+            <option value="Deutschland">Deutschland</option>
+          </select>
+        </div>
+
+        <div class="mb-3 {% if errors.first('phone') %}error{% endif %}">
+            <label for="phone">{{ 'forms.application.label.phone'|_ }} *</label>
+            <input type="number" id="phone" name="phone" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="email">{{ 'forms.application.label.email'|_ }} *</label>
+            <input type="email" id="email" name="email" class="form-control" required>
+        </div>
+
+        <div class="mb-3 {% if errors.first('birthday') %}error{% endif %}">
+            <label for="birthday">{{ 'forms.application.label.birthday'|_ }} *</label>
+            <input type="date" id="birthday" name="birthday" class="form-control" min="1950-01-01" max="{{ 'now' | date('Y-m-d') }}"  required>
+        </div>
+
+        <div class="mb-3 {% if errors.first('lang_de') %}error{% endif %}">
+          <label for="lang_de">{{ 'forms.application.label.lang_de'|_ }} *</label>
+          <select id="lang_de" class="form-select" aria-label="lang_de" select" name="lang_de"  required>
+            <option value="" selected>bitte wählen...</option>
+            <option value="A1">A1</option>
+            <option value="A2">A2</option>
+            <option value="B1">B1</option>
+            <option value="B2">B2</option>
+            <option value="C1">C1</option>
+            <option value="C2">C2</option>
+            <option value="nativ">nativ</option>
+          </select>
+        </div>
+
+        <div class="mb-3 {% if errors.first('lang_en') %}error{% endif %}">
+          <label for="lang_en">{{ 'forms.application.label.lang_en'|_ }} *</label>
+          <select id="lang_en" class="form-select" aria-label="lang_en" select" name="lang_en" required>
+            <option value="" selected>bitte wählen...</option>
+            <option value="0">keine Kenntnisse</option>
+            <option value="A1">A1</option>
+            <option value="A2">A2</option>
+            <option value="B1">B1</option>
+            <option value="B2">B2</option>
+            <option value="C1">C1</option>
+            <option value="C2">C2</option>
+            <option value="nativ">nativ</option>
+          </select>
+        </div>
+
+        <div class="mb-3 {% if errors.first('lang_it') %}error{% endif %}">
+          <label for="lang_it">{{ 'forms.application.label.lang_it'|_ }} *</label>
+          <select id="lang_it" class="form-select" aria-label="lang_it" select" name="lang_it" required>
+            <option value="" selected>bitte wählen...</option>
+            <option value="0">keine Kenntnisse</option>
+            <option value="A1">A1</option>
+            <option value="A2">A2</option>
+            <option value="B1">B1</option>
+            <option value="B2">B2</option>
+            <option value="C1">C1</option>
+            <option value="C2">C2</option>
+            <option value="nativ">nativ</option>
+          </select>
+        </div>
+
+        <div class="mb-3 {% if errors.first('lang_fr') %}error{% endif %}">
+          <label for="lang_fr">{{ 'forms.application.label.lang_fr'|_ }} *</label>
+          <select id="lang_fr" class="form-select" aria-label="lang_fr" select" name="lang_fr" required>
+            <option value="" selected>bitte wählen...</option>
+            <option value="0">keine Kenntnisse</option>
+            <option value="A1">A1</option>
+            <option value="A2">A2</option>
+            <option value="B1">B1</option>
+            <option value="B2">B2</option>
+            <option value="C1">C1</option>
+            <option value="C2">C2</option>
+            <option value="nativ">nativ</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="other_languages" class="form-label">{{ 'forms.application.label.other_languages'|_ }}</label>
+            <textarea id="other_languages" name="other_languages" rows="2" cols="80" class="form-control"></textarea>
+        </div>
+
+        <div class="mb-3 {% if errors.first('start_date') %}error{% endif %}">
+            <label for="start_date">{{ 'forms.application.label.start_date'|_ }} *</label>
+            <input type="date" id="start_date" name="start_date" class="form-control" required>
+        </div>
+
+        <div class="mb-3 {% if errors.first('salary_min') %}error{% endif %}">
+            <label for="salary_min">{{ 'forms.application.label.salary_min'|_ }} *</label>
+            <input type="number" id="salary_min" name="salary_min" class="form-control" min="50000" step="1000" required>
+        </div>
+
+        <div class="mb-3 {% if errors.first('experience') %}error{% endif %}">
+            <label for="experience">{{ 'forms.application.label.experience'|_ }} *</label>
+            <input type="number" id="experience" name="experience" class="form-control" required>
+        </div>
+
+        <div class="mb-3 {% if errors.first('education') %}error{% endif %}">
+          <label for="education">{{ 'forms.application.label.education'|_ }} *</label>
+          <select id="education" class="form-select" aria-label="" name="education" required>
+            <option value="" selected>bitte wählen Sie...</option>
+            <option value="MPA EFZ">MPA EFZ</option>
+            <option value="Artzsekretär*in">Arztsekretär*in</option>
+            <option value="Kauffrau/mann EFZ">Kauffrau/mann EFZ</option>
+            <option value="Hotelfach EFZ/HF">Hotelfach EFZ/HF</option>
+            <option value="andere">andere</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="note" class="form-label">{{ 'forms.application.label.note'|_ }}</label>
+            <textarea id="note" name="note" rows="5" cols="80" class="form-control"></textarea>
+        </div>
+
+        <hr>
+        <h2>Anhänge</h2>
+        <p>
+        Bitte aufs weisse Feld klicken oder PDFs mit Drag&Drop direkt reinschieben. Falls der File-Upload nicht funktioniert für Sie benützen Sie das Link-Feld für einen Dateisende-Service wie <a href="https://wetransfer.com/">WeTransfer</a> oder ähnliches.
+        </p>
+
+        <div class="col-12 text-center px-0 uploaderfield border-rounded">
+          {% component 'fileUploader' %}
+        </div>
+
+        <div class="col-12 text-center pt-3">
+          <input type="hidden" value="{{ 'now' | date('Y-m-d') }}" name="created_at">
+          <input type="hidden" value="Administration" name="job_posting">
+          <input type="hidden" value="9" name="sort_order">
+          <button id="submit" name="submit" type="submit" class="btn btn-lg btn-primary">
+            {{ 'forms.registration.label.submit'|_ }}
+          </button>
+        </div>
+
+        </div>
+        <div class="col-1 col-md-2 pt-3"></div>
+      </div>
+
+    {{ form_close() }}
+
+  </div>
+</section>

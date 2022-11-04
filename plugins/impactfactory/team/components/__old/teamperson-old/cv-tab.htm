@@ -1,0 +1,177 @@
+
+
+  <!-- Tab-Navigation -->
+  <nav role="navigation">
+    <ul class="nav nav-tabs" id="cv-tabs" role="tablist">
+      {% if person.skills %}
+      <li class="nav-item col-12 col-lg-auto">
+        <a class="nav-link active" id="skills-tab" data-bs-toggle="tab" href="#skills" role="tab" aria-controls="skills" aria-selected="true">
+          {{ 'team.person.skills'|_ }}
+        </a>
+      </li>
+      {% endif %}
+      {% if person.jobs %}
+      <li class="nav-item col-12 col-lg-auto">
+        <a class="nav-link" id="jobs-tab" data-bs-toggle="tab" href="#jobs" role="tab" aria-controls="jobs" aria-selected="false">
+          {{ 'team.person.jobs'|_ }}
+        </a>
+      </li>
+      {% endif %}
+      {% if person.educations %}
+      <li class="nav-item col-12 col-lg-auto">
+        <a class="nav-link" id="educations-tab" data-bs-toggle="tab" href="#educations" role="tab" aria-controls="educations" aria-selected="false">
+          {{ 'team.person.educations'|_ }}
+        </a>
+      </li>
+      {% endif %}
+      {% if person.memberships %}
+      <li class="nav-item col-12 col-lg-auto">
+        <a class="nav-link" id="memberships-tab" data-bs-toggle="tab" href="#memberships" role="tab" aria-controls="memberships" aria-selected="false">
+          {{ 'team.person.memberships'|_ }}
+        </a>
+      </li>
+      {% endif %}
+      {% if person.publications or person.publications_text %}
+      <li class="nav-item col-12 col-lg-auto">
+        <a class="nav-link" id="publications-tab" data-bs-toggle="tab" href="#publications" role="tab" aria-controls="publications" aria-selected="false">
+          {{ 'team.person.publications'|_ }}
+        </a>
+      </li>
+      {% endif %}
+      {% if person.milestones %}
+      <li class="nav-item col-12 col-lg-auto">
+        <a class="nav-link" id="milestones-tab" data-bs-toggle="tab" href="#milestones" role="tab" aria-controls="milestones" aria-selected="false">
+          {{ 'team.person.milestones'|_ }}
+        </a>
+      </li>
+      {% endif %}
+    </ul>
+  </nav>
+
+
+
+
+
+    <div class="tab-content white" id="cv-tabs-contents">
+
+       {% if person.skills %}
+       <div class="tab-pane fade show active" id="skills" role="tabpanel" aria-labelledby="skills-tab">
+        <ul class="list-group list-group-flush">
+          {% for skill in person.skills %}
+            <li class="list-group-item">
+            {% partial 'html_body/svg-icons/star' %} {{ skill.skill_desc }}</li>
+          {% endfor %}
+        </ul>
+       </div>
+       {% endif %}
+
+       {% if person.jobs %}
+       <div class="tab-pane fade" id="jobs" role="tabpanel" aria-labelledby="jobs-tab">
+        <ul class="list-group list-group-flush">
+          {% for job in person.jobs %}
+            <li class="list-group-item">
+              {% partial 'html_body/svg-icons/user-tie' %} {{ job.job_title }} <br>
+                <small class="text-muted">
+                  {% if job.job_url %}
+                    <a href="{{ job.job_url }}" rel="noopener" title="Website {{ job.job_employer }}">
+                    {{ job.job_employer }} {% partial 'html_body/svg-icons/externallink' %}
+                    </a>
+                    <br>
+                  {% else %}
+                    {{ job.job_employer }}<br>
+                  {% endif %}
+                  {{ job.job_begin }} {% if job.job_end %}- {{ job.job_end }}{% endif %}
+                </small>
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+       </div>
+       {% endif %}
+
+       {% if person.educations %}
+       <div class="tab-pane fade" id="educations" role="tabpanel" aria-labelledby="educations-tab">
+        <ul class="list-group list-group-flush">
+          {% for education in person.educations %}
+            <li class="list-group-item">
+                 {% partial 'html_body/svg-icons/university' %} {{ education.education_title }}<br>
+                 <small class="text-muted">
+                  {{ education.education_school }}
+                  {{ education.education_begin }} {% if education.education_end %}- {{ education.education_end }} {% endif %}
+                </small>
+            </li>
+          {% endfor %}
+        </ul>
+       </div>
+       {% endif %}
+
+       {% if person.memberships %}
+       <div class="tab-pane fade" id="memberships" role="tabpanel" aria-labelledby="memberships-tab">
+        <ul class="list-group list-group-flush">
+          {% for item in person.memberships %}
+            <li class="list-group-item">
+                 {% if item.membership_url %}
+                 <a href="{{ item.membership_url }}" title="Website {{ item.membership_name }}" rel="noopener" target="_blank">
+                  {% partial 'html_body/svg-icons/membership' %} {{ item.membership_name }} {% partial 'html_body/svg-icons/externallink' %}<br>
+                 </a>
+                 {% else %}
+                  {% partial 'html_body/svg-icons/membership' %} {{ item.membership_name }}
+                 {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+       </div>
+       {% endif %}
+
+       {% if person.publications or person.publications_text %}
+       <div class="tab-pane fade" id="publications" role="tabpanel" aria-labelledby="publications-tab">
+        <div class="pt-4 pb-1 px-3 bg-white">
+          {{ person.publications_text|raw }}
+        </div>
+        <ul class="list-group list-group-flush">
+          {% for item in person.publications %}
+            <li class="list-group-item">
+                 {% if item.publication_url %}
+                   <a href="{{ item.publication_url }}" title="{{ item.publication_title }}" rel="noopener" target="_blank">
+                     {% partial 'html_body/svg-icons/book' %} {{ item.publication_title }} {% partial 'html_body/svg-icons/externallink' %}
+                   </a><br>
+                 {% else %}
+                   {% partial 'html_body/svg-icons/book' %} {{ item.publication_title }}<br>
+                 {% endif %}
+                 <small class="text-muted">
+                  {{ item.publication_year }}
+                </small>
+            </li>
+          {% endfor %}
+        </ul>
+       </div>
+       {% endif %}
+
+       {% if person.milestones %}
+       <div class="tab-pane fade" id="milestones" role="tabpanel" aria-labelledby="milestones-tab">
+         <ul class="list-group list-group-flush">
+           {% for milestone in person.milestones %}
+             <li class="list-group-item">
+               {% if milestone.milestone_url %}
+               <a href="{{ milestone.milestone_url }}" rel="noopener" target="_blank" title="{{ milestone.milestone_desc }}">
+                 {% partial 'html_body/svg-icons/trophy' %} {{ milestone.milestone_desc }} {% partial 'html_body/svg-icons/externallink' %}
+               </a>
+               <br>
+               <a href="{{ milestone.milestone_url }}" rel="noopener" target="_blank" title="{{ milestone.milestone_desc }}">
+                 <small class="text-muted">
+                   {{ milestone.milestone_year }}
+                 </small>
+               </a>
+               {% else %}
+                 {% partial 'html_body/svg-icons/trophy' %}</i> {{ milestone.milestone_desc }}<br>
+                 <small class="text-muted">
+                   {{ milestone.milestone_year }}
+                 </small>
+              {% endif %}
+             </li>
+           {% endfor %}
+         </ul>
+        </div>
+        {% endif %}
+
+  </div>

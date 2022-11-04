@@ -1,0 +1,17 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table impactfactory_services_types'
+    - builder_table_create_impactfactory_services_types.php
+1.0.3:
+    - 'Created table impactfactory_services_assurances'
+    - builder_table_create_impactfactory_services_assurances.php
+1.0.4:
+    - 'Created table impactfactory_services_orders'
+    - builder_table_create_impactfactory_services_orders.php
+1.0.5:
+    - 'Updated table impactfactory_services_orders'
+    - builder_table_update_impactfactory_services_orders.php
+1.0.6:
+    - 'Updated table impactfactory_services_orders'
+    - builder_table_update_impactfactory_services_orders_2.php

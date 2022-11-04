@@ -1,0 +1,60 @@
+{% set showModal = null %}
+
+<div id="cookies-bar" class="cookies-bar {{ cookiesSettingsGet('cookies_bar_css_class') }}">
+
+    {% if cookiesSettingsGet('cookies_bar_title', null) %}
+
+        <h3 class="title">{{ cookiesSettingsGet('cookies_bar_title') }}</h3>
+
+    {% endif %}
+
+    {% if cookiesSettingsGet('cookies_bar_content', null) %}
+
+        <div class="content">{{ cookiesSettingsGet('cookies_bar_content')|raw }}</div>
+
+    {% endif %}
+
+    {% if cookiesSettingsGet('cookies_bar_buttons', null)|length %}
+
+        <div class="buttons">
+
+            {% for button in cookiesSettingsGet('cookies_bar_buttons') %}
+
+                {% if button.show_modal %}
+
+                    {% set showModal = button.show_modal %}
+
+                {% endif %}
+
+                {% partial __SELF__ ~ '::cookiesbar-btn-' ~ cookiesSettingsGet('ui_style', 'default')  button = button %}
+
+            {% endfor %}
+
+        </div>
+
+    {% endif %}
+
+</div>
+
+{% if showModal %}
+
+    {% partial __SELF__ ~ '::cookiesbar-modal-' ~ cookiesSettingsGet('ui_style', 'default') %}
+    
+{% endif %}
+
+{% put scripts %}
+
+    <script>
+
+        $('#cookies-bar .btn-accept-all').click(function(e) {
+            e.preventDefault();
+
+            {% partial '@set-cookies' %}
+
+            $('#cookies-bar').hide();
+            location.reload(true);
+        });
+
+    </script>
+
+{% endput %}

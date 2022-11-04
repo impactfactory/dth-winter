@@ -1,0 +1,12 @@
+list: $/impactfactory/medicalconditions/models/treatment/columns.yaml
+modelClass: Impactfactory\MedicalConditions\Models\Treatment
+title: Treatments
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'impactfactory/medicalconditions/treatments/update/:id'

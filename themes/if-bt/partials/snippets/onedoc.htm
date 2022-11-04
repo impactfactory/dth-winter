@@ -1,0 +1,14 @@
+description = "Fügt den OneDoc-iFrame ein."
+
+[viewBag]
+snippetCode = "onedoc"
+snippetName = "OneDoc-iFrame (Olaf)"
+==
+<div class="snippet-onedoc mt-4 pt-4 pb-5 mb-4 placeitemscenter">
+
+	<script>window.addEventListener("message",function(t){var e=t.data["od-widget-id"],d=t.data["od-widget-height"],a=t.data["od-widget-ios"];if(e){var i=document.getElementById("od-widget-"+e);d&&(i.style.height=d+"px"),!0===a&&(i.style.width="100px",i.style["min-width"]="100%",i.scrolling="no")}}),window.addEventListener("load",function(t){for(var e=document.querySelectorAll("iframe.od-widget"),d=0;d<e.length;d++){var a=e[d];a.dataset&&a.dataset.src&&(a.src=a.dataset.src)}});</script>
+
+	<iframe class="od-widget" id="od-widget-f7006ef93d824bd8dce2d1bb391890e8ef2af263af33a206924c761fc18a10fc" src="about:blank" data-src="https://www.onedoc.ch/de/widget/f7006ef93d824bd8dce2d1bb391890e8ef2af263af33a206924c761fc18a10fc" frameborder="0" style="width:100%;max-width:1024px;height:400px">
+	</iframe>
+
+</div>

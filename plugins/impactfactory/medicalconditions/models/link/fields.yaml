@@ -1,0 +1,14 @@
+fields:
+    label:
+        label: 'verlinkter Text'
+        span: left
+        type: text
+    linktype:
+        label: Typ
+        type: relation
+        showSearch: true
+        span: right
+    url:
+        label: URL
+        span: full
+        type: text

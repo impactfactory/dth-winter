@@ -1,0 +1,11 @@
+name: Categories
+modelClass: ImpactFactory\Faq\Models\Category
+form: $/impactfactory/faq/models/category/fields.yaml
+defaultRedirect: impactfactory/faq/categories
+create:
+    redirect: 'impactfactory/faq/categories/update/:id'
+    redirectClose: impactfactory/faq/categories
+update:
+    redirect: impactfactory/faq/categories
+    redirectClose: impactfactory/faq/categories
+preview: {  }

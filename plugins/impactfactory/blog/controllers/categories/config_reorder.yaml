@@ -1,0 +1,4 @@
+title: Categories
+modelClass: ImpactFactory\Blog\Models\Category
+toolbar:
+    buttons: reorder_toolbar

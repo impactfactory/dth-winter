@@ -1,0 +1,28 @@
+<?php if ($this->previewMode): ?>
+
+    <div class="form-control">
+        <?= $value ?>
+    </div>
+
+<?php else: ?>
+
+    <?php if (!empty($scripts)) : ?>
+        <?php foreach($scripts as $script) : ?>
+            <script src="<?= $script ?>"></script>
+        <?php endforeach; ?>
+    <?php endif; ?>
+
+    <div
+        class="editorjs-wrapper"
+        data-control="editorjs"
+        id="<?= $this->getId() ?>"
+        data-placeholder="<?= $placeholder ?>"
+        data-settings="<?= $toolSettings ?>">
+        <textarea
+            type="hidden"
+            style="display: none"
+            name="<?= $name ?>"
+            id="<?= $this->getId('textarea') ?>"><?= $value ?></textarea>
+    </div>
+
+<?php endif ?>

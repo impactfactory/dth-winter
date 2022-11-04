@@ -1,0 +1,73 @@
+.portraitbox {
+
+  // see custom.css for img hover
+  a.imglink:hover {}
+
+  p a {
+        color: $if-dark;
+      }
+
+  p a:hover {
+    color: $if-primary;
+  }
+
+  .portraitlink {
+    background-color: $if-primary-light;
+    color: $if-white;
+    margin: 10px 0 0 0;
+    position:relative;
+    padding: 4px 8px 4px 8px;
+
+    a {
+      color: $if-white;
+      text-decoration: none;
+    }
+
+    a:hover, :focus, :active {
+        color: $if-white;
+      }
+   }
+
+   .right {
+     left: -4rem;
+     border-radius:    1em 1em;
+     border-radius: 1em 1em;
+     width: 800px;
+
+     i {
+       margin-left:10px;
+     }
+
+   }
+
+   .left {
+     left: -1.5rem;
+     border-radius: 0 1rem 1em 0;
+     border-bottom-right-radius: 1em 1em;
+     width:450px;
+
+     i {
+       margin-left:10px;
+     }
+   }
+
+   .left:hover, .right:hover { background-color: $if-primary; }
+
+   .picpositionright .card-body {
+     padding-left:0!important;
+   }
+
+   /* thirdwith views */
+
+   .thirdwidth {
+     margin: 0;
+
+     .btn-primary {
+       margin-bottom: .5rem;
+     }
+   }
+
+   /* thirdwith views */
+
+
+}

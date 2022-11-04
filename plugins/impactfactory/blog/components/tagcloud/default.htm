@@ -1,0 +1,14 @@
+{% set tags = __SELF__.tags %}
+
+
+<section class="fullwrap tagcloud">
+  <div class="indent-me text-center">
+    {% for tag in tags %}
+      <a class="badge mx-1 my-1 size-{% if tag.posts|length <= '1' %}zero{% elseif tag.posts|length <= '3' %}sm{% elseif tag.posts|length > '3' %}md{% elseif tag.posts|length > '6' %}lg{% endif %}"
+         href="/{{ localePicker.activeLocale }}/{{ viewBag.localeBlogbase[activeLocale] }}/{{ viewBag.localeTagpagebase[activeLocale] }}/{{ tag.slug}}"
+         title="{{ tag.name }}">
+        {{ tag.name }} <small class="">({{ tag.posts|length }})</small>
+      </a>
+    {% endfor %}
+  </div>
+</section> {# end fullwrap #}

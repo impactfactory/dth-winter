@@ -1,0 +1,32 @@
+title = "Posts mit Tag"
+url = "/kardiologie/stichwort/:slug"
+layout = "default"
+is_hidden = 0
+meta_title = "Posts mit Stichwort"
+meta_description = "Posts mit Stichwort"
+robot_index = "index"
+robot_follow = "follow"
+
+[postswithtag]
+[tagcloud]
+
+[viewBag]
+localeUrl[de] = "/kardiologie/stichwort/:slug"
+localeUrl[en] = "/cardiology/tag/:slug"
+localeBlogbase[de] = "kardiologie"
+localeBlogbase[en] = "cardiology"
+localeTagpagebase[de] = "stichwort"
+localeTagpagebase[en] = "tag"
+localeCategorypagebase[de] = "thema"
+localeCategorypagebase[en] = "topic"
+==
+
+<?php
+function onStart()
+{
+    $this['breadcrumbid'] = 'postswithtag';
+}
+?>
+==
+{% component 'postswithtag' %}
+{% component 'tagcloud' %}

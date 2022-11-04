@@ -1,0 +1,374 @@
+fields:
+    is_published:
+        label: veröffentlicht
+        type: Switch
+    type:
+        label: Typ
+        emptyOption: '----'
+        options:
+            main: Hauptorganization
+            bizpartner: Business-Partner
+            commpartner: Kommunikations-Partner
+            sponsor: Sponsor
+            other: anderer
+        showSearch: true
+        span: auto
+        type: dropdown
+tabs:
+    fields:
+        name:
+            label: Name
+            span: full
+            type: text
+            tab: Partnerbox
+        subtitle:
+            label: Untertitel
+            span: full
+            type: text
+            tab: Partnerbox
+        desc:
+            label: Beschreibungstext
+            size: small
+            span: full
+            type: richeditor
+            tab: Partnerbox
+        url:
+            label: URL
+            span: full
+            type: text
+            tab: Partnerbox
+        teams:
+            label: Teams
+            nameFrom: name
+            descriptionFrom: description
+            span: full
+            type: relation
+            tab: Teams
+        schema_name:
+            label: 'Name der Organisation (name)'
+            span: full
+            type: text
+            tab: 'SEO (Schema)'
+        schema_desc:
+            label: 'Beschreibung der Organisation (description)'
+            size: small
+            span: full
+            type: textarea
+            commentAbove: 'verwende hier die drei wichtigsten Keywords. Dieser Text kann von Google übernommen werden. default Text ausser von SEO der einzelnen Seite überschrieben.'
+            tab: 'SEO (Schema)'
+        schema_site_name:
+            label: 'Name (Suffix) der Website im <title> Tag'
+            span: auto
+            type: text
+            commentAbove: 'default Wert, falls nicht überschrieben durch SEO der einzelnen Seite'
+            tab: 'SEO (Schema)'
+        schema_author_name:
+            label: 'Name des Autoren der Website (author name)'
+            span: auto
+            type: text
+            tab: 'SEO (Schema)'
+        schema_copyright:
+            label: 'Copyright Halter'
+            span: auto
+            type: text
+            tab: 'SEO (Schema)'
+        schema_author_url:
+            label: 'Link zu mehr über den Autor der Website (author url)'
+            oc.commentPosition: above
+            span: auto
+            placeholder: 'https://...'
+            type: text
+            tab: 'SEO (Schema)'
+        schema_type:
+            label: 'Organisationstyp (@type)'
+            prompt: 'Organisations-Typ dazufügen'
+            span: full
+            type: repeater
+            style: collapsed
+            tab: 'SEO (Schema)'
+            form:
+                fields:
+                    name:
+                        label: Schema-Type
+                        span: left
+                        type: dropdown
+                        options:
+                            Corporation: Corporation
+                            EducationalOrganization: EducationalOrganization
+                            LocalBusiness: LocalBusiness
+                            MedicalOrganization: MedicalOrganization
+                            NGO: NGO
+                            Project: Project
+        schema_service:
+            label: 'Angebotene Dienstleistungen (MedicalSpeciality)'
+            prompt: 'Gebiet hinzufügen'
+            span: full
+            type: repeater
+            style: collapsed
+            tab: 'SEO (Schema)'
+            form:
+                fields:
+                    name:
+                        label: 'Angebotene medizinische Dienstleistungen (MedicalSpeciality)'
+                        prompt: 'Gebiet hinzufügen'
+                        span: left
+                        type: dropdown
+                        options:
+                            Cardiovascular: Cardiovascular
+                            Anesthesia: Anesthesia
+                            CommunityHealth: CommunityHealth
+                            Dentistry: Dentistry
+                            Dermatology: Dermatology
+                            DietNutrition: DietNutrition
+                            Emergency: Emergency
+                            Endocrine: Endocrine
+                            Gastroenterologic: Gastroenterologic
+                            Genetic: Genetic
+                            Geriatric: Geriatric
+                            Gynecologic: Gynecologic
+                            Hematologic: Hematologic
+                            Infectious: Infectious
+                            LaboratoryScience: LaboratoryScience
+                            Midwifery: Midwifery
+                            Musculoskeletal: Musculoskeletal
+                            Neurologic: Neurologic
+                            Nursing: Nursing
+                            Obstetric: Obstetric
+                            Oncologic: Oncologic
+                            Optometric: Optometric
+                            Otolaryngologic: Otolaryngologic
+                            Pathology: Pathology
+                            Pediatric: Pediatric
+                            PharmacySpecialty: PharmacySpecialty
+                            Physiotherapy: Physiotherapy
+                            PlasticSurgery: PlasticSurgery
+                            Podiatric: Podiatric
+                            PrimaryCare: PrimaryCare
+                            Psychiatric: Psychiatric
+                            PublicHealth: PublicHealth
+                            Pulmonary: Pulmonary
+                            Radiography: Radiography
+                            Renal: Renal
+                            RespiratoryTherapy: RespiratoryTherapy
+                            Rheumatologic: Rheumatologic
+                            SpeechPathology: SpeechPathology
+                            Surgical: Surgical
+                            Toxicologic: Toxicologic
+                            Urologic: Urologic
+                    url:
+                        label: URL
+                        span: right
+                        type: text
+        schema_speciality:
+            label: Spezialgebiet
+            prompt: 'Gebiet dazufügen'
+            span: full
+            type: repeater
+            style: collapsed
+            tab: 'SEO (Schema)'
+            form:
+                fields:
+                    name:
+                        label: Spezialgebiet
+                        span: full
+                        type: text
+        times:
+            label: Öffnungszeiten
+            span: full
+            type: section
+            tab: 'SEO (Schema)'
+        schema_opens:
+            label: 'offen ab (Opens)'
+            span: auto
+            placeholder: '"09:00"'
+            type: text
+            commentAbove: 'Format: "09:00"'
+            tab: 'SEO (Schema)'
+        schema_openingdays:
+            label: 'Offene Tage (openingHoursSpecification)'
+            span: auto
+            placeholder: '"Monday","Tuesday","Wednesday","Thursday","Friday"'
+            type: text
+            commentAbove: 'Format: "Monday","Tuesday","Wednesday","Thursday","Friday"'
+            tab: 'SEO (Schema)'
+        schema_closes:
+            label: 'geschlossen ab (closes)'
+            span: auto
+            placeholder: '"17:00"'
+            type: text
+            commentAbove: 'Format: "17:00"'
+            tab: 'SEO (Schema)'
+        founder:
+            label: Gründer-Infos
+            span: full
+            type: section
+            tab: 'SEO (Schema)'
+        schema_founder_url:
+            label: 'Seite zu Gründer (founder url))'
+            oc.commentPosition: above
+            span: auto
+            placeholder: 'https://...'
+            type: text
+            tab: 'SEO (Schema)'
+        schema_founder_name:
+            label: 'Gründer (founder name)'
+            span: auto
+            type: text
+            tab: 'SEO (Schema)'
+        schema_foundingdate:
+            label: 'Gründungsdatum (foundingDate)'
+            oc.commentPosition: above
+            span: auto
+            placeholder: yyyy
+            type: text
+            tab: 'SEO (Schema)'
+        schema_founder_jobtitle:
+            label: 'jetzige Rolle des Gründers ( founder jobTitle)'
+            span: auto
+            type: text
+            tab: 'SEO (Schema)'
+        Links:
+            label: Links
+            span: full
+            type: section
+            tab: 'SEO (Schema)'
+        schema_url:
+            label: 'Website (url)'
+            span: full
+            type: text
+            commentAbove: 'Format: https://xy.com/'
+            tab: 'SEO (Schema)'
+        schema_id:
+            label: 'URL (@id)'
+            span: full
+            type: text
+            commentAbove: 'Format: https://xy.com/'
+            tab: 'SEO (Schema)'
+        socials:
+            label: 'Links zu weiteren Online-Präsenzen der Organisation (sameAs)'
+            prompt: 'Link hinzufügen'
+            span: full
+            type: repeater
+            style: collapsed
+            commentAbove: 'Social Media Profile, Chat-Möglichkeiten, Veröffentlichungskanälen u.ä.'
+            tab: 'SEO (Schema)'
+            form:
+                fields:
+                    type:
+                        label: Service
+                        options:
+                            facebook: Facebook
+                            instagram: Instagram
+                            linkedin: LinkedIn
+                            twitter: Twitter
+                            youtube: Youtube
+                            '---': '---'
+                            bandcamp: Bandcamp
+                            discord: Discord
+                            flickr: Flickr
+                            github: Github
+                            line: Line
+                            pinterest: Pinterest
+                            reddit: Reddit
+                            signal: Signal
+                            skype: Skype
+                            snapchat: Snapchat
+                            soundcloud: Soundcloud
+                            spotify: Spotify
+                            telegram: Telegram
+                            tiktok: TikTok
+                            vimeo: Vimeo
+                            vk: VK
+                            whatsapp: Whatsapp
+                            xing: Xing
+                        showSearch: true
+                        span: auto
+                        type: dropdown
+                    id:
+                        label: 'ID, User, Channel-Nummer oder Telefonnummer'
+                        span: right
+                        type: text
+        schema_photo:
+            label: 'Bild der Location (photo)'
+            mode: image
+            imageWidth: '300'
+            imageHeight: '300'
+            span: left
+            type: mediafinder
+            tab: 'SEO (Media)'
+        schema_img:
+            label: 'Repräsentatives Bild der Organisation (image)'
+            mode: image
+            imageWidth: '300'
+            imageHeight: '300'
+            span: auto
+            type: mediafinder
+            commentAbove: 'Format: 1200x630 // default BIld für social medias falls nicht überschrieben durch SEO der einzelnen Seite'
+            tab: 'SEO (Media)'
+        schema_logo:
+            label: 'Logo der Organisation'
+            mode: image
+            imageWidth: '300'
+            imageHeight: '300'
+            span: left
+            type: mediafinder
+            tab: 'SEO (Media)'
+        img:
+            label: 'Bild für Partnerbox'
+            mode: image
+            imageWidth: '300'
+            imageHeight: '300'
+            span: right
+            type: mediafinder
+            tab: 'SEO (Media)'
+        schema_street:
+            label: 'Strasse (streetAddress)'
+            span: left
+            type: text
+            tab: 'SEO (Adresse)'
+        schema_no:
+            label: 'Hausnummer (streetAddress)'
+            span: auto
+            type: text
+            tab: 'SEO (Adresse)'
+        schema_zip:
+            label: 'Postleitzahl (postalCode)'
+            span: auto
+            type: text
+            tab: 'SEO (Adresse)'
+        schema_city:
+            label: 'Stadt (addressLocality)'
+            span: auto
+            type: text
+            tab: 'SEO (Adresse)'
+        schema_region:
+            label: 'Region (addressRegion)'
+            span: auto
+            type: text
+            tab: 'SEO (Adresse)'
+        schema_country:
+            label: 'Land (addressCountry)'
+            span: auto
+            type: text
+            tab: 'SEO (Adresse)'
+        schema_latitude:
+            label: 'Breitengrad (latitude)'
+            span: auto
+            type: text
+            tab: 'SEO (Adresse)'
+        schema_longitude:
+            label: 'Höhengrad (longitude)'
+            span: auto
+            type: text
+            tab: 'SEO (Adresse)'
+        schema_map_url:
+            label: 'Link zur Karte (hasMap)'
+            span: auto
+            type: text
+            tab: 'SEO (Adresse)'
+        schema_phone:
+            label: 'Telefonnummer (telephone)'
+            span: auto
+            placeholder: '+412345678'
+            type: text
+            tab: 'SEO (Adresse)'

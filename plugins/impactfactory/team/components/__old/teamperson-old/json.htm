@@ -1,0 +1,77 @@
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Person",
+    {% if person.honorific %}
+      "honorificPrefix": "{{ person.honorific }}",
+    {% endif %}
+    {% if person.first_name %}
+      "givenname": "{{ person.first_name }}",
+    {% endif %}
+    {% if person.last_name %}
+      "familyname": "{{ person.last_name }}",
+    {% endif %}
+    {% if person.street or person.city or person.country %}
+        "address": {
+          "@type": "PostalAddress",
+          {% if person.city %}
+            "addressLocality": "{{ person.city }}",
+          {% endif %}
+          {% if person.zip %}
+            "postalCode": "{{ person.zip }}",
+          {% endif %}
+          {% if person.street %}
+            "streetAddress": "{{ person.street }} {{ person.no }}",
+          {% endif %}
+          {% if person.country %}
+            "addressCountry": "{{ person.country }}"
+          {% endif %}
+        },
+      {% endif %}
+      {% if person.educations %}
+        "alumniOf": [
+                        {% for education in person.educations%}
+                          {
+                            "@type": "CollegeOrUniversity",
+                            "name": "{{ education.education_school }}"
+                          }{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                        {% endfor %}
+                    ],
+      {% endif %}
+      {% if person.memberships %}
+        "memberOf": [
+                        {% for item in person.memberships%}
+                          {
+                            "@type": "Organization",
+                            "name": "{{ item.membership_name }}"
+                            {% if item.membership_url %},
+                            "sameAs" : "{{ item.membership_url }}"
+                            {% endif %}
+                          }{% if (loop.length > 1 and not loop.last) %}, {% endif %}
+                        {% endfor %}
+                    ],
+      {% endif %}
+      {% if person.portrait %}
+        "image": "{{ person.portrait|media }}",
+      {% endif %}
+      {% if person.role %}
+        "jobTitle": "{{ person.role }}",
+      {% endif %}
+      {% if person.phone %}
+        "telephone": "{{ person.phone }}",
+      {% endif %}
+      {% if person.url %}
+        "url": "{{ person.url }}",
+      {% endif %}
+      {% if person.company %}
+        "worksFor": {
+          "@type": "Organization",
+          "name": "{{ person.company }}",
+          "sameAs" : "{{ person.url }}"
+        },
+      {% endif %}
+      {% if person.street or person.city or person.country %}
+        "workLocation": "{{ person.street }} {{ person.no }}, {{ person.zip }} {{ person.city }}, {{ person.country }}"
+      {% endif %}
+  }
+</script>

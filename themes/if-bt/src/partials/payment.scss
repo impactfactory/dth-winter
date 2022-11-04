@@ -1,0 +1,61 @@
+.payment {
+
+  .cards {
+    text-align: center;
+
+    .icon-cards {
+      display: inline-block;
+      //width: 100px;
+      //height: auto;
+
+      a {
+        color: $if-primary-light;
+
+        .svg-inline--fa {
+          width: 180px;
+          height: auto;
+        }
+      }
+
+      a:hover {
+        color: $if-primary;
+      }
+
+      .fa-card-twint {
+        border: 40px solid $if-primary-light;
+        border-radius: 10px;
+        height: 138px!important;
+        width: auto!important;
+      }
+
+      .fa-card-twint:hover {
+        border: 40px solid $if-primary;
+      }
+
+    }
+  }
+}
+
+@media screen and (max-width: 768px){
+
+   .payment .cards .icon-cards a .svg-inline--fa {
+     width: 80px;
+     height: auto;
+   }
+
+   .payment .cards .icon-cards a .fa-card-twint {
+     height: 60px!important;
+     width: auto!important;
+   }
+
+   .fa-card-twint {
+     border: 10px solid $if-primary-light !important;
+     border-radius: 2px;
+     height: 124px!important;
+     width: auto!important;
+   }
+
+   .fa-card-twint:hover {
+     border: 10px solid $if-primary !important;
+   }
+}

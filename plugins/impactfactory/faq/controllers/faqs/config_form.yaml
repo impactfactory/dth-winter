@@ -1,0 +1,10 @@
+name: Faqs
+form: $/impactfactory/faq/models/faq/fields.yaml
+modelClass: ImpactFactory\Faq\Models\Faq
+defaultRedirect: impactfactory/faq/faqs
+create:
+    redirect: 'impactfactory/faq/faqs/update/:id'
+    redirectClose: impactfactory/faq/faqs
+update:
+    redirect: impactfactory/faq/faqs
+    redirectClose: impactfactory/faq/faqs

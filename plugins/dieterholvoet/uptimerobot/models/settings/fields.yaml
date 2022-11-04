@@ -1,0 +1,13 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    api_key:
+        type: text
+        label: dieterholvoet.uptimerobot::fields.api_key.label
+        comment: dieterholvoet.uptimerobot::fields.api_key.description
+    monitor_id:
+        type: text
+        label: dieterholvoet.uptimerobot::fields.monitor_id.label
+        comment: dieterholvoet.uptimerobot::fields.monitor_id.description

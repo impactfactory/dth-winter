@@ -1,0 +1,61 @@
+[viewBag]
+snippetCode = "payment0"
+snippetName = "Payment Modul (Start)"
+
+==
+<?php
+
+?>
+==
+<div class="payment indent-me mt-4 pt-4 mb-4">
+  <div class="cards">
+    <div class="icon-cards">
+      <a href="/payment-cards" title="Visa Gateway">
+        {% partial 'html_body/svg-icons/card-visa' %}
+    </div>
+    <div class="icon-cards">
+      <a href="/payment-cards" title="Master Card Gateway">
+        {% partial 'html_body/svg-icons/card-master' %}
+      </a>
+    </div>
+    <div class="icon-cards">
+      <a href="/payment-cards" title="American Express Gateway">
+        {% partial 'html_body/svg-icons/card-american' %}
+      </a>
+    </div>
+    <div class="icon-cards">
+      <a href="/payment-cards" title="DinnersClub Gateway">
+        {% partial 'html_body/svg-icons/card-dinners' %}
+      </a>
+    </div>
+    <div class="icon-cards">
+      <a href="/payment-cards" title="Discover Gateway">
+        {% partial 'html_body/svg-icons/card-discover' %}
+      </a>
+    </div>
+    <div class="icon-cards">
+      <a href="/payment-cards" title="JCB Gateway">
+        {% partial 'html_body/svg-icons/card-jcb' %}
+      </a>
+    </div>
+
+    <div class="icon-cards">
+      <a href="/payment-paypal" title="Paypal Gateway">
+        {% partial 'html_body/svg-icons/card-paypal' %}
+      </a>
+    </div>
+    <div class="icon-cards">
+      <a href="/payment-twint" title="Twint Gateway">
+        {% partial 'html_body/svg-icons/card-twint' %}
+      </a>
+    </div>
+  </div>
+</div>
+
+{% put styles %}
+
+  <style>
+    #contactbox { display:none !important; }
+  </style>
+
+{% endput %}

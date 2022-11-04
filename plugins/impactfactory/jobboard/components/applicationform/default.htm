@@ -1,0 +1,268 @@
+{% set applicant = __SELF__.applicant %}
+
+<div class="applicationform">
+
+{{ form_open({ model: 'ApplicantsModel', request: 'onSave', method: 'POST', files: 'true', url: 'applicationform'  }) }}
+
+    <label>Actor name</label>
+    <input type="text" name="name">
+
+    <label>Actor last name</label>
+    <input type="text" name="lastname">
+
+    <label>Actor image</label>
+    <input type="file" name="actorimage">
+
+    <button type="submit">Save actor</button>
+
+
+{{ form_close() }}
+
+
+
+
+
+
+<!--
+
+
+      <div class="row">
+
+
+
+        <div class="col-1 col-md-2 pt-3"></div>
+        <div class="col-10 col-md-8 pt-3 ">
+
+          <div class="mb-3 {% if errors.first('gender') %}error{% endif %}">
+            <label for="gender">{{ 'forms.application.label.gender'|_ }} *</label>
+            <div class="text-danger">{{ errors.first('gender') }}</div>
+            <select id="gender" class="form-select" aria-label="gender select" name="gender">
+              <option value="" selected>bitte wählen...</option>
+              <option value="m">{{ 'forms.application.gender.option.m'|_ }}</option>
+              <option value="f">{{ 'forms.application.gender.option.f'|_ }}</option>
+              <option value="q">{{ 'forms.application.gender.option.q'|_ }}</option>
+            </select>
+          </div>
+
+          <div class="mb-3 {% if errors.first('firstname') %}error{% endif %}">
+              <label for="firstname">{{ 'forms.application.label.firstname'|_ }} *</label>
+              <div class="text-danger">{{ errors.first('firstname') }}</div>
+              <input type="text" id="firstname" name="firstname" class="form-control" value="">
+          </div>
+
+          <div class="mb-3 {% if errors.first('lastname') %}error{% endif %}">
+              <label for="lastname">{{ 'forms.application.label.lastname'|_ }} *</label>
+              <div class="text-danger">{{ errors.first('lastname') }}</div>
+              <input type="text" id="lastname" name="lastname" class="form-control" value="{{ lastname }}">
+          </div>
+
+          <div class="mb-3 {% if errors.first('street_no') %}error{% endif %}">
+              <label for="street_no">{{ 'forms.application.label.street_no'|_ }}</label>
+              <div class="text-danger">{{ errors.first('street_no') }}</div>
+              <input type="text" id="street_no" name="street_no" class="form-control" value="{{ applicant.firstname }}">
+          </div>
+
+          <div class="mb-3 {% if errors.first('zip') %}error{% endif %}">
+              <label for="zip">{{ 'forms.application.label.zip'|_ }}</label>
+              <div class="text-danger">{{ errors.first('zip') }}</div>
+              <input type="number" id="zip" name="zip" class="form-control">
+          </div>
+
+          <div class="mb-3 {% if errors.first('city') %}error{% endif %}">
+              <label for="city">{{ 'forms.application.label.city'|_ }}</label>
+              <div class="text-danger">{{ errors.first('city') }}</div>
+              <input type="text" id="city" name="city" class="form-control">
+          </div>
+
+          <div class="mb-3 {% if errors.first('country') %}error{% endif %}">
+            <label for="country">{{ 'forms.application.label.country'|_ }}</label>
+            <div class="text-danger">{{ errors.first('country') }}</div>
+            <select id="country" class="form-select" aria-label="Default select example" name="country">
+              <option value="" selected>bitte wählen...</option>
+              <option value="Schweiz">Schweiz</option>
+              <option value="Deutschland">Deutschland</option>
+            </select>
+          </div>
+
+          <div class="mb-3 {% if errors.first('phone') %}error{% endif %}">
+              <label for="phone">{{ 'forms.application.label.phone'|_ }} *</label>
+              <div class="text-danger">{{ errors.first('phone') }}</div>
+              <input type="number" id="phone" name="phone" class="form-control">
+          </div>
+
+          <div class="mb-3 {% if errors.first('email') %}error{% endif %}">
+              <label for="email">{{ 'forms.application.label.email'|_ }} *</label>
+              <div class="text-danger">{{ errors.first('email') }}</div>
+              <input type="email" id="email" name="email" class="form-control">
+          </div>
+
+          <div class="mb-3 {% if errors.first('birthday') %}error{% endif %}">
+              <label for="birthday">{{ 'forms.application.label.birthday'|_ }} *</label>
+              <div class="text-danger">{{ errors.first('birthday') }}</div>
+              <input type="date" id="birthday" name="birthday" class="form-control" min="1950-01-01" max="{{ 'now' | date('Y-m-d') }}">
+          </div>
+
+          <div class="mb-3 {% if errors.first('lang_de') %}error{% endif %}">
+            <label for="lang_de">{{ 'forms.application.label.lang_de'|_ }} *</label>
+            <div class="text-danger">{{ errors.first('lang_de') }}</div>
+            <select id="lang_de" class="form-select" aria-label="lang_de" select" name="lang_de">
+              <option value="" selected>bitte wählen...</option>
+              <option value="A1">A1</option>
+              <option value="A2">A2</option>
+              <option value="B1">B1</option>
+              <option value="B2">B2</option>
+              <option value="C1">C1</option>
+              <option value="C2">C2</option>
+              <option value="nativ">nativ</option>
+            </select>
+          </div>
+
+          <div class="mb-3 {% if errors.first('lang_en') %}error{% endif %}">
+            <label for="lang_en">{{ 'forms.application.label.lang_en'|_ }} *</label>
+            <div class="text-danger">{{ errors.first('lang_en') }}</div>
+            <select id="lang_en" class="form-select" aria-label="lang_en" select" name="lang_en">
+              <option value="" selected>bitte wählen...</option>
+              <option value="0">keine Kenntnisse</option>
+              <option value="A1">A1</option>
+              <option value="A2">A2</option>
+              <option value="B1">B1</option>
+              <option value="B2">B2</option>
+              <option value="C1">C1</option>
+              <option value="C2">C2</option>
+              <option value="nativ">nativ</option>
+            </select>
+          </div>
+
+          <div class="mb-3 {% if errors.first('lang_it') %}error{% endif %}">
+            <label for="lang_it">{{ 'forms.application.label.lang_it'|_ }} *</label>
+            <div class="text-danger">{{ errors.first('lang_it') }}</div>
+            <select id="lang_it" class="form-select" aria-label="lang_it" select" name="lang_it">
+              <option value="" selected>bitte wählen...</option>
+              <option value="0">keine Kenntnisse</option>
+              <option value="A1">A1</option>
+              <option value="A2">A2</option>
+              <option value="B1">B1</option>
+              <option value="B2">B2</option>
+              <option value="C1">C1</option>
+              <option value="C2">C2</option>
+              <option value="nativ">nativ</option>
+            </select>
+          </div>
+
+          <div class="mb-3 {% if errors.first('lang_fr') %}error{% endif %}">
+            <label for="lang_fr">{{ 'forms.application.label.lang_fr'|_ }} *</label>
+            <div class="text-danger">{{ errors.first('lang_fr') }}</div>
+            <select id="lang_fr" class="form-select" aria-label="lang_fr" select" name="lang_fr">
+              <option value="" selected>bitte wählen...</option>
+              <option value="0">keine Kenntnisse</option>
+              <option value="A1">A1</option>
+              <option value="A2">A2</option>
+              <option value="B1">B1</option>
+              <option value="B2">B2</option>
+              <option value="C1">C1</option>
+              <option value="C2">C2</option>
+              <option value="nativ">nativ</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+              <label for="other_languages" class="form-label">{{ 'forms.application.label.other_languages'|_ }}</label>
+              <textarea id="other_languages" name="other_languages" rows="2" cols="80" class="form-control"></textarea>
+          </div>
+
+          <div class="mb-3 {% if errors.first('start_date') %}error{% endif %}">
+              <label for="start_date">{{ 'forms.application.label.start_date'|_ }} *</label>
+              <div class="text-danger">{{ errors.first('start_date') }}</div>
+              <input type="date" id="start_date" name="start_date" class="form-control">
+          </div>
+
+          <div class="mb-3 {% if errors.first('salary_min') %}error{% endif %}">
+              <label for="salary_min">{{ 'forms.application.label.salary_min'|_ }} *</label>
+              <div class="text-danger">{{ errors.first('salary_min') }}</div>
+              <input type="number" id="salary_min" name="salary_min" class="form-control" min="50000" step="2000">
+          </div>
+
+          <div class="mb-3 {% if errors.first('salary_max') %}error{% endif %}">
+              <label for="salary_max">{{ 'forms.application.label.salary_max'|_ }} *</label>
+              <div class="text-danger">{{ errors.first('salary_max') }}</div>
+              <input type="number" id="salary_max" name="salary_max" class="form-control" min="50000" step="2000">
+          </div>
+
+          <div class="mb-3 {% if errors.first('experience') %}error{% endif %}">
+              <label for="experience">{{ 'forms.application.label.experience'|_ }} *</label>
+              <div class="text-danger">{{ errors.first('experience') }}</div>
+              <input type="number" id="experience" name="experience" class="form-control">
+          </div>
+
+          <div class="mb-3 {% if errors.first('education') %}error{% endif %}">
+            <label for="education">{{ 'forms.application.label.education'|_ }} *</label>
+            <div class="text-danger">{{ errors.first('education') }}</div>
+            <select id="education" class="form-select" aria-label="education" select" name="education">
+              <option value="" selected>bitte wählen Sie...</option>
+              <option value="MPA EFZ">MPA EFZ</option>
+              <option value="Artzsekretär*in">Arztsekretär*in</option>
+              <option value="Kauffrau/mann EFZ">Kauffrau/mann EFZ</option>
+              <option value="andere">andere</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+              <label for="note" class="form-label">{{ 'forms.application.label.note'|_ }}</label>
+              <textarea id="note" name="note" rows="5" cols="80" class="form-control"></textarea>
+          </div>
+
+          <hr>
+          <h2>Anhänge</h2>
+          <p>
+          Sie können uns maximal 5 Anhänge an je 20 MB Dateigrösse im PDF-Format zukommen lassen. Falls dies nicht funktioniert für Sie benützen Sie das Link-Feld für einen Dateisende-Service wie <a href="https://wetransfer.com/">WeTransfer</a> oder ähnliches.
+          </p>
+
+          <div class="mb-3">
+            <label for="file_1">{{ 'forms.application.label.file_1'|_ }} *</label>
+            <input type="file" class="form-control-file" id="file_1" name="file_1" accept=".pdf">
+          </div>
+
+          <div class="mb-3">
+            <label for="file_2">{{ 'forms.application.label.file_2'|_ }} *</label>
+            <input type="file" class="form-control-file" id="file_2" name="file_2" accept=".pdf">
+          </div>
+
+          <div class="mb-3">
+            <label for="file_3">{{ 'forms.application.label.file_3'|_ }} *</label>
+            <input type="file" class="form-control-file" id="file_3" name="file_3" accept=".pdf">
+          </div>
+
+          <div class="mb-3">
+            <label for="file_4">{{ 'forms.application.label.file_4'|_ }} *</label>
+            <input type="file" class="form-control-file" id="file_4" name="file_4" accept=".pdf">
+          </div>
+
+          <div class="mb-3">
+            <label for="file_5">{{ 'forms.application.label.file_5'|_ }} *</label>
+            <input type="file" class="form-control-file" id="file_5" name="file_5" accept=".pdf">
+          </div>
+
+          <hr>
+          <div class="mb-3">
+              <label for="url">{{ 'forms.application.label.url'|_ }}</label>
+              <input type="url" id="url" name="url" class="form-control">
+          </div>
+
+          <hr>
+
+
+
+
+        <div class="col-12 text-center pt-3">
+          <input type="hidden" value="{{ 'now' | date('Y-m-d') }}" name="created_at">
+          <input type="hidden" value="Administration" name="job_posting">
+          <input type="hidden" value="9" name="sort_order">
+          <button id="submit" name="submit" type="submit" class="btn btn-lg btn-primary">
+            {{ 'forms.registration.label.submit'|_ }}
+          </button>
+        </div>
+        <div class="col-1 col-md-2 pt-3"></div>
+
+      </div>
+-->
+</div>

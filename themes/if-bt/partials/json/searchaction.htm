@@ -1,0 +1,33 @@
+description = "puts search action schema into html head"
+
+[viewBag]
+==
+<?php
+
+?>
+==
+<script type="application/ld+json">
+  {% if localePicker.activeLocale == 'de' %}
+    {
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "url": "{{ url('/') }}/de",
+    "potentialAction": [{
+      "@type": "SearchAction",
+      "target": "{{ 'suchresultate'|page ~ '?q={search_term_string}' }}",
+      "query-input": "required name=search_term_string"
+    }]
+   }
+  {% else %}
+    {
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "url": "{{ url('/') }}/en",
+    "potentialAction": [{
+      "@type": "SearchAction",
+      "target": "{{ 'suchresultate'|page ~ '?q={search_term_string}' }}",
+      "query-input": "required name=search_term_string"
+    }]
+  }
+  {% endif %}
+</script>

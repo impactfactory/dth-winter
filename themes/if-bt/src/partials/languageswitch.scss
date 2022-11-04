@@ -1,0 +1,24 @@
+#languageselect, #languageselect-footer {
+  width: auto;
+  border: none!important;
+  box-shadow: none!important;
+  background-color: $if-secondary-light;
+  border-radius: 4px 0 0 4px;
+  color: $if-dark;
+  font-size: 12px;
+  font-variant: small-caps;
+}
+
+#languageselect {
+  position: absolute!important;
+  top: 0px;
+  right:0px;
+}
+
+#languageselect-footer {
+  border-radius: 4px;
+  position: relative!important;
+  top: -13px;
+  display: inline-block;
+
+}

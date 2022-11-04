@@ -1,0 +1,12 @@
+title: Teams
+modelClass: ImpactFactory\Team\Models\Team
+list: $/impactfactory/team/models/team/columns.yaml
+recordUrl: 'impactfactory/team/teams/update/:id'
+noRecordsMessage: 'backend::lang.list.no_records'
+recordsPerPage: '20'
+showSetup: true
+showCheckboxes: true
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'

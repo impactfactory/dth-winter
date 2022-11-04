@@ -1,0 +1,24 @@
+fields:
+    name:
+        label: 'Name (für interne Anzeige)'
+        span: full
+        type: text
+    title:
+        label: Titel
+        span: full
+        type: text
+    url:
+        label: URL
+        span: full
+        type: text
+    substeps:
+        label: Unterschritte
+        span: full
+        type: partial
+    image:
+        label: Bild
+        mode: image
+        imageWidth: '300'
+        imageHeight: '300'
+        span: full
+        type: mediafinder

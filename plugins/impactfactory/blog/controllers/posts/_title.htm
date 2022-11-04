@@ -1,0 +1,13 @@
+<h3 style="margin-top: 0;">
+        <?php if ($formModel->title): ?>
+            <?= e($formModel->title) ?>
+        <?php endif ?>
+
+        <a href="/<?= e(trans('impactfactory.blog::lang.search.blogbase')) ?>/<?= e($formModel->slug) ?>"
+           class="btn btn-secondary"
+           style="position: absolute;right:0px;"
+           target="_blank"
+        >
+          <?= e(trans('impactfactory.blog::lang.post.preview')) ?>
+        </a>
+</h3>

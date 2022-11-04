@@ -1,0 +1,28 @@
+1.0.1:
+    - First version of Seo Manager.
+    - create_seo_tags_table.php
+1.0.2: Import data.
+1.0.3: Import SeoExtension Settings.
+1.0.4: Fix bug for PHP version < 5.6.
+1.0.5: Fix spaces on prefix/suffix title.
+1.0.6: Fix repeater field error in RainLab.Pages plugin.
+1.0.7: Fix showing Seo fields in repeater.
+1.1.0: !!! Update only for Laravel 5.5 LTS.
+1.1.1: Fix RainLab.Blog installation issue.
+1.1.2: Fix attaching SEO fields to model with empty tab fields.
+1.1.3: Fix attaching morphOne relation to model.
+1.1.4: Fix adding SEO fields for model with pivot.
+1.1.5: Increase meta title and description fields length.
+1.1.6: Make polymorphic fields nullable.
+1.1.7: Fix adding SEO fields inside repeater fields.
+1.1.8: Ensure OG image dimensions are set.
+1.1.9: Fix adding SEO fields to pivot models (edge case).
+1.1.10: Fix installation and import issues.
+1.1.11: Add default value for meta robots tag.
+1.2.0: !!! Change event parameters for plugin extension. See upgrade guide.
+1.2.1: Fix issue with extending form fields for models.
+1.2.2: Fix issue with robots and 301 redirect properties.
+1.3.0: Fix CMS pages translation.
+1.3.1: Fix link policy ignored in currentUrl. Thanks @petehalverson.
+1.3.2: Fix repeater field error on Static Pages.
+1.3.3: Fix adding SEO fields twice error.

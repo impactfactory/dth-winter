@@ -1,0 +1,33 @@
+fields:
+    from:
+        label: 'Veröffentlicht ab'
+        mode: datetime
+        span: auto
+        required: 1
+        type: datepicker
+    to:
+        label: bis
+        mode: datetime
+        span: auto
+        required: 1
+        type: datepicker
+    name:
+        label: 'Name dieses Elements'
+        span: full
+        required: 1
+        type: text
+        comment: 'wird nur im Backend angezeigt'
+    text:
+        label: Text
+        size: large
+        span: full
+        type: richeditor
+        toolbarButtons: undo,redo,|,bold,italic,paragraphFormat,clearFormatting,|,formatOL,formatUL,|,insertHR,insertLink,insertImage,insertFile,|,html
+        comment: 'wird nur mit AccordionPlus-Snippet angezeigt'
+    elements:
+        label: 'sich wiederholende Elemente'
+        prompt: 'Element dazufügen'
+        span: full
+        type: repeater
+        style: collapsed
+        form: $/impactfactory/elements/models/element/form.yaml

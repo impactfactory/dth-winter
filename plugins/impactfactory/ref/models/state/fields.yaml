@@ -1,0 +1,10 @@
+fields:
+    name:
+        label: Name
+        span: full
+        type: text
+    color:
+        label: 'impactfactory.ref::lang.state.color'
+        span: right
+        required: 1
+        type: colorpicker

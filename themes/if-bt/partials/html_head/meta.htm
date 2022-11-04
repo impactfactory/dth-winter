@@ -1,0 +1,39 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
+
+<title> {{ this.page.meta_title }} - {{ 'meta.website.title'|_ }}</title>
+
+<meta name="description" content="{{ this.page.meta_description }}">
+<meta name="title" content="{{ this.page.meta_title }}">
+<meta name="author" content="{{ 'meta.website.author'|_ }}">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="OctoberCMS">
+
+<meta property="og:title" content="{{ this.page.meta_title }}">
+<meta property="og:description" content="{{ this.page.meta_description }}">
+<meta property="og:site_name" content="{{ 'meta.website.title'|_ }}">
+<meta property="og:url" content="{{ 'meta.website.url'|_ }}">
+<meta property="og:type" content="website">
+<meta property="og:image" content="{{ art_img|media }}">
+<meta property="og:image:alt" content="{{ this.page.meta_title }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="de-CH">
+<meta property="og:locale:alternate" content="de-AT">
+<meta property="og:locale:alternate" content="de-DE">
+<meta property="og:locale:alternate" content="en-US">
+<meta property="og:locale:alternate" content="en-GB">
+<meta property="fb:app_id" content="">
+
+<meta name="twitter:image" content="{{ art_img|media }}">
+<meta property="twitter:image:width" content="1200">
+<meta property="twitter:image:height" content="630">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:description" content="{{ this.page.meta_description }}">
+<meta name="twitter:title" content="{{ this.page.meta_title }}">
+
+{% for locale, name in localePicker.locales %}
+<link rel="alternate" href="{{ localePicker.translate(locale)|app }}" hreflang="{{ locale }}">
+{% endfor %}
+
+<link rel="canonical" href="{{ 'meta.website.url'|_ }}{{ code }}{{ this.page.url }}">

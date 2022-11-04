@@ -1,0 +1,155 @@
+<tr>
+  <td class="align-top">
+    {% partial 'html_body/svg-icons/link' %} Web:
+  </td>
+  <td class="align-top social-icons">
+
+    {% for social in person.socials %}
+
+      {% if social.type == 'bandcamp' %}
+        <a href="https://{{ social.id }}.bandcamp.com/" class="{{ social.type }}" rel="noopener" target="_blank" title="Bandcamp">
+          {% partial 'html_body/svg-icons/bandcamp' %}
+        </a>
+      {% endif %}
+
+      {% if social.type == 'discord' %}
+        <a href="https://discord.com/channels/{{ social.id }}" class="{{ social.type }}" rel="noopener" target="_blank" title="Discord Channel">
+          {% partial 'html_body/svg-icons/discord' %}
+        </a>
+      {% endif %}
+
+      {% if social.type == 'flickr' %}
+        <a href="https://www.flickr.com/photos/{{ social.id }}" class="{{ social.type }}" rel="noopener" target="_blank" title="Flickr Fotos">
+          {% partial 'html_body/svg-icons/flickr' %}
+        </a>
+      {% endif %}
+
+      {% if social.type == 'facebook' %}
+          <a href="https://facebook.com/{{ social.id }}" class="{{ social.type }}" rel="noopener" target="_blank" title="Facebook Profile">
+            {% partial 'html_body/svg-icons/facebook' %}
+          </a>
+      {% endif %}
+
+      {% if social.type == 'github' %}
+          <a href="https://github.com/{{ social.id }}" class="{{ social.type }}" rel="noopener" target="_blank" title="GitHub Repository">
+            {% partial 'html_body/svg-icons/github' %}
+          </a>
+      {% endif %}
+
+        {% if social.type == 'instagram' %}
+          <a href="https://www.instagram.com/{{ social.id }}" class="{{ social.type }}" rel="noopener" target="_blank" title="Instagram Feed">
+            {% partial 'html_body/svg-icons/instagram' %}
+          </a>
+        {% endif %}
+
+        {% if social.type == 'line' %}
+          <a href="https://line.me/R/ti/p/@{{ social.id }}" class="{{ social.type }}" rel="noopener" target="_blank" title="Line Feed">
+            {% partial 'html_body/svg-icons/line' %}
+          </a>
+        {% endif %}
+
+        {% if social.type == 'linkedin' %}
+          <a href="https://www.linkedin.com/in/{{ social.id }}" class="{{ social.type }}" rel="noopener" target="_blank" title="linkedin CV">
+            {% partial 'html_body/svg-icons/linkedin' %}
+          </a>
+        {% endif %}
+
+        {% if social.type == 'twitter' %}
+          <a href="https://twitter.com/{{ social.id }}" class="{{ social.type }}" rel="noopener" target="_blank" title="Twitter Feed">
+            {% partial 'html_body/svg-icons/twitter' %}
+          </a>
+        {% endif %}
+
+        {% if social.type == 'pinterest' %}
+          <a href="https://pinterest.com/{{ social.id }}" class="{{ social.type }}" rel="noopener" target="_blank" title="Pinterest Feed">
+            {% partial 'html_body/svg-icons/pinterest' %}
+          </a>
+        {% endif %}
+
+        {% if social.type == 'reddit' %}
+          <a href="https://www.reddit.com/r/{{ social.id }}" class="{{ social.type }}" rel="noopener" target="_blank" title="Reddit Profile">
+            {% partial 'html_body/svg-icons/reddit' %}
+          </a>
+        {% endif %}
+
+        {% if social.type == 'signal' %}
+          <a href="https://signal.me/#p/{{ social.id }}" class="{{ social.type }}" rel="noopener" target="_blank" title="Signal Me">
+            {% partial 'html_body/svg-icons/signal' %}
+          </a>
+        {% endif %}
+
+        {% if social.type == 'skype' %}
+          <a href="skype:{{ social.id }}?chat" class="{{ social.type }}" rel="noopener" target="_blank" title="Chat me on Skype">
+            {% partial 'html_body/svg-icons/skype' %}
+          </a>
+        {% endif %}
+
+        {% if social.type == 'snapchat' %}
+          <a href="https://www.snapchat.com/add/{{ social.id }}" class="{{ social.type }}" rel="noopener" target="_blank" title="Snapchat">
+            {% partial 'html_body/svg-icons/snapchat' %}
+          </a>
+        {% endif %}
+
+        {% if social.type == 'soundcloud' %}
+          <a href="https://soundcloud.com/{{ social.id }}" class="{{ social.type }}" rel="noopener" target="_blank" title="Soundcloud Feed">
+            {% partial 'html_body/svg-icons/soundcloud' %}
+          </a>
+        {% endif %}
+
+        {% if social.type == 'spotify' %}
+          <a href="https://open.spotify.com/artist/{{ social.id }}" class="{{ social.type }}" rel="noopener" target="_blank" title="Spotify Artist Page">
+            {% partial 'html_body/svg-icons/spotify' %}
+          </a>
+        {% endif %}
+
+        {% if social.type == 'telegram' %}
+          <a href="https://t.me/{{ social.id }}" class="{{ social.type }}" rel="noopener" target="_blank" title="Telegram me!">
+            {% partial 'html_body/svg-icons/telegram' %}
+          </a>
+        {% endif %}
+
+        {% if social.type == 'tiktok' %}
+          <a href="https://www.tiktok.com/@{{ social.id }}" class="{{ social.type }}" rel="noopener" target="_blank" title="TikTok Feed">
+            {% partial 'html_body/svg-icons/tiktok' %}
+          </a>
+        {% endif %}
+
+        {% if social.type == 'vimeo' %}
+          <a href="https://vimeo.com/{{ social.id }}" class="{{ social.type }}" rel="noopener" target="_blank" title="Vimeo Profile">
+            {% partial 'html_body/svg-icons/vimeo' %}
+          </a>
+        {% endif %}
+
+        {% if social.type == 'vk' %}
+          <a href="https://vk.com/id{{ social.id }}" class="{{ social.type }}" rel="noopener" target="_blank" title="VK Profile">
+            {% partial 'html_body/svg-icons/vk' %}
+          </a>
+        {% endif %}
+
+        {% if social.type == 'website' %}
+          <a href="{{ social.id }}" class="{{ social.type }}" rel="noopener" target="_blank" title="Website">
+            {% partial 'html_body/svg-icons/externallink' %}
+          </a>
+        {% endif %}
+
+        {% if social.type == 'whatsapp' %}
+          <a href="https://wa.me/{{ social.id }}" class="{{ social.type }}" rel="noopener" target="_blank" title="WhatsApp me!">
+            {% partial 'html_body/svg-icons/whatsapp' %}
+          </a>
+        {% endif %}
+
+        {% if social.type == 'xing' %}
+          <a href="https://www.xing.com/profile/{{ social.id }}/cv" class="{{ social.type }}" rel="noopener" target="_blank" title="Xing Profile">
+            {% partial 'html_body/svg-icons/xing' %}
+          </a>
+        {% endif %}
+
+        {% if social.type == 'youtube' %}
+          <a href="https://www.youtube.com/channel/{{ social.id }}" class="{{ social.type }}" rel="noopener" target="_blank" title="Youtube Channel">
+            {% partial 'html_body/svg-icons/youtube' %}
+          </a>
+        {% endif %}
+
+    {% endfor %}
+  </td>
+</tr>

@@ -1,0 +1,11 @@
+fields:
+    name:
+        label: 'impactfactory.blog::lang.edit.name'
+        span: left
+        required: 1
+        type: text
+    color:
+        label: 'impactfactory.blog::lang.edit.color'
+        span: right
+        required: 1
+        type: colorpicker

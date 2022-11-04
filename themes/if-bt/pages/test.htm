@@ -1,0 +1,23 @@
+title = "Error page (500)"
+url = "/webp-test"
+layout = "default"
+meta_title = "Error page (500)"
+meta_description = "Error page (500)"
+robot_index = "index"
+robot_follow = "follow"
+==
+<picture>
+    <source media="(max-width: 320px)" srcset="{{ element.image | media | resize(320, 700, { mode: 'cover', format: 'webp' }) }}">
+    <source media="(max-width: 320px)" srcset="{{ element.image | media | resize(320, 700, { mode: 'cover' }) }}">
+    <source media="(max-width: 360px)" srcset="{{ element.image | media | resize(360, 500, { mode: 'cover', format: 'webp' }) }}">
+    <source media="(max-width: 360px)" srcset="{{ element.image | media | resize(360, 500, { mode: 'cover' }) }}">
+    <source media="(max-width: 567px)" srcset="{{ element.image | media | resize(567, 500, { mode: 'cover', format: 'webp' }) }}">
+    <source media="(max-width: 567px)" srcset="{{ element.image | media | resize(567, 500, { mode: 'cover' }) }}">
+    <source media="(max-width: 768px)" srcset="{{ element.image | media | resize(768, 500, { mode: 'cover', format: 'webp' }) }}">
+    <source media="(max-width: 768px)" srcset="{{ element.image | media | resize(768, 500, { mode: 'cover' }) }}">
+    <source media="(max-width: 1024px)" srcset="{{ element.image | media | resize(1024, 400, { mode: 'cover', format: 'webp' }) }}">
+    <source media="(max-width: 1024px)" srcset="{{ element.image | media | resize(1024, 400, { mode: 'cover' }) }}">
+    <source media="(min-width: 1025px)" srcset="{{ element.image | media | resize(1600, 400, { mode: 'cover', format: 'webp' }) }}">
+    <source media="(min-width: 1025px)" srcset="{{ element.image | media | resize(1600, 400, { mode: 'cover' }) }}">
+    <img type="image/png" src="{{ 'assets/img/favicons/webmanifest-screenshot.png' | theme }}" class="card-img" alt="Keyvisual">
+  </picture>

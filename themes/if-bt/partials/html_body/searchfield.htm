@@ -1,0 +1,26 @@
+<ul class="nav navbar-nav navbar-right search-btn">
+  <li>
+    <a href="#search" title="{{ 'search.lightbox.icon-link.title'|_ }}">
+      {% partial 'html_body/svg-icons/search' %}
+    </a>
+  </li>
+</ul>
+
+<div id="search">
+  <button type="button" class="close" aria-label="{{ 'search.lightbox.close.aria.label'|_ }}">
+    ×
+  </button>
+  <form action="{{ 'suchresultate.htm' | page }}" method="get">
+        <input class="form-control mb-4 shadow-none"
+             id="searchfield-navbar"
+             name="q"
+             type="search"
+             placeholder="{{ 'search.lightbox.placeholder'|_ }}"
+             autocomplete="off"
+             aria-label="{{ 'search.lightbox.placeholder'|_ }}"
+        >
+      <button type="submit" class="btn btn-primary">
+        {{ 'search.lightbox.submit.label'|_ }}
+      </button>
+  </form>
+</div>

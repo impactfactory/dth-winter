@@ -1,0 +1,10 @@
+name: LinkType
+form: $/impactfactory/medicalconditions/models/linktype/fields.yaml
+modelClass: Impactfactory\MedicalConditions\Models\LinkType
+defaultRedirect: impactfactory/medicalconditions/linktypes
+create:
+    redirect: 'impactfactory/medicalconditions/linktypes/update/:id'
+    redirectClose: impactfactory/medicalconditions/linktypes
+update:
+    redirect: impactfactory/medicalconditions/linktypes
+    redirectClose: impactfactory/medicalconditions/linktypes

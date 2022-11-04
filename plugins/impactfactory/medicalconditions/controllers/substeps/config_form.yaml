@@ -1,0 +1,10 @@
+name: Substeps
+form: $/impactfactory/medicalconditions/models/substep/fields.yaml
+modelClass: Impactfactory\MedicalConditions\Models\Substep
+defaultRedirect: impactfactory/medicalconditions/substeps
+create:
+    redirect: 'impactfactory/medicalconditions/substeps/update/:id'
+    redirectClose: impactfactory/medicalconditions/substeps
+update:
+    redirect: impactfactory/medicalconditions/substeps
+    redirectClose: impactfactory/medicalconditions/substeps

@@ -1,0 +1,23 @@
+description = "dreizeilger H1-Titel für Spezialseiten"
+
+[viewBag]
+snippetCode = "threerowh1"
+snippetName = "H1 dreizeilig"
+snippetProperties[row1][title] = "Zeile eins klein"
+snippetProperties[row1][type] = "text"
+snippetProperties[row2][title] = "Zeile zwei gross"
+snippetProperties[row2][type] = "text"
+snippetProperties[row3][title] = "Zeile drei klein"
+snippetProperties[row3][type] = "string"
+==
+
+<div class="fullwrap threerowh1">
+  <div class="indent-me">
+    <h1>
+      <span class="d-block h5 m-0 p-0 text-white">{{ row1 }}</span>
+      <span class="d-block h2 m-0 p-0 text-white">{{ row2 }}</span>
+      <span class="d-block h5 m-0 p-0 text-white">{{ row3 }}</span>
+    </h1>
+
+  </div>
+</div>

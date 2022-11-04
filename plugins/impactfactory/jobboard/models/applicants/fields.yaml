@@ -1,0 +1,210 @@
+tabs:
+    fields:
+        gender:
+            label: Anrede/Geschlecht
+            options:
+                m: Herr
+                f: Frau
+                q: divers
+            emptyOption: 'bitte wählen'
+            showSearch: true
+            span: auto
+            required: 0
+            type: dropdown
+            tab: Basisdaten
+        firstname:
+            label: Vorname
+            span: auto
+            required: 0
+            type: text
+            tab: Basisdaten
+        lastname:
+            label: Nachname
+            span: auto
+            required: 0
+            type: text
+            tab: Basisdaten
+        street_no:
+            label: Anschrift
+            span: auto
+            type: text
+            tab: Basisdaten
+        zip:
+            label: Postleitzahl
+            span: auto
+            type: text
+            tab: Basisdaten
+        city:
+            label: Stadt
+            span: auto
+            type: text
+            tab: Basisdaten
+        country:
+            label: Land
+            span: auto
+            type: text
+            tab: Basisdaten
+        phone:
+            label: Telefon
+            span: auto
+            type: text
+            tab: Basisdaten
+        birthday:
+            label: Geburtstag
+            mode: date
+            span: auto
+            type: datepicker
+            tab: Basisdaten
+        email:
+            label: E-Mail
+            span: auto
+            type: text
+            tab: Basisdaten
+        url:
+            label: 'Weitere Informationen unter:'
+            span: full
+            type: text
+            tab: Basisdaten
+        education:
+            label: Ausbildung
+            span: auto
+            type: text
+            tab: Qualifikationen
+        experience:
+            label: 'Erfahrung in Jahren'
+            span: auto
+            type: text
+            tab: Qualifikationen
+        lang_de:
+            label: Deutsch
+            options:
+                0: 'keine Kenntnisse'
+                A1: A1
+                A2: A2
+                B1: B1
+                B2: B2
+                C1: C1
+                C2: C2
+                nativ: nativ
+            emptyOption: 'bitte wählen'
+            showSearch: true
+            span: auto
+            type: dropdown
+            tab: Qualifikationen
+        lang_en:
+            label: Englisch
+            options:
+                0: 'keine Kenntnisse'
+                A1: A1
+                A2: A2
+                B1: B1
+                B2: B2
+                C1: C1
+                C2: C2
+                nativ: nativ
+            emptyOption: 'bitte wählen'
+            showSearch: true
+            span: auto
+            type: dropdown
+            tab: Qualifikationen
+        lang_fr:
+            label: Französisch
+            options:
+                0: 'keine Kenntnisse'
+                A1: A1
+                A2: A2
+                B1: B1
+                B2: B2
+                C1: C1
+                C2: C2
+                nativ: nativ
+            emptyOption: 'bitte wählen'
+            showSearch: true
+            span: auto
+            type: dropdown
+            tab: Qualifikationen
+        lang_it:
+            label: Italienisch
+            options:
+                0: 'keine Kenntnisse'
+                A1: A1
+                A2: A2
+                B1: B1
+                B2: B2
+                C1: C1
+                C2: C2
+                nativ: nativ
+            emptyOption: 'bitte wählen'
+            showSearch: true
+            span: auto
+            type: dropdown
+            tab: Qualifikationen
+        other_languages:
+            label: 'Andere Sprachen'
+            size: tiny
+            span: full
+            type: textarea
+            tab: Qualifikationen
+        salary_max:
+            label: 'Lohnerwartung Maximum (Jahreslohn Brutto)'
+            span: auto
+            type: text
+            tab: Qualifikationen
+        salary_min:
+            label: 'Lohnerwartung Minimum (Jahreslohn Brutto)'
+            span: auto
+            type: text
+            tab: Qualifikationen
+        start_date:
+            label: 'möglicher Beginn Anstellung'
+            mode: date
+            span: auto
+            type: datepicker
+            tab: Qualifikationen
+        workquota:
+            label: 'gewünschtes Pensum in Stellenprozenten'
+            span: auto
+            type: text
+            tab: Qualifikationen
+        note:
+            label: 'Nachricht bei Bewerbung'
+            size: small
+            span: full
+            type: textarea
+            tab: Qualifikationen
+        job_posting:
+            label: 'Ausgeschriebene Stelle'
+            options:
+                Administration: Administration
+                Empfang: Empfang
+                'MPA 60-100%': 'MPA 60-100%'
+            showSearch: true
+            span: auto
+            type: dropdown
+            tab: Manager
+        sort_order:
+            label: Priorisierung/Sortierung
+            span: auto
+            type: number
+            tab: Manager
+        state:
+            label: Status
+            nameFrom: title
+            descriptionFrom: title
+            emptyOption: '--'
+            span: left
+            type: relation
+            tab: Manager
+        files:
+            label: Dokumente
+            type: fileupload
+            fileTypes: '*'
+            tab: Dossier
+secondaryTabs:
+    fields:
+        comment:
+            label: 'intern für Bewertung'
+            size: huge
+            span: full
+            type: richeditor
+            tab: Kommentar

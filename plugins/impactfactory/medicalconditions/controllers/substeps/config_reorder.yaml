@@ -1,0 +1,4 @@
+title: Substeps
+modelClass: Impactfactory\MedicalConditions\Models\Substep
+toolbar:
+    buttons: reorder_toolbar

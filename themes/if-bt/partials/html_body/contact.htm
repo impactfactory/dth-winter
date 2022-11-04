@@ -1,0 +1,60 @@
+[staticMenu socialMenu]
+code = "social"
+==
+{% set orgameta = orgaMeta.meta %}
+
+<div class="indent-me row g-0 contactsection">
+
+    <h3 class="pt-0">{{ orgameta.schema_name }}</h3>
+
+    <div class="col-6 col-md-2">
+      <a href="{{ 'herzzentrum-anreise-neu' | staticPage }}">
+        <picture>
+          <source type="image/webp" srcset="{{ '__DEFAULTS/googlemap-400x300.jpg' | media | resize(400, 300, { mode: 'cover', format: 'webp' }) }}">
+          <source type="image/jpg" srcset="{{ '__DEFAULTS/googlemap-400x300.jpg' | media | resize(400, 300, { mode: 'cover' }) }}">
+          <img type="image/jpg"
+               src="{{  '__DEFAULTS/googlemap-400x300.jpg' | media | resize(400, 300, { mode: 'cover' }) }}"
+               class="rounded img-fluid mb-2"
+               alt="Map"
+               width="400"
+               height="300"
+          >
+        </picture>
+      </a>
+    </div>
+
+    <div class="col-6 col-md-4 px-3">
+      <address>
+        {{ orgameta.schema_street }} {{ orgameta.schema_no }}<br>
+        {{ orgameta.schema_zip }} {{ orgameta.schema_city }}<br>
+        {{ orgameta.schema_country }}<br>
+        <a href="{{ 'praxis-ihre-anreisehtm' | staticPage }}">{{ 'contactbox.url.label'|_ }}</a>
+      </address>
+    </div>
+
+    <div class="col-12 col-md-4 ">
+      <br>
+      {% partial 'html_body/svg-icons/phone' %}
+      <a href="tel:{{ orgameta.schema_phone }}" title="{{ orgameta.schema_phone }}">{{ orgameta.schema_phone }}</a><br>
+      {% partial 'html_body/svg-icons/email' %}
+      <span class="scrambled"></span>
+      {% partial 'html_body/svg-icons/clock' %} {{ 'footer.openingtimes1'|_ }}
+      <br>
+    </div>
+
+    <div class="col-12 pt-3 pt-md-0 socialnav">
+      <ul class="p-0 m-0">
+        <li class="d-inline-block">
+            <a title="Facebook" href="https://www.facebook.com/Diagnostisches-und-therapeutisches-Herzzentrum-AG-142366007963169" rel="noopener" rel="noreferrer">
+              {% partial 'html_body/svg-icons/facebook' %}
+            </a>
+        </li>
+        <li class="d-inline-block">
+            <a title="LinkedIn" href="https://www.linkedin.com/company/dth-herzzentrum"  rel="noopener" rel="noreferrer">
+              {% partial 'html_body/svg-icons/linkedin' %}
+            </a>
+        </li>
+      </ul>
+    </div>
+
+</div>

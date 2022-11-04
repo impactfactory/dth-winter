@@ -1,0 +1,10 @@
+name: Tags
+form: $/impactfactory/blog/models/tag/fields.yaml
+modelClass: ImpactFactory\Blog\Models\Tag
+defaultRedirect: impactfactory/blog/tags
+create:
+    redirect: 'impactfactory/blog/tags/update/:id'
+    redirectClose: impactfactory/blog/tags
+update:
+    redirect: impactfactory/blog/tags
+    redirectClose: impactfactory/blog/tags

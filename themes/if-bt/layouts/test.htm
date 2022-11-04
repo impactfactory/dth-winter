@@ -1,0 +1,60 @@
+description = "Tests without Template"
+
+[staticPage]
+useContent = 1
+default = 0
+
+[searchInput]
+useAutoComplete = 1
+autoCompleteResultCount = 5
+showProviderBadge = 1
+searchPage = "suchresultate.htm"
+
+[googleTracker]
+
+[cookiesBar]
+
+[localePicker]
+forceUrl = 1
+
+[seoTags]
+
+[orgaMeta]
+
+[alternateHrefLangElements]
+
+[viewBag]
+localeBlogbase[de] = "kardiologie"
+localeBlogbase[en] = "cardiology"
+localeTagpagebase[de] = "stichwort"
+localeTagpagebase[en] = "tag"
+localeCategorypagebase[de] = "thema"
+localeCategorypagebase[en] = "topic"
+localeTeambase[en] = "team"
+localeTeambase[de] = "team"
+==
+{# begin head and all meta tags #}
+  {% component 'seoTags' %}
+{# end head #}
+<body class="page-{{ this.page.id }} layout-{{ this.page.layout }}">
+
+      <div class="container px-0 mx-0 mw-100">
+
+        <main class="row d-flex justify-content-center">
+          <div class="col-12 col-l2-8 pr-0 content-container">
+
+            {% page %}
+
+          </div>
+        </main>
+
+      {% placeholder toasts %}
+
+      </div>
+
+
+
+      {% partial 'html_body/scripts' %}
+
+    </body>
+</html>

@@ -1,0 +1,64 @@
+title = "Test ImageResizer Though Developer"
+url = "/imgres-though"
+layout = "default"
+description = "Hier werden diverse Croppings, Resizings und Kompressionen getestet. Bitte nicht ändern."
+is_hidden = 1
+robot_index = "index"
+robot_follow = "follow"
+enabled_in_sitemap = 0
+use_updated_at = 0
+changefreq = "always"
+priority = 0.1
+meta_title = "Test ImageResizer Though Developer"
+meta_description = "Test ImageResizer Though Developer"
+==
+<h1>Image Tests with ImageResizer from Though Developer</h1>
+
+<h2> Test Image Resizer Plugin from Though Developer</h2>
+<p>
+<h3>Image without resize, 1200x720 forced to 600x360 (250kb)</h3>
+<img src="{{ 'tests/test.jpg' | media }}" width="600" height="360">
+</p>
+
+<p>
+<h3>Image with resize 600x360, without crop (54.3 kb)</h3>
+<img src="{{ 'tests/test.jpg' | media | resize(600,360) }}">
+</p>
+
+<p>
+<h3>Image with resize 600x200, with crop (32.6 kb)</h3>
+<img src="{{ 'tests/test.jpg' | media | resize(600,200, {'mode' : 'crop'}) }}">
+</p>
+
+<p>
+<h3>Image with resize 600x200, with crop, quality: 20 (32.6 kb)</h3>
+<img src="{{ 'tests/test.jpg' | media | resize(600,200, {'mode' : 'crop', quality : '20'}) }}">
+</p>
+
+<p>
+<h3>Image with resize 600x200, with crop, quality: 20, png (110 kb)</h3>
+<img src="{{ 'tests/test.jpg' | media | resize(600,200, {'mode' : 'crop', quality : '20', extension : 'png'}) }}">
+</p>
+
+<p>
+<h3>Image with resize 600x200, with crop, quality: 20, png and TinyPNG-API on (110 kb)</h3>
+<img src="{{ 'tests/test.jpg' | media | resize(600,200, {'mode' : 'crop', quality : '20', extension : 'png', compress: 'true'}) }}">
+</p>
+
+
+<p>
+<h3>Image wrong path</h3>
+<img src="{{ 'tests/testxxx.jpg' | media | resize(600,200, {'mode' : 'crop', quality : '20'}) }}">
+</p>
+
+<hr>
+
+<h2> Test Image Resizer Plugin from Though Developer</h2>
+
+
+
+<code>
+
+{{ 'tests/test.jpg' | media | resize(600,200, {'mode' : 'crop', quality : '20', extension : 'png', compress: 'true'}) }}
+
+</code>

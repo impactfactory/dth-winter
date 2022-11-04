@@ -1,0 +1,22 @@
+fields:
+    is_published:
+        label: 'impactfactory.galleries::lang.gallery.publish'
+        span: auto
+        type: switch
+    name:
+        label: 'impactfactory.galleries::lang.gallery.name.label'
+        span: full
+        type: text
+        commentAbove: 'impactfactory.galleries::lang.gallery.name.comment'
+    images:
+        label: 'impactfactory.galleries::lang.gallery.images.label'
+        mode: image
+        imageWidth: '250'
+        imageHeight: '250'
+        fileTypes: 'jpg,jpeg'
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: jpg
+        span: auto
+        type: fileupload

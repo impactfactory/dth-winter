@@ -1,0 +1,131 @@
+columns:
+    id:
+        label: ID
+        type: number
+        sortable: true
+    state_id:
+        label: Status
+        type: integer
+    sort_order:
+        label: Prio
+        type: text
+        hidden: 'false'
+        sortable: true
+    firstname:
+        label: Vorname
+        type: text
+        searchable: true
+        sortable: true
+    lastname:
+        label: Nachname
+        type: text
+        searchable: true
+        sortable: true
+    email:
+        label: E-Mail
+        type: partial
+        searchable: true
+        path: ~/plugins/impactfactory/jobboard/models/applicants/mailto.htm
+    phone:
+        label: Telefon
+        type: partial
+        searchable: true
+        path: ~/plugins/impactfactory/jobboard/models/applicants/tel.htm
+    job_posting:
+        label: Job
+        type: text
+        searchable: true
+        sortable: true
+    lang_de:
+        label: De
+        type: text
+        searchable: true
+        sortable: true
+    lang_en:
+        label: En
+        type: text
+        searchable: true
+        sortable: true
+    lang_fr:
+        label: Fr
+        type: text
+        searchable: true
+        sortable: true
+    lang_it:
+        label: It
+        type: text
+        searchable: true
+        sortable: true
+    salary_min:
+        label: MinLohn
+        type: number
+        searchable: true
+        sortable: true
+    salary_max:
+        label: MaxLohn
+        type: number
+        searchable: true
+        sortable: true
+    education:
+        label: Ausbildung
+        type: text
+        searchable: true
+        sortable: true
+    experience:
+        label: Erfahrung
+        type: text
+        searchable: true
+        sortable: true
+    created_at:
+        label: Datum
+        type: text
+        searchable: true
+        sortable: true
+    birthday:
+        label: Geburtstag
+        type: date
+        searchable: true
+        sortable: true
+    zip:
+        label: Postleitzahl
+        type: number
+        searchable: true
+        sortable: true
+    city:
+        label: Stadt
+        type: text
+        searchable: true
+        sortable: true
+    country:
+        label: Land
+        type: text
+        searchable: true
+        sortable: true
+    gender:
+        label: Geschlecht
+        type: text
+        searchable: true
+        sortable: true
+    start_date:
+        label: Beginn
+        type: text
+        searchable: true
+        sortable: true
+    other_languages:
+        label: Sprachen
+        type: text
+        searchable: true
+        sortable: true
+    note:
+        label: Notiz
+        type: text
+        searchable: true
+        sortable: true
+    workquota:
+        label: Pensum
+        type: text
+        searchable: true
+        sortable: true
+    comment:
+        label: Kommentar
+        type: text

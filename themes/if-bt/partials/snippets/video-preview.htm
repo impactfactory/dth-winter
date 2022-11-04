@@ -1,0 +1,103 @@
+description = "Erzeugt einen ganzbreitigen Abschnitt mit Text und Linklisten."
+
+[viewBag]
+snippetCode = "videopreview"
+snippetName = "Video-Vorschau"
+snippetProperties[title][title] = "Titel des Videos"
+snippetProperties[title][type] = "text"
+snippetProperties[service][title] = "Video-Service"
+snippetProperties[service][type] = "dropdown"
+snippetProperties[service][options][Youtube]= "Youtube"
+snippetProperties[service][options][Vimeo]= "Vimeo"
+snippetProperties[service][options][Facebook]= "Facebook"
+snippetProperties[service][options][Instagram]= "Instagram"
+snippetProperties[service][options][TikTok]= "TikTok"
+snippetProperties[url][title] = "URL"
+snippetProperties[url][type] = "text"
+snippetProperties[width][title] = "Breite"
+snippetProperties[width][type] = "dropdown"
+snippetProperties[width][options][1]= "100%"
+snippetProperties[width][options][2]= "50%"
+snippetProperties[width][options][3]= "33%"
+
+==
+{% set img = 'storage/app/media/__DEFAULTS/video-preview-1000x562.jpg' %}
+
+<div class="videopreview ">
+ <div class=" {% if width == '1' %}width100{% elseif width == '2' %}width50{% elseif width == '3' %}width33{% endif %}">
+
+    <a href="{{ url }}"
+       title="{{ 'snippet.video.preview.tooltip_begin'|_ }}{{ service }}{{ 'snippet.video.preview.tooltip_end'|_ }}"
+       rel="noopener"
+       target="_blank"
+       data-toggle="tooltip"
+       data-placement="center"
+     >
+
+
+
+      {% if width == '1' %}
+      <picture class="">
+        <source type="image/webp" media="(max-width: 280px)" srcset="{{ img | resize(280, 157, { mode: 'cover', format: 'webp' }) }}">
+        <source type="image/jpg" media="(max-width: 280px)" srcset="{{ img | resize(280, 157, { mode: 'cover'  }) }}">
+        <source type="image/webp" media="(max-width: 320px)" srcset="{{ img | resize(320, 180, { mode: 'cover', format: 'webp'  }) }}">
+        <source type="image/jpg" media="(max-width: 320px)" srcset="{{ img | resize(320, 180, { mode: 'cover'  }) }}">
+        <source type="image/webp" media="(max-width: 360px)" srcset="{{ img | resize(360, 202, { mode: 'cover', format: 'webp'  }) }}">
+        <source type="image/jpg" media="(max-width: 360px)" srcset="{{ img | resize(360, 202, { mode: 'cover'  }) }}">
+        <source type="image/webp" media="(max-width: 567px)" srcset="{{ img | resize(567, 319, { mode: 'cover', format: 'webp'  }) }}">
+        <source type="image/jpg" media="(max-width: 567px)" srcset="{{ img | resize(567, 319, { mode: 'cover'  }) }}">
+        <source type="image/webp" media="(max-width: 768px)" srcset="{{ img | resize(768, 432, { mode: 'cover', format: 'webp'  }) }}">
+        <source type="image/jpg" media="(max-width: 768px)" srcset="{{ img | resize(768, 432, { mode: 'cover'  }) }}">
+        <source type="image/webp" media="(max-width: 3600px)" srcset="{{ img | resize(1000, 562, { mode: 'cover', format: 'webp' }) }}">
+        <source type="image/jpg" media="(max-width: 3600px)" srcset="{{ img | resize(1000, 562, { mode: 'cover' }) }}">
+        <img type="image/jpg" src=" {{ img | resize(1000, 562, { mode: 'cover' }) }}" alt="{{ 'snippet.video.preview.img.alt'|_ }}" width="100%" height="auto" loading="lazy">
+      </picture>
+      <div class="videopreview_title">
+        {{ title }}
+      </div>
+      {% elseif width == '2' %}
+      <picture class="">
+        <source type="image/webp" media="(max-width: 280px)" srcset="{{ img | resize(280, 157, { mode: 'cover', format: 'webp' }) }}">
+        <source type="image/jpg" media="(max-width: 280px)" srcset="{{ img | resize(280, 157, { mode: 'cover'  }) }}">
+        <source type="image/webp" media="(max-width: 320px)" srcset="{{ img | resize(160, 90, { mode: 'cover', format: 'webp'  }) }}">
+        <source type="image/jpg" media="(max-width: 320px)" srcset="{{ img | resize(160, 90, { mode: 'cover'  }) }}">
+        <source type="image/webp" media="(max-width: 360px)" srcset="{{ img | resize(180, 101, { mode: 'cover', format: 'webp'  }) }}">
+        <source type="image/jpg" media="(max-width: 360px)" srcset="{{ img | resize(180, 101, { mode: 'cover'  }) }}">
+        <source type="image/webp" media="(max-width: 567px)" srcset="{{ img | resize(284, 160, { mode: 'cover', format: 'webp'  }) }}">
+        <source type="image/jpg" media="(max-width: 567px)" srcset="{{ img | resize(284, 160, { mode: 'cover'  }) }}">
+        <source type="image/webp" media="(max-width: 768px)" srcset="{{ img | resize(384, 216, { mode: 'cover', format: 'webp'  }) }}">
+        <source type="image/jpg" media="(max-width: 768px)" srcset="{{ img | resize(384, 216, { mode: 'cover'  }) }}">
+        <source type="image/webp" media="(max-width: 3600px)" srcset="{{ img | resize(500, 281, { mode: 'cover', format: 'webp' }) }}">
+        <source type="image/jpg" media="(max-width: 3600px)" srcset="{{ img | resize(500, 281, { mode: 'cover' }) }}">
+        <img type="image/jpg" src=" {{ img | resize(500, 281, { mode: 'cover' }) }}" alt="{{ 'snippet.video.preview.img.alt'|_ }}" width="100%" height="auto" loading="lazy">
+      </picture>
+      <div class="videopreview_title">
+        {{ title }}
+      </div>
+      {% elseif width == '3' %}
+      <picture class="">
+        <source type="image/webp" media="(max-width: 280px)" srcset="{{ img | resize(280, 157, { mode: 'cover', format: 'webp' }) }}">
+        <source type="image/jpg" media="(max-width: 280px)" srcset="{{ img | resize(280, 157, { mode: 'cover'  }) }}">
+        <source type="image/webp" media="(max-width: 320px)" srcset="{{ img | resize(320, 180, { mode: 'cover', format: 'webp'  }) }}">
+        <source type="image/jpg" media="(max-width: 320px)" srcset="{{ img | resize(320, 180, { mode: 'cover'  }) }}">
+        <source type="image/webp" media="(max-width: 360px)" srcset="{{ img | resize(360, 202, { mode: 'cover', format: 'webp'  }) }}">
+        <source type="image/jpg" media="(max-width: 360px)" srcset="{{ img | resize(360, 202, { mode: 'cover'  }) }}">
+        <source type="image/webp" media="(max-width: 567px)" srcset="{{ img | resize(189, 106, { mode: 'cover', format: 'webp'  }) }}">
+        <source type="image/jpg" media="(max-width: 567px)" srcset="{{ img | resize(189, 106, { mode: 'cover'  }) }}">
+        <source type="image/webp" media="(max-width: 768px)" srcset="{{ img | resize(256, 144, { mode: 'cover', format: 'webp'  }) }}">
+        <source type="image/jpg" media="(max-width: 768px)" srcset="{{ img | resize(256, 144, { mode: 'cover'  }) }}">
+        <source type="image/webp" media="(max-width: 3600px)" srcset="{{ img | resize(333, 187, { mode: 'cover', format: 'webp' }) }}">
+        <source type="image/jpg" media="(max-width: 3600px)" srcset="{{ img | resize(333, 187, { mode: 'cover' }) }}">
+        <img type="image/jpg" src=" {{ img | resize(333, 187, { mode: 'cover' }) }}" alt="{{ 'snippet.video.preview.img.alt'|_ }}" width="100%" height="auto" loading="lazy">
+      </picture>
+      <div class="videopreview_title">
+        {{ title }}
+      </div>
+      {% endif %}
+
+
+    </a>
+
+
+ </div>
+</div>

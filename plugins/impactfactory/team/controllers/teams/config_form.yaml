@@ -1,0 +1,10 @@
+name: Teams
+form: $/impactfactory/team/models/team/fields.yaml
+modelClass: ImpactFactory\Team\Models\Team
+defaultRedirect: impactfactory/team/teams
+create:
+    redirect: 'impactfactory/team/teams/update/:id'
+    redirectClose: impactfactory/team/teams
+update:
+    redirect: impactfactory/team/teams
+    redirectClose: impactfactory/team/teams

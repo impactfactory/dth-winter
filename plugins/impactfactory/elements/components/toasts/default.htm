@@ -1,0 +1,124 @@
+{% set autohide = __SELF__.autohide %}
+{% set color = __SELF__.color %}
+{% set delaytime = __SELF__.delaytime %}
+{% set displaydelay = __SELF__.displaydelay %}
+{% set cookiedeath = __SELF__.cookiedeath %}
+{% set element = __SELF__.element %}
+{% set position = __SELF__.position %}
+
+{% put toasts %}
+
+   {% if element.from|date('U') < 'now'|date('U') and element.to|date('U') > 'now'|date('U') %}
+
+  <div class="toasts">
+    {% for index, toast in element.elements %}
+      {% if toast.is_published %}
+      {% set iconCode = toast.icon %}
+
+      <dialog id="toast-message"
+              class="p-1 {% if position == 'tc' %}topcenter{% elseif position == 'tl'%}topleft{% elseif position == 'tr'%}topright{% elseif position == 'bc'%}bottomcenter{% elseif position == 'bl'%}bottomleft{% elseif position == 'br'%}bottomright{% elseif position == 'cc'%}center{% endif %} {% if color == '000' %}black{% elseif color == 'fff'%}white{% elseif color == 'ccc'%}grey{% elseif color == 'sec'%}secondary{% elseif color == 'sec-l'%}secondary-light{% elseif color == 'sec-d'%}secondary-dark{% elseif color == 'pri'%}primary{% elseif color == 'pri-d'%}primary-dark{% elseif color == 'pri-l'%}primary-light{% elseif color == 'inf'%}info{% elseif color == 'war'%}warning{% elseif color == 'suc'%}success{% elseif color == 'dan'%}danger{% endif %}"
+              role="alert"
+              data-autohide="{{ autohide }}"
+              data-delaytime="{{ delaytime }}"
+              data-displaydelay="{{ displaydelay }}"
+              data-cookie="toast-{{element.id }}-{{ index }}"
+              data-cookiedeath="{{ cookiedeath }}"
+              >
+
+        <div class="row p-2">
+          <div class="col-1 toast-icon">
+            {% partial iconCode %}
+          </div>
+
+          <div class="col-10">
+            <div class="toast-title">
+              {{ toast.title }}
+            </div>
+            <div class="toast-text">
+             {{ toast.text|raw }}
+            </div>
+          </div>
+
+          <div class="col-1 pt-0">
+            <a id="close-toast" type="button" class="btn-close" aria-label="Close"></a>
+          </div>
+
+        </div>
+
+      </dialog>
+
+      {% endif %}
+    {% endfor %}
+  </div>
+  {% endif %}
+
+{% endput %}
+
+
+
+
+
+{% put scripts %}
+<script>
+
+(function() {
+
+            var dialog = document.getElementById('toast-message');
+            var cookieid = dialog.dataset.cookie
+            var cookiedeath = dialog.dataset.cookiedeath
+            var x = getCookie(cookieid);
+
+
+            function setCookie(name,value,days) {
+                var expires = "";
+                if (days) {
+                    var date = new Date();
+                    date.setTime(date.getTime() + (days*24*60*60*1000));
+                    expires = "; expires=" + date.toUTCString();
+                }
+                document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+            }
+
+            function getCookie(name) {
+                var nameEQ = name + "=";
+                var ca = document.cookie.split(';');
+                for(var i=0;i < ca.length;i++) {
+                    var c = ca[i];
+                    while (c.charAt(0)==' ') c = c.substring(1,c.length);
+                    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+                }
+                return null;
+            }
+
+
+            $(document).ready(function() {
+
+              if(!x)  {
+
+                setTimeout(function() {
+                    $(dialog).show();
+                 }, dialog.dataset.displaydelay
+                );
+
+                if (dialog.dataset.autohide == 1) {
+                  setTimeout(function() {
+                    $(dialog).hide();
+                    }, dialog.dataset.delaytime);
+                } else {}
+
+              }
+              else {};
+            }
+              );
+
+            document.getElementById('close-toast').onclick = function() {
+
+                $(dialog).hide();
+
+                setCookie(cookieid,'closed',cookiedeath);
+
+            };
+        })();
+
+</script>
+{% endput %}

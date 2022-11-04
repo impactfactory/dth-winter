@@ -1,0 +1,10 @@
+name: Patients
+form: $/impactfactory/ref/models/patient/fields.yaml
+modelClass: ImpactFactory\Ref\Models\Patient
+defaultRedirect: impactfactory/ref/patients
+create:
+    redirect: 'impactfactory/ref/patients/update/:id'
+    redirectClose: impactfactory/ref/patients
+update:
+    redirect: impactfactory/ref/patients
+    redirectClose: impactfactory/ref/patients

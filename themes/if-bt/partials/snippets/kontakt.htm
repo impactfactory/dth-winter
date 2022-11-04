@@ -1,0 +1,52 @@
+description = "Kontaktformular"
+
+[viewBag]
+snippetCode = "contactform"
+snippetName = "Kontakt-Formular einfügen"
+
+[genericForm]
+rules[email] = "email"
+messages_success = "Ihre Nachricht wurde erfolgreich verschickt!"
+messages_errors = "Es gab einen Fehler, Ihre Nachricht konnte nicht verschickt werden :("
+reset_form = 1
+inline_errors = "disabled"
+sanitize_data = "htmlspecialchars"
+anonymize_ip = "disabled"
+recaptcha_enabled = 1
+recaptcha_theme = "light"
+recaptcha_type = "image"
+recaptcha_size = "compact"
+emails_date_format = "d.m. Y"
+==
+<form data-request="{{ __SELF__ }}::onFormSubmit">
+
+    {{ form_token() }}
+
+    <div id="{{ __SELF__ }}_forms_flash"></div>
+
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <textarea id="comments" name="comments" rows="8" cols="80"></textarea>
+    </div>
+
+    <div class="form-group">
+        {% partial 'formulare/recaptcha' %}
+    </div>
+
+    <button id="simpleContactSubmitButton" type="submit" class="btn btn-default">Submit</button>
+
+</form>

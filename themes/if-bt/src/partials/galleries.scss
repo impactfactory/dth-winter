@@ -1,0 +1,136 @@
+.gallery {
+
+  .lb-album {
+  	list-style: none;
+    padding-bottom: 2rem;
+    padding: 0!important;
+    display:inline-block;
+
+    li {
+    	float: left;
+    	margin: 10px 10px 0 0;
+    }
+
+    li > a,
+    li > a img{
+    	display: block;
+    }
+
+    li > a{
+    	width: 200px;
+    	height: 150px;
+    }
+  }
+
+
+  .lb-overlay {
+  	background: $if-secondary-dark;
+    display:none!important;
+  	height: 0px;
+  	overflow: hidden;
+  	padding: 0 0 0 0;
+  	position: fixed;
+     left: 0px;
+  	 top: 0;
+  	text-align: center;
+    width: 0px;
+  	z-index: 999999;
+
+    .controls {
+    	margin: 0 0 0 -250px;
+      opacity:0;
+      position: absolute;
+    	 left:50%;
+       top: 25px;
+      //transition: opacity .3s linear .2s;
+      width: 500px;
+      z-index: 1001;
+
+      .svg-inline--fa {
+        color: $if-dark;
+        height: 50px;
+        width: 50px;
+      }
+    }
+
+    img {
+      box-shadow: 0px 2px 7px rgba(255,255,255,0.2);
+      height: auto;
+        max-height: 70vh;
+      position: relative;
+        top: 0;
+      width: auto;
+        max-width: 90vw;
+      }
+
+    .info {
+      color: $if-dark;
+      margin: 10px auto 0 auto;
+      max-width:1000px;
+      opacity: 0;
+      position: relative;
+       top: 0;
+      text-shadow: 0px 1px 1px rgba(255,255,255,0.6);
+      transition: opacity 1s linear 1.2s;
+
+
+      h3 {
+        display:inline-block;
+        border-right: 1px solid $if-dark;
+        padding: .75rem 1rem .75rem 0!important;
+      }
+
+      p {
+        display:inline-block;
+        padding: 0 0 0 1rem;
+      }
+    }
+  }
+
+
+  .lb-overlay:target {
+  	display: block!important;
+    width: auto;
+  	height: auto;
+  	bottom: 0px;
+  	right: 0px;
+  	padding: 80px .25rem 120px .25rem;
+  }
+  .lb-overlay:target img, {
+  	animation: fadeInScale 1.2s ease-in-out;
+  }
+  .lb-overlay:target .controls,
+  .lb-overlay:target .info {
+  	opacity: 1;
+  }
+
+  @-webkit-keyframes fadeInScale {
+  0% { -webkit-transform: scale(0.6); opacity: 0; }
+  100% { -webkit-transform: scale(1); opacity: 1; }
+}
+@-moz-keyframes fadeInScale {
+  0% { -moz-transform: scale(0.6); opacity: 0; }
+  100% { -moz-transform: scale(1); opacity: 1; }
+}
+@-o-keyframes fadeInScale {
+  0% { -o-transform: scale(0.6); opacity: 0; }
+  100% { -o-transform: scale(1); opacity: 1; }
+}
+@-ms-keyframes fadeInScale {
+  0% { -ms-transform: scale(0.6); opacity: 0; }
+  100% { -ms-transform: scale(1); opacity: 1; }
+}
+@keyframes fadeInScale {
+  0% { transform: scale(0.6); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+  /*
+  	100% Height for Opera as the max-height seems to be ignored, not optimal for large screens
+  	http://bricss.net/post/11230266445/css-hack-to-target-opera
+  */
+  x:-o-prefocus, .lb-overlay img {
+      height: 100%;
+  }
+
+
+}

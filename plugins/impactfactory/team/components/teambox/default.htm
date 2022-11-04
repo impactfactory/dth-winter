@@ -1,0 +1,37 @@
+{% set person = __SELF__.person %}
+{% set picposition = __SELF__.picposition %}
+
+<div id="{{ person.id }}" class="portraitbox row {{ __SELF__.size4 }}  gx-1 px-4 mx-0">
+  <div class="col mb-3">
+    <div class="card">
+      <div class="row g-0">
+
+        {% if picposition == 'left' %}
+          <div class="col-md-4">
+            <a href="/team/{{ person.slug }}" class="btn btn-outline-primary btn-sm rounded" title="Portrait {{ person.first_name }} {{ person.last_name }}" role="button">
+              <img src="{{  person.portrait | media | resize(450, 450, { mode: 'cover' }) }}" class=" img-fluid mr-3 rounded width="100%" height="auto">
+            </a>
+          </div>
+        {% endif %}
+
+        <div class="col-md-8">
+          <div class="card-body">
+            <p class="card-text">{{ person.boxtext|raw }}</p>
+              <a href="/team/{{ person.slug }}" class="btn btn-outline-primary btn-sm rounded" title="Portrait {{ person.first_name }} {{ person.last_name }}" role="button">
+                {{ 'team.teambox.more' |_ }} {{ person.first_name }} {{ person.last_name }}...
+              </a>
+          </div>
+        </div>
+
+        {% if picposition == 'right' %}
+        <div class="col-md-4 pr-0">
+          <a href="/team/{{ person.slug }}" class="btn btn-outline-primary btn-sm rounded" title="Portrait {{ person.first_name }} {{ person.last_name }}" role="button">
+            <img src="{{  person.portrait | media | resize(450, 450, { mode: 'cover' }) }}" class="img-fluid ml-3 rounded" width="100%" height="auto">
+          </a>
+        </div>
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+</div>

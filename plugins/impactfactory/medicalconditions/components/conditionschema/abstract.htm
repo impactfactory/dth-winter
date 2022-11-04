@@ -1,0 +1,65 @@
+
+<section class="card abstract my-4" id="abstract">
+  <div class="card-header">
+      <h2 class="pt-2"> {{ 'blog.abstract.title'|_ }} "{{ cond.name }}"</h2>
+      <p>{{ cond.desc }}</p>
+  </div>
+  <div class="card-body">
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item pt-0 pb-3">
+          <b>{{ 'blog.abstract.altnames.label'|_ }}:</b> {% for alt in cond.alt_names %}{{ alt.name}}{%- if not loop.last -%}, {% endif %}{% endfor %}
+        </li>
+        <li class="list-group-item py-3">
+          <b>{{ 'blog.abstract.anatomy.label'|_ }}:</b> {{ cond.anatomy }}
+        </li>
+        <li class="list-group-item py-3">
+          <b>{{ 'blog.abstract.symptoms.label'|_ }}:</b>
+          {% for symptom in cond.symptoms %}
+            {%- if symptom.tag_id -%}
+              <a href="/{{ localePicker.activeLocale }}/{{ viewBag.localeBlogbase[activeLocale] }}/{{ viewBag.localeTagpagebase[activeLocale] }}/{{ symptom.tag.slug }}" title="{{ symptom.name }}">{{ symptom.name }}</a>
+            {%- elseif symptom.url -%}
+              <a href="{{ symptom.url }}" title="{{ symptom.name }}">{{ symptom.name }}</a>
+            {%- else -%}
+              {{ symptom.name }}
+            {%- endif -%}
+              {% if not loop.last %}, {% endif %}
+          {% endfor %}
+        </li>
+        <li class="list-group-item py-3">
+          <b>{{ 'blog.abstract.tests.label'|_ }}:</b>
+          {% for test in cond.tests %}
+            {%- if test.tag_id -%}
+              <a href="/{{ localePicker.activeLocale }}/{{ viewBag.localeBlogbase[activeLocale] }}/{{ viewBag.localeTagpagebase[activeLocale] }}/{{ test.tag.slug }}" title="{{ test.name }}">{{ test.name }}</a>
+            {%- elseif test.url -%}
+              <a href="{{ test.url }}" title="{{ test.name }}">{{ test.name }}</a>
+            {%- else -%}
+              {{ test.name }}
+            {%- endif -%}
+              {% if not loop.last %}, {% endif %}
+          {% endfor %}
+        </li>
+        <li class="list-group-item py-3">
+          <b>{{ 'blog.abstract.treatments.label'|_ }}:</b>
+          {% for treat in cond.treatments %}
+            {%- if treat.tag_id -%}
+              <a href="/{{ localePicker.activeLocale }}/{{ viewBag.localeBlogbase[activeLocale] }}/{{ viewBag.localeTagpagebase[activeLocale] }}/{{ treat.tag.slug }}" title="{{ treat.name }}">{{ treat.name }}</a>
+            {%- elseif treat.url -%}
+              <a href="{{ treat.url }}" title="{{ treat.name }}">{{ treat.name }}</a>
+            {%- else -%}
+              {{ treat.name }}
+            {%- endif -%}
+            {% if not loop.last %}, {% endif %}
+          {% endfor %}
+        </li>
+        <li class="list-group-item py-3">
+          <b>{{ 'blog.abstract.risks.label'|_ }}:</b>
+          {% for risk in cond.risks %}
+              {% if risk.url %}<a href="{{ risk.url }}" title="{{ risk.name }}">{% endif %}{{ risk.name }}{% if risk.url %}</a>{% endif %}{% if not loop.last %}, {% endif %}
+          {% endfor %}
+        </li>
+        <li class="list-group-item py-3">
+          <b>{{ 'blog.abstract.differentialdiagnosis.label'|_ }}:</b> {{ cond.differential }}
+        </li>
+    </ul>
+  </div>
+</section>

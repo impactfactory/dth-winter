@@ -1,0 +1,21 @@
+.tabs {
+
+  .nav-item {
+
+    a {
+      //background: $if-white;
+      //border: 1px solid rgba(0,0,0,0.8);
+      font-weight: 600;
+    }
+
+    a.active, a:hover {
+      //background: $if-primary;
+      //order: 1px solid $if-primary;
+      color: $if-primary;
+
+    }
+  }
+
+  .tab-content {
+  }
+}

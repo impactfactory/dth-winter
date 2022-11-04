@@ -1,0 +1,11 @@
+<ul class="personsimple">
+    <li>
+        {% if person.url %}
+            <a href="{{ person.url }}">
+                <h3>{{ person.name }} <small class="text-muted"> - {{ person.role }}</small></h3>
+            </a>
+        {% else %}
+            <h3>{{ person.name }}<small class="text-muted"> - {{ person.role }}</small></h3>
+        {% endif %}
+    </li>
+</ul>

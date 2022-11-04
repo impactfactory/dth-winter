@@ -1,0 +1,11 @@
+<picture>
+    {# Safari <=14 falls back on img if there is not type attribute present at each line! #}
+    <source type="image/webp" srcset="{{ person.portrait | media | resize(350, 350, { mode: 'cover', format: 'webp' }) }}">
+    <source type="image/jpg" srcset="{{ person.portrait | media | resize(350, 350, { mode: 'cover' }) }}">
+    <img type="image/jpg"
+         src="{{ person.portrait|media|resize(400, 400, { mode: 'cover'}) }}"
+         alt="{{ 'team.person.foto.alt'|_ }} {{ person.first_name }} {{ person.last_name }}"
+         class="d-block rounded img-fluid mx-auto"
+         height="350"
+         width="350">
+</picture>

@@ -1,0 +1,37 @@
+
+[viewBag]
+==
+<nav id="navbar" class="navbar navbar-expand-lg col-sm">
+  <div class="container-fluid">
+
+      <a class="navbar-brand logo" href="/{{ localePicker.activeLocale }}" title="Home">
+          {% if localePicker.activeLocale == 'de' %}
+            {% partial 'html_body/svg-icons/logo-de' %}
+          {% endif %}
+          {% if localePicker.activeLocale == 'en' %}
+            {% partial 'html_body/svg-icons/logo-en' %}
+        {% endif %}
+      </a>
+      <a class="navbar-brand logo-small" href="/{{ localePicker.activeLocale }}" title="Home">
+          {% if localePicker.activeLocale == 'de' %}
+            {% partial 'html_body/svg-icons/logo-small-de' %}
+          {% endif %}
+          {% if localePicker.activeLocale == 'en' %}
+            {% partial 'html_body/svg-icons/logo-small-en' %}
+        {% endif %}
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        {% partial 'html_body/svg-icons/bars' %}
+     </button>
+
+      <div class="collapse navbar-collapse d-lg-flex justify-content-end pt-2" id="navbarSupportedContent">
+         {% partial 'html_body/mainnav' %}
+         {% partial 'html_body/languageswitcher' %}
+         <div class="searchfield d-lg-flex justify-content-end">
+          {% partial 'html_body/searchfield' %}
+         </div>
+      </div>
+
+      </div>
+</nav>

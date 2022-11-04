@@ -1,0 +1,10 @@
+name: Orders
+form: $/impactfactory/services/models/order/fields.yaml
+modelClass: ImpactFactory\Services\Models\Order
+defaultRedirect: impactfactory/services/orders
+create:
+    redirect: 'impactfactory/services/orders/update/:id'
+    redirectClose: impactfactory/services/orders
+update:
+    redirect: impactfactory/services/orders
+    redirectClose: impactfactory/services/orders

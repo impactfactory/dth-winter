@@ -1,0 +1,21 @@
+{% set diagnostics = __SELF__.diagnostics %}
+
+
+<div class="mb-3">
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox" id="consilium" value="1">
+      <label class="form-check-label" for="consilium" class="form-label">
+      <strong>{{ 'forms.ref.label.consilium' |_ }}</strong>
+      </label>
+    </div>
+</div>
+
+<div class="mb-3">
+<strong>{{ 'forms.ref.label.diagnostics' |_ }}</strong><br>
+  {% for diagnostic in diagnostics %}
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox" id="diagnostic{{ diagnostic.id }}" value="{{ diagnostic.id }}" name="diagnostic{{ diagnostic.id }}">
+      <label class="form-check-label" for="diagnostic{{ diagnostic.id }}" class="form-label">{{ diagnostic.name }}</label>
+    </div>
+  {% endfor %}
+</div>

@@ -1,0 +1,4 @@
+title: Tags
+modelClass: ImpactFactory\Blog\Models\Tag
+toolbar:
+    buttons: reorder_toolbar

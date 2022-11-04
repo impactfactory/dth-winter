@@ -1,0 +1,15 @@
+columns:
+    id:
+        label: id
+        type: number
+        invisible: true
+    color:
+        label: 'impactfactory.blog::lang.edit.color'
+        type: partial
+        sortable: true
+        path: ~/plugins/impactfactory/blog/models/edit/color.htm
+    name:
+        label: 'impactfactory.blog::lang.edit.name'
+        type: text
+        searchable: true
+        sortable: true

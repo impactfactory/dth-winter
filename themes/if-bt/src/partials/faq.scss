@@ -1,0 +1,30 @@
+.faq {
+
+  h2.h3 {
+    border: none;
+    padding-top: 2.5rem;
+  }
+
+  h3 {
+    border-top: 1px solid rgba(0,0,0,.1);
+  }
+
+  .accordion-button {
+    padding: .5rem 0 .5rem 0;
+  }
+
+  .accordion-button:not(.collapsed) {
+    background-color: transparent;
+    border-bottom: none;
+    color: $if-dark;
+    font-weight: 600;
+  }
+
+  .accordion-collapse {
+    border: none;
+  }
+
+  .accordion-body {
+    padding-left: 0px;
+  }
+}

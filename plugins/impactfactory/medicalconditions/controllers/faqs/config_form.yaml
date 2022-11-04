@@ -1,0 +1,10 @@
+name: FAQs
+form: $/impactfactory/medicalconditions/models/faq/fields.yaml
+modelClass: Impactfactory\MedicalConditions\Models\FAQ
+defaultRedirect: impactfactory/medicalconditions/faqs
+create:
+    redirect: 'impactfactory/medicalconditions/faqs/update/:id'
+    redirectClose: impactfactory/medicalconditions/faqs
+update:
+    redirect: impactfactory/medicalconditions/faqs
+    redirectClose: impactfactory/medicalconditions/faqs

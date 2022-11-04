@@ -1,0 +1,54 @@
+columns:
+    is_published:
+        label: 'impactfactory.blog::lang.tag.is_published'
+        type: inetis-list-switch
+        icon: true
+        sortable: true
+    id:
+        label: id
+        type: number
+        sortable: true
+    img:
+        label: 'impactfactory.blog::lang.tag.img'
+        type: partial
+        path: ~/plugins/impactfactory/blog/controllers/tags/_thumb.htm
+        sortable: true
+    name:
+        label: 'impactfactory.blog::lang.tag.name'
+        type: text
+        searchable: true
+        sortable: true
+    created_at:
+        label: 'impactfactory.blog::lang.tag.created_at'
+        type: datetime
+        invisible: true
+        sortable: true
+    desc:
+        label: 'impactfactory.blog::lang.tag.description'
+        type: text
+        searchable: true
+        invisible: true
+    meta_desc:
+        label: 'impactfactory.blog::lang.tag.meta_desc'
+        type: text
+        searchable: true
+        invisible: true
+    meta_img:
+        label: 'impactfactory.blog::lang.tag.meta_image'
+        type: text
+        invisible: true
+    meta_title:
+        label: 'impactfactory.blog::lang.tag.meta_title'
+        type: text
+        searchable: true
+        invisible: true
+    slug:
+        label: 'impactfactory.blog::lang.tag.slug'
+        type: text
+        searchable: true
+        sortable: true
+    updated_at:
+        label: 'impactfactory.blog::lang.tag.updated_at'
+        type: datetime
+        invisible: true
+        sortable: true

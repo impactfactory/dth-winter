@@ -1,0 +1,10 @@
+name: States
+form: $/impactfactory/ref/models/state/fields.yaml
+modelClass: ImpactFactory\Ref\Models\State
+defaultRedirect: impactfactory/ref/states
+create:
+    redirect: 'impactfactory/ref/states/update/:id'
+    redirectClose: impactfactory/ref/states
+update:
+    redirect: impactfactory/ref/states
+    redirectClose: impactfactory/ref/states

@@ -1,0 +1,72 @@
+description = "Puts MedicalClinic Schema into HTML-Head"
+
+[viewBag]
+==
+<?php
+
+?>
+==
+<script type="application/ld+json"> {
+  "@context": "http://schema.org",
+  "@type": ["MedicalClinic", "MedicalOrganization"],
+  "name": "{{ 'schema.MedicalClinic.name'|_ }}",
+  "id": "{{ 'schema.MedicalClinic.url'|_ }}",
+  "description": "{{ 'schema.MedicalClinic.desc'|_ }}",
+  "logo": "{{ 'assets/img/logo-json.jpg' | theme }}",
+  "image": "/storage/app/media/{{ 'schema.MedicalClinic.image'|_ }}",
+  "photo": "/storage/app/media/{{ 'schema.MedicalClinic.photo_of_place'|_ }}",
+  "url": "{{ 'schema.MedicalClinic.url'|_ }}",
+  "telephone": "{{ 'schema.MedicalClinic.phone'|_ }}",
+  "specialty": "https://schema.org/Cardiovascular",
+  "founder": {
+    "@type": "Person",
+    "name": "{{ 'schema.MedicalClinic.founder'|_ }}",
+    "jobTitle": "{{ 'schema.MedicalClinic.founder.jobTitle'|_ }}"
+    },
+  "foundingDate": "{{ 'schema.MedicalClinic.foundingDate'|_ }}",
+  "location": {
+    "@type": "Place",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "{{ 'schema.MedicalClinic.city'|_ }}",
+      "addressRegion": "{{ 'schema.MedicalClinic.area'|_ }}",
+      "postalCode": "{{ 'schema.MedicalClinic.zip'|_ }}",
+      "streetAddress": "{{ 'schema.MedicalClinic.street_no'|_ }}",
+      "addressCountry": "{{ 'schema.MedicalClinic.country'|_ }}"
+     }
+   },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "{{ 'schema.MedicalClinic.latitude'|_ }}",
+    "longitude": "{{ 'schema.MedicalClinic.longitude'|_ }}"
+  },
+  "hasMap": "{{ 'schema.MedicalClinic.url.map'|_ }}",
+  "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            {{ 'schema.MedicalClinic.openingHours.days'|_ }}
+          ],
+          "opens": "{{ 'schema.MedicalClinic.openingHours.start'|_ }}",
+          "closes": "{{ 'schema.MedicalClinic.openingHours.end'|_ }}"
+        }
+      ],
+  "availableService": [
+     {
+      "@type": ["medicalSpecialty"],
+      "name": "{{ 'schema.MedicalClinic.medicalSpeciality1'|_ }}",
+      "url": "{{ 'schema.MedicalClinic.url.medicalSpeciality1'|_ }}"
+      },
+      {
+      "@type": ["medicalSpecialty"],
+      "name": "{{ 'schema.MedicalClinic.medicalSpeciality2'|_ }}",
+      "url": "{{ 'schema.MedicalClinic.url.medicalSpeciality2'|_ }}"
+      },
+      {
+      "@type": ["medicalSpecialty"],
+      "name": "{{ 'schema.MedicalClinic.medicalSpeciality3'|_ }}",
+      "url": "{{ 'schema.MedicalClinic.url.medicalSpeciality3'|_ }}"
+      }
+  ]
+}
+</script>

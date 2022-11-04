@@ -1,0 +1,10 @@
+name: State
+form: $/impactfactory/jobboard/models/states/fields.yaml
+modelClass: Impactfactory\Jobboard\Models\States
+defaultRedirect: impactfactory/jobboard/state
+create:
+    redirect: 'impactfactory/jobboard/state/update/:id'
+    redirectClose: impactfactory/jobboard/state
+update:
+    redirect: impactfactory/jobboard/state
+    redirectClose: impactfactory/jobboard/state

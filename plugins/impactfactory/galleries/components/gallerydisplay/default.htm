@@ -1,0 +1,62 @@
+{% set gallery = __SELF__.gallery %}
+
+{% if gallery.is_published == 1 %}
+
+<div id="gallery-{{ gallery.id }}" class="fullwrap pt-2 pb-4 gallery">
+  <div class="indent-me">
+
+  <ul class="lb-album p-0 m-0">
+      {% for index, image in gallery.images %}
+      	<li>
+
+      		<a href="#image-{{ gallery.id }}-{{ loop.index }}" title="{{ image.title }}">
+            <picture>
+              <source type="image/webp" srcset="{{ image.path | resize(150,120, { mode: 'crop', format: 'webp' }) }}">
+              <source type="image/jpg" srcset="{{ image.path | resize(150,120, { mode: 'crop', format: 'jpg' }) }}">
+              <img type="image/jpg"
+                   src="{{  image.path | resize(150,120, { mode: 'crop', format: 'jpg' }) }}"
+                   class="img-fluid mr-3 rounded"
+                   alt="{{ image.title }}"
+                   width="150"
+                   height="120"
+                   loading="lazy">
+            </picture>
+      		</a>
+
+      		<div class="lb-overlay" id="image-{{ gallery.id }}-{{ loop.index }}">
+            <div class="controls">
+              {% if loop.first %}
+                <a href="#image-{{ gallery.id }}-{{ loop.index + 1}}">{% partial 'html_body/svg-icons/next' %}</a>
+              {% elseif loop.last %}
+                <a href="#image-{{ gallery.id }}-{{ loop.index - 1}}">{% partial 'html_body/svg-icons/prev' %}</a>
+                <a href="#image-{{ gallery.id }}-1">{% partial 'html_body/svg-icons/next' %}</a>
+              {% else %}
+                <a href="#image-{{ gallery.id }}-{{ loop.index - 1}}">{% partial 'html_body/svg-icons/prev' %}</a>
+                <a href="#image-{{ gallery.id }}-{{ loop.index + 1}}">{% partial 'html_body/svg-icons/next' %}</a>
+              {% endif %}
+                <a href="#page">{% partial 'html_body/svg-icons/close' %}</a>
+            </div>
+            <picture>
+              <source type="image/webp" srcset="{{ image.path | modify({ format: 'webp' }) }}">
+              <img type="image/jpg"
+                   src="{{  image.path }}"
+                   class="rounded"
+                   alt="{{ image.title }}"
+                   width="auto"
+                   height="auto"
+                   loading="lazy">
+            </picture>
+      			<div class="info">
+      				<h3>{{ image.title }}</h3>
+      				<p>{{ image.description }}</p>
+      			</div>
+      		</div>
+
+      	</li>
+      {% endfor %}
+    </ul>
+
+
+  </div>
+</div>
+{% endif %}

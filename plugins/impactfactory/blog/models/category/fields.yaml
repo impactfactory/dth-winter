@@ -1,0 +1,61 @@
+fields:
+    is_published:
+        label: 'impactfactory.blog::lang.cat.is_published'
+        span: full
+        type: switch
+tabs:
+    fields:
+        name:
+            label: 'impactfactory.blog::lang.cat.name'
+            span: auto
+            type: text
+            tab: 'impactfactory.blog::lang.cat.tab_general'
+        slug:
+            label: 'impactfactory.blog::lang.cat.slug'
+            span: right
+            type: text
+            preset: name
+            tab: 'impactfactory.blog::lang.cat.tab_general'
+        desc:
+            label: 'impactfactory.blog::lang.cat.desc'
+            size: small
+            span: full
+            type: richeditor
+            tab: 'impactfactory.blog::lang.cat.tab_general'
+        img:
+            label: 'impactfactory.blog::lang.cat.img'
+            mode: image
+            imageWidth: '250'
+            imageHeight: '250'
+            span: full
+            type: mediafinder
+            tab: 'impactfactory.blog::lang.cat.tab_general'
+        meta_title:
+            label: 'impactfactory.blog::lang.cat.meta_title'
+            span: full
+            type: text
+            commentAbove: 'impactfactory.blog::lang.cat.meta_title_comment'
+            tab: 'impactfactory.blog::lang.cat.tab_meta'
+        meta_desc:
+            label: 'impactfactory.blog::lang.cat.meta_desc'
+            size: tiny
+            span: auto
+            type: textarea
+            commentAbove: 'impactfactory.blog::lang.cat.meta_description_comment'
+            tab: 'impactfactory.blog::lang.cat.tab_meta'
+        searchtags:
+            label: 'impactfactory.blog::lang.cat.searchtaglabel'
+            size: tiny
+            span: full
+            type: textarea
+            commentAbove: 'impactfactory.blog::lang.cat.searchtagcomment'
+            tab: 'impactfactory.blog::lang.cat.tab_meta'
+        meta_img:
+            label: 'impactfactory.blog::lang.cat.meta_img'
+            mode: image
+            imageWidth: '600'
+            imageHeight: '600'
+            span: full
+            type: mediafinder
+            commentAbove: 'impactfactory.blog::lang.cat.meta_image_comment'
+            tab: 'impactfactory.blog::lang.cat.tab_meta'

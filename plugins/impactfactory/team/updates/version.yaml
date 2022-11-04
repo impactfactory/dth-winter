@@ -1,0 +1,5 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created all tables'
+    - builder_table_create_impactfactory_create_tables.php

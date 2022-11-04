@@ -1,0 +1,12 @@
+list: $/impactfactory/ref/models/patient/columns.yaml
+modelClass: ImpactFactory\Ref\Models\Patient
+title: Patients
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'impactfactory/ref/patients/update/:id'

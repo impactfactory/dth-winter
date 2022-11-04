@@ -1,0 +1,10 @@
+name: Diagnostics
+form: $/impactfactory/ref/models/diagnostic/fields.yaml
+modelClass: ImpactFactory\Ref\Models\Diagnostic
+defaultRedirect: impactfactory/ref/diagnostics
+create:
+    redirect: 'impactfactory/ref/diagnostics/update/:id'
+    redirectClose: impactfactory/ref/diagnostics
+update:
+    redirect: impactfactory/ref/diagnostics
+    redirectClose: impactfactory/ref/diagnostics

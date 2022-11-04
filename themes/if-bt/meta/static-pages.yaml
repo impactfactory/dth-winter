@@ -1,0 +1,26 @@
+static-pages:
+    home: {  }
+    dienstleistungen:
+        kompetenzen-erstgespraech: {  }
+        projekte-permakultur: {  }
+        praxis-herzkatheter-interventionenhtm: {  }
+        kompetenzen-stationaere-interventionen: {  }
+        kompetenzen-nachsorge: {  }
+        kompetenzen-kardiologische-follow-ups: {  }
+    projekte:
+        praxis-ihre-anreisehtm: {  }
+        praxis-partnerhtm: {  }
+        praxis-team: {  }
+        praxis-raeumlichkeiten: {  }
+        herzzentrum-zuweiser: {  }
+    patienteninformation:
+        patienteninformation-faqs: {  }
+    impressum: {  }
+    datenschutz: {  }
+    tests: {  }
+    paypal:
+        payment: {  }
+        send-payment: {  }
+        payment-thank-you: {  }
+        payment-paypal: {  }
+        paypal-payment-twint: {  }

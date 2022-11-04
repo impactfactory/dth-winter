@@ -1,0 +1,33 @@
+fields:
+    is_published:
+        label: veröffentlicht
+        span: auto
+        type: switch
+    name:
+        label: Name
+        oc.commentPosition: ''
+        span: full
+        type: text
+    organisation:
+        label: Organisation
+        nameFrom: name
+        descriptionFrom: description
+        emptyOption: '-'
+        span: full
+        type: relation
+    label:
+        label: Label
+        span: full
+        type: text
+    style:
+        label: Style
+        options:
+            simple: Simple
+            default: Default
+        showSearch: true
+        span: full
+        type: dropdown
+    people:
+        label: People
+        span: full
+        type: partial

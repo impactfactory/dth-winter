@@ -1,0 +1,46 @@
+{% set element = __SELF__.element %}
+
+{% if element.from|date('U') < 'now'|date('U') and element.to|date('U') > 'now'|date('U') %}
+
+<div id="{{ element.id }}" class="indent-me row {{ __SELF__.size }} gx-2 px-3 px-md-5 mx-0">
+{% for index, element in element.elements %}
+  {% if element.is_published %}
+    <div class="col mb-3 rounded">
+      <div class="card h-100 ">
+        <div class="card-body">
+          {% if element.title %}
+            <h3 class="card-title h5">{{ element.title }}</h3>
+          {% endif %}
+          {% if element.subtitle %}
+            <h4 class="card-subtitle mb-2 text-muted h6">{{ element.subtitle }}</h4>
+          {% endif %}
+          {% if element.image %}
+            {% if element.url %}
+              <a href="{{ element.url }}" class="card-link" title="{{ element.url_text }}">
+            {% endif %}
+                <img src="{{  element.image | media | resize(800, 600, { mode: 'cover' }) }}" class="img-fluid rounded"
+                width="100%"
+                height="auto"
+                >
+            {% if element.url %}
+              </a>
+            {% endif %}
+          {% endif %}
+          {% if element.text %}
+            <p class="card-text pt-3">
+              {{ element.text|raw }}
+            </p>
+          {% endif %}
+          {% if element.url %}
+            <a href="{{ element.url }}" class="btn btn-outline-primary btn-sm rounded" title="{{ element.url_text }}" role="button">
+              {{ element.url_text }}
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+{% endfor %}
+</div>
+
+{% endif %}

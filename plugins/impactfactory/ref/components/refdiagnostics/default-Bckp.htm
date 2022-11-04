@@ -1,0 +1,11 @@
+{% set diagnostics = __SELF__.diagnostics %}
+
+
+<div class="mb-3">
+    <label for="diagnostics" class="form-label">{{ 'forms.ref.label.diagnostics'|_ }}</label>
+    <select class="form-select" multiple aria-label="size 7 multiple select diagnostics" name="diagnostics" size="7">
+        {% for diagnostic in diagnostics %}
+        <option value="{{ diagnostic.id }}">{{ diagnostic.name }}</option>
+        {% endfor %}
+    </select>
+</div>

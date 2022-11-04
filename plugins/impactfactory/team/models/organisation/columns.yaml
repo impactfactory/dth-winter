@@ -1,0 +1,14 @@
+columns:
+    id:
+        label: id
+        type: number
+        sortable: true
+    is_published:
+        label: veröffentlicht
+        type: inetis-list-switch
+        icon: true
+    name:
+        label: name
+        type: text
+        searchable: true
+        sortable: true

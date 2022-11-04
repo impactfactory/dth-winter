@@ -1,0 +1,15 @@
+columns:
+    id:
+        label: id
+        type: number
+        invisible: true
+    color:
+        label: 'impactfactory.ref::lang.state.color'
+        type: partial
+        sortable: true
+        path: ~/plugins/impactfactory/ref/models/state/color.htm
+    name:
+        label: name
+        type: text
+        searchable: false
+        sortable: true

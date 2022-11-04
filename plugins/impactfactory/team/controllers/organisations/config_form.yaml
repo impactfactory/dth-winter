@@ -1,0 +1,10 @@
+name: Organisations
+form: $/impactfactory/team/models/organisation/fields.yaml
+modelClass: ImpactFactory\Team\Models\Organisation
+defaultRedirect: impactfactory/team/organisations
+create:
+    redirect: 'impactfactory/team/organisations/update/:id'
+    redirectClose: impactfactory/team/organisations
+update:
+    redirect: impactfactory/team/organisations
+    redirectClose: impactfactory/team/organisations

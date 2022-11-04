@@ -1,0 +1,19 @@
+<section class="linklist my-4 py-4" id="linklist">
+    <h2> {{ 'blog.links.title'|_ }} "{{ cond.name }}"</h2>
+    <ul class="">
+    {% for link in cond.links %}
+        <li class="">
+          <a href=" {{ link.url }}" title="{{ link.label }}" class="ml-4" rel="noopener" target="_blank">
+            {% partial 'html_body/svg-icons/externallink' %}
+            {{ link.label }}
+          </a>
+        </li>
+    {% endfor %}
+        <li class="">
+          <a href=" {{ cond.wiki }}" title="Wikipedia {{ cond.name }}" class="ml-4" rel="noopener" target="_blank">
+            {% partial 'html_body/svg-icons/externallink' %}
+            {{ 'blog.links.title.wikipeda'|_ }} "{{ cond.name }}"
+          </a>
+        </li>
+    </ul>
+</section>

@@ -1,0 +1,10 @@
+name: Elements
+form: $/impactfactory/elements/models/element/fields.yaml
+modelClass: ImpactFactory\Elements\Models\Element
+defaultRedirect: impactfactory/elements/elements
+create:
+    redirect: 'impactfactory/elements/elements/update/:id'
+    redirectClose: impactfactory/elements/elements
+update:
+    redirect: impactfactory/elements/elements
+    redirectClose: impactfactory/elements/elements

@@ -1,0 +1,79 @@
+title = "Suchresultate"
+url = "/suchresultate"
+layout = "default"
+meta_title = "Suchresultate"
+meta_description = "Suchresultate"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[viewBag]
+localeUrl[de] = "/suchresultate"
+localeUrl[en] = "/searchresults"
+localeTitle[en] = "Search results"
+localeMeta_title[en] = "Search Results"
+localeMeta_description[en] = "Search results"
+
+[searchResults]
+resultsPerPage = 20
+showProviderBadge = 1
+noResultsMessage = "Ihr Suchbegriff passt leider zu keinen Inhalten in unserer Website. / No results sorry!"
+visitPageMessage = "Mehr.."
+
+[searchInput]
+useAutoComplete = 0
+autoCompleteResultCount = 5
+showProviderBadge = 1
+searchPage = "suchresultate.htm"
+==
+<?php
+function onStart()
+{
+    // provide an id for breadcrumb json partial
+    $this['breadcrumbid'] = 'searchresults';
+
+    // translate the formaction url
+    $currentLocale = \RainLab\Translate\Classes\Translator::instance()->getLocale();
+    $locales = [
+        'de' => ['url' => 'suchresultate'],
+        'en' => ['url' => 'searchresults']
+    ];
+
+    $this['formaction'] = $locales[$currentLocale] ?? [];
+
+}
+?>
+==
+<div class="indent-me mt-5">
+  <h1 >{{ 'searchResults.title' |_ }}</h1>
+</div>
+<div class="searchinput indent-me mb-4">
+  <form action="{{ formaction.url }}?q=" method="get">
+    <div class="ss-search-form">
+        <div class="ss-search-form__input row pt-5 pb-5">
+            <span class="text-muted h6">{{ 'searchResults.yousearchedfor'|_ }} "{{ searchResults.query }}"</span>
+            <div class="col-12 col-sm-8">
+              <input class="form-control mb-3 d-inline"
+                     name="q"
+                     type="text"
+                     placeholder=""
+                     value=""
+                     autocomplete="off"
+                     autofocus
+                     aria-label="{{'searchResults.input.aria'|_}}"
+              >
+            </div>
+            <div class="col-12 col-sm-4">
+              <button class="ss-search-form__submit btn btn-primary mr-2 w-100"
+                      type="submit" >
+                      {{ 'searchResults.submit.label'|_ }}
+              </button>
+            </div>
+        </div>
+        <div class="ss-search-form__results" id="autocomplete-results">
+        </div>
+    </div>
+  </form>
+</div>
+
+{% component 'searchResults' %}
