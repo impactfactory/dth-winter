@@ -1,0 +1,10 @@
+name: Job
+form: $/impactfactory/jobboard/models/jobs/fields.yaml
+modelClass: Impactfactory\Jobboard\Models\Jobs
+defaultRedirect: impactfactory/jobboard/job
+create:
+    redirect: 'impactfactory/jobboard/job/update/:id'
+    redirectClose: impactfactory/jobboard/job
+update:
+    redirect: impactfactory/jobboard/job
+    redirectClose: impactfactory/jobboard/job

@@ -1,12 +1,12 @@
 plugin:
-    name: 'Jobboard'
-    description: 'Bewerbungen leicht managen'
+    name: Jobboard
+    description: "Bewerbungen leicht managen"
     author: ImpactFactory
     icon: oc-icon-stack-overflow
-    homepage: ''
+    homepage: ""
 navigation:
     main-menu-item:
-        label: 'Jobboard'
+        label: Jobboard
         url: impactfactory/jobboard/jobboard
         icon: icon-stack-overflow
         permissions:
@@ -24,9 +24,15 @@ navigation:
                 icon: icon-list-ol
                 permissions:
                     - jobboard
+            side-menu-item3:
+                label: Jobs
+                url: impactfactory/jobboard/job
+                icon: icon-square
+                permissions:
+                    - jobboard
 permissions:
     jobboard:
-        tab: 'Jobboard'
-        label: 'Jobboard'
+        tab: Jobboard
+        label: Jobboard
 dependencies:
-  - rainlab.translate
+    - rainlab.translate

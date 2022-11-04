@@ -1,0 +1,4 @@
+title: Job
+modelClass: Impactfactory\Jobboard\Models\Jobs
+toolbar:
+    buttons: reorder_toolbar
