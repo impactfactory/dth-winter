@@ -1,31 +1,34 @@
 #contactbox {
-  background: $if-primary;
-  color: $if-white;
-  position: fixed;
-  bottom: 1rem;
-  right: 1rem;
-  text-align: center;
-
-  a {
+    background: $if-primary;
     color: $if-white;
-    text-decoration: none !important;
-  }
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    text-align: center;
+    z-index: 1000;
 
-  a:hover, a:focus, a:active {
+    a {
+        color: $if-white;
+        text-decoration: none !important;
+    }
+
+    a:hover,
+    a:focus,
+    a:active {
         text-decoration: underline !important;
-      }
+    }
 
-  div#links {
-    font-size: $if-fs-sm!important;
-  }
+    div#links {
+        font-size: $if-fs-sm !important;
+    }
 
-  div#booking {
-    background: $if-primary-light;
-    border: 0px solid $if-white;
-    border-radius: 4px;
-    font-size: $if-fs-sm!important;
-    margin: .4rem auto .5rem auto;
-    padding: 0 0 0 0;
-    width: 90%;
-  }
+    div#booking {
+        background: $if-primary-light;
+        border: 0px solid $if-white;
+        border-radius: 4px;
+        font-size: $if-fs-sm !important;
+        margin: 0.4rem auto 0.5rem auto;
+        padding: 0 0 0 0;
+        width: 90%;
+    }
 }

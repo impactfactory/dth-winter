@@ -43,13 +43,23 @@ document.cookie = "sg-cookies-consent=1; path=/; expires=" + date.toGMTString();
         document.cookie = 'sg-cookies-statistical=0; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     }
 
-    var item = document.getElementById('sg-cookies-marketing-modal');
+    
+    var item = document.getElementById('sg-cookies-maps-modal');
 
     if( item.checked == true ) {
-        document.cookie = 'sg-cookies-marketing=1; path=/; expires=' + date.toGMTString();
+        document.cookie = 'sg-cookies-maps=1; path=/; expires=' + date.toGMTString();
     } else {
-        document.cookie = 'sg-cookies-marketing=0; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+        document.cookie = 'sg-cookies-maps=0; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     }
+
+    var item = document.getElementById('sg-cookies-medico-modal');
+
+    if( item.checked == true ) {
+        document.cookie = 'sg-cookies-medico=1; path=/; expires=' + date.toGMTString();
+    } else {
+        document.cookie = 'sg-cookies-medico=0; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    }
+    
 
         location.reload(true);
 
@@ -69,7 +79,9 @@ $('#cookies-bar .btn-accept-all').click(function(e) {
 
   document.cookie = "sg-cookies-statistical=1; path=/; expires=" + date.toGMTString();
 
-  document.cookie = "sg-cookies-marketing=1; path=/; expires=" + date.toGMTString();
+  document.cookie = "sg-cookies-maps=1; path=/; expires=" + date.toGMTString();
+
+  document.cookie = "sg-cookies-medico=1; path=/; expires=" + date.toGMTString();
 
   $('#cookies-bar').hide();
 

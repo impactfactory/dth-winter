@@ -1,0 +1,50 @@
+#sg-cookiesBar {
+    #cookies-bar {
+        background-image: none !important;
+        background-position: 20px 15px;
+        border-top: 1px solid #fff;
+        display: block;
+        height: auto;
+        opacity: 0.95;
+        position: fixed;
+        bottom: 0px;
+        left: 0;
+        text-align: left;
+        width: 100%;
+
+        h3 {
+            font-size: 1rem;
+            text-align: left !important;
+        }
+
+        .content {
+            display: block;
+        }
+
+        .buttons {
+            display: block;
+            padding-bottom: 1rem;
+            text-align: left;
+
+            .btn {
+                background-color: #81050c !important;
+                border-color: #81050c;
+                border-radius: 0.25rem;
+                color: white;
+                cursor: pointer;
+                display: inline-block;
+                font-size: 1rem;
+                font-weight: 400;
+                line-height: 1.5;
+                padding: 0.375rem 0.75rem;
+                text-align: center;
+                text-decoration: none;
+                vertical-align: middle;
+                user-select: none;
+                transition: color 0.15s ease-in-out,
+                    background-color 0.15s ease-in-out,
+                    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+            }
+        }
+    }
+}

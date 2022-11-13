@@ -36,8 +36,17 @@
       </div>
     {% endif %}
 
-    {% if person.map_published == '1' %}
-      <div class="pt-4 pb-4 col-12" id="map">
-        {% partial 'teamPerson::map' %}
-      </div>
+    {% if sgCookies.maps %}
+
+        {% if person.map_published == '1' %}
+          <div class="pt-4 pb-4 col-12" id="map">
+            {% partial 'teamPerson::map' %}
+          </div>
+        {% endif %}
+
+    {% else %}
+    <div class="pt-4 pb-4 col-12" id="map">
+      {{ 'cookies.googlemapsinfo'|_ }}
+    </div>
+
     {% endif %}
