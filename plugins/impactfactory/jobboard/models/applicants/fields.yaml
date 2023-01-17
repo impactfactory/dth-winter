@@ -6,7 +6,7 @@ tabs:
                 m: Herr
                 f: Frau
                 q: divers
-            emptyOption: 'bitte wählen'
+            emptyOption: "bitte wählen"
             showSearch: true
             span: auto
             required: 0
@@ -61,7 +61,7 @@ tabs:
             type: text
             tab: Basisdaten
         url:
-            label: 'Weitere Informationen unter:'
+            label: "Weitere Informationen unter:"
             span: full
             type: text
             tab: Basisdaten
@@ -71,14 +71,14 @@ tabs:
             type: text
             tab: Qualifikationen
         experience:
-            label: 'Erfahrung in Jahren'
+            label: "Erfahrung in Jahren"
             span: auto
             type: text
             tab: Qualifikationen
         lang_de:
             label: Deutsch
             options:
-                0: 'keine Kenntnisse'
+                0: "keine Kenntnisse"
                 A1: A1
                 A2: A2
                 B1: B1
@@ -86,7 +86,7 @@ tabs:
                 C1: C1
                 C2: C2
                 nativ: nativ
-            emptyOption: 'bitte wählen'
+            emptyOption: "bitte wählen"
             showSearch: true
             span: auto
             type: dropdown
@@ -94,7 +94,7 @@ tabs:
         lang_en:
             label: Englisch
             options:
-                0: 'keine Kenntnisse'
+                0: "keine Kenntnisse"
                 A1: A1
                 A2: A2
                 B1: B1
@@ -102,7 +102,7 @@ tabs:
                 C1: C1
                 C2: C2
                 nativ: nativ
-            emptyOption: 'bitte wählen'
+            emptyOption: "bitte wählen"
             showSearch: true
             span: auto
             type: dropdown
@@ -110,7 +110,7 @@ tabs:
         lang_fr:
             label: Französisch
             options:
-                0: 'keine Kenntnisse'
+                0: "keine Kenntnisse"
                 A1: A1
                 A2: A2
                 B1: B1
@@ -118,7 +118,7 @@ tabs:
                 C1: C1
                 C2: C2
                 nativ: nativ
-            emptyOption: 'bitte wählen'
+            emptyOption: "bitte wählen"
             showSearch: true
             span: auto
             type: dropdown
@@ -126,7 +126,7 @@ tabs:
         lang_it:
             label: Italienisch
             options:
-                0: 'keine Kenntnisse'
+                0: "keine Kenntnisse"
                 A1: A1
                 A2: A2
                 B1: B1
@@ -134,53 +134,51 @@ tabs:
                 C1: C1
                 C2: C2
                 nativ: nativ
-            emptyOption: 'bitte wählen'
+            emptyOption: "bitte wählen"
             showSearch: true
             span: auto
             type: dropdown
             tab: Qualifikationen
         other_languages:
-            label: 'Andere Sprachen'
+            label: "Andere Sprachen"
             size: tiny
             span: full
             type: textarea
             tab: Qualifikationen
         salary_max:
-            label: 'Lohnerwartung Maximum (Jahreslohn Brutto)'
+            label: "Lohnerwartung Maximum (Jahreslohn Brutto)"
             span: auto
             type: text
             tab: Qualifikationen
         salary_min:
-            label: 'Lohnerwartung Minimum (Jahreslohn Brutto)'
+            label: "Lohnerwartung Minimum (Jahreslohn Brutto)"
             span: auto
             type: text
             tab: Qualifikationen
         start_date:
-            label: 'möglicher Beginn Anstellung'
+            label: "möglicher Beginn Anstellung"
             mode: date
             span: auto
             type: datepicker
             tab: Qualifikationen
         workquota:
-            label: 'gewünschtes Pensum in Stellenprozenten'
+            label: "gewünschtes Pensum in Stellenprozenten"
             span: auto
             type: text
             tab: Qualifikationen
         note:
-            label: 'Nachricht bei Bewerbung'
+            label: "Nachricht bei Bewerbung"
             size: small
             span: full
             type: textarea
             tab: Qualifikationen
-        job_posting:
-            label: 'Ausgeschriebene Stelle'
-            options:
-                Administration: Administration
-                Empfang: Empfang
-                'MPA 60-100%': 'MPA 60-100%'
-            showSearch: true
-            span: auto
-            type: dropdown
+        job:
+            label: "Ausgeschriebene Stelle"
+            nameFrom: title
+            descriptionFrom: title
+            emptyOption: "--"
+            span: left
+            type: relation
             tab: Manager
         sort_order:
             label: Priorisierung/Sortierung
@@ -191,19 +189,19 @@ tabs:
             label: Status
             nameFrom: title
             descriptionFrom: title
-            emptyOption: '--'
+            emptyOption: "--"
             span: left
             type: relation
             tab: Manager
         files:
             label: Dokumente
             type: fileupload
-            fileTypes: '*'
+            fileTypes: "*"
             tab: Dossier
 secondaryTabs:
     fields:
         comment:
-            label: 'intern für Bewertung'
+            label: "intern für Bewertung"
             size: huge
             span: full
             type: richeditor

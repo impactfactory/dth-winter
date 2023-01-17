@@ -12,7 +12,7 @@ columns:
     sort_order:
         label: Prio
         type: text
-        hidden: 'true'
+        hidden: "true"
         sortable: true
     firstname:
         label: Vorname
@@ -34,9 +34,10 @@ columns:
         type: partial
         searchable: true
         path: ~/plugins/impactfactory/jobboard/models/applicants/tel.htm
-    job_posting:
-        label: Job
-        type: text
+    job:
+        label: Stelle
+        relation: job
+        select: title
         searchable: true
         sortable: true
     lang_de:

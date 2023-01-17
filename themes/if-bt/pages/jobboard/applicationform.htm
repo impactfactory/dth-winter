@@ -18,6 +18,7 @@ function onSave() {
 
     //Save in Database
     $data = new Applicants;
+    $data->job = input('job');
     $data->gender = input('gender');
     $data->firstname = input('firstname');
     $data->lastname = input('lastname');
@@ -42,13 +43,13 @@ function onSave() {
     $data->url = input('url');
     $data->note = input('note');
     $data->created_at = input('created_at');
-    $data->job_posting = input('job_posting');
     $data->sort_order = input('sort_order');
     $data->files = Input::file('files');
     $data->save();
 
     //Send Mails
     $vars = [
+        'job' => Input::get('job'),
         'gender' => Input::get('gender'),
         'firstname' => Input::get('firstname'),
         'lastname' => Input::get('lastname'),
@@ -72,8 +73,7 @@ function onSave() {
         'experience' => Input::get('experience'),
         'url' => Input::get('url'),
         'note' => Input::get('note'),
-        'created_at' => Input::get('created_at'),
-        'job_posting' => Input::get('job_posting')
+        'created_at' => Input::get('created_at')
     ];
 
     Mail::send('if.forms::applicationform', $vars, function($message) {
@@ -82,8 +82,8 @@ function onSave() {
     });
 
     Mail::send('if.forms::applicationform.data', $vars, function($message) {
-      $message->to('dth-office@hin.ch', '');
-      $message->from('dth-office@hin.ch', 'Diagnostisches und Therapeutisches Herzzentrum AG');
+      $message->to('kai@pulfer.info', '');
+      $message->from('tec@dth-herzzentrum.ch', 'Diagnostisches und Therapeutisches Herzzentrum AG');
     });
 
     $this['sent'] = true;
@@ -102,6 +102,15 @@ function onSave() {
         <div class="col-1 col-md-2 pt-3"></div>
         <div class="col-10 col-md-8 pt-3 ">
 
+        <div class="mb-3 {% if errors.first('job') %}error{% endif %}">
+          <label for="job">{{ 'forms.application.label.job'|_ }} *</label>
+          <select id="job" class="form-select" aria-label="job" select" name="job" required>
+            <option value="" selected>bitte wählen...</option>
+            <option value="1">MPA/MPK</option>
+            <option value="2">Arztsekretär/in</option>
+          </select>
+        </div>
+        
         <div class="mb-3">
           <label for="gender">{{ 'forms.application.label.gender'|_ }} *</label>
           <select id="gender" class="form-select" aria-label="gender select" name="gender" required>
@@ -165,7 +174,7 @@ function onSave() {
           <label for="lang_de">{{ 'forms.application.label.lang_de'|_ }} *</label>
           <select id="lang_de" class="form-select" aria-label="lang_de" select" name="lang_de"  required>
             <option value="" selected>bitte wählen...</option>
-            <option value="A1">A1</option>
+            <option value="A1">A1 (rudimentäre Grundkenntnisse)</option>
             <option value="A2">A2</option>
             <option value="B1">B1</option>
             <option value="B2">B2</option>
@@ -251,8 +260,12 @@ function onSave() {
           <select id="education" class="form-select" aria-label="" name="education" required>
             <option value="" selected>bitte wählen Sie...</option>
             <option value="MPA EFZ">MPA EFZ</option>
-            <option value="ausländische Ausbildung">ausländische Ausbildung</option>
-            <option value="andere">andere</option>
+            <option value="FaGe EFZ">FaGe EFZ</option>
+            <option value="Fachausweis MPK">Fachausweis MPK</option>
+            <option value="Pflegefachfrau/mann HF">Pflegefachfrau/mann HF</option>
+            <option value="Kaufmann / Kauffrau EFZ">Kaufmann / Kauffrau EFZ</option>
+            <option value="Arztsekretär/in">Arztsekretär/in</option>
+            <option value="Chefarzt-Sekretär/in">Chefarzt-Sekretär/in</option>
           </select>
         </div>
 
@@ -273,7 +286,6 @@ function onSave() {
 
         <div class="col-12 text-center pt-3">
           <input type="hidden" value="{{ 'now' | date('Y-m-d') }}" name="created_at">
-          <input type="hidden" value="MPA 60-100%" name="job_posting">
           <input type="hidden" value="9" name="sort_order">
           <button id="submit" name="submit" type="submit" class="btn btn-lg btn-primary">
             {{ 'forms.registration.label.submit'|_ }}

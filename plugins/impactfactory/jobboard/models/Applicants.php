@@ -27,6 +27,9 @@ class Applicants extends Model
     ];
 
     public $belongsTo = [
-        'state' => [States::class]
+        'state' => [States::class],
+        'job' => [Jobs::class]
     ];
+
+    
 }

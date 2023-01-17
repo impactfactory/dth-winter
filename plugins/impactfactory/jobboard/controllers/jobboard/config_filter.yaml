@@ -1,11 +1,9 @@
 scopes:
-    job_posting:
+    job:
         label: Stelle
-        type: group
-        conditions: job_posting in (:filtered)
-        options:
-            Administration: Administration
-            Empfang: Empfang
+        modelClass: Impactfactory\Jobboard\Models\Jobs
+        conditions: job_id in (:filtered)
+        nameFrom: title
     state:
         label: Status
         modelClass: Impactfactory\Jobboard\Models\States

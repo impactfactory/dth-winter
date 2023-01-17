@@ -129,3 +129,6 @@ columns:
     comment:
         label: Kommentar
         type: text
+    job_id:
+        label: Stelle
+        type: number
