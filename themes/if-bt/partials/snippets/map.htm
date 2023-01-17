@@ -8,7 +8,7 @@ snippetProperties[mapheight][type] = "string"
 ==
 
 
-
+{% if sgCookies.maps %}
 <div id="map-container-google-1" class="z-depth-1-half map-container mt-4" style="height:{{ mapheight-30 }}px">
 	<iframe title="Google Map"
 					width='100%'
@@ -20,6 +20,11 @@ snippetProperties[mapheight][type] = "string"
 					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2702.787202950648!2d8.517892615621937!3d47.35755237916897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x632bcc9fc05618c7!2sDiagnostisches%20und%20therapeutisches%20Herzzentrum%20AG!5e0!3m2!1sde!2sch!4v1590059798088!5m2!1sde!2sch">
 	</iframe>
 </div>
+{% else %}
+<div class="indent-me pt-4 pb-3 col-12" style="line-height: 1.8;">
+	<p>{{ 'cookies.googlemapsinfo'|_ }}</p>
+</div>
+{% endif %}
 
 {#
 <div class="travelpage pt-3">
