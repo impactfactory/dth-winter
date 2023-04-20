@@ -1,0 +1,13 @@
+fields:
+    name:
+        label: Name
+        span: auto
+        type: text
+    type:
+        label: Typ
+        options:
+            kk: kk
+            other: other
+        showSearch: true
+        span: auto
+        type: dropdown

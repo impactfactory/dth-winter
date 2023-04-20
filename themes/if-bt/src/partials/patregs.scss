@@ -1,0 +1,25 @@
+#patregform {
+    .nav-link {
+        color: $if-dark;
+
+        .svg-inline--fa {
+            margin-left: 0.25rem;
+        }
+    }
+
+    .nav-link.active {
+        color: $if-primary;
+    }
+
+    li:has(> button.active) + li button {
+        color: $if-primary !important;
+    }
+
+    .leftcolored {
+        background: $if-secondary-light;
+    }
+
+    .rightcolored {
+        background: $if-white;
+    }
+}

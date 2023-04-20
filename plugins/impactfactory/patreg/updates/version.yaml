@@ -1,0 +1,8 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table impactfactory_patreg_pats'
+    - builder_table_create_impactfactory_patreg_pats.php
+1.0.3:
+    - 'Created table impactfactory_patreg_assurances'
+    - builder_table_create_impactfactory_patreg_assurances.php

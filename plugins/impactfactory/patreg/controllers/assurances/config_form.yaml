@@ -1,0 +1,10 @@
+name: Assurances
+form: $/impactfactory/patreg/models/assurances/fields.yaml
+modelClass: Impactfactory\Patreg\Models\Assurances
+defaultRedirect: impactfactory/patreg/assurances
+create:
+    redirect: 'impactfactory/patreg/assurances/update/:id'
+    redirectClose: impactfactory/patreg/assurances
+update:
+    redirect: impactfactory/patreg/assurances
+    redirectClose: impactfactory/patreg/assurances

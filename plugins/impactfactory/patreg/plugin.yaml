@@ -1,0 +1,26 @@
+plugin:
+    name: "impactfactory.patreg::lang.plugin.name"
+    description: "impactfactory.patreg::lang.plugin.description"
+    author: ImpactFactory
+    icon: oc-icon-inbox
+    homepage: ""
+navigation:
+    main-menu-item:
+        label: "impactfactory.patreg::lang.plugin.name"
+        url: impactfactory/patreg/assurances
+        icon: icon-users
+        permissions:
+            - "patreg.*"
+        sideMenu:
+            side-menu-assurances:
+                label: Versicherungen
+                url: impactfactory/ref/assurances
+                icon: icon-simplybuilt
+                permissions:
+                    - patreg.assurances
+permissions:
+    patreg.assurances:
+        tab: "impactfactory.ref::lang.plugin.name"
+        label: "impactfactory.ref::lang.permission.assurances"
+dependencies:
+    - rainlab.translate

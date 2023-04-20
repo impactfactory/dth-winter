@@ -1,0 +1,4 @@
+title: Assurances
+modelClass: Impactfactory\Patreg\Models\Assurances
+toolbar:
+    buttons: reorder_toolbar

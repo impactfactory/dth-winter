@@ -1,0 +1,158 @@
+title = "Patienten-Registration"
+url = "/stammblatt"
+layout = "default"
+meta_title = "Patienten-Registration"
+meta_description = "Übermitteln Sie uns Ihre Stammdaten vor Ihrem ersten Termin bei uns."
+is_hidden = 0
+robot_index = "noindex"
+robot_follow = "nofollow"
+og_title = "Patienten-Registration/Stammblatt"
+og_type = "article"
+og_description = "Übermitteln Sie uns Ihre Stammdaten vor Ihrem ersten Termin bei uns."
+
+[patregassurances]
+==
+<section id="patregform" class="fullwrap">
+    <div class="indent-me">
+
+        {% content 'stammblatt-intro' %}
+
+        <form class="p-3" novalidate data-request="onHandleForm" data-request-files data-request-validate
+            data-request-flash>
+
+            <div class="row">
+                <div class="col-12 pt-3 ">
+
+                    <div class="alert alert-danger" data-validate-error>
+                        <p data-message></p>
+                    </div>
+
+                    {# Tab Navigation #}
+                    <ul class="nav nav-tabs" id="FormsTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="patient-tab" data-bs-toggle="tab"
+                                data-bs-target="#patient" type="button" role="tab" aria-controls="patient"
+                                aria-selected="true">
+                                1 {% partial 'html_body/svg-icons/arrow-circle-right' %}
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact"
+                                type="button" role="tab" aria-controls="contact" aria-selected="false">
+                                2 {% partial 'html_body/svg-icons/arrow-circle-right' %}
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="ass-tab" data-bs-toggle="tab" data-bs-target="#ass"
+                                type="button" role="tab" aria-controls="ass" aria-selected="false">
+                                3 {% partial 'html_body/svg-icons/arrow-circle-right' %}
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="doctors-tab" data-bs-toggle="tab" data-bs-target="#doctors"
+                                type="button" role="tab" aria-controls="doctors" aria-selected="false">
+                                4 {% partial 'html_body/svg-icons/arrow-circle-right' %}
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="drugs-tab" data-bs-toggle="tab" data-bs-target="#drugs"
+                                type="button" role="tab" aria-controls="drugs" aria-selected="false">
+                                5 {% partial 'html_body/svg-icons/arrow-circle-right' %}
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="allergies-tab" data-bs-toggle="tab" data-bs-target="#allergies"
+                                type="button" role="tab" aria-controls="allergies" aria-selected="false">
+                                6 {% partial 'html_body/svg-icons/arrow-circle-right' %}
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="consent-tab" data-bs-toggle="tab" data-bs-target="#consent"
+                                type="button" role="tab" aria-controls="consent" aria-selected="false">
+                                7 {% partial 'html_body/svg-icons/check-circle' %}
+                            </button>
+                        </li>
+                    </ul>
+
+                    {# Tab Patient #}
+                    <div class="tab-pane fade show" id="patient" role="tabpanel" aria-labelledby="patient-tab">
+                        <div class="row col-12">
+                            Patient
+                        </div>
+                    </div>
+
+                    {# Tab Contact #}
+                    <div class="tab-pane fade show" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                        <div class="row col-12">
+                            Contact
+                        </div>
+                    </div>
+
+                    {# Tab Assurances #}
+                    <div class="tab-pane fade show" id="ass" role="tabpanel" aria-labelledby="ass-tab">
+                        <div class="row col-12">
+                            Assurances
+                            {% component 'patregassurances' %}
+                        </div>
+                    </div>
+
+                    {# Tab Doctors #}
+                    <div class="tab-pane fade show" id="doctors" role="tabpanel" aria-labelledby="doctors-tab">
+                        <div class="row col-12">
+                            Doctors
+                        </div>
+                    </div>
+
+                    {# Tab Drugs #}
+                    <div class="tab-pane fade show" id="drugs" role="tabpanel" aria-labelledby="drugs-tab">
+                        <div class="row col-12">
+                            Drugs
+                        </div>
+                    </div>
+
+                    {# Tab Allergies #}
+                    <div class="tab-pane fade show" id="allergies" role="tabpanel" aria-labelledby="allergies-tab">
+                        <div class="row col-12">
+                            Allergies
+                        </div>
+                    </div>
+
+                    {# Tab Consent #}
+                    <div class="tab-pane fade show" id="consent" role="tabpanel" aria-labelledby="consent-tab">
+                        <div class="row col-12">
+                            Consent and submit
+
+                            {# Submit Section #}
+                            <div class="col-12 text-center pt-3">
+                                <button id="submit" name="submit" type="submit" class="btn btn-lg btn-primary"
+                                    data-attach-loading>
+                                    {{ 'forms.ref.label.submit'|_ }}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+{% put scripts %}
+
+<script>
+    $(window).on('ajaxInvalidField', function (event, fieldElement, fieldName, errorMsg, isFirst) {
+        $(fieldElement).closest('.form-control').addClass('is-invalid');
+    });
+
+    $(document).on('ajaxPromise', '[data-request]', function () {
+        $(this).closest('form').find('.form-control.is-invalid').removeClass('is-invalid');
+    });
+</script>
+
+{% endput %}

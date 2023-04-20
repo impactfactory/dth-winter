@@ -14,7 +14,6 @@
 @import "partials/globals-links.scss";
 @import "partials/section-templates.scss";
 
-
 //////////////// components imports //////////////////////
 
 @import "partials/blockquotes.scss";
@@ -46,6 +45,7 @@
 @import "partials/map-snippet.scss";
 @import "partials/medicosearch-widget.scss";
 @import "partials/pagetitle.scss";
+@import "partials/patregs.scss";
 @import "partials/payment.scss";
 @import "partials/referrals.scss";
 @import "partials/team-partnerbox.scss";
@@ -59,20 +59,17 @@
 @import "partials/videopreview.scss";
 @import "partials/wrap.scss";
 
-
 ///////////////// Bootstrap imports /////////////////////////
 // see bootsrap base file for details; unused modules are commented out
 // same with javascript modules
 
 @import "../node_modules/bootstrap/scss/bootstrap";
 
-
 ///////////////// extending classes ////////////////////////
 //we make our life easier and extend some global elements with already existing for this projects
 //- f.e. indent x-dimension with the class, but adapt y-dimension locally
 
 @import "partials/globals-extensions.scss";
-
 
 //////////////// print ////////////////////////
 //at the very end of all we can do the print adaptions, thats reducing some loading time
