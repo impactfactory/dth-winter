@@ -1,0 +1,301 @@
+<h1>Stammdaten {{firstname}} {{lastname}}</h1>
+
+<p>Übermittelt am {{sent_at}} via Formular unter https://dth-herzzentrum.ch/stammdaten</p>
+
+<p>Legende:<br>
+    - - - = Feld wurde nicht beantwortet</p>
+
+<h2>Personalien</h2>
+<table>
+    <tr>
+        <td>Anrede & Geschlecht</td>
+        <td> </td>
+        <td>{{ gender | default('- - -') }}</td>
+    </tr>
+    <tr>
+        <td>Nachname</td>
+        <td> </td>
+        <td>{{ lastname | default('- - -') }}</td>
+    </tr>
+    <tr>
+        <td>Vorname</td>
+        <td> </td>
+        <td>{{ firstname| default('- - -') }}</td>
+    </tr>
+    <tr>
+        <td>Geburtsdatum</td>
+        <td> </td>
+        <td>{{ birthday | default('- - -') }}</td>
+    </tr>
+    <tr>
+        <td>Telefon</td>
+        <td> </td>
+        <td> {{ phone | default('- - -') }}</td>
+    </tr>
+    <tr>
+        <td>Adresse</td>
+        <td> </td>
+        <td> {{ streetno | default('- - -') }}</td>
+    </tr>
+    <tr>
+        <td>Plz</td>
+        <td> </td>
+        <td>{{ zip | default('- - -') }}</td>
+    </tr>
+    <tr>
+        <td>Ort</td>
+        <td> </td>
+        <td>{{ city | default('- - -') }}</td>
+    </tr>
+    <tr>
+        <td>Land</td>
+        <td> </td>
+        <td>{{ country | default('- - -') }}</td>
+    </tr>
+    <tr>
+        <td>E-Mail</td>
+        <td> </td>
+        <td> {{ email | default('- - -') }}</td>
+    </tr>
+    <tr>
+        <td>Terminbestätigung gewünscht</td>
+        <td> </td>
+        <td>{{ confirmation }}</td>
+    </tr>
+    <tr>
+        <td>Beruf</td>
+        <td> </td>
+        <td>{{ profession | default('- - -') }}</td>
+    </tr>
+    <tr>
+        <td>Nationalität</td>
+        <td> </td>
+        <td>{{ nationality | default('- - -') }}</td>
+    </tr>
+    <tr>
+        <td>Zivilstand</td>
+        <td> </td>
+        <td>{{ civilianstatus | default('- - -') }}</td>
+    </tr>
+    <tr>
+        <td>
+            <hr>
+        </td>
+    </tr>
+    <tr>
+        <td>Krankenkasse KVG</td>
+        <td> </td>
+        <td>{{ kvg | default('- - -') }} {{ kvg_other | default('') }}</td>
+    </tr>
+    <tr>
+        <td>Versicherten-Nr. KVG</td>
+        <td> </td>
+        <td>{{ kvg_no | default('- - -') }}</td>
+    </tr>
+    <tr>
+        <td>Spitaldeckung:</td>
+        <td> </td>
+        <td>{{ novvg | default('hat eine Zusatzspitalversicherung: ')}}{{ costcarry | default('') }} {{ selfpay |
+            default('Gibt sich NICHT als Selbstzahler an.')}} </td>
+    </tr>
+    <tr>
+        <td>Vers. Spitaldeckung:</td>
+        <td> </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Krankenkasse VVG</td>
+        <td> </td>
+        <td>{{ vvg | default('- - -') }} {{ vvg_other | default('') }}</td>
+    </tr>
+    <tr>
+        <td>Versicherten-Nr. VVG</td>
+        <td> </td>
+        <td>{{ vvg_no | default('- - -') }}</td>
+    </tr>
+    <tr>
+        <td>
+            <hr>
+        </td>
+    </tr>
+    <tr>
+        <td>Bericht an Patient</td>
+        <td> </td>
+        <td>{{ reports }}</td>
+    </tr>
+    <tr>
+        <td>Mailversand</td>
+        <td> </td>
+        <td>{{ encrypted | default('verschlüsselt') }}</td>
+    </tr>
+</table>
+
+<br>
+<hr>
+<br>
+
+<h2>Kontakte > Allgemeine Kontakte (Vertrauensperson)</h2>
+<table>
+    <tr>
+        <td>Beziehung</td>
+        <td></td>
+        <td>{{contact_relation | default('- - -') }}</td>
+    </tr>
+    <tr>
+        <td>Korrespondenz/Notfall</td>
+        <td></td>
+        <td>bitte Checkbox "Notfall" anchecken</td>
+    </tr>
+    <tr>
+        <td>Vorname</td>
+        <td></td>
+        <td>{{ contact_firstname | default('- - -') }}</td>
+    </tr>
+    <tr>
+        <td>Nachname</td>
+        <td></td>
+        <td>{{ contact_lastname | default('- - -') }}</td>
+    </tr>
+    <tr>
+        <td>Geburtsdatum</td>
+        <td></td>
+        <td>{{ contact_birthday | default('- - -') }}</td>
+    </tr>
+    <tr>
+        <td>E-Mail</td>
+        <td></td>
+        <td>{{ contact_email | default('- - -') }}</td>
+    </tr>
+    <tr>
+        <td>Adresse</td>
+        <td></td>
+        <td>{{sameaddress | default('')}}{{ contact_streetno | default('') }}</td>
+    </tr>
+    <tr>
+        <td>Plz</td>
+        <td></td>
+        <td>{{sameaddress | default('')}}{{ contact_zip | default('') }}</td>
+    </tr>
+    <tr>
+        <td>Ort</td>
+        <td></td>
+        <td>{{sameaddress | default('')}}{{ contact_city | default('') }}</td>
+    </tr>
+    <tr>
+        <td>Land</td>
+        <td></td>
+        <td>{{sameaddress | default('')}}{{ contact_country | default('') }}</td>
+    </tr>
+    <tr>
+        <td>Privat/Mobil</td>
+        <td></td>
+        <td>{{ contact_phone | default('- - -') }}</td>
+    </tr>
+</table>
+<br>
+<hr>
+<br>
+
+<h2>Kontakte > Medizinische Kontakte</h2>
+<table>
+    <tr>
+        <td>Hausarzt</td>
+        <td></td>
+        <td>{{ family_doctor | default('- - -') }}</td>
+    </tr>
+    <tr>
+        <td>soll Berichte erhalten</td>
+        <td></td>
+        <td>{{ doc_consent1 | default('kein Bericht') }}</td>
+    </tr>
+    <tr>
+        <td>weiterer Arzt</td>
+        <td></td>
+        <td>{{ other_doctor | default('- - -') }}</td>
+    </tr>
+    <tr>
+        <td>soll Berichte erhalten</td>
+        <td></td>
+        <td>{{ doc_consent2 | default('kein Bericht') }}</td>
+    </tr>
+    <tr>
+        <td>weiterer Arzt</td>
+        <td></td>
+        <td>{{ other_doctor2 | default('- - -') }}</td>
+    </tr>
+    <tr>
+        <td>soll Berichte erhalten</td>
+        <td></td>
+        <td>{{ doc_consent3 | default('kein Bericht') }}</td>
+    </tr>
+</table>
+<br>
+<hr>
+<br>
+
+
+<h2>Dossier > Medikamente</h2>
+<table>
+    <tr>
+        <td>Medikamente:</td>
+        <td></td>
+        <td>{{nodrugs | default('')}}{{ drugs | default('') }}</td>
+    </tr>
+</table>
+<br>
+<hr>
+<br>
+
+<h2>Dossier > Anamnese > Allergien</h2>
+<table>
+    <tr>
+        <td>Allergien:</td>
+        <td></td>
+        <td>{{ allergies_no | default('ja')}}</td>
+    </tr>
+    <tr>
+        <td>Penicilin-Allergie:</td>
+        <td></td>
+        <td>{{ allergies_penicilin | default('- - -') }}</td>
+    </tr>
+    <tr>
+        <td>Kontrast-Allergie:</td>
+        <td></td>
+        <td>{{ allergies_contrast | default('- - -') }}</td>
+    </tr>
+    <tr>
+        <td>Andere Allergien</td>
+        <td></td>
+        <td>{{ allergies_other | default('- - -') }}</td>
+    </tr>
+</table>
+<br>
+<br>
+
+<h2>Durch die Übermittlung am {{sent_at}} erteilte rechtiche Einwilligung:</h2>
+<p>
+<h5>Mit dieser Übermittlung...</h5>
+...bin ich damit einverstanden, dass die Arztrechnungen elektronisch verschlüsselt via MediData (Tiers payant)
+direkt an meine Krankenkassen gesendet werden. Auf Verlangen wird mir die Kopie der Rechnung zugestellt.</p>
+
+<p>... erteile ich die Erlaubnis, die für die Rechnungsstellung erforderlichen Daten sowie Berichte und Befunde im
+    Bedarfsfall sowohl an Versicherungen (Zusatzversicherung, Lebensversicherung, Sozialversicherung,
+    Rechtsschutzversicherung),
+    Inkasso-Beauftragte, Rechtsanwälte, medizinische Laboratorien und weitere medizinische Dienstleister (z.B.
+    Fach-Institute) sowie an staatliche Instanzen weiterzuleiten.</p>
+
+<p>... ermächtige ich die Diagnostische und therapeutische Herzzentrum AG medizinische Akten vorhergehender,
+    fallrelevanter
+    Behandlungen über mich zur Einsicht anzufordern und die medizinischen Ergebnisse dem/r Hausärzt*in, dem/r
+    Zuweiser*in
+    sowie nachbehandelnden Ärzten weiterzusenden. Ich bin damit einverstanden, dass mein behandelnder Arzt meine
+    Berichte
+    mit einem stellvertretenden Arzt der Diagnostisches und therapeutisches Herzzentrum AG teilen darf.</p>
+
+<p>...bin ich einverstanden, dass durch die Bearbeitung meiner Daten im Herzzentrum, IT- oder
+    Medizinaltechnik-Dienstleister im Falle einer Störung, Wartung oder Supportanfrage meine Daten, falls nötig,
+    einsehen
+    dürfen.</p>
+
+<p>... erkläre ich die Angaben in diesem Formular wahrheitsgetreu ausgefüllt, zur Kenntnis
+    genommen und verstanden zu haben und damit einverstanden zu sein.</p>

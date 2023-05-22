@@ -1,0 +1,213 @@
+<h3>{{ 'forms.patdata.title.contacts'|_ }}</h3>
+
+<div class="row py-2">
+    <div class="col-12 col-md-6">
+        <label for="contact_relation"
+            >{{ 'forms.patdata.label.contact_relation'|_ }}</label
+        >
+        <select
+            id="contact_relation"
+            class="form-select"
+            aria-label=""
+            name="contact_relation"
+        >
+            {% if warnings %}
+            <option value="{{contact_relation}}" selected>
+                {{contact_relation}}
+            </option>
+            {% else %}
+            <option value="" selected>bitte wählen...</option>
+            {% endif %}
+            <option value="Ehepartner">
+                {{ 'forms.patdata.option.spouse-m'|_ }}
+            </option>
+            <option value="Ehepartnerin">
+                {{ 'forms.patdata.option.spouse-f'|_ }}
+            </option>
+            <option value="Lebenspartner">
+                {{ 'forms.patdata.option.lifepat-m'|_ }}
+            </option>
+            <option value="Lebenspartnerin">
+                {{ 'forms.patdata.option.lifepat_f'|_ }}
+            </option>
+            <option value="Vater">{{ 'forms.patdata.option.father'|_ }}</option>
+            <option value="Mutter">
+                {{ 'forms.patdata.option.mother'|_ }}
+            </option>
+            <option value="Sohn">{{ 'forms.patdata.option.son'|_ }}</option>
+            <option value="Tochter">
+                {{ 'forms.patdata.option.dauther'|_ }}
+            </option>
+            <option value="Bruder">
+                {{ 'forms.patdata.option.brother'|_ }}
+            </option>
+            <option value="Schwester">
+                {{ 'forms.patdata.option.sister'|_ }}
+            </option>
+            <option value="Beistand">
+                {{ 'forms.patdata.option.assistance'|_ }}
+            </option>
+            <option value="Vormund">
+                {{ 'forms.patdata.option.guardian'|_ }}
+            </option>
+        </select>
+    </div>
+    <div class="col-12 col-md-6 pt-3 pt-md-0">
+        <label for="contact_birthday"
+            >{{ 'forms.patdata.label.birthday'|_ }}</label
+        >
+        <input
+            type="date"
+            id="contact_birthday"
+            name="contact_birthday"
+            class="form-control"
+            min="1920-01-01"
+            max="{{ 'now' | date('Y-m-d') }}"
+        />
+        <div
+            class="form-text text-danger"
+            data-validate-for="contact_birthday"
+        ></div>
+    </div>
+</div>
+
+<div class="row py-2">
+    <div class="col-12 col-md-6">
+        <label for="contact_firstname"
+            >{{ 'forms.patdata.label.firstname'|_ }}</label
+        >
+        <input
+            type="text"
+            id="contact_firstname"
+            name="contact_firstname"
+            class="form-control"
+        />
+        <div
+            class="form-text text-danger"
+            data-validate-for="contact_firstname"
+        ></div>
+    </div>
+
+    <div class="col-12 col-md-6 pt-3 pt-md-0">
+        <label for="contact_lastname"
+            >{{ 'forms.patdata.label.lastname'|_ }}</label
+        >
+        <input
+            type="text"
+            id="contact_lastname"
+            name="contact_lastname"
+            class="form-control"
+        />
+        <div
+            class="form-text text-danger"
+            data-validate-for="contact_lastname"
+        ></div>
+    </div>
+</div>
+
+<div class="row py-2">
+    <div class="col-12 col-md-6">
+        <label for="contact_phone">{{ 'forms.patdata.label.phone'|_ }}</label>
+        <input
+            type="number"
+            id="contact_phone"
+            name="contact_phone"
+            class="form-control"
+        />
+        <div
+            class="form-text text-danger"
+            data-validate-for="contact_phone"
+        ></div>
+    </div>
+    <div class="col-12 col-md-6 pt-3 pt-md-0">
+        <label for="contact_email">{{ 'forms.patdata.label.email'|_ }}</label>
+        <input
+            type="email"
+            id="contact_email"
+            name="contact_email"
+            class="form-control"
+        />
+        <div
+            class="form-text text-danger"
+            data-validate-for="contact_email"
+        ></div>
+    </div>
+</div>
+
+<div class="col-12 pt-3 mb-3">
+    <div class="form-check">
+        <input
+            class="form-check-input"
+            type="checkbox"
+            value="selbe Adresse wie Patient*in!"
+            name="sameaddress"
+            id="sameaddress"
+        />
+        <label class="form-check-label" for="sameaddress">
+            {{ 'forms.patdata.label.contact_sameadress'|_ }}
+        </label>
+    </div>
+</div>
+
+<div id="contact_address">
+    <div class="row py-2">
+        <div class="col-12 col-md-6">
+            <label for="contact_streetno"
+                >{{ 'forms.ref.label.street_no'|_ }}</label
+            >
+            <input
+                type="text"
+                id="contact_streetno"
+                name="contact_streetno"
+                class="form-control"
+            />
+            <div
+                class="form-text text-danger"
+                data-validate-for="contact_streetno"
+            ></div>
+        </div>
+
+        <div class="col-12 col-md-6 pt-3 pt-md-0">
+            <label for="contact_zip">{{ 'forms.ref.label.zip'|_ }}</label>
+            <input
+                type="number"
+                id="contact_zip"
+                name="contact_zip"
+                class="form-control"
+            />
+            <div
+                class="form-text text-danger"
+                data-validate-for="contact_zip"
+            ></div>
+        </div>
+    </div>
+
+    <div class="row py-2">
+        <div class="col-12 col-md-6">
+            <label for="contact_city">{{ 'forms.ref.label.city'|_ }}</label>
+            <input
+                type="text"
+                id="contact_city"
+                name="contact_city"
+                class="form-control"
+            />
+            <div
+                class="form-text text-danger"
+                data-validate-for="contact_city"
+            ></div>
+        </div>
+
+        <div class="col-12 col-md-6 pt-3 pt-md-0">
+            {% partial 'patdata/contacts-countries' %}
+        </div>
+    </div>
+</div>
+
+{% put scripts %}
+<script>
+    var address = document.getElementById("contact_address");
+    document.getElementById("sameaddress").onchange = function () {
+        address.style.display = this.checked ? "none" : "block";
+    };
+</script>
+{% endput %}

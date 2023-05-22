@@ -1,0 +1,39 @@
+<h3>{{ 'forms.patdata.title.allergies'|_ }}</h3>
+
+<div class="form-check">
+    <input class="form-check-input" type="checkbox" value="hat keine Allergien" name="allergies_no" id="allergies_no">
+    <label class="form-check-label" for="allergies_no">
+        {{ 'forms.patdata.label.allergies-no'|_ }}
+    </label>
+</div>
+
+<div id="has_allergies">
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="ja" name="allergies_penicilin">
+        <label class="form-check-label" for="allergies_penicilin">
+            {{ 'forms.patdata.label.allergies-penicilin'|_ }}
+        </label>
+    </div>
+
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="ja" name="allergies_contrast">
+        <label class="form-check-label" for="allergies_contrast">
+            {{ 'forms.patdata.label.allergies-contrast'|_ }}
+        </label>
+    </div>
+
+    <div class="col-12 mb-3 mt-3">
+        <label for="allergies_other">{{ 'forms.patdata.label.allergies-other'|_ }}</label>
+        <textarea class="form-control" name="allergies_other" rows="4"></textarea>
+    </div>
+</div>
+
+
+{% put scripts %}
+<script>
+    var allergies = document.getElementById('has_allergies');
+    document.getElementById('allergies_no').onchange = function () {
+        allergies.style.display = this.checked ? 'none' : 'block';
+    };
+</script>
+{% endput %}

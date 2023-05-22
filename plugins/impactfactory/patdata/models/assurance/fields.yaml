@@ -1,0 +1,15 @@
+fields:
+    name:
+        label: 'impactfactory.ref::lang.assurance.name'
+        span: full
+        type: text
+    type:
+        label: 'impactfactory.ref::lang.assurance.type'
+        options:
+            kk: Krankenkasse
+            foreign: Ausland
+            other: Versicherung
+        showSearch: true
+        span: full
+        placeholder: 'bitte wählen'
+        type: dropdown

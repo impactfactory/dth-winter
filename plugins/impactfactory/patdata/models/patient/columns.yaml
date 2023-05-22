@@ -1,0 +1,75 @@
+columns:
+    state:
+        label: 'impactfactory.ref::lang.patient.state'
+        type: partial
+        sortable: false
+        path: ~/plugins/impactfactory/ref/controllers/patients/_state.htm
+    id:
+        label: id
+        type: number
+        sortable: true
+    firstname:
+        label: 'impactfactory.ref::lang.patient.firstname'
+        type: text
+        searchable: true
+        sortable: true
+    lastname:
+        label: 'impactfactory.ref::lang.patient.lastname'
+        type: text
+        searchable: true
+        sortable: true
+    phone:
+        label: 'impactfactory.ref::lang.patient.phone'
+        type: text
+    email:
+        label: 'impactfactory.ref::lang.patient.email'
+        type: text
+        searchable: true
+    costcarry:
+        label: 'impactfactory.ref::lang.patient.costcarry'
+        type: text
+        invisible: true
+    lastdate:
+        label: 'impactfactory.ref::lang.patient.lastdate'
+        type: text
+        sortable: true
+    clinical:
+        label: 'impactfactory.ref::lang.patient.clinical'
+        type: text
+        invisible: true
+    question:
+        label: 'impactfactory.ref::lang.patient.question'
+        type: text
+        invisible: true
+    diagnostics:
+        label: 'impactfactory.ref::lang.patient.diagnostics'
+        type: text
+        invisible: true
+    note:
+        label: 'impactfactory.ref::lang.patient.note'
+        type: text
+        invisible: true
+    doc_firstname:
+        label: 'impactfactory.ref::lang.patient.doc_firstname'
+        type: text
+        searchable: true
+        invisible: true
+        sortable: true
+    doc_lastname:
+        label: 'impactfactory.ref::lang.patient.doc_lastname'
+        type: text
+        invisible: true
+        searchable: true
+        sortable: true
+    doc_city:
+        label: 'impactfactory.ref::lang.patient.doc_city'
+        type: text
+        invisible: true
+    doc_email:
+        label: 'impactfactory.ref::lang.patient.doc_email'
+        type: text
+        invisible: true
+    doc_phone:
+        label: 'impactfactory.ref::lang.patient.doc_phone'
+        type: text
+        invisible: true

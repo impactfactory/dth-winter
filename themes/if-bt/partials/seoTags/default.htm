@@ -1,4 +1,3 @@
-
 {% set orgameta = orgaMeta.meta %}
 {% set post = postdetail.post %}
 {% set cat = postsincategory.category %}
@@ -6,225 +5,235 @@
 
 <!doctype html>
 <html id="top" class="no-js" lang="{{ localePicker.activeLocale }}">
-  <head>
-{# Standard Meta Tags #}
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="{{ seoTag.robots }}">
-    {# <link rel="preconnect" href="https://www.google-analytics.com/" crossorigin> #}
-    <link rel="preconnect" href="https://maps.googleapis.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-{# title #}
+
+<head>
+  {# Standard Meta Tags #}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="{{ seoTag.robots }}">
+  {#
+  <link rel="preconnect" href="https://www.google-analytics.com/" crossorigin> #}
+  <link rel="preconnect" href="https://maps.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  {# title #}
   {% if breadcrumbid == 'persondetail' %} {# for profile pages #}
-    <title>{{ person.first_name }} {{ person.last_name }} | {{ orgameta.schema_name }}</title>
-    <meta name="title" content="{{ person.first_name }} {{ person.last_name }} | {{ orgameta.schema_name }}">
+  <title>{{ person.first_name }} {{ person.last_name }} | {{ orgameta.schema_name }}</title>
+  <meta name="title" content="{{ person.first_name }} {{ person.last_name }} | {{ orgameta.schema_name }}">
   {% elseif breadcrumbid == 'post-detail' %} {# for blog posts #}
-    <title>{{ post.meta_title }}</title>
-    <meta name="title" content="{{ post.meta_title }}">
+  <title>{{ post.meta_title }}</title>
+  <meta name="title" content="{{ post.meta_title }}">
   {% elseif breadcrumbid == 'postsincategory' %} {# for blog category pages #}
-    <title>{{ cat.meta_title }} | {{ orgameta.schema_name }}</title>
-    <meta name="title" content="{{ cat.meta_title }} | {{ orgameta.schema_name }}">
+  <title>{{ cat.meta_title }} | {{ orgameta.schema_name }}</title>
+  <meta name="title" content="{{ cat.meta_title }} | {{ orgameta.schema_name }}">
   {% elseif breadcrumbid == 'postswithtag' %} {# for blog tag pages #}
-    <title>{{ tag.meta_title }} | {{ orgameta.schema_name }}</title>
-    <meta name="title" content="{{ tag.meta_title }} | {{ orgameta.schema_name }}">
+  <title>{{ tag.meta_title }} | {{ orgameta.schema_name }}</title>
+  <meta name="title" content="{{ tag.meta_title }} | {{ orgameta.schema_name }}">
   {% elseif seoTag.meta_title %}
-    <title>{{ seoTag.meta_title }} | {{ orgameta.schema_site_name }}</title>
-    <meta name="title" content="{{ seoTag.meta_title }} | {{ orgameta.schema_site_name }}">
+  <title>{{ seoTag.meta_title }} | {{ orgameta.schema_site_name }}</title>
+  <meta name="title" content="{{ seoTag.meta_title }} | {{ orgameta.schema_site_name }}">
   {% else %}
-    <title>{{ orgameta.schema_site_name }}</title>
-    <meta name="title" content="{{ orgameta.schema_site_name }}">
+  <title>{{ orgameta.schema_site_name }}</title>
+  <meta name="title" content="{{ orgameta.schema_site_name }}">
   {% endif %}
 
-{# description #}
+  {# description #}
   {% if breadcrumbid == 'persondetail' %} {# for profile pages #}
-    <meta name="description" content="{{ person.seo_desc }}">
+  <meta name="description" content="{{ person.seo_desc }}">
   {% elseif breadcrumbid == 'post-detail' %} {# for blog posts #}
-    <meta name="description" content="{{ post.meta_desc }}">
+  <meta name="description" content="{{ post.meta_desc }}">
   {% elseif breadcrumbid == 'postsincategory' %} {# for blog category pages #}
-    <meta name="description" content="{{ cat.meta_desc }}">
+  <meta name="description" content="{{ cat.meta_desc }}">
   {% elseif breadcrumbid == 'postswithtag' %} {# for blog tag pages #}
-    <meta name="description" content="{{ tag.meta_desc }}">
+  <meta name="description" content="{{ tag.meta_desc }}">
   {% elseif seoTag.meta_description %}
-    <meta name="description" content="{{ seoTag.meta_description }}">
+  <meta name="description" content="{{ seoTag.meta_description }}">
   {% else %}
-    <meta name="description" content="{{ orgameta.schema_desc }}">
+  <meta name="description" content="{{ orgameta.schema_desc }}">
   {% endif %}
 
-{# author #}
+  {# author #}
   {% if breadcrumbid == 'post-detail' %} {# for blog posts #}
-    <meta name="author" content="{{ post.author.first_name }} {{ post.author.last_name }}">
+  <meta name="author" content="{{ post.author.first_name }} {{ post.author.last_name }}">
   {% elseif orgameta.schema_author_name %}
-    <meta name="author" content="{{ orgameta.schema_author_name }}">
+  <meta name="author" content="{{ orgameta.schema_author_name }}">
   {% endif %}
 
-{# copyright #}
+  {# copyright #}
   {% if orgameta.schema_copyright %}
-    <meta name="copyright" content="{{ orgameta.schema_copyright }}">
+  <meta name="copyright" content="{{ orgameta.schema_copyright }}">
   {% endif %}
 
-{# keywords #}
+  {# keywords #}
   {% if breadcrumbid == 'post-detail' %} {# for blog posts #}
-    <meta name="keywords" content="{% for tag in post.tags %}{{ tag.name }}{%- if not loop.last -%}, {% endif %}{% endfor %}, {% for cat in post.categories %}{{ cat.name }}{%- if not loop.last -%},{% endif %}{% endfor %}">
+  <meta name="keywords"
+    content="{% for tag in post.tags %}{{ tag.name }}{%- if not loop.last -%}, {% endif %}{% endfor %}, {% for cat in post.categories %}{{ cat.name }}{%- if not loop.last -%},{% endif %}{% endfor %}">
   {% elseif breadcrumbid == 'postsincategory' %} {# for blog category pages #}
-    <meta name="keywords" content="{{ cat.name }}, {% for synonym in cat.synonyms %}{{ synonym.synonym }}{%- if not loop.last -%}, {% endif %}{% endfor %}">
+  <meta name="keywords"
+    content="{{ cat.name }}, {% for synonym in cat.synonyms %}{{ synonym.synonym }}{%- if not loop.last -%}, {% endif %}{% endfor %}">
   {% elseif breadcrumbid == 'postswithtag' %} {# for blog tag pages #}
-      <meta name="keywords" content="{{ tag.name }}, {% for synonym in tag.synonyms %}{{ synonym.synonym }}{%- if not loop.last -%}, {% endif %}{% endfor %}">
+  <meta name="keywords"
+    content="{{ tag.name }}, {% for synonym in tag.synonyms %}{{ synonym.synonym }}{%- if not loop.last -%}, {% endif %}{% endfor %}">
   {% elseif seoTag.meta_keywords %}
-    <meta name="keywords" content="{{ seoTag.meta_keywords }}">
+  <meta name="keywords" content="{{ seoTag.meta_keywords }}">
   {% endif %}
   {% if orgameta.schema_latitude %}
-    <meta name="geo.position" content="{{ orgameta.schema_longitude }};{{ orgameta.schema_latitude }}">
+  <meta name="geo.position" content="{{ orgameta.schema_longitude }};{{ orgameta.schema_latitude }}">
   {% endif %}
   {% if orgameta.schema_region %}
-    <meta name="geo.region" content="{{ orgameta.schema_region }}">
+  <meta name="geo.region" content="{{ orgameta.schema_region }}">
   {% endif %}
   {% if orgameta.schema_city %}
-    <meta name="geo.placename" content="{{ orgameta.schema_city }}, {{ orgameta.schema_country }}">
+  <meta name="geo.placename" content="{{ orgameta.schema_city }}, {{ orgameta.schema_country }}">
   {% endif %}
 
-{# Facebook Knowledge Graph #}
-    {% if breadcrumbid == 'persondetail' %} {# for profile pages #}
-      <meta property="og:title" content="{{ person.first_name }} {{ person.last_name }}, {{ person.role }} | {{ orgameta.schema_name }}">
-    {% elseif breadcrumbid == 'post-detail' %} {# for blog posts #}
-      <meta property="og:title" content="{{ post.title }} | {{ orgameta.schema_name }}">
-    {% elseif breadcrumbid == 'postsincategory' %} {# for blog category pages #}
-      <meta property="og:title" content="{{ cat.meta_title }} | {{ orgameta.schema_name }}">
-    {% elseif breadcrumbid == 'postswithtag' %} {# for blog tag pages #}
-      <meta property="og:title" content="{{ tag.meta_title }} | {{ orgameta.schema_name }}">
-    {% elseif seoTag.og_title %}
-      <meta property="og:title" content="{{ seoTag.og_title }} | {{ orgameta.schema_site_name }}">
-    {% else %}
-      <meta property="og:title" content="{{ orgameta.schema_site_name }}">
-    {% endif %}
+  {# Facebook Knowledge Graph #}
+  {% if breadcrumbid == 'persondetail' %} {# for profile pages #}
+  <meta property="og:title"
+    content="{{ person.first_name }} {{ person.last_name }}, {{ person.role }} | {{ orgameta.schema_name }}">
+  {% elseif breadcrumbid == 'post-detail' %} {# for blog posts #}
+  <meta property="og:title" content="{{ post.title }} | {{ orgameta.schema_name }}">
+  {% elseif breadcrumbid == 'postsincategory' %} {# for blog category pages #}
+  <meta property="og:title" content="{{ cat.meta_title }} | {{ orgameta.schema_name }}">
+  {% elseif breadcrumbid == 'postswithtag' %} {# for blog tag pages #}
+  <meta property="og:title" content="{{ tag.meta_title }} | {{ orgameta.schema_name }}">
+  {% elseif seoTag.og_title %}
+  <meta property="og:title" content="{{ seoTag.og_title }} | {{ orgameta.schema_site_name }}">
+  {% else %}
+  <meta property="og:title" content="{{ orgameta.schema_site_name }}">
+  {% endif %}
 
-    {% if breadcrumbid == 'persondetail' %} {# for profile pages #}
-      <meta property="og:description" content="{{ person.seo_desc }}">
-    {% elseif breadcrumbid == 'post-detail' %} {# for blog posts #}
-      <meta property="og:description" content="{{ post.excerpt | striptags }}">
-    {% elseif breadcrumbid == 'postsincategory' %} {# for blog category pages #}
-      <meta property="og:description" content="{{ cat.meta_desc }}">
-    {% elseif breadcrumbid == 'postswithtag' %} {# for blog tag pages #}
-      <meta property="og:description" content="{{ tag.meta_desc }}">
-    {% elseif seoTag.og_description %}
-      <meta property="og:description" content="{{ seoTag.og_description }}">
-    {% else %}
-      <meta property="og:description" content="{{ orgameta.schema_desc }}">
-    {% endif %}
+  {% if breadcrumbid == 'persondetail' %} {# for profile pages #}
+  <meta property="og:description" content="{{ person.seo_desc }}">
+  {% elseif breadcrumbid == 'post-detail' %} {# for blog posts #}
+  <meta property="og:description" content="{{ post.excerpt | striptags }}">
+  {% elseif breadcrumbid == 'postsincategory' %} {# for blog category pages #}
+  <meta property="og:description" content="{{ cat.meta_desc }}">
+  {% elseif breadcrumbid == 'postswithtag' %} {# for blog tag pages #}
+  <meta property="og:description" content="{{ tag.meta_desc }}">
+  {% elseif seoTag.og_description %}
+  <meta property="og:description" content="{{ seoTag.og_description }}">
+  {% else %}
+  <meta property="og:description" content="{{ orgameta.schema_desc }}">
+  {% endif %}
 
-      <meta property="og:site_name" content="{{ orgameta.schema_site_name }}">
-      <meta property="og:url" content="{{ currentUrl | app }}">
-      <meta property="og:locale" content="de-CH">
-      <meta property="og:locale:alternate" content="de-AT">
-      <meta property="og:locale:alternate" content="de-DE">
-      <meta property="og:locale:alternate" content="en-US">
-      <meta property="og:locale:alternate" content="en-GB">
-    {% if breadcrumbid == 'person' %} {# for profile pages #}
-      <meta property="og:type" content="profile">
-    {% elseif seoTag.og_type %}
-      <meta property="og:type" content="{{ seoTag.og_type }}">
-    {% endif %}
+  <meta property="og:site_name" content="{{ orgameta.schema_site_name }}">
+  <meta property="og:url" content="{{ currentUrl | app }}">
+  <meta property="og:locale" content="de-CH">
+  <meta property="og:locale:alternate" content="de-AT">
+  <meta property="og:locale:alternate" content="de-DE">
+  <meta property="og:locale:alternate" content="en-US">
+  <meta property="og:locale:alternate" content="en-GB">
+  {% if breadcrumbid == 'person' %} {# for profile pages #}
+  <meta property="og:type" content="profile">
+  {% elseif seoTag.og_type %}
+  <meta property="og:type" content="{{ seoTag.og_type }}">
+  {% endif %}
 
-    {% if breadcrumbid == 'persondetail' %} {# for profile pages #}
-      <meta property="og:image" content="{{ person.portrait | media | app }}">
-    {% elseif breadcrumbid == 'post-detail' %} {# for blog posts #}
-      <meta property="og:image" content="{{ post.meta_img | media | app }}">
-    {% elseif breadcrumbid == 'postsincategory' %} {# for blog category pages #}
-      <meta property="og:image" content="{{ cat.meta_img | media | app }}">
-    {% elseif breadcrumbid == 'postswithtag' %} {# for blog tag pages #}
-      <meta property="og:image" content="{{ tag.meta_img | media | app }}">
-    {% elseif seoTag.og_image|is_file %}
-      <meta property="og:image" content="{{ (seoTag.og_image|media)|app }}">
-      <meta property="og:image:width" content="1200">
-      <meta property="og:image:height" content="630">
-    {% else %}
-      <meta property="og:image" content="{{ orgameta.schema_img|media|app }}">
-      <meta property="og:image:width" content="1200">
-      <meta property="og:image:height" content="630">
-    {% endif %}
-    {% if seoSettings.fb_app_id %}
-      <meta property="fb:app_id" content="{{ seoSettings.fb_app_id }}">
-    {% endif %}
+  {% if breadcrumbid == 'persondetail' %} {# for profile pages #}
+  <meta property="og:image" content="{{ person.portrait | media | app }}">
+  {% elseif breadcrumbid == 'post-detail' %} {# for blog posts #}
+  <meta property="og:image" content="{{ post.meta_img | media | app }}">
+  {% elseif breadcrumbid == 'postsincategory' %} {# for blog category pages #}
+  <meta property="og:image" content="{{ cat.meta_img | media | app }}">
+  {% elseif breadcrumbid == 'postswithtag' %} {# for blog tag pages #}
+  <meta property="og:image" content="{{ tag.meta_img | media | app }}">
+  {% elseif seoTag.og_image|is_file %}
+  <meta property="og:image" content="{{ (seoTag.og_image|media)|app }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  {% else %}
+  <meta property="og:image" content="{{ orgameta.schema_img|media|app }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  {% endif %}
+  {% if seoSettings.fb_app_id %}
+  <meta property="fb:app_id" content="{{ seoSettings.fb_app_id }}">
+  {% endif %}
 
-{# Twitter Knowledge Graph #}
-    {% if breadcrumbid == 'persondetail' %} {# for profile pages #}
-      <meta name="twitter:title" content="{{ person.first_name }} {{ person.last_name }}, {{ person.role }} | {{ orgameta.schema_name }}">
-    {% elseif breadcrumbid == 'post-detail' %} {# for blog posts #}
-      <meta property="twitter:title" content="{{ post.title }} | {{ orgameta.schema_name }}">
-    {% elseif breadcrumbid == 'postsincategory' %} {# for blog category pages #}
-      <meta property="twitter:title" content="{{ cat.meta_title }} | {{ orgameta.schema_name }}">
-    {% elseif breadcrumbid == 'postswithtag' %} {# for blog tag pages #}
-      <meta property="twitter:title" content="{{ tag.meta_title }} | {{ orgameta.schema_name }}">
-    {% elseif seoTag.og_title %}
-      <meta name="twitter:title" content="{{ seoTag.og_title }} | {{ orgameta.schema_site_name }}">
-    {% else %}
-      <meta name="twitter:title" content="{{ orgameta.schema_site_name }}">
-    {% endif %}
+  {# Twitter Knowledge Graph #}
+  {% if breadcrumbid == 'persondetail' %} {# for profile pages #}
+  <meta name="twitter:title"
+    content="{{ person.first_name }} {{ person.last_name }}, {{ person.role }} | {{ orgameta.schema_name }}">
+  {% elseif breadcrumbid == 'post-detail' %} {# for blog posts #}
+  <meta property="twitter:title" content="{{ post.title }} | {{ orgameta.schema_name }}">
+  {% elseif breadcrumbid == 'postsincategory' %} {# for blog category pages #}
+  <meta property="twitter:title" content="{{ cat.meta_title }} | {{ orgameta.schema_name }}">
+  {% elseif breadcrumbid == 'postswithtag' %} {# for blog tag pages #}
+  <meta property="twitter:title" content="{{ tag.meta_title }} | {{ orgameta.schema_name }}">
+  {% elseif seoTag.og_title %}
+  <meta name="twitter:title" content="{{ seoTag.og_title }} | {{ orgameta.schema_site_name }}">
+  {% else %}
+  <meta name="twitter:title" content="{{ orgameta.schema_site_name }}">
+  {% endif %}
 
-    {% if breadcrumbid == 'persondetail' %} {# for profile pages #}
-      <meta name="twitter:description" content="{{ person.seo_desc }}">
-    {% elseif breadcrumbid == 'post-detail' %} {# for blog posts #}
-      <meta property="twitter:description" content="{{ post.excerpt | striptags }}">
-    {% elseif breadcrumbid == 'postsincategory' %} {# for blog category pages #}
-      <meta property="twitter:description" content="{{ cat.meta_desc }}">
-    {% elseif breadcrumbid == 'postswithtag' %} {# for blog tag pages #}
-      <meta property="twitter:description" content="{{ tag.meta_desc }}">
-    {% elseif seoTag.og_description %}
-      <meta name="twitter:description" content="{{ seoTag.og_description }}">
-    {% else %}
-      <meta name="twitter:description" content="{{ orgameta.schema_desc }}">
-    {% endif %}
+  {% if breadcrumbid == 'persondetail' %} {# for profile pages #}
+  <meta name="twitter:description" content="{{ person.seo_desc }}">
+  {% elseif breadcrumbid == 'post-detail' %} {# for blog posts #}
+  <meta property="twitter:description" content="{{ post.excerpt | striptags }}">
+  {% elseif breadcrumbid == 'postsincategory' %} {# for blog category pages #}
+  <meta property="twitter:description" content="{{ cat.meta_desc }}">
+  {% elseif breadcrumbid == 'postswithtag' %} {# for blog tag pages #}
+  <meta property="twitter:description" content="{{ tag.meta_desc }}">
+  {% elseif seoTag.og_description %}
+  <meta name="twitter:description" content="{{ seoTag.og_description }}">
+  {% else %}
+  <meta name="twitter:description" content="{{ orgameta.schema_desc }}">
+  {% endif %}
 
-      <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary">
 
-    {% if breadcrumbid == 'persondetail' %}
-      <meta name="twitter:image" content="{{ person.portrait | media | app }}">
-    {% elseif breadcrumbid == 'post-detail' %} {# for blog posts #}
-      <meta property="twitter:image" content="{{ post.meta_img | media | app }}">
-      <meta property="twitter:image:width" content="1200">
-      <meta property="twitter:image:height" content="630">
-    {% elseif breadcrumbid == 'postsincategory' %} {# for blog category pages #}
-      <meta property="twitter:image" content="{{ cat.meta_img | media | app }}">
-    {% elseif breadcrumbid == 'postswithtag' %} {# for blog tag pages #}
-      <meta property="twitter:image" content="{{ tag.meta_img | media | app }}">
-    {% elseif seoTag.og_image|is_file %}
-      <meta name="twitter:image" content="{{ (seoTag.og_image|media)|app }}">
-      <meta property="twitter:image:width" content="1200">
-      <meta property="twitter:image:height" content="630">
-    {% else %}
-      <meta name="twitter:image" content="{{ orgameta.schema_img|media|app }}">
-      <meta property="twitter:image:width" content="1200">
-      <meta property="twitter:image:height" content="630">
-    {% endif %}
+  {% if breadcrumbid == 'persondetail' %}
+  <meta name="twitter:image" content="{{ person.portrait | media | app }}">
+  {% elseif breadcrumbid == 'post-detail' %} {# for blog posts #}
+  <meta property="twitter:image" content="{{ post.meta_img | media | app }}">
+  <meta property="twitter:image:width" content="1200">
+  <meta property="twitter:image:height" content="630">
+  {% elseif breadcrumbid == 'postsincategory' %} {# for blog category pages #}
+  <meta property="twitter:image" content="{{ cat.meta_img | media | app }}">
+  {% elseif breadcrumbid == 'postswithtag' %} {# for blog tag pages #}
+  <meta property="twitter:image" content="{{ tag.meta_img | media | app }}">
+  {% elseif seoTag.og_image|is_file %}
+  <meta name="twitter:image" content="{{ (seoTag.og_image|media)|app }}">
+  <meta property="twitter:image:width" content="1200">
+  <meta property="twitter:image:height" content="630">
+  {% else %}
+  <meta name="twitter:image" content="{{ orgameta.schema_img|media|app }}">
+  <meta property="twitter:image:width" content="1200">
+  <meta property="twitter:image:height" content="630">
+  {% endif %}
 
-{# canonical and alternate #}
-      <link rel="canonical" href="{{ seoTag.canonical_url ?: currentUrl |app }}">
+  {# canonical and alternate #}
+  <link rel="canonical" href="{{ seoTag.canonical_url ?: currentUrl |app }}">
   {% for locale, alternateUrl in alternateHrefLangElements.locales %}
-      <link rel="alternate" hreflang="{{ locale }}" href="{{ url(alternateUrl) }}" />
+  <link rel="alternate" hreflang="{{ locale }}" href="{{ url(alternateUrl) }}" />
   {% endfor %}
 
 
-{# Favicons #}
+  {# Favicons #}
 
   <link rel="icon" type="image/svg+xml" href="{{ 'assets/img/favicons/favicon.svg'|theme }}" />
   <link rel="alternate icon" href="{{ 'assets/img/favicons/favicon.ico'|theme }}">
 
-{# for Apple #}
+  {# for Apple #}
   <meta name="apple-mobile-web-app-title" content="DTH">
   <meta name="application-name" content="DTH">
   <link rel="mask-icon" href="{{ 'assets/img/favicons/safari-pinned-tab.svg'|theme }}" color="#81050c">
   <link rel="apple-touch-icon" sizes="180x180" href="{{ 'assets/img/favicons/apple-touch-icon.png'|theme }}">
 
-{# for MS #}
+  {# for MS #}
   <meta name="msapplication-TileColor" content="#81050c">
   <meta name="msapplication-config" content="{{ 'assets/img/favicons/browserconfig.xml'|theme }}">
 
-{# for Webmanifest
+  {# for Webmanifest
   <link rel="manifest" href="{{ 'assets/manifest.json' | theme }}" />
   <meta name="theme-color" content="#fcf3ee">
-#}
+  #}
 
-  <link rel="stylesheet" href="{{ ['assets/css-js/index.css'] | theme }}" >
+  <link rel="stylesheet" href="{{ ['assets/css-js/index.css'] | theme }}">
   {% styles %}
 
   <meta name="google-site-verification" content="nayw45UasR49ENG3lhvWixufyWXKrU70kW7vktmtKPY" />
+
+  {% placeholder headscripts %}
+
 </head>

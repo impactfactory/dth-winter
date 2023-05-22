@@ -1,158 +1,422 @@
-title = "Patienten-Registration"
-url = "/stammblatt"
-layout = "default"
-meta_title = "Patienten-Registration"
-meta_description = "Übermitteln Sie uns Ihre Stammdaten vor Ihrem ersten Termin bei uns."
+title = "Stammdaten-Formular"
+url = "/xxxxstammdaten"
+layout = "frontpage"
+meta_title = "Geben Sie uns Ihre Stammdaten"
+meta_description = "Stammdaten-Formular"
 is_hidden = 0
-robot_index = "noindex"
-robot_follow = "nofollow"
-og_title = "Patienten-Registration/Stammblatt"
-og_type = "article"
-og_description = "Übermitteln Sie uns Ihre Stammdaten vor Ihrem ersten Termin bei uns."
-
-[patregassurances]
 ==
+<?php
+use ImpactFactory\Patreg\Models\Patients;
+use RainLab\Translate\Models\Message;
+use Mail;
+use Input;
+use Validator;
+
+function onSave() {
+
+// Set Variables for View
+
+    $this['gender'] = Input::get('gender');
+    $this['firstname'] = Input::get('firstname');
+    $this['lastname'] = Input::get('lastname');
+    $this['birthdate'] = Input::get('birthdate');
+    $this['nationality'] = Input::get('nationality');
+    $this['civilianstatus'] = Input::get('civilianstatus');
+    $this['streetno'] = Input::get('streetno');
+    $this['zip'] = Input::get('zip');
+    $this['location'] = Input::get('location');
+    $this['country'] = Input::get('country');
+    $this['phone_p'] = Input::get('phone_p');
+    $this['phone_b'] = Input::get('phone_b');
+    $this['email'] = Input::get('email');
+    $this['profession'] = Input::get('profession');
+    $this['encryption'] = Input::get('encryption');
+    $this['firstname_contact'] = Input::get('firstname_contact');
+    $this['lastname_contact'] = Input::get('lastname_contact');
+    $this['streetno_contact'] = Input::get('streetno_contact');
+    $this['zip_contact'] = Input::get('zip_contact');
+    $this['location_contact'] = Input::get('location_contact');
+    $this['email_contact'] = Input::get('email_contact');
+    $this['phone_contact'] = Input::get('phone_contact');
+    $this['birthdate_contact'] = Input::get('birthdate_contact');
+    $this['relation_contact'] = Input::get('relation_contact');
+    $this['kvg_name'] = Input::get('kvg_name');
+    $this['kvg_no'] = Input::get('kvg_no');
+    $this['vvg_name'] = Input::get('vvg_name');
+    $this['vvg_no'] = Input::get('vvg_no');
+    $this['coverage'] = Input::get('coverage');
+    $this['dr'] = Input::get('dr');
+    $this['dr_location'] = Input::get('dr_location');
+    $this['dr_share'] = Input::get('dr_share');
+    $this['ref'] = Input::get('ref');
+    $this['ref_location'] = Input::get('ref_location');
+    $this['ref_share'] = Input::get('ref_share');
+    $this['drugs'] = Input::get('drugs');
+    $this['allergies'] = Input::get('allergies'); 
+
+    
+
+
+// Validation
+
+    //only allow letters, whitespaces, dashes, points
+        //$regex1 = "/^[a-zA-ZÄÖÜäàâçéèëêìïîöôüû]+([ \\-']{0,1}[a-zA-ZÄÖÜäàâçéèëêìïîöôüû]+){0,2}[.]{0,1}$/";
+
+    //only allow numbers, letters, whitespaces, dashes, points
+        //$regex2 = "/^[0-9a-zA-ZÄÖÜäàâçéèëêìïîöôüû]+([ \\-']{0,1}[0-9a-zA-ZÄÖÜäàâçéèëêìïîöôüû]+){0,2}[.]{0,1}$/";
+
+    // Rules
+    /*
+    
+    $validator = Validator::make(
+        ['firstname' => Input::get('firstname')],
+        ['firstname' => ["required","regex:/^[a-zA-Z]+([ \\-']{0,1}[a-zA-Z]+){0,2}[.]{0,1}$/"]],
+        ['lastname' => Input::get('lastname')],
+        ['lastname' => ["required","regex:/^[a-zA-ZÄÖÜäàâçéèëêìïîöôüû]+([ \\-']{0,1}[a-zA-ZÄÖÜäàâçéèëêìïîöôüû]+){0,2}[.]{0,1}$/"]],
+        ['streetno' => Input::get('streetno')],
+        ['streetno' => ["required","regex:/^[0-9a-zA-ZÄÖÜäàâçéèëêìïîöôüû]+([ \\-']{0,1}[0-9a-zA-ZÄÖÜäàâçéèëêìïîöôüû]+){0,2}[.]{0,1}$/"]]
+    );
+
+
+
+   // Messages 
+        $this['regex1message'] = "Muss ausgefüllt sein. Erlaubt sind Buchstaben, Leerzeichen, Gedankenstrich, Punkt und Apostroph.";
+        $this['regex2message'] = "Muss ausgefüllt sein. Erlaubt sind Buchstaben, Zahlen, Leerzeichen, Gedankenstrich, Punkt und Apostroph.";
+        $this['regex3message'] = "Ist das Format (xx@xx.endung) der E-Mail korrekt?";
+
+// WorkFlow
+
+    if ($validator->fails()) {
+        $this['warnings'] = $validator->messages;
+    }
+    */
+    
+
+    $validate = Validator::make(Input::get('firstname'), [
+        'firstname' => 'required|min:5',
+        ],
+        ['firstname.required' => 'Name is must.',
+         'firstname.min' => 'Name must have 5 char.',
+        ]
+    );
+
+
+    if($validate->fails()){
+    return back()->withErrors($validate->errors())->withInput();
+    }
+
+    else {
+
+    //Send Mails
+        $vars = [
+            //'gender' => Input::get('gender'),
+            'firstname' => Input::get('firstname'),
+            /*
+            'lastname' => Input::get('lastname'),
+            'birthdate' => Input::get('birthdate'),
+            'nationality' => Input::get('nationality'),
+            'civilianstatus' => Input::get('civilianstatus'),
+            'streetno' => Input::get('streetno'),
+            'zip' => Input::get('zip'),
+            'location' => Input::get('location'),
+            'country' => Input::get('country'),
+            'phone_p' => Input::get('phone_p'),
+            'phone_b' => Input::get('phone_b'),
+            'email' => Input::get('email'),
+            'profession' => Input::get('profession'),
+            'encryption' => Input::get('encryption'),
+            'firstname_contact' => Input::get('firstname_contact'),
+            'lastname_contact' => Input::get('lastname_contact'),
+            'streetno_contact' => Input::get('streetno_contact'),
+            'zip_contact' => Input::get('zip_contact'),
+            'location_contact' => Input::get('location_contact'),
+            'email_contact' => Input::get('email_contact'),
+            'phone_contact' => Input::get('phone_contact'),
+            'birthdate_contact' => Input::get('birthdate_contact'),
+            'relation_contact' => Input::get('relation_contact'),
+            'kvg_name' => Input::get('kvg_name'),
+            'kvg_no' => Input::get('kvg_no'),
+            'vvg_name' => Input::get('vvg_name'),
+            'vvg_no' => Input::get('vvg_no'),
+            'coverage' => Input::get('coverage'),
+            'dr' => Input::get('dr'),
+            'dr_location' => Input::get('dr_location'),
+            'dr_share' => Input::get('dr_share'),
+            'ref' => Input::get('ref'),
+            'ref_location' => Input::get('ref_location'),
+            'ref_share' => Input::get('ref_share'),
+            'drugs' => Input::get('drugs'),
+            'allergies' => Input::get('allergies'), 
+            */
+        ];
+        
+        
+        Mail::send('if.forms::patreg.data', $vars, function($message) {
+        $message->to('tec@dth-herzzentrum.ch', '');
+        $message->from('tec@dth-herzzentrum.ch', 'Diagnostisches und Therapeutisches Herzzentrum AG');
+        });
+        
+        $this['sent'] = true;
+
+    }
+
+    
+}
+?>
+==
+{% if not sent %}
 <section id="patregform" class="fullwrap">
     <div class="indent-me">
 
         {% content 'stammblatt-intro' %}
 
-        <form class="p-3" novalidate data-request="onHandleForm" data-request-files data-request-validate
-            data-request-flash>
+        {{ form_open({ request: "onSave", files: true, enctype: "multipart/form-data" }) }}
 
-            <div class="row">
-                <div class="col-12 pt-3 ">
+        <div class="row">
+            <div class="col-1 col-md-2 pt-3"></div>
+            <div class="col-10 col-md-8 pt-3 ">
 
-                    <div class="alert alert-danger" data-validate-error>
-                        <p data-message></p>
-                    </div>
+                red {{warnings}}
 
-                    {# Tab Navigation #}
-                    <ul class="nav nav-tabs" id="FormsTabs" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="patient-tab" data-bs-toggle="tab"
-                                data-bs-target="#patient" type="button" role="tab" aria-controls="patient"
-                                aria-selected="true">
-                                1 {% partial 'html_body/svg-icons/arrow-circle-right' %}
-                            </button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact"
-                                type="button" role="tab" aria-controls="contact" aria-selected="false">
-                                2 {% partial 'html_body/svg-icons/arrow-circle-right' %}
-                            </button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="ass-tab" data-bs-toggle="tab" data-bs-target="#ass"
-                                type="button" role="tab" aria-controls="ass" aria-selected="false">
-                                3 {% partial 'html_body/svg-icons/arrow-circle-right' %}
-                            </button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="doctors-tab" data-bs-toggle="tab" data-bs-target="#doctors"
-                                type="button" role="tab" aria-controls="doctors" aria-selected="false">
-                                4 {% partial 'html_body/svg-icons/arrow-circle-right' %}
-                            </button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="drugs-tab" data-bs-toggle="tab" data-bs-target="#drugs"
-                                type="button" role="tab" aria-controls="drugs" aria-selected="false">
-                                5 {% partial 'html_body/svg-icons/arrow-circle-right' %}
-                            </button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="allergies-tab" data-bs-toggle="tab" data-bs-target="#allergies"
-                                type="button" role="tab" aria-controls="allergies" aria-selected="false">
-                                6 {% partial 'html_body/svg-icons/arrow-circle-right' %}
-                            </button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="consent-tab" data-bs-toggle="tab" data-bs-target="#consent"
-                                type="button" role="tab" aria-controls="consent" aria-selected="false">
-                                7 {% partial 'html_body/svg-icons/check-circle' %}
-                            </button>
-                        </li>
-                    </ul>
+                <!-- Contact data -->
+                <!-- <div class="mb-3">
+                    <label for="gender">{{ 'forms.patreg.label.gender'|_ }} *</label>
+                    <select id="gender" class="form-select" aria-label="gender select" name="gender" required>
+                        {% if warnings %}
+                        <option value="{{gender}}" selected>{{gender}}</option>
+                        {% else %}
+                        <option value="" selected>bitte wählen...</option>
+                        {% endif %}
+                        <option value="Herr">{{ 'forms.patreg.gender.option.m'|_ }}</option>
+                        <option value="Frau">{{ 'forms.patreg.gender.option.f'|_ }}</option>
+                        <option value="divers">{{ 'forms.patreg.gender.option.q'|_ }}</option>
+                    </select>
+                </div>
+            -->
 
-                    {# Tab Patient #}
-                    <div class="tab-pane fade show" id="patient" role="tabpanel" aria-labelledby="patient-tab">
-                        <div class="row col-12">
-                            Patient
-                        </div>
-                    </div>
-
-                    {# Tab Contact #}
-                    <div class="tab-pane fade show" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                        <div class="row col-12">
-                            Contact
-                        </div>
-                    </div>
-
-                    {# Tab Assurances #}
-                    <div class="tab-pane fade show" id="ass" role="tabpanel" aria-labelledby="ass-tab">
-                        <div class="row col-12">
-                            Assurances
-                            {% component 'patregassurances' %}
-                        </div>
-                    </div>
-
-                    {# Tab Doctors #}
-                    <div class="tab-pane fade show" id="doctors" role="tabpanel" aria-labelledby="doctors-tab">
-                        <div class="row col-12">
-                            Doctors
-                        </div>
-                    </div>
-
-                    {# Tab Drugs #}
-                    <div class="tab-pane fade show" id="drugs" role="tabpanel" aria-labelledby="drugs-tab">
-                        <div class="row col-12">
-                            Drugs
-                        </div>
-                    </div>
-
-                    {# Tab Allergies #}
-                    <div class="tab-pane fade show" id="allergies" role="tabpanel" aria-labelledby="allergies-tab">
-                        <div class="row col-12">
-                            Allergies
-                        </div>
-                    </div>
-
-                    {# Tab Consent #}
-                    <div class="tab-pane fade show" id="consent" role="tabpanel" aria-labelledby="consent-tab">
-                        <div class="row col-12">
-                            Consent and submit
-
-                            {# Submit Section #}
-                            <div class="col-12 text-center pt-3">
-                                <button id="submit" name="submit" type="submit" class="btn btn-lg btn-primary"
-                                    data-attach-loading>
-                                    {{ 'forms.ref.label.submit'|_ }}
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-
-
+                <div class="mb-3 {% if errors.first('firstname') %}error{% endif %}">
+                    <label for="firstname">{{ 'forms.patreg.label.firstname'|_ }} *</label>
+                    <input type="text" id="firstname" name="firstname" class="form-control" value="{{firstname}}">
+                    {% if errors.first('firstname') %}
+                    <div class="form-text text-danger">{{message}}</div>
+                    {% endif %}
 
                 </div>
+
+                <!--
+                    <div class="mb-3 {% if warnings.first('lastname') %}error{% endif %}">
+                    <label for="lastname">{{ 'forms.patreg.label.lastname'|_ }} *</label>
+                    <input type="text" id="lastname" name="lastname" class="form-control" value="{{lastname}}" required>
+                    {% if warnings.first('lastname') %}
+                    <div class="form-text text-danger">{{regex1message}}</div>
+                    {% endif%}
+                </div>
+
+                <div class="mb-3 {% if warnings.first('streetno') %}error{% endif %}">
+                    <label for="streetno">{{ 'forms.patreg.label.streetno'|_ }} *</label>
+                    <input type="text" id="streetno" name="streetno" class="form-control" required>
+                    {% if warnings.first('streetno') %}
+                    <div class="form-text text-danger">{{regex2message}}</div>
+                    {% endif%}
+                </div>
+
+                <div class="mb-3 {% if warnings.first('zip') %}error{% endif %}">
+                    <label for="zip">{{ 'forms.patreg.label.zip'|_ }} *</label>
+                    <input type="number" id="zip" name="zip" class="form-control" required>
+                </div>
+
+                <div class="mb-3 {% if errors.first('city') %}error{% endif %}">
+                    <label for="city">{{ 'forms.patreg.label.location'|_ }} *</label>
+                    <input type="text" id="city" name="city" class="form-control" required>
+                </div>
+
+                <div class="mb-3 {% if errors.first('country') %}error{% endif %}">
+                    <label for="country">{{ 'forms.patreg.label.country'|_ }} *</label>
+                    <select id="country" class="form-select" aria-label="" name="country" required>
+                        <option value="" selected>bitte wählen...</option>
+                        <option value="Schweiz">Schweiz</option>
+                        <option value="Deutschland">Deutschland</option>
+                    </select>
+                </div>
+
+                <div class="mb-3 {% if errors.first('phone') %}error{% endif %}">
+                    <label for="phone">{{ 'forms.patreg.label.phone'|_ }} *</label>
+                    <input type="number" id="phone" name="phone" class="form-control" required>
+                </div>
+
+                <div class="mb-3 {% if errors.first('mail') %}error{% endif %}">
+                    <label for="email">{{ 'forms.patreg.label.email'|_ }} *</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                    <div class="form-text text-danger">{{regex3message}}</div>
+                </div>
+
+                <div class="mb-3 {% if errors.first('birthday') %}error{% endif %}">
+                    <label for="birthday">{{ 'forms.patreg.label.birthday'|_ }} *</label>
+                    <input type="date" id="birthday" name="birthday" class="form-control" min="1910-01-01"
+                        max="{{ 'now' | date('Y-m-d') }}" required>
+                </div>
+
+                <div class="mb-3 {% if errors.first('civilianstatus') %}error{% endif %}">
+                    <label for="civilianstatus">{{ 'forms.patreg.label.civilianstatus'|_ }} *</label>
+                    <select id="civilianstatus" class="form-select" aria-label="" name="civilianstatus" required>
+                        {% if warnings %}
+                        <option value="{{civilianstatus}}" selected>{{civilianstatus}}</option>
+                        {% else %}
+                        <option value="" selected>bitte wählen...</option>
+                        {% endif %}
+                        <option value="ledig/unverheiratet">ledig/unverheiratet</option>
+                        <option value="verheiratet">verheiratet</option>
+                        <option value="in eingetragener Partnerschaft">in eingetragener Partnerschaft</option>
+                        <option value="geschieden">geschieden</option>
+                        <option value="in ausgetragener Partnerschaft">in ausgetragener Partnerschaft</option>
+                        <option value="verwitwet">verwitwet</option>
+                    </select>
+                </div>
+
+                <div class="mb-3 {% if errors.first('encryption') %}error{% endif %}">
+                    <label for="encryption">{{ 'forms.patreg.label.encryption'|_ }} *</label>
+                    <select id="encryption" class="form-select" aria-label="" name="encryption" required>
+                        {% if warnings %}
+                        <option value="{{encryption}}" selected>{{encryption}}</option>
+                        {% else %}
+                        <option value="" selected>bitte wählen...</option>
+                        {% endif %}
+                        <option value="verschlüsselt">verschlüsselt</option>
+                        <option value="unverschlüsselt">unverschlüsselt</option>
+                    </select>
+                </div>
+
+                <!-- Contact Person Data 
+                <h2>Kontakt für Notfälle und vertrauliche Information</h2>
+
+                <div class="mb-3 {% if errors.first('relation_contact') %}error{% endif %}">
+                    <label for="relation_contact">{{ 'forms.patreg.label.relation_contact'|_ }} *</label>
+                    <select id="relation_contact" class="form-select" aria-label="" name="relation_contact" required>
+                        {% if warnings %}
+                        <option value="{{relation_contact}}" selected>{{relation_contact}}</option>
+                        {% else %}
+                        <option value="" selected>bitte wählen...</option>
+                        {% endif %}
+                        <option value="Ehepartner">Ehepartner</option>
+                        <option value="Ehepartnerin">Ehepartnerin</option>
+                        <option value="Lebenspartner">Lebenspartner</option>
+                        <option value="Lebenspartnerin">Lebenspartnerin</option>
+                        <option value="Vater">Vater</option>
+                        <option value="Mutter">Mutter</option>
+                        <option value="Sohn">Sohn</option>
+                        <option value="Bruder">Bruder</option>
+                        <option value="Schwester">Schwester</option>
+                        <option value="Tochter">Tochter</option>
+                        <option value="Beistand">Beistand</option>
+                        <option value="Vormnd">Vormnd</option>
+                    </select>
+                </div>
+
+                <!-- Assurances Data 
+                <h2>Versicherungen</h2>
+
+                <div class="mb-3 {% if errors.first('coverage') %}error{% endif %}">
+                    <label for="coverage">{{ 'forms.patreg.label.coverage'|_ }} *</label>
+                    <select id="coverage" class="form-select" aria-label="" name="coverage" required>
+                        {% if warnings %}
+                        <option value="{{coverage}}" selected>{{coverage}}</option>
+                        {% else %}
+                        <option value="" selected>bitte wählen...</option>
+                        {% endif %}
+                        <option value="Ehepartner">Allgemein ganze CH</option>
+                        <option value="Ehepartnerin">Halbprivat</option>
+                        <option value="Lebenspartner">Privat</option>
+                        <option value="Lebenspartnerin">Selbstzahler</option>
+                    </select>
+                </div>
+
+                <!-- Medical Contact 
+                <h2>Medizinische Vertrauenspersonen</h2>
+
+                <div class="mb-3 {% if warnings.first('dr') %}error{% endif %}">
+                    <label for="dr">{{ 'forms.patreg.label.dr'|_ }} *</label>
+                    <input type="text" id="dr" name="dr" class="form-control" value="{{dr}}" required>
+                    <div class="form-text">{{regex1message}}</div>
+                </div>
+
+                <div class="mb-3 {% if warnings.first('dr_location') %}error{% endif %}">
+                    <label for="dr_location">{{ 'forms.patreg.label.dr_location'|_ }} *</label>
+                    <input type="text" id="dr_location" name="dr_location" class="form-control" value="{{dr_location}}"
+                        required>
+                    <div class="form-text">{{regex1message}}</div>
+                </div>
+
+                <div class="mb-3 form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="dr_share" {% if dr_share=='0' %} {%
+                        else %} checked{% endif %}>
+                    <label class="form-check-label" for="dr_share">
+                        {{ 'forms.patreg.label.dr_share'|_ }}
+                    </label>
+                </div>
+
+                <div class="mb-3 {% if warnings.first('ref') %}error{% endif %}">
+                    <label for="ref">{{ 'forms.patreg.label.ref'|_ }} *</label>
+                    <input type="text" id="ref" name="ref" class="form-control" value="{{ref}}" required>
+                    <div class="form-text">{{regex1message}}</div>
+                </div>
+
+                <div class="mb-3 {% if warnings.first('ref_location') %}error{% endif %}">
+                    <label for="ref_location">{{ 'forms.patreg.label.ref_location'|_ }} *</label>
+                    <input type="text" id="ref_location" name="ref_location" class="form-control"
+                        value="{{ref_location}}" required>
+                    <div class="form-text">{{regex1message}}</div>
+                </div>
+
+                <div class="mb3 form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="ref_share" {% if dr_share=='0' %} {%
+                        else %} checked {% endif %}>
+                    <label class="form-check-label" for="ref_share">
+                        {{ 'forms.patreg.label.ref_share'|_ }}
+                    </label>
+                </div>
+
+
+
+
+
+                <!-- Drugs Data 
+                <h2>Medikamente</h2>
+                <div class="mb-3 {% if warnings.first('drugs') %}error{% endif %}">
+                    <label for="drugs" class="form-label">{{ 'forms.patreg.label.drugs'|_ }}</label>
+                    <textarea id="drugs" name="drugs" rows="5" cols="80" class="form-control"></textarea>
+                </div>
+
+                <!-- Allergies Data 
+                <h2>Allergien</h2>
+                <div class="mb-3 {% if warnings.first('allergies') %}error{% endif %}">
+                    <label for="allergies" class="form-label">{{ 'forms.patreg.label.allergies'|_ }}</label>
+                    <textarea id="allergies" name="allergies" rows="5" cols="80" class="form-control"></textarea>
+                </div>
+                -->
+
+
+
+                <div class="col-12 text-center pt-3">
+                    <input type="hidden" value="{{ 'now' | date('Y-m-d') }}" name="created_at">
+                    <button id="submit" name="submit" type="submit" class="btn btn-lg btn-primary">
+                        {{ 'forms.patreg.label.submit'|_ }}
+                    </button>
+                </div>
+
             </div>
-        </form>
+            <div class="col-1 col-md-2 pt-3"></div>
+        </div>
+
+        {{ form_close() }}
+
     </div>
 </section>
+{% else %}
 
-{% put scripts %}
 
-<script>
-    $(window).on('ajaxInvalidField', function (event, fieldElement, fieldName, errorMsg, isFirst) {
-        $(fieldElement).closest('.form-control').addClass('is-invalid');
-    });
-
-    $(document).on('ajaxPromise', '[data-request]', function () {
-        $(this).closest('form').find('.form-control.is-invalid').removeClass('is-invalid');
-    });
-</script>
-
-{% endput %}
+<section class="fullwrap">
+    <h1 class="mt-5 pl-3 pb-3 indent-me">
+        Ihre Stammdaten wurden an uns versandt, vielen Dank!
+    </h1>
+</section>
+{% endif %}

@@ -1,0 +1,50 @@
+<h3>{{ 'forms.patdata.title.doctors'|_ }}</h3>
+<small class="text-muted">{{ 'forms.patdata.docs.gender-disclaimer'|_ }}</small>
+
+<div class="row pt-4 pb-2">
+    <div class="col-12 col-md-8">
+        <label for="family_doctor">{{ 'forms.patdata.label.family-doctor'|_ }}</label>
+        <input type="text" id="family_doctor" name="family_doctor" class="form-control">
+        <div class="form-text text-danger" data-validate-for="family_doctor"></div>
+    </div>
+    <div class="col-12 col-md-4 pt-0 pt-md-4">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="Ja" name="doc_consent1" id="doc_consent1" checked>
+            <label class="form-check-label" for="doc_consent1">
+                {{ 'forms.patdata.label.send_doctor-report'|_ }}
+            </label>
+        </div>
+    </div>
+</div>
+
+<div class="row py-2">
+    <div class="col-12 col-md-8">
+        <label for="other_doctor">{{ 'forms.patdata.label.other_doctor'|_ }}</label>
+        <input type="text" id="other_doctor" name="other_doctor" class="form-control">
+        <div class="form-text text-danger" data-validate-for="other_doctor"></div>
+    </div>
+    <div class="col-12 col-md-4 pt-0 pt-md-4">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="Ja" name="doc_consent2" id="doc_consent2">
+            <label class="form-check-label" for="doc_consent2">
+                {{ 'forms.patdata.label.send_doctor-report'|_ }}
+            </label>
+        </div>
+    </div>
+</div>
+
+<div class="row py-2">
+    <div class="col-12 col-md-8">
+        <label for="other_doctor2">{{ 'forms.patdata.label.other_doctor-2'|_ }}</label>
+        <input type="text" id="other_doctor2" name="other_doctor2" class="form-control">
+        <div class="form-text text-danger" data-validate-for="other_doctor2"></div>
+    </div>
+    <div class="col-12 col-md-4 pt-0 pt-md-4">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="Ja" name="doc_consent3" id="doc_consent3">
+            <label class="form-check-label" for="doc_consent3">
+                {{ 'forms.patdata.label.send_doctor-report'|_ }}
+            </label>
+        </div>
+    </div>
+</div>

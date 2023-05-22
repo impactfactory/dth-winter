@@ -1,0 +1,38 @@
+#patdataform {
+    .nav-link {
+        color: $if-dark;
+        padding: 0.5rem 0.25rem 0.5rem 0.5rem;
+
+        .svg-inline--fa {
+            margin-left: 0.25rem;
+        }
+    }
+
+    .nav-link.active {
+        background: #efefef;
+        color: $if-primary;
+    }
+
+    /*
+    li:has(> button.active) + li button {
+        color: $if-primary !important;
+    }
+    */
+
+    .leftcolored {
+        background: $if-secondary-light;
+    }
+
+    .rightcolored {
+        background: $if-white;
+
+        #selfpay_input {
+            display: none;
+        }
+    }
+
+    .tab-content {
+        background: #efefef;
+        padding: 1rem 1rem 2rem 1rem;
+    }
+}

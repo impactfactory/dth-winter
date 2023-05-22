@@ -1715,23 +1715,36 @@ header #logo-small {
   }
 }
 
-#patregform .nav-link {
-  color: #333333;
+#patdataform {
+  /*
+  li:has(> button.active) + li button {
+      color: $if-primary !important;
+  }
+  */
 }
-#patregform .nav-link .svg-inline--fa {
+#patdataform .nav-link {
+  color: #333333;
+  padding: 0.5rem 0.25rem 0.5rem 0.5rem;
+}
+#patdataform .nav-link .svg-inline--fa {
   margin-left: 0.25rem;
 }
-#patregform .nav-link.active {
+#patdataform .nav-link.active {
+  background: #efefef;
   color: #81050c;
 }
-#patregform li:has(> button.active) + li button {
-  color: #81050c !important;
-}
-#patregform .leftcolored {
+#patdataform .leftcolored {
   background: #c9e7e4;
 }
-#patregform .rightcolored {
+#patdataform .rightcolored {
   background: white;
+}
+#patdataform .rightcolored #selfpay_input {
+  display: none;
+}
+#patdataform .tab-content {
+  background: #efefef;
+  padding: 1rem 1rem 2rem 1rem;
 }
 
 .payment .cards {

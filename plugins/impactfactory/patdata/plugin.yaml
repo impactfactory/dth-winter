@@ -1,0 +1,26 @@
+plugin:
+    name: "impactfactory.patdata::lang.plugin.name"
+    description: "impactfactory.patdata::lang.plugin.description"
+    author: ImpactFactory
+    icon: oc-icon-inbox
+    homepage: "https://impactfactory.ch"
+navigation:
+    main-menu-item:
+        label: "impactfactory.patdata::lang.plugin.name"
+        url: impactfactory/patdata/assurances
+        icon: oc-icon-inbox
+        permissions:
+            - patdata.assurances
+        sideMenu:
+            side-menu-patients:
+                label: "impactfactory.patdata::lang.nav.assurances"
+                url: impactfactory/patdata/assurances
+                icon: icon-simplybuilt
+                permissions:
+                    - patdata.assurances
+permissions:
+    patdata.assurances:
+        tab: "impactfactory.patdata::lang.plugin.name"
+        label: "impactfactory.patdata::lang.permission.assurances"
+dependencies:
+    - rainlab.translate

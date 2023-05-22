@@ -1,0 +1,81 @@
+<h3>{{ 'forms.patdata.title.contact'|_ }}</h3>
+
+
+<div class="row py-2">
+    <div class="col-12 col-md-6">
+        <label for="streetno">{{ 'forms.patdata.label.street_no'|_ }}</label>
+        <input type="text" id="streetno" name="streetno" class="form-control">
+        <div class="form-text text-danger" data-validate-for="streetno"></div>
+    </div>
+    <div class="col-12 col-md-6 pt-3 pt-md-0">
+        <label for="zip">{{ 'forms.patdata.label.zip'|_ }}</label>
+        <input type="number" id="zip" name="zip" class="form-control">
+        <div class="form-text text-danger" data-validate-for="zip"></div>
+    </div>
+</div>
+
+<div class="row py-2">
+    <div class="col-12 col-md-6">
+        <label for="city">{{ 'forms.patdata.label.city'|_ }}</label>
+        <input type="text" id="city" name="city" class="form-control">
+        <div class="form-text text-danger" data-validate-for="city"></div>
+    </div>
+    <div class="col-12 col-md-6 pt-3 pt-md-0">
+        {% partial 'patdata/countries' %}
+    </div>
+</div>
+
+<div class="row py-2">
+    <div class="col-12 col-md-6">
+        <label for="phone">{{ 'forms.patdata.label.phone'|_ }}</label>
+        <input type="number" id="phone" name="phone" class="form-control">
+        <div class="form-text text-danger" data-validate-for="phone"></div>
+    </div>
+    <div class="col-12 col-md-6 pt-3 pt-md-0">
+        <label for="email">{{ 'forms.patdata.label.email'|_ }}</label>
+        <input type="email" id="email" name="email" class="form-control">
+        <div class="form-text text-danger" data-validate-for="email"></div>
+    </div>
+</div>
+
+<h5 class="pt-3 pb-2">Ich wünsche...</h4>
+    <div id="options" class="col-12">
+        <div class="">{{ 'forms.patdata.label.reports'|_ }}</div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="reports" id="reports1" value="Bericht per Mail" checked>
+            <label class="form-check-label" for="reports1">ja</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="reports" id="reports2" value="kein Bericht">
+            <label class="form-check-label" for="reports2">nein</label>
+        </div>
+
+        <div class="">{{ 'forms.patdata.label.encrypted'|_ }}</div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="encrypted" id="encrypted1" value="verschlüsselt" checked>
+            <label class="form-check-label" for="encrypted1">ja</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="encrypted" id="encrypted2" value="unverschlüsselt">
+            <label class="form-check-label" for="encrypted2">nein</label>
+        </div>
+
+        <div class="">{{ 'forms.patdata.label.confirmation'|_ }}</div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="confirmation" id="confirmation1" value="ja" checked>
+            <label class="form-check-label" for="confirmation1">ja</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="confirmation" id="confirmation2" value="nein">
+            <label class="form-check-label" for="confirmation2">nein</label>
+        </div>
+    </div>
+
+    <style>
+        #options {
+            display: grid;
+            gap: 1rem 0;
+            grid-template-columns: 4fr 1fr 1fr;
+            justify-items: start;
+        }
+    </style>

@@ -1,0 +1,12 @@
+list: $/impactfactory/patdata/models/assurance/columns.yaml
+modelClass: ImpactFactory\Patdata\Models\Assurance
+title: Assurances
+noRecordsMessage: "backend::lang.list.no_records"
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: "backend::lang.list.search_prompt"
+recordUrl: "impactfactory/patdata/assurances/update/:id"

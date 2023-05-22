@@ -1,0 +1,108 @@
+<h3>{{ 'forms.patdata.title.person'|_ }}</h3>
+
+<div class="col-12 pt-3 pb-2 col-md-6">
+    <label for="gender">{{ 'forms.patdata.label.gender'|_ }}</label>
+    <select
+        id="gender"
+        class="form-select"
+        aria-label="gender select"
+        name="gender"
+        style="width: 200px"
+    >
+        <option value="" selected>
+            {{ 'forms.patdata.label.pleasechoose'|_ }}
+        </option>
+        <option value="Herr/männlich">
+            {{ 'forms.patdata.gender.option.m'|_ }}
+        </option>
+        <option value="Frau/weiblich">
+            {{ 'forms.patdata.gender.option.f'|_ }}
+        </option>
+        <option value="Hallo/divers">
+            {{ 'forms.patdata.gender.option.q'|_ }}
+        </option>
+    </select>
+    <div class="form-text text-danger" data-validate-for="gender"></div>
+</div>
+
+<div class="row py-2">
+    <div class="col-12 col-md-6">
+        <label for="firstname">{{ 'forms.patdata.label.firstname'|_ }} *</label>
+        <input
+            type="text"
+            id="firstname"
+            name="firstname"
+            class="form-control"
+        />
+        <div class="form-text text-danger" data-validate-for="firstname">
+            {{error.first.firstname}}
+        </div>
+    </div>
+    <div class="col-12 col-md-6 pt-3 pt-md-0">
+        <label for="lastname">{{ 'forms.patdata.label.lastname'|_ }} *</label>
+        <input type="text" id="lastname" name="lastname" class="form-control" />
+        <div class="form-text text-danger" data-validate-for="lastname"></div>
+    </div>
+</div>
+
+<div class="row py-2">
+    <div class="col-12 col-md-6">
+        <label for="birthday">{{ 'forms.patdata.label.birthday'|_ }} *</label>
+        <input
+            type="date"
+            id="birthday"
+            name="birthday"
+            class="form-control"
+            min="1920-01-01"
+            max="{{ 'now' | date('Y-m-d') }}"
+        />
+        <div class="form-text text-danger" data-validate-for="birthday"></div>
+    </div>
+    <div class="col-12 col-md-6 pt-3 pt-md-0">
+        <label for="civilianstatus"
+            >{{ 'forms.patdata.label.civilianstatus'|_ }}</label
+        >
+        <select
+            id="civilianstatus"
+            class="form-select"
+            aria-label=""
+            name="civilianstatus"
+        >
+            <option value="" selected>
+                {{ 'forms.patdata.label.pleasechoose'|_ }}
+            </option>
+            <option value="ledig/unverheiratet">
+                {{ 'forms.patdata..option.unmarried'|_ }}
+            </option>
+            <option value="verheiratet">
+                {{ 'forms.patdata..option.married'|_ }}
+            </option>
+            <option value="in eingetragener Partnerschaft">
+                {{ 'forms.patdata..option.partnership'|_ }}
+            </option>
+            <option value="geschieden">
+                {{ 'forms.patdata..option.divorced'|_ }}
+            </option>
+            <option value="in ausgetragener Partnerschaft">
+                {{ 'forms.patdata..option.expartnership'|_ }}
+            </option>
+            <option value="verwitwet">
+                {{ 'forms.patdata..option.widowed'|_ }}
+            </option>
+        </select>
+    </div>
+</div>
+
+<div class="row py-2">
+    <div class="col-12 col-md-6">{% partial 'patdata/nationalities' %}</div>
+    <div class="col-12 col-md-6 pt-3 pt-md-0">
+        <label for="profession">{{ 'forms.patdata.label.profession'|_ }}</label>
+        <input
+            type="text"
+            id="profession"
+            name="profession"
+            class="form-control"
+        />
+        <div class="form-text text-danger" data-validate-for="profession"></div>
+    </div>
+</div>

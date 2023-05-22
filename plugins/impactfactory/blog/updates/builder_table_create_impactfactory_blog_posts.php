@@ -3,7 +3,7 @@
 use Schema;
 use October\Rain\Database\Updates\Migration;
 
-/*
+
 class BuilderTableCreateImpactfactoryBlogPosts extends Migration
 {
     public function up()
@@ -114,4 +114,4 @@ class BuilderTableCreateImpactfactoryBlogPosts extends Migration
         Schema::dropIfExists('impactfactory_blog_types');
         Schema::dropIfExists('impactfactory_blog_edits');
     }
-}*/
+}

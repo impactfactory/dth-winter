@@ -1,0 +1,96 @@
+{% set assurances = __SELF__.assurances %}
+
+<div class="col-12 pt-3 mb-3">
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="Hat keine Spital-Zusatzversicherung." name="novvg"
+      id="novvg">
+    <label class="form-check-label" for="novvg">
+      {{ 'forms.patdata.label.novvg'|_ }}
+    </label>
+  </div>
+</div>
+
+
+{# left part #}
+<div class="col-12 col-md-6 mb-3 pt-2 leftcolored">
+  <div class="mb-3">
+    <label for="kvg" class="form-label"><strong>{{ 'forms.patdata.label.kvg'|_ }}</strong></label>
+    <select class="form-select" aria-label="select kvg" name="kvg">
+      <option selected value="- - -">{{ 'forms.patdata.select.pleasechoose' |_ }}</option>
+      {% for assurance in assurances|sort((a, b) => a.name <=> b.name) %}
+        {% if assurance.type == 'kk' %}
+        <option value="{{ assurance.name }}">{{ assurance.name }}</option>
+        {% endif %}
+        {% endfor %}
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="kvg_other">{{ 'forms.patdata.label.kvg_other'|_ }}</label>
+    <input type="text" id="kvg_other" name="kvg_other" class="form-control">
+    <div class="form-text text-danger" data-validate-for="kvg_other"></div>
+  </div>
+
+  <div class="mb-3">
+    <label for="kvg_no">{{ 'forms.patdata.label.kvg_no'|_ }}</label>
+    <input type="text" id="kvg_no" name="kvg_no" class="form-control">
+    <div class="form-text text-danger" data-validate-for="kvg_no"></div>
+  </div>
+
+  <small>{{ 'forms.patdata.assurances.note' |_ }}</small>
+
+</div>
+
+{# right part #}
+<div class="col-12 col-md-6 mb-3 pt-2 rightcolored" id="vvgsection">
+  <div id="vvg_input">
+    <div class="mb-3">
+      <label for="vvg" class="form-label"><strong>{{ 'forms.patdata.label.vvg'|_ }}</strong></label>
+      <select class="form-select" aria-label="select vvg" name="vvg">
+        <option selected value="- - -">{{ 'forms.patdata.select.pleasechoose' |_ }}</option>
+        {% for assurance in assurances|sort((a, b) => a.name <=> b.name) %}
+          <option value="{{ assurance.name }}">{{ assurance.name }}</option>
+          {% endfor %}
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="vvg_other">{{ 'forms.patdata.label.vvg_other'|_ }}</label>
+      <input type="text" id="vvg_other" name="vvg_other" class="form-control">
+      <div class="form-text text-danger" data-validate-for="vvg_other"></div>
+    </div>
+    <div class="mb-3">
+      <label for="vvg_no">{{ 'forms.patdata.label.vvg_no'|_ }}</label>
+      <input type="text" id="vvg_no" name="vvg_no" class="form-control">
+      <div class="form-text text-danger" data-validate-for="vvg_no"></div>
+    </div>
+    <div class="mb-3">
+      <label for="costcarry" class="form-label mb-0">{{ 'forms.patdata.label.costcarry'|_ }}</label>
+      <select id="costcarry" class="form-select" aria-label="select costcarry" name="costcarry">
+        <option value="" selected>{{ 'forms.patdata.select.pleasechoose' |_ }}</option>
+        <option value="halbprivat">{{ 'forms.patdata.select.carrycost1' |_ }}</option>
+        <option value="privat">{{ 'forms.patdata.select.carrycost2' |_ }}</option>
+      </select>
+      <div class="form-text text-danger" data-validate-for="costcarry"></div>
+    </div>
+  </div>
+  <div class="col-12 pt-3 mb-3" id="selfpay_input">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="Gibt sich als Selbstzahler an." name="selfpay"
+        id="selfpay">
+      <label class="form-check-label" for="selfpay">
+        {{ 'forms.patdata.label.selfpay'|_ }}
+      </label>
+    </div>
+  </div>
+</div>
+
+{% put scripts %}
+<script>
+  var vvg_input = document.getElementById('vvg_input');
+  var selfpay = document.getElementById('selfpay_input');
+  document.getElementById('novvg').onchange = function () {
+    vvg_input.style.display = this.checked ? 'none' : 'block';
+    selfpay.style.display = this.checked ? 'block' : 'none';
+  };
+</script>
+{% endput %}

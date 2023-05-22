@@ -1,0 +1,228 @@
+title = "Stammdaten-Erfassung" 
+url = "/stammdaten" 
+layout = "default" 
+meta_title = "Stammdaten-Erfassung" 
+meta_description = "Schicken Sie uns hier Ihre Personalien zu." 
+is_hidden = 0 
+
+[viewBag] 
+
+[Assurances] 
+
+
+
+==
+<?php
+/* use ImpactFactory\Patdata\Models\Patient;
+//use RainLab\Translate\Models\Message; */
+use Mail;
+use \Winter\Storm\Database\Traits\Validation;
+
+function onHandleForm()
+{  
+
+  $validator = Validator::make(Input::all(), [
+    'firstname' => 'required',
+], [
+    'firstname.required' => 'Please give us a firstname',
+]);
+
+if ($validator->fails()) {
+    return Redirect::to('/stammdaten')->withErrors($validator)->withInput();
+} else {
+    
+
+
+    //$item = new Patient;
+    //$item = new Patient(Input::get('birthday'));
+    //$item->Input::get('birthday');
+    //$item->save();
+
+    //Send Mails
+    $data = Input::all();
+    Mail::send('if.forms::patdata.data', $data, function($message) {
+      $message->to('dth-admin@hin.ch', ''); 
+      $message->from('dth-admin@hin.ch','Diagnostisches und Therapeutisches Herzzentrum AG'); 
+    }); 
+
+$this['sent'] = true;
+
+// Success Message for User
+Flash::success(Message::trans('patdata.form.flashmessage')); 
+
+// Redirect after Success Message 
+return Redirect::to('/stammdaten/danke'); 
+}
+} 
+
+?> 
+==
+<section id="patdataform" class="fullwrap">
+    <div class="indent-me">
+
+    {{ errors.first('firstname') }}
+
+        {% content 'patdata-intro' %}
+
+       
+
+        
+
+        {% for error in errors %}
+        <h3>{{error.first}}</h3>
+        {% endfor %}
+
+        
+
+      <form id="patdataform" class="p-3" novalidate data-request="onHandleForm" data-request-files data-request-validate
+      data-request-flash> 
+
+        
+            <div class="row">
+                <div class="col-12 pt-3">
+                    <div class="alert alert-danger" data-validate-error>
+                        <p data-message></p>
+                    </div>
+
+                    {# Tab Navigation #} 
+                    {% partial 'patdata/tabs' %}
+
+                    <div class="tab-content" id="myTabContent">
+                        {# Tab Person #}
+                        <div
+                            class="tab-pane fade show active"
+                            id="patient"
+                            role="tabpanel"
+                            aria-labelledby="patient-tab"
+                        >
+                            {% partial 'patdata/person' %}
+                        </div>
+
+                        {# Tab Contact #}
+                        <div
+                            class="tab-pane fade show"
+                            id="contact"
+                            role="tabpanel"
+                            aria-labelledby="contact-tab"
+                        >
+                            {% partial 'patdata/contact' %}
+                        </div>
+
+                        {# Tab Contacts #}
+                        <div
+                            class="tab-pane fade show"
+                            id="contacts"
+                            role="tabpanel"
+                            aria-labelledby="contacts-tab"
+                        >
+                            {% partial 'patdata/contacts' %}
+                        </div>
+
+                        {# Tab Assurances #}
+                        <div
+                            class="tab-pane fade show"
+                            id="ass"
+                            role="tabpanel"
+                            aria-labelledby="ass-tab"
+                        >
+                            <div class="row col-12">
+                                <h3>
+                                    {{ 'forms.patdata.title.assurances'|_ }}
+                                </h3>
+                                {% component 'Assurances' %}
+                            </div>
+                        </div>
+
+                        {# Tab Doctors #}
+                        <div
+                            class="tab-pane fade show"
+                            id="doctors"
+                            role="tabpanel"
+                            aria-labelledby="doctors-tab"
+                        >
+                            {% partial 'patdata/doctors' %}
+                        </div>
+
+                        {# Tab Drugs #}
+                        <div
+                            class="tab-pane fade show"
+                            id="drugs"
+                            role="tabpanel"
+                            aria-labelledby="drugs-tab"
+                        >
+                            {% partial 'patdata/drugs' %}
+                        </div>
+
+                        {# Tab Allergies #}
+                        <div
+                            class="tab-pane fade show"
+                            id="allergies"
+                            role="tabpanel"
+                            aria-labelledby="allergies-tab"
+                        >
+                            {% partial 'patdata/allergies' %}
+                        </div>
+
+                        {# Tab Consent #}
+                        <div
+                            class="tab-pane fade show"
+                            id="consent"
+                            role="tabpanel"
+                            aria-labelledby="consent-tab"
+                        >
+                            {% partial 'patdata/consent' %} 
+                            
+                            {# Submit Section #}
+                            <div class="col-12 text-center pt-3">
+                                <input
+                                    type="hidden"
+                                    value="{{ 'now'|date('d - m -Y') }}"
+                                    name="sent_at"
+                                />
+                                <button
+                                    id="submit"
+                                    name="submit"
+                                    type="submit"
+                                    class="btn btn-lg btn-primary g-recaptcha"
+                                    data-sitekey=""
+                                    data-callback="onSubmit"
+                                >
+                                    {{ 'forms.patdata.label.submit'|_ }}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+{# put headscripts %}
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script>
+    function onSubmit(token) {
+        document.getElementById("patdataform").submit();
+    }
+</script>
+
+{% endput #} 
+
+{% put scripts %}
+<script>
+   /* $(window).on(
+        "ajaxInvalidField",
+        function (event, fieldElement, fieldName, errorMsg, isFirst) {
+            $(fieldElement).closest(".form-control").addClass("is-invalid");
+        }
+    );
+
+    $(document).on("ajaxPromise", "[data-request]", function () {
+        $(this)
+            .closest("form")
+            .find(".form-control.is-invalid")
+            .removeClass("is-invalid");
+    });*/
+</script>
+{% endput %}
