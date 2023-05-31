@@ -1715,13 +1715,6 @@ header #logo-small {
   }
 }
 
-#patdataform {
-  /*
-  li:has(> button.active) + li button {
-      color: $if-primary !important;
-  }
-  */
-}
 #patdataform .nav-link {
   color: #333333;
   padding: 0.5rem 0.25rem 0.5rem 0.5rem;
@@ -1745,6 +1738,24 @@ header #logo-small {
 #patdataform .tab-content {
   background: #efefef;
   padding: 1rem 1rem 2rem 1rem;
+}
+#patdataform textarea:focus,
+#patdataform select:focus,
+#patdataform input:focus {
+  border: 1px solid green;
+}
+#patdataform textarea:invalid,
+#patdataform input:invalid {
+  border: 1px solid #81050c;
+}
+#patdataform textarea:valid + .message,
+#patdataform input:valid + .message {
+  display: none !important;
+}
+#patdataform textarea:invalid + .message,
+#patdataform input:invalid + .message {
+  display: inline;
+  color: #81050c;
 }
 
 .payment .cards {

@@ -1,0 +1,33 @@
+title = "Test" 
+url = "/test" 
+layout = "default" 
+==
+<?php
+use Log;
+use \Winter\Storm\Database\Traits\Validation;
+
+function onHandleForm()
+{
+     $validator = Validator::make(Input::all(), [
+        'firstname' => 'required',
+    ]);
+    $validator->validate();
+
+    Log::info("success");
+}
+
+==
+<div id="test">
+    <h1>Ein Formular</h1>
+
+    <form data-request="onHandleForm" data-request-update="#test">
+        <div>
+            {{ errors.first("firstname") }}
+            <label>Vorname:</label>
+            <input type="text" name="firstname" value="" />
+        </div>
+        
+        <button data-attach-loading>Submit</button>
+    </form>
+
+</div>

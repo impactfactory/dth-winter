@@ -27,13 +27,17 @@
 
   <div class="mb-3">
     <label for="kvg_other">{{ 'forms.patdata.label.kvg_other'|_ }}</label>
-    <input type="text" id="kvg_other" name="kvg_other" class="form-control">
-    <div class="form-text text-danger" data-validate-for="kvg_other"></div>
+    <input type="text" id="kvg_other" name="kvg_other" class="form-control" maxlength="40"
+      pattern="[A-Z][a-zA-Z0-9'\x7f-\xff\s\-\.]{2,40}" title="{{ 'forms.patdata.validation-2-40-streetno' |_ }}" />
+    <div class="message">
+      {{ 'forms.patdata.validation-2-40-streetno' |_ }}
+    </div>
+
   </div>
 
   <div class="mb-3">
     <label for="kvg_no">{{ 'forms.patdata.label.kvg_no'|_ }}</label>
-    <input type="text" id="kvg_no" name="kvg_no" class="form-control">
+    <input type="text" id="kvg_no" name="kvg_no" class="form-control" maxlength="40">
     <div class="form-text text-danger" data-validate-for="kvg_no"></div>
   </div>
 
@@ -55,12 +59,16 @@
     </div>
     <div class="mb-3">
       <label for="vvg_other">{{ 'forms.patdata.label.vvg_other'|_ }}</label>
-      <input type="text" id="vvg_other" name="vvg_other" class="form-control">
-      <div class="form-text text-danger" data-validate-for="vvg_other"></div>
+      <input type="text" id="vvg_other" name="vvg_other" class="form-control" maxlength="40"
+        pattern="[A-Z][a-zA-Z0-9'\x7f-\xff\s\-\.]{2,40}" title="{{ 'forms.patdata.validation-2-40-streetno' |_ }}" />
+      <div class="message">
+        {{ 'forms.patdata.validation-2-40-streetno' |_ }}
+      </div>
+
     </div>
     <div class="mb-3">
       <label for="vvg_no">{{ 'forms.patdata.label.vvg_no'|_ }}</label>
-      <input type="text" id="vvg_no" name="vvg_no" class="form-control">
+      <input type="text" id="vvg_no" name="vvg_no" class="form-control" maxlength="40">
       <div class="form-text text-danger" data-validate-for="vvg_no"></div>
     </div>
     <div class="mb-3">

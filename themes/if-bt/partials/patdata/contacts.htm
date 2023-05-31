@@ -11,13 +11,9 @@
             aria-label=""
             name="contact_relation"
         >
-            {% if warnings %}
-            <option value="{{contact_relation}}" selected>
-                {{contact_relation}}
+            <option value="" selected>
+                {{ 'forms.patdata.pleasechoose' |_}}
             </option>
-            {% else %}
-            <option value="" selected>bitte wählen...</option>
-            {% endif %}
             <option value="Ehepartner">
                 {{ 'forms.patdata.option.spouse-m'|_ }}
             </option>
@@ -62,12 +58,10 @@
             name="contact_birthday"
             class="form-control"
             min="1920-01-01"
-            max="{{ 'now' | date('Y-m-d') }}"
+            max="2010-01-01"
+            title="{{ 'forms.patdata.validation-date' |_ }}"
         />
-        <div
-            class="form-text text-danger"
-            data-validate-for="contact_birthday"
-        ></div>
+        <div class="message">{{ 'forms.patdata.validation-date' |_ }}</div>
     </div>
 </div>
 
@@ -81,11 +75,14 @@
             id="contact_firstname"
             name="contact_firstname"
             class="form-control"
+            maxlength="25"
+            pattern="[A-Z][a-zA-Z'\x7f-\xff\s\-]{2,25}"
+            title="{{ 'forms.patdata.validation-2-25-letters' |_ }}"
+            inputmode="text"
         />
-        <div
-            class="form-text text-danger"
-            data-validate-for="contact_firstname"
-        ></div>
+        <div class="message">
+            {{ 'forms.patdata.validation-2-25-letters' |_ }}
+        </div>
     </div>
 
     <div class="col-12 col-md-6 pt-3 pt-md-0">
@@ -97,11 +94,14 @@
             id="contact_lastname"
             name="contact_lastname"
             class="form-control"
+            maxlength="25"
+            pattern="[A-Z][a-zA-Z'\x7f-\xff\s\-]{2,25}"
+            title="{{ 'forms.patdata.validation-2-25-letters' |_ }}"
+            inputmode="text"
         />
-        <div
-            class="form-text text-danger"
-            data-validate-for="contact_lastname"
-        ></div>
+        <div class="message">
+            {{ 'forms.patdata.validation-2-25-letters' |_ }}
+        </div>
     </div>
 </div>
 
@@ -109,15 +109,16 @@
     <div class="col-12 col-md-6">
         <label for="contact_phone">{{ 'forms.patdata.label.phone'|_ }}</label>
         <input
-            type="number"
+            type="text"
             id="contact_phone"
             name="contact_phone"
             class="form-control"
+            maxlength="15"
+            pattern="[0-9+\s\-]{0,15}"
+            title="{{ 'forms.patdata.validation-phone' |_ }}"
+            inputmode="tel"
         />
-        <div
-            class="form-text text-danger"
-            data-validate-for="contact_phone"
-        ></div>
+        <div class="message">{{ 'forms.patdata.validation-phone' |_ }}</div>
     </div>
     <div class="col-12 col-md-6 pt-3 pt-md-0">
         <label for="contact_email">{{ 'forms.patdata.label.email'|_ }}</label>
@@ -126,11 +127,10 @@
             id="contact_email"
             name="contact_email"
             class="form-control"
+            maxlength="30"
+            title="{{ 'forms.patdata.validation-email' |_ }}"
         />
-        <div
-            class="form-text text-danger"
-            data-validate-for="contact_email"
-        ></div>
+        <div class="message">{{ 'forms.patdata.validation-email' |_ }}</div>
     </div>
 </div>
 
@@ -160,25 +160,29 @@
                 id="contact_streetno"
                 name="contact_streetno"
                 class="form-control"
+                maxlength="40"
+                pattern="[A-Z][a-zA-Z0-9'\x7f-\xff\s\-\.]{2,40}"
+                title="{{ 'forms.patdata.validation-2-40-streetno' |_ }}"
             />
-            <div
-                class="form-text text-danger"
-                data-validate-for="contact_streetno"
-            ></div>
+            <div class="message">
+                {{ 'forms.patdata.validation-2-40-streetno' |_ }}
+            </div>
         </div>
 
         <div class="col-12 col-md-6 pt-3 pt-md-0">
             <label for="contact_zip">{{ 'forms.ref.label.zip'|_ }}</label>
             <input
-                type="number"
+                type="text"
                 id="contact_zip"
                 name="contact_zip"
                 class="form-control"
+                maxlength="5"
+                pattern="[0-9]{4,5}"
+                inputmode="numeric"
             />
-            <div
-                class="form-text text-danger"
-                data-validate-for="contact_zip"
-            ></div>
+            <div class="message">
+                {{ 'forms.patdata.validation-4-5-zip' |_ }}
+            </div>
         </div>
     </div>
 
@@ -190,11 +194,13 @@
                 id="contact_city"
                 name="contact_city"
                 class="form-control"
+                maxlength="40"
+                pattern="[A-Z][a-zA-Z0-9'\x7f-\xff\s\-\.]{2,40}"
+                title="{{ 'forms.patdata.validation-2-40-streetno' |_ }}"
             />
-            <div
-                class="form-text text-danger"
-                data-validate-for="contact_city"
-            ></div>
+            <div class="message">
+                {{ 'forms.patdata.validation-2-40-streetno' |_ }}
+            </div>
         </div>
 
         <div class="col-12 col-md-6 pt-3 pt-md-0">

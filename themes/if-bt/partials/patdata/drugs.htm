@@ -1,7 +1,12 @@
 <h3>{{ 'forms.patdata.title.drugs'|_ }}</h3>
 
 <div class="form-check">
-    <input class="form-check-input" type="checkbox" value="nimmt aktuell keine Medikamente" id="nodrugs">
+    <input
+        class="form-check-input"
+        type="checkbox"
+        value="nimmt aktuell keine Medikamente"
+        id="nodrugs"
+    />
     <label class="form-check-label" for="nodrugs">
         {{ 'forms.patdata.label.drugs-no'|_ }}
     </label>
@@ -10,21 +15,28 @@
 <div id="drugslist">
     <div class="col-12 mb-3 mt-3">
         <label for="drugs">{{ 'forms.patdata.label.drugs'|_ }}</label>
-        <textarea class="form-control" id="drugs" name="drugs" rows="10">{{ drugs }}</textarea>
-        <small><strong>Beispiele:</strong><br>
-            Myocin 10mg 0 0 1 0 <br>
+        <textarea
+            class="form-control"
+            id="drugs"
+            name="drugs"
+            rows="10"
+            maxlength="1000"
+            title="{{ 'forms.patdata.validation.textarea' |_}}"
+        ></textarea>
+
+        <small
+            ><strong>Beispiele:</strong><br />
+            Myocin 10mg 0 0 1 0 <br />
             Neoprofen 50ml 1 1 0 0
         </small>
     </div>
 </div>
 
-
-
 {% put scripts %}
 <script>
-    var drugs = document.getElementById('drugslist');
-    document.getElementById('nodrugs').onchange = function () {
-        drugs.style.display = this.checked ? 'none' : 'block';
+    var drugs = document.getElementById("drugslist");
+    document.getElementById("nodrugs").onchange = function () {
+        drugs.style.display = this.checked ? "none" : "block";
     };
 </script>
 {% endput %}

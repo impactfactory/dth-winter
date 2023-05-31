@@ -4,21 +4,49 @@
 <div class="row py-2">
     <div class="col-12 col-md-6">
         <label for="streetno">{{ 'forms.patdata.label.street_no'|_ }}</label>
-        <input type="text" id="streetno" name="streetno" class="form-control">
-        <div class="form-text text-danger" data-validate-for="streetno"></div>
+        <input type="text" 
+                id="streetno" 
+                name="streetno" 
+                class="form-control"
+                maxlength="40"
+                pattern="[A-Z][a-zA-Z0-9'\x7f-\xff\s\-\.]{2,40}" 
+                title="{{ 'forms.patdata.validation-2-40-streetno' |_ }}"
+                />
+        <div class="message">
+            {{ 'forms.patdata.validation-2-40-streetno' |_ }}
+        </div>
+        
     </div>
     <div class="col-12 col-md-6 pt-3 pt-md-0">
         <label for="zip">{{ 'forms.patdata.label.zip'|_ }}</label>
-        <input type="number" id="zip" name="zip" class="form-control">
-        <div class="form-text text-danger" data-validate-for="zip"></div>
+        <input type="text" 
+        id="zip" 
+        name="zip" 
+        class="form-control"
+        maxlength="5"
+        pattern="[0-9]{4,5}"
+        inputmode="numeric"
+        />
+    <div class="message">
+        {{ 'forms.patdata.validation-4-5-zip' |_ }}
+    </div>
     </div>
 </div>
 
 <div class="row py-2">
     <div class="col-12 col-md-6">
         <label for="city">{{ 'forms.patdata.label.city'|_ }}</label>
-        <input type="text" id="city" name="city" class="form-control">
-        <div class="form-text text-danger" data-validate-for="city"></div>
+        <input type="text" 
+               id="city" 
+               name="city" 
+               class="form-control" 
+               maxlength="40"
+               pattern="[A-Z][a-zA-Z0-9'\x7f-\xff\s\-\.]{2,40}" 
+               title="{{ 'forms.patdata.validation-2-40-streetno' |_ }}"
+        >
+        <div class="message">
+            {{ 'forms.patdata.validation-2-40-streetno' |_ }}
+        </div>   
     </div>
     <div class="col-12 col-md-6 pt-3 pt-md-0">
         {% partial 'patdata/countries' %}
@@ -28,13 +56,31 @@
 <div class="row py-2">
     <div class="col-12 col-md-6">
         <label for="phone">{{ 'forms.patdata.label.phone'|_ }}</label>
-        <input type="number" id="phone" name="phone" class="form-control">
-        <div class="form-text text-danger" data-validate-for="phone"></div>
+        <input type="text" 
+                id="phone" 
+                name="phone" 
+                class="form-control"
+                maxlength="15"
+                pattern="[0-9+\s\-]{0,15}"
+                title="{{ 'forms.patdata.validation-phone' |_ }}"
+                inputmode="tel">
+        <div class="message">
+            {{ 'forms.patdata.validation-phone' |_ }}
+        </div> 
+        
     </div>
     <div class="col-12 col-md-6 pt-3 pt-md-0">
         <label for="email">{{ 'forms.patdata.label.email'|_ }}</label>
-        <input type="email" id="email" name="email" class="form-control">
-        <div class="form-text text-danger" data-validate-for="email"></div>
+        <input type="email" 
+               id="email" 
+               name="email" 
+               class="form-control"
+               maxlength="30"
+               title="{{ 'forms.patdata.validation-email' |_ }}"
+        >
+        <div class="message">
+            {{ 'forms.patdata.validation-email' |_ }}
+        </div> 
     </div>
 </div>
 

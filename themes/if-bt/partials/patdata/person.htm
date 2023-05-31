@@ -22,7 +22,6 @@
             {{ 'forms.patdata.gender.option.q'|_ }}
         </option>
     </select>
-    <div class="form-text text-danger" data-validate-for="gender"></div>
 </div>
 
 <div class="row py-2">
@@ -33,15 +32,31 @@
             id="firstname"
             name="firstname"
             class="form-control"
+            maxlength="25"
+            pattern="[A-Z][a-zA-Z'\x7f-\xff\s\-]{2,25}"
+            title="{{ 'forms.patdata.validation-2-25-letters' |_ }}"
+            inputmode="text"
         />
-        <div class="form-text text-danger" data-validate-for="firstname">
-            {{error.first.firstname}}
+        <div class="message">
+            {{ 'forms.patdata.validation-2-25-letters' |_ }}
         </div>
     </div>
+
     <div class="col-12 col-md-6 pt-3 pt-md-0">
         <label for="lastname">{{ 'forms.patdata.label.lastname'|_ }} *</label>
-        <input type="text" id="lastname" name="lastname" class="form-control" />
-        <div class="form-text text-danger" data-validate-for="lastname"></div>
+        <input
+            type="text"
+            id="lastname"
+            name="lastname"
+            class="form-control"
+            maxlength="25"
+            pattern="[A-Z][a-zA-Z'\x7f-\xff\s\-]{2,25}"
+            title="{{ 'forms.patdata.validation-2-25-letters' |_ }}"
+            inputmode="text"
+        />
+        <div class="message">
+            {{ 'forms.patdata.validation-2-25-letters' |_ }}
+        </div>
     </div>
 </div>
 
@@ -54,9 +69,10 @@
             name="birthday"
             class="form-control"
             min="1920-01-01"
-            max="{{ 'now' | date('Y-m-d') }}"
+            max="2010-01-01"
+            title="{{ 'forms.patdata.validation-date' |_ }}"
         />
-        <div class="form-text text-danger" data-validate-for="birthday"></div>
+        <div class="message">{{ 'forms.patdata.validation-date' |_ }}</div>
     </div>
     <div class="col-12 col-md-6 pt-3 pt-md-0">
         <label for="civilianstatus"
@@ -95,6 +111,7 @@
 
 <div class="row py-2">
     <div class="col-12 col-md-6">{% partial 'patdata/nationalities' %}</div>
+
     <div class="col-12 col-md-6 pt-3 pt-md-0">
         <label for="profession">{{ 'forms.patdata.label.profession'|_ }}</label>
         <input
@@ -102,7 +119,12 @@
             id="profession"
             name="profession"
             class="form-control"
+            pattern="[A-Z][a-zA-Z'\x7f-\xff\s\-]{2,25}"
+            title="{{ 'forms.patdata.validation-2-25-letters' |_ }}"
+            inputmode="text"
         />
-        <div class="form-text text-danger" data-validate-for="profession"></div>
+        <div class="message">
+            {{ 'forms.patdata.validation-2-25-letters' |_ }}
+        </div>
     </div>
 </div>

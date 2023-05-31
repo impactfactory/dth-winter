@@ -13,12 +13,6 @@
         color: $if-primary;
     }
 
-    /*
-    li:has(> button.active) + li button {
-        color: $if-primary !important;
-    }
-    */
-
     .leftcolored {
         background: $if-secondary-light;
     }
@@ -34,5 +28,30 @@
     .tab-content {
         background: #efefef;
         padding: 1rem 1rem 2rem 1rem;
+    }
+
+    // Validation Messages
+    textarea:focus,
+    select:focus,
+    input:focus {
+        border: 1px solid green;
+    }
+
+    textarea:invalid,
+    input:invalid {
+        border: 1px solid $if-danger;
+    }
+
+    textarea:valid + .message,
+    input:valid + .message
+    /*,
+    input:focus + .message*/ {
+        display: none !important;
+    }
+
+    textarea:invalid + .message,
+    input:invalid + .message {
+        display: inline;
+        color: $if-danger;
     }
 }
