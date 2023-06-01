@@ -84,36 +84,36 @@
     </div>
 </div>
 
-<h5 class="pt-3 pb-2">Ich wünsche...</h4>
+<h5 class="pt-3 pb-2">{{ 'forms.patdata.subtitle.wish' |_ }}</h4>
     <div id="options" class="col-12">
         <div class="">{{ 'forms.patdata.label.reports'|_ }}</div>
         <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="reports" id="reports1" value="Bericht per Mail" checked>
-            <label class="form-check-label" for="reports1">ja</label>
+            <label class="form-check-label" for="reports1">{{ 'forms.patdata.yes' |_ }}</label>
         </div>
         <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="reports" id="reports2" value="kein Bericht">
-            <label class="form-check-label" for="reports2">nein</label>
+            <label class="form-check-label" for="reports2">{{ 'forms.patdata.no' |_ }}</label>
         </div>
 
         <div class="">{{ 'forms.patdata.label.encrypted'|_ }}</div>
         <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="encrypted" id="encrypted1" value="verschlüsselt" checked>
-            <label class="form-check-label" for="encrypted1">ja</label>
+            <label class="form-check-label" for="encrypted1">{{ 'forms.patdata.yes' |_ }}</label>
         </div>
         <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="encrypted" id="encrypted2" value="unverschlüsselt">
-            <label class="form-check-label" for="encrypted2">nein</label>
+            <label class="form-check-label" for="encrypted2">{{ 'forms.patdata.no' |_ }}</label>
         </div>
 
         <div class="">{{ 'forms.patdata.label.confirmation'|_ }}</div>
         <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="confirmation" id="confirmation1" value="ja" checked>
-            <label class="form-check-label" for="confirmation1">ja</label>
+            <label class="form-check-label" for="confirmation1">{{ 'forms.patdata.yes' |_ }}</label>
         </div>
         <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="confirmation" id="confirmation2" value="nein">
-            <label class="form-check-label" for="confirmation2">nein</label>
+            <label class="form-check-label" for="confirmation2">{{ 'forms.patdata.no' |_ }}</label>
         </div>
     </div>
 
