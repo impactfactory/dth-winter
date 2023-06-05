@@ -1,13 +1,7 @@
 {% set assurances = __SELF__.assurances %}
 
 <div class="col-12 pt-3 mb-3">
-  <div class="form-check">
-    <input class="form-check-input" type="checkbox" value="Hat keine Spital-Zusatzversicherung." name="novvg"
-      id="novvg">
-    <label class="form-check-label" for="novvg">
-      {{ 'forms.patdata.label.novvg'|_ }}
-    </label>
-  </div>
+
 </div>
 
 
@@ -47,9 +41,17 @@
 
 {# right part #}
 <div class="col-12 col-md-6 mb-3 pt-2 rightcolored" id="vvgsection">
+  <strong>{{ 'forms.patdata.label.vvg'|_ }}</strong>
+  <div class="form-check pt-3 pb-4">
+    <input class="form-check-input" type="checkbox" value="Hat keine Spital-Zusatzversicherung." name="novvg"
+      id="novvg">
+    <label class="form-check-label" for="novvg">
+      {{ 'forms.patdata.label.novvg'|_ }}
+    </label>
+  </div>
   <div id="vvg_input">
-    <div class="mb-3">
-      <label for="vvg" class="form-label"><strong>{{ 'forms.patdata.label.vvg'|_ }}</strong></label>
+    <div class="mt-4 mb-3">
+      <!--<label for="vvg" class="form-label"><strong>{{ 'forms.patdata.label.vvg'|_ }}</strong></label>-->
       <select class="form-select" aria-label="select vvg" name="vvg">
         <option selected value="- - -">{{ 'forms.patdata.select.pleasechoose' |_ }}</option>
         {% for assurance in assurances|sort((a, b) => a.name <=> b.name) %}
