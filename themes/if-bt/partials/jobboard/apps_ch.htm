@@ -1,0 +1,67 @@
+<div class="mb-3">
+    <div class="mb-2">
+        Verfügen Sie bereits über eine Berufsausübungsbewilligung als
+        Arzt/Kardiologe in der Schweiz?
+    </div>
+    <div class="form-check form-check-inline">
+        <input
+            class="form-check-input"
+            type="radio"
+            name="app_ch"
+            id="app_ch1"
+            value="nein"
+            onclick="handleDisplay(this)"
+        />
+        <label class="form-check-label" for="app_ch1">nein</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input
+            class="form-check-input"
+            type="radio"
+            name="app_ch"
+            id="app_ch2"
+            value="ja"
+            onclick="handleDisplay(this)"
+        />
+        <label class="form-check-label" for="app_ch2">ja</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input
+            class="form-check-input"
+            type="radio"
+            name="app_ch"
+            id="app_ch2"
+            value="ja aber ohne OKP"
+            onclick="handleDisplay(this)"
+        />
+        <label class="form-check-label" for="app_ch2"
+            >ja, aber ohne OKP-Zulassung</label
+        >
+    </div>
+</div>
+
+<div class="app_canton">
+    <div class="mb-3">
+        <label for="app_canton">In welchem Kanton?</label>
+        {% partial 'jobboard/cantons' %}
+    </div>
+</div>
+
+{% put scripts %}
+<script>
+    function handleDisplay(radio) {
+        var value = radio.value;
+        var appcanton = document.getElementsByClassName("app_canton");
+
+        if (value === "nein") {
+            for (var i = 0; i < appcanton.length; i++) {
+                appcanton[i].style.display = "none";
+            }
+        } else if (value === "ja" || value === "ja aber ohne OKP") {
+            for (var i = 0; i < appcanton.length; i++) {
+                appcanton[i].style.display = "block";
+            }
+        }
+    }
+</script>
+{% endput %}

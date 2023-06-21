@@ -1,109 +1,3 @@
-title = "Bewerbungsformular"
-url = "/bewerbung"
-layout = "frontpage"
-meta_title = "Bewerben Sie sich beim Herzzentrum"
-meta_description = "Klinischer/interventioneller Kardiologe/Kardiologin"
-is_hidden = 0
-==
-<?php
-use ImpactFactory\Jobboard\Models\Applicants;
-use RainLab\Translate\Models\Message;
-use Mail;
-use Input;
-
-function onSave() {
-
-    //Validation by html5
-    //
-
-    //Save in Database
-    $data = new Applicants;
-    $data->app_canton = input('app_canton');
-    $data->app_ch = input('app_ch');
-    $data->app_zh = input('app_zh');
-    $data->app_zh_req = input('app_zh_req');
-    $data->ch_is_main = input('ch_is_main');
-    $data->job = input('job');
-    $data->gender = input('gender');
-    $data->firstname = input('firstname');
-    $data->lastname = input('lastname');
-    $data->street_no = input('street_no');
-    $data->zip = input('zip');
-    $data->city = input('city');
-    $data->country = input('country');
-    $data->phone = input('phone');
-    $data->email = input('email');
-    $data->lang_de = input('lang_de');
-    $data->lang_en = input('lang_en');
-    $data->lang_fr = input('lang_fr');
-    $data->lang_it = input('lang_it');
-    $data->other_languages = input('other_languages');
-    $data->birthday = input('birthday');
-    $data->start_date = input('start_date');
-    $data->salary_min = input('salary_min');
-    $data->salary_max = input('salary_max');
-    $data->workquota = input('workquota');
-    $data->education = input('education');
-    $data->experience = input('experience');
-    $data->training = input('training');
-    $data->url = input('url');
-    $data->note = input('note');
-    $data->created_at = input('created_at');
-    $data->sort_order = input('sort_order');
-    $data->files = Input::file('files');
-    $data->save();
-
-    
-    //Send Mails
-    $vars = [
-        'app_canton' => Input::get('app_canton'),
-        'app_ch' => Input::get('app_ch'),
-        'app_zh' => Input::get('app_zh'),
-        'app_zh_req' => Input::get('app_zh_req'),
-        'ch_is_main' => Input::get('ch_is_main'),
-        'job' => Input::get('job'),
-        'gender' => Input::get('gender'),
-        'firstname' => Input::get('firstname'),
-        'lastname' => Input::get('lastname'),
-        'street_no' => Input::get('street_no'),
-        'zip' => Input::get('zip'),
-        'city' => Input::get('city'),
-        'country' => Input::get('country'),
-        'phone' => Input::get('phone'),
-        'email' => Input::get('email'),
-        'lang_de' => Input::get('lang_de'),
-        'lang_en' => Input::get('lang_en'),
-        'lang_fr' => Input::get('lang_fr'),
-        'lang_it' => Input::get('lang_it'),
-        'other_languages' => Input::get('other_languages'),
-        'birthday' => Input::get('birthday'),
-        'start_date' => Input::get('start_date'),
-        'salary_min' => Input::get('salary_min'),
-        'salary_max' => Input::get('salary_max'),
-        'workquota' => Input::get('workquota'),
-        'education' => Input::get('education'),
-        'experience' => Input::get('experience'),
-        'training' => Input::get('training'),
-        'url' => Input::get('url'),
-        'note' => Input::get('note'),
-        'created_at' => Input::get('created_at')
-    ];
-
-    Mail::send('if.forms::applicationform', $vars, function($message) {
-      $message->to(Input::get('email'), '');
-      $message->from('dth-office@hin.ch', 'Diagnostisches und Therapeutisches Herzzentrum AG');
-    });
-
-    Mail::send('if.forms::applicationform.data', $vars, function($message) {
-      $message->to('kai@pulfer.info', '');
-      $message->from('tec@dth-herzzentrum.ch', 'Diagnostisches und Therapeutisches Herzzentrum AG');
-    });
-    
-
-    $this['sent'] = true;
-}
-?>
-==
 {% if not sent %}
 <section id="applicationform" class="fullwrap">
   <div class="indent-me">
@@ -116,8 +10,7 @@ function onSave() {
         <div class="col-1 col-md-2 pt-3"></div>
         <div class="col-10 col-md-8 pt-3 ">
 
-        <!--
-            <div class="mb-3 {% if errors.first('job') %}error{% endif %}">
+        <div class="mb-3 {% if errors.first('job') %}error{% endif %}">
           <label for="job">{{ 'forms.application.label.job'|_ }} *</label>
           <select id="job" class="form-select" aria-label="job" select" name="job" required>
             <option value="" selected>bitte wählen...</option>
@@ -127,7 +20,6 @@ function onSave() {
             <option value="3">kaufmännische*r Administrator*in im Home Office</option>
           </select>
         </div>
-        -->
         
         <div class="mb-3">
           <label for="gender">{{ 'forms.application.label.gender'|_ }} *</label>
@@ -166,21 +58,12 @@ function onSave() {
 
         <div class="mb-3 {% if errors.first('country') %}error{% endif %}">
           <label for="country">{{ 'forms.application.label.country'|_ }} *</label>
-          {% partial 'jobboard/countries' %}
-        </div>
-
-        <div class="mb-3">
-            <div class="mb-2">
-            Haben Sie Ihren Hauptwohnsitz in der Schweiz?
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="ch_is_main" id="ch_is_main1" value="nein">
-                <label class="form-check-label" for="ch_is_main1">nein</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="ch_is_main" id="ch_is_main2" value="ja">
-                <label class="form-check-label" for="ch_is_main2">ja</label>
-            </div>
+          <select id="country" class="form-select" aria-label="" name="country" required>
+            <option value="" selected>bitte wählen...</option>
+            <option value="Schweiz">Schweiz</option>
+            <option value="Deutschland">Deutschland</option>
+            <option value="Österreich">Österreich</option>
+          </select>
         </div>
 
         <div class="mb-3 {% if errors.first('phone') %}error{% endif %}">
@@ -287,25 +170,18 @@ function onSave() {
           <label for="education">Ausbildung</label>
           <select id="education" class="form-select" aria-label="" name="education" required>
             <option value="" selected>bitte wählen Sie...</option>
-            <option value="Dipl. Arzt">Dipl. Arzt</option>
-            <option value="Dr. med.">Dr. med.</option>
+            <option value="MPA EFZ">MPA EFZ</option>
+            <option value="FaGe EFZ">FaGe EFZ</option>
+             <option value="Fachausweis MPK">Fachausweis MPK</option>
+              <option value="Pflegefachfrau/mann HF">Pflegefachfrau/mann HF</option>
+              <option value="Kaufmann / Kauffrau EFZ">Kaufmann / Kauffrau EFZ</option>
+               <option value="Arztsekretär/in">Arztsekretär/in</option>
+               <option value="Chefarzt-Sekretär/in">Chefarzt-Sekretär/in</option>
+            <option value="ausländische Ausbildung">ausländische Ausbildung</option>
             <option value="andere">andere</option>
+            <option value="keine">keine</option>
           </select>
         </div>
-
-        <div class="mb-3">
-          <label for="training">Weiterbildung</label>
-          <select id="training" class="form-select" aria-label="select" name="training">
-            <option value="" selected>bitte wählen...</option>
-            <option value="FA Kardiologie">FA Kardiologie</option>
-            <option value="FA Allg. Innere Medizin">FA Allg. Innere Medizin</option>
-            <option value="FA Kardiologie & Allg. Innere Medizin">FA Kardiologie & Allg. Innere Medizin</option>
-            <option value="Andere FA-WB">Andere FA-WB</option>
-          </select>
-        </div>
-
-        {% partial 'jobboard/apps_zhreq' %}
-        {% partial 'jobboard/apps_ch' %}
         
 
         <div class="mb-3">
@@ -313,12 +189,19 @@ function onSave() {
             <textarea id="note" name="note" rows="5" cols="80" class="form-control"></textarea>
         </div>
 
-        {% partial 'jobboard/dossier' %}
+        <hr>
+        <h2>Ihr Dossier</h2>
+        <p>
+        Bitte auf Button klicken. Falls der File-Upload für Sie nicht funktioniert, geben Sie uns unter "Weiteres" einen Link zu einem Dateisende-Service wie <a href="https://www.swisstransfer.com/de/">SwissTransfer.com</a> oder ähnlichen.
+        </p>
+
+        <div class="col-12 py-4">
+          <input type="file" name="files[]" multiple >
+        </div>
 
         <div class="col-12 text-center pt-3">
           <input type="hidden" value="{{ 'now' | date('Y-m-d') }}" name="created_at">
           <input type="hidden" value="9" name="sort_order">
-          <input type="hidden" value="4" name="job">
           <button id="submit" name="submit" type="submit" class="btn btn-lg btn-primary">
             {{ 'forms.registration.label.submit'|_ }}
           </button>
@@ -332,16 +215,10 @@ function onSave() {
 
   </div>
 </section>
-
 {% else %}
-
 <section class="fullwrap">
   <h1 class="mt-5 pl-3 pb-3 indent-me">
     Ihre Bewerbung wurde an uns versandt, vielen Dank!
   </h1>
 </section>
 {% endif %}
-
-
-
-

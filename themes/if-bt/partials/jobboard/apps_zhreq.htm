@@ -1,0 +1,93 @@
+<div class="app_zh mb-3">
+    <div class="mb-2">
+        Verfügen Sie bereits über eine Berufsausübungsbewilligung als
+        Arzt/Kardiologe im Kanton Zürich?
+    </div>
+    <div class="form-check form-check-inline">
+        <input
+            class="form-check-input app_zh"
+            type="radio"
+            name="app_zh"
+            id="app_zh1"
+            value="nein"
+            onclick="handleDisplayOption(this)"
+        />
+        <label class="form-check-label" for="app_zh1">nein</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input
+            class="form-check-input app_zh"
+            type="radio"
+            name="app_zh"
+            id="app_zh2"
+            value="ja"
+            onclick="handleDisplayOption(this)"
+        />
+        <label class="form-check-label" for="app_zh2">ja</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input
+            class="form-check-input app_zh"
+            type="radio"
+            name="app_zh"
+            id="app_zh3"
+            value="ja aber ohne OKP"
+            onclick="handleDisplayOption(this)"
+        />
+        <label class="form-check-label" for="app_zh3"
+            >ja, aber ohne OKP-Zulassung</label
+        >
+    </div>
+</div>
+
+<div class="app_zh_req">
+    <div class="mb-3">
+        <div class="mb-2">
+            Erfüllen Sie die von der Gesundheitsdirektion Zürich
+            vorgeschriebenen
+            <a
+                href="https://www.zh.ch/content/dam/zhweb/bilder-dokumente/themen/gesundheit/gesundheitsberufe/arzt_aerztin/berufsausuebungsbewilligungen_unterlagen/merkblatt_zulassungsbeschraenkung_april2022.pdf"
+                >Zulassungsvoraussetzungen</a
+            >?
+        </div>
+        <div class="form-check form-check-inline">
+            <input
+                class="form-check-input"
+                type="radio"
+                name="app_zh_req"
+                id="app_zh_req1"
+                value="nein"
+            />
+            <label class="form-check-label" for="app_zh_req1">nein</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input
+                class="form-check-input"
+                type="radio"
+                name="app_zh_req"
+                id="app_zh_req2"
+                value="ja"
+            />
+            <label class="form-check-label" for="app_zh_req2">ja</label>
+        </div>
+    </div>
+</div>
+
+{% put scripts %}
+<script>
+    function handleDisplayOption(radio) {
+        var value = radio.value;
+        var zhreq = document.getElementsByClassName("app_zh_req");
+
+        if (value === "nein") {
+            for (var i = 0; i < zhreq.length; i++) {
+                zhreq[i].style.display = "none";
+            }
+        } else if (value === "ja" || value === "ja aber ohne OKP") {
+            for (var i = 0; i < zhreq.length; i++) {
+                zhreq[i].style.display = "block";
+            }
+        }
+    }
+</script>
+{% endput %}

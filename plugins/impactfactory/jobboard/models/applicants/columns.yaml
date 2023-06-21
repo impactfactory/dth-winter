@@ -5,14 +5,15 @@ columns:
         sortable: true
     state:
         label: Status
-        relation: state
-        select: title
+        type: text
         searchable: true
         sortable: true
+        select: title
+        relation: state
     sort_order:
         label: Prio
         type: text
-        hidden: "true"
+        hidden: 'true'
         sortable: true
     firstname:
         label: Vorname
@@ -36,10 +37,11 @@ columns:
         path: ~/plugins/impactfactory/jobboard/models/applicants/tel.htm
     job:
         label: Stelle
-        relation: job
-        select: title
+        type: text
         searchable: true
         sortable: true
+        select: title
+        relation: job
     lang_de:
         label: De
         type: text
@@ -135,3 +137,39 @@ columns:
         type: text
         searchable: true
         invisible: true
+    ch_is_main:
+        label: Hauptwohnsitz
+        type: text
+        searchable: true
+        invisible: true
+        sortable: true
+    training:
+        label: Weiterbildung
+        type: text
+        searchable: true
+        invisible: true
+        sortable: true
+    app_zh:
+        label: 'Bewilligung ZH'
+        type: text
+        searchable: true
+        invisible: true
+        sortable: true
+    app_zh_req:
+        label: 'Bewilligung ZH Voraussetzungen'
+        type: text
+        searchable: true
+        invisible: true
+        sortable: true
+    app_ch:
+        label: 'Bewilligung CH'
+        type: text
+        searchable: true
+        invisible: true
+        sortable: true
+    app_canton:
+        label: Kanton
+        type: text
+        searchable: true
+        invisible: true
+        sortable: true
